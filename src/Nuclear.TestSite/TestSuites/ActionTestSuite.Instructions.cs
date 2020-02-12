@@ -31,7 +31,7 @@ namespace Nuclear.TestSite.TestSuites {
             exception = null;
 
             if(action == null) {
-                FailTest("Parameter 'action' is null.", _file, _method);
+                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
                 return;
             }
 
@@ -70,18 +70,18 @@ namespace Nuclear.TestSite.TestSuites {
             eventData = null;
 
             if(action == null) {
-                FailTest("Parameter 'action' is null.", _file, _method);
+                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest("Parameter 'object' is null.", _file, _method);
+                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
                 return;
             }
 
             EventData<PropertyChangedEventArgs> tmp = null;
 
-            PropertyChangedEventHandler handler = new PropertyChangedEventHandler((Object sender, PropertyChangedEventArgs e) => tmp = new EventData<PropertyChangedEventArgs>(sender, e));
+            PropertyChangedEventHandler handler = (Object sender, PropertyChangedEventArgs e) => tmp = new EventData<PropertyChangedEventArgs>(sender, e);
 
             @object.PropertyChanged += handler;
 
@@ -121,18 +121,18 @@ namespace Nuclear.TestSite.TestSuites {
             eventDatas = null;
 
             if(action == null) {
-                FailTest("Parameter 'action' is null.", _file, _method);
+                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest("Parameter 'object' is null.", _file, _method);
+                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
                 return;
             }
 
             EventDataCollection<PropertyChangedEventArgs> tmp = new EventDataCollection<PropertyChangedEventArgs>();
 
-            PropertyChangedEventHandler handler = new PropertyChangedEventHandler((Object sender, PropertyChangedEventArgs e) => tmp.Add(new EventData<PropertyChangedEventArgs>(sender, e)));
+            PropertyChangedEventHandler handler = (Object sender, PropertyChangedEventArgs e) => tmp.Add(new EventData<PropertyChangedEventArgs>(sender, e));
 
             @object.PropertyChanged += handler;
 
@@ -180,17 +180,17 @@ namespace Nuclear.TestSite.TestSuites {
             eventData = null;
 
             if(action == null) {
-                FailTest("Parameter 'action' is null.", _file, _method);
+                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest("Parameter 'object' is null.", _file, _method);
+                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
                 return;
             }
 
             if(String.IsNullOrWhiteSpace(eventName)) {
-                FailTest("Parameter 'eventName' is null or empty.", _file, _method);
+                FailTest($"Parameter {nameof(eventName)} is null or empty.", _file, _method);
                 return;
             }
 
@@ -257,17 +257,17 @@ namespace Nuclear.TestSite.TestSuites {
             eventDatas = null;
 
             if(action == null) {
-                FailTest("Parameter 'action' is null.", _file, _method);
+                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest("Parameter 'object' is null.", _file, _method);
+                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
                 return;
             }
 
             if(String.IsNullOrWhiteSpace(eventName)) {
-                FailTest("Parameter 'eventName' is null or empty.", _file, _method);
+                FailTest($"Parameter {nameof(eventName)} is null or empty.", _file, _method);
                 return;
             }
 

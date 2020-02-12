@@ -25,7 +25,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -69,7 +69,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -98,7 +98,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -177,7 +177,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -204,7 +204,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter {nameof(attribute)} is out of bounds.", _file, _method);
                 return;
             }
 
@@ -227,7 +227,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -237,7 +237,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter {nameof(attribute)} is out of bounds.", _file, _method);
                 return;
             }
 
@@ -266,7 +266,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -310,7 +310,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -350,7 +350,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -377,12 +377,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter {nameof(searchPattern)} is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter {nameof(searchOption)} is out of bounds.", _file, _method);
                 return;
             }
 
@@ -410,7 +410,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -420,12 +420,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter {nameof(searchPattern)} is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter {nameof(searchOption)} is out of bounds.", _file, _method);
                 return;
             }
 
@@ -456,7 +456,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -483,7 +483,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter {nameof(match)} is null.", _file, _method);
                 return;
             }
 
@@ -506,7 +506,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -516,7 +516,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter {nameof(match)} is null.", _file, _method);
                 return;
             }
 
@@ -559,7 +559,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -603,7 +603,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -643,7 +643,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -670,12 +670,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter {nameof(searchPattern)} is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter {nameof(searchOption)} is out of bounds.", _file, _method);
                 return;
             }
 
@@ -703,7 +703,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -713,12 +713,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter {nameof(searchPattern)} is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter {nameof(searchOption)} is out of bounds.", _file, _method);
                 return;
             }
 
@@ -749,7 +749,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter {nameof(path)} is null or white space.", _file, _method);
                 return;
             }
 
@@ -776,7 +776,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter {nameof(match)} is null.", _file, _method);
                 return;
             }
 
@@ -799,7 +799,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter {nameof(directory)} is null.", _file, _method);
                 return;
             }
 
@@ -809,7 +809,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter {nameof(match)} is null.", _file, _method);
                 return;
             }
 
