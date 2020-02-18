@@ -90,7 +90,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -115,7 +115,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = false;
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -177,7 +177,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -202,7 +202,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -229,7 +229,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = false;
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -372,7 +372,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -397,7 +397,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -422,7 +422,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -497,7 +497,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -522,7 +522,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -547,7 +547,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -622,7 +622,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -647,7 +647,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -672,7 +672,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -747,7 +747,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -772,7 +772,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -797,7 +797,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -851,7 +851,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(!value.HasValue) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
@@ -894,7 +894,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(!value.HasValue) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
@@ -961,12 +961,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -992,12 +992,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1023,12 +1023,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1106,12 +1106,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1137,12 +1137,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1168,12 +1168,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest("Parameter 'value' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest("Parameter 'comparer' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 

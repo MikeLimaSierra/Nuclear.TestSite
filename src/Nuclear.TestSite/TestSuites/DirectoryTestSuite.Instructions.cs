@@ -25,7 +25,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -69,9 +69,11 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             Boolean result = directory.Exists;
 
@@ -98,7 +100,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -142,9 +144,11 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -177,7 +181,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -204,7 +208,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -227,9 +231,11 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -237,7 +243,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -266,7 +272,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -310,9 +316,11 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -350,7 +358,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -377,12 +385,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -410,9 +418,11 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -420,12 +430,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -445,6 +455,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="path">The directory path to be checked.</param>
         /// <param name="match">The <see cref="Predicate{FileInfo}"/> used to filter for matches.</param>
+        /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
+        /// include only the current directory or all subdirectories.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -452,11 +464,11 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp", myFileMatch);
         /// </code>
         /// </example>
-        public void ContainsFiles(String path, Predicate<FileInfo> match,
+        public void ContainsFiles(String path, Predicate<FileInfo> match, SearchOption searchOption,
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -483,11 +495,16 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
-            ContainsFiles(dir, match, _file, _method);
+            if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                return;
+            }
+
+            ContainsFiles(dir, match, searchOption, _file, _method);
         }
 
         /// <summary>
@@ -495,6 +512,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="directory">The directory to be checked.</param>
         /// <param name="match">The <see cref="Predicate{FileInfo}"/> used to filter for matches.</param>
+        /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
+        /// include only the current directory or all subdirectories.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -502,13 +521,15 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(dir, myFileMatch);
         /// </code>
         /// </example>
-        public void ContainsFiles(DirectoryInfo directory, Predicate<FileInfo> match,
+        public void ContainsFiles(DirectoryInfo directory, Predicate<FileInfo> match, SearchOption searchOption,
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -516,14 +537,19 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                return;
+            }
+
+            if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
             List<FileInfo> matches = new List<FileInfo>();
 
             try {
-                foreach(FileInfo file in directory.GetFiles()) {
+                foreach(FileInfo file in directory.GetFiles("*", searchOption)) {
                     if(match(file)) {
                         matches.Add(file);
                     }
@@ -535,8 +561,8 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2}.",
-                directory.FullName.Format(), matches.Count, matches.Count == 1 ? "file" : "files"),
+            InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
+                directory.FullName.Format(), matches.Count, matches.Count == 1 ? "file" : "files", searchOption.Format()),
                 _file, _method);
         }
 
@@ -559,7 +585,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -603,9 +629,11 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -643,7 +671,7 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -670,12 +698,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -703,9 +731,11 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -713,12 +743,12 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(searchPattern == null) {
-                FailTest("Parameter 'searchPattern' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest("Parameter 'searchOption' is out of bounds.", _file, _method);
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -738,6 +768,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="path">The directory path to be checked.</param>
         /// <param name="match">The <see cref="Predicate{DirectoryInfo}"/> used to filter for matches.</param>
+        /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
+        /// include only the current directory or all subdirectories.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -745,11 +777,11 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp", myDirMatch);
         /// </code>
         /// </example>
-        public void ContainsDirectories(String path, Predicate<DirectoryInfo> match,
+        public void ContainsDirectories(String path, Predicate<DirectoryInfo> match, SearchOption searchOption,
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest("Parameter 'path' is null or white space.", _file, _method);
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -776,11 +808,16 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
-            ContainsDirectories(dir, match, _file, _method);
+            if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                return;
+            }
+
+            ContainsDirectories(dir, match, searchOption, _file, _method);
         }
 
         /// <summary>
@@ -788,6 +825,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="directory">The directory to be checked.</param>
         /// <param name="match">The <see cref="Predicate{DirectoryInfo}"/> used to filter for matches.</param>
+        /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
+        /// include only the current directory or all subdirectories.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -795,13 +834,15 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(dir, myDirMatch);
         /// </code>
         /// </example>
-        public void ContainsDirectories(DirectoryInfo directory, Predicate<DirectoryInfo> match,
+        public void ContainsDirectories(DirectoryInfo directory, Predicate<DirectoryInfo> match, SearchOption searchOption,
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest("Parameter 'directory' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
+
+            directory.Refresh();
 
             if(!directory.Exists) {
                 FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
@@ -809,14 +850,19 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             if(match == null) {
-                FailTest("Parameter 'match' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                return;
+            }
+
+            if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
+                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
             List<DirectoryInfo> matches = new List<DirectoryInfo>();
 
             try {
-                foreach(DirectoryInfo dir in directory.GetDirectories()) {
+                foreach(DirectoryInfo dir in directory.GetDirectories("*", searchOption)) {
                     if(match(dir)) {
                         matches.Add(dir);
                     }
@@ -828,8 +874,8 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2}.",
-                directory.FullName.Format(), matches.Count, matches.Count == 1 ? "directory" : "directories"),
+            InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
+                directory.FullName.Format(), matches.Count, matches.Count == 1 ? "directory" : "directories", searchOption.Format()),
                 _file, _method);
         }
 

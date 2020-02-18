@@ -468,7 +468,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTContainsWithFilter((null, null), (1, false, "Parameter 'enumeration' is null."));
             DDTContainsWithFilter((null, new Predicate<Object>((_) => true)), (2, false, "Parameter 'enumeration' is null."));
-            DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Parameter 'predicate' is null."));
+            DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Parameter 'match' is null."));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ == null)), (4, false, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null)), (5, true, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 2)), (6, true, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));
@@ -477,7 +477,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTContainsWithFilterT<DummyIEquatableT>((null, null), (9, false, "Parameter 'enumeration' is null."));
             DDTContainsWithFilterT((null, new Predicate<DummyIEquatableT>((_) => true)), (10, false, "Parameter 'enumeration' is null."));
-            DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (11, false, "Parameter 'predicate' is null."));
+            DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (11, false, "Parameter 'match' is null."));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (12, false, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (13, true, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == 2)), (14, true, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));
@@ -511,7 +511,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTNotContainsWithFilter((null, null), (1, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithFilter((null, new Predicate<Object>((_) => true)), (2, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Parameter 'predicate' is null."));
+            DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Parameter 'match' is null."));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ == null)), (4, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null)), (5, false, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 2)), (6, false, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));
@@ -520,7 +520,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTNotContainsWithFilterT<DummyIEquatableT>((null, null), (9, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithFilterT((null, new Predicate<DummyIEquatableT>((_) => true)), (10, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (11, false, "Parameter 'predicate' is null."));
+            DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (11, false, "Parameter 'match' is null."));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (12, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (13, false, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == 2)), (14, false, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));

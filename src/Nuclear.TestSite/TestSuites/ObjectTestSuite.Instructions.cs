@@ -59,12 +59,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@object == null) {
-                FailTest("Parameter 'object' is null.", _file, _method);
+               FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(type == null) {
-                FailTest("Parameter 'type' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(type)}' is null.", _file, _method);
                 return;
             }
 
@@ -108,12 +108,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@object == null) {
-                FailTest("Parameter 'object' is null.", _file, _method);
+               FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(type == null) {
-                FailTest("Parameter 'type' is null.", _file, _method);
+                FailTest($"Parameter '{nameof(type)}' is null.", _file, _method);
                 return;
             }
 
