@@ -31,7 +31,7 @@ namespace Nuclear.TestSite.TestSuites {
             exception = null;
 
             if(action == null) {
-                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
@@ -70,12 +70,12 @@ namespace Nuclear.TestSite.TestSuites {
             eventData = null;
 
             if(action == null) {
-                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
@@ -121,12 +121,12 @@ namespace Nuclear.TestSite.TestSuites {
             eventDatas = null;
 
             if(action == null) {
-                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
@@ -180,17 +180,17 @@ namespace Nuclear.TestSite.TestSuites {
             eventData = null;
 
             if(action == null) {
-                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(String.IsNullOrWhiteSpace(eventName)) {
-                FailTest($"Parameter {nameof(eventName)} is null or empty.", _file, _method);
+                FailTest($"Parameter '{nameof(eventName)}' is null or empty.", _file, _method);
                 return;
             }
 
@@ -257,17 +257,17 @@ namespace Nuclear.TestSite.TestSuites {
             eventDatas = null;
 
             if(action == null) {
-                FailTest($"Parameter {nameof(action)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter {nameof(@object)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(String.IsNullOrWhiteSpace(eventName)) {
-                FailTest($"Parameter {nameof(eventName)} is null or empty.", _file, _method);
+                FailTest($"Parameter '{nameof(eventName)}' is null or empty.", _file, _method);
                 return;
             }
 

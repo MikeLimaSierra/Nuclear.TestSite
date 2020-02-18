@@ -20,7 +20,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -38,7 +38,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -62,7 +62,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -80,7 +80,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -111,7 +111,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -129,7 +129,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -166,7 +166,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -190,7 +190,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -222,12 +222,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -251,12 +251,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -281,12 +281,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -325,12 +325,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter {nameof(match)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
@@ -354,12 +354,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter {nameof(match)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
@@ -404,12 +404,12 @@ namespace Nuclear.TestSite.TestSuites {
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter {nameof(elements)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
@@ -433,12 +433,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter {nameof(elements)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
@@ -479,17 +479,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter {nameof(elements)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -513,17 +513,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter {nameof(elements)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -548,17 +548,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter {nameof(elements)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -606,12 +606,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -635,12 +635,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -688,17 +688,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -722,17 +722,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -757,17 +757,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -824,12 +824,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -853,12 +853,12 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -910,17 +910,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -944,17 +944,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -979,17 +979,17 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter {nameof(enumeration)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter {nameof(other)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter {nameof(comparer)} is null.", _file, _method);
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
