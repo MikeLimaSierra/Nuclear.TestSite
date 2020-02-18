@@ -105,6 +105,40 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void HasAttribute() {
 
+            (String path, DirectoryInfo dir) test = GetLocation();
+
+            DirectoryTestSuite_uTests.DDTHasAttribute((test.path, FileAttributes.Hidden), (1, false, $"Directory {test.path.Format()} doesn't exist."));
+            DirectoryTestSuite_uTests.DDTHasAttribute((test.dir, FileAttributes.Hidden), (2, false, $"Directory {test.path.Format()} doesn't exist."));
+
+            DirectoryTestSuite_uTests.DDTNotHasAttribute((test.path, FileAttributes.Hidden), (3, false, $"Directory {test.path.Format()} doesn't exist."));
+            DirectoryTestSuite_uTests.DDTNotHasAttribute((test.dir, FileAttributes.Hidden), (4, false, $"Directory {test.path.Format()} doesn't exist."));
+
+            Create(test.dir);
+
+            DirectoryTestSuite_uTests.DDTHasAttribute((test.path, FileAttributes.Hidden),
+                (5, false, $"Directory {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+            DirectoryTestSuite_uTests.DDTHasAttribute((test.dir, FileAttributes.Hidden),
+                (6, false, $"Directory {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+
+            DirectoryTestSuite_uTests.DDTNotHasAttribute((test.path, FileAttributes.Hidden),
+                (7, true, $"Directory {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+            DirectoryTestSuite_uTests.DDTNotHasAttribute((test.dir, FileAttributes.Hidden),
+                (8, true, $"Directory {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+
+            test.dir.Attributes = FileAttributes.Hidden;
+
+            DirectoryTestSuite_uTests.DDTHasAttribute((test.path, FileAttributes.Hidden),
+                (9, true, $"Directory {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+            DirectoryTestSuite_uTests.DDTHasAttribute((test.dir, FileAttributes.Hidden),
+                (10, true, $"Directory {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+
+            DirectoryTestSuite_uTests.DDTNotHasAttribute((test.path, FileAttributes.Hidden),
+                (11, false, $"Directory {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+            DirectoryTestSuite_uTests.DDTNotHasAttribute((test.dir, FileAttributes.Hidden),
+                (12, false, $"Directory {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+
+            Delete(test.dir);
+
         }
 
         #endregion
