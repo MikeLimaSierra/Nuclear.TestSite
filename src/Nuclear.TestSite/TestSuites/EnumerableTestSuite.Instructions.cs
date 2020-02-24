@@ -222,7 +222,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
