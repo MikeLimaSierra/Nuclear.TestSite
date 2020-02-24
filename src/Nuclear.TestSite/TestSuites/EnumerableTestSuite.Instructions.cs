@@ -391,13 +391,21 @@ namespace Nuclear.TestSite.TestSuites {
         public void ContainsDuplicates(IEnumerable enumeration,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            throw new NotImplementedException();
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            ContainsDuplicates(enumeration.Cast<Object>(), _file, _method);
         }
 
         public void ContainsDuplicates<T>(IEnumerable<T> enumeration,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            throw new NotImplementedException();
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
         }
 
         #endregion
@@ -407,19 +415,47 @@ namespace Nuclear.TestSite.TestSuites {
         public void ContainsDuplicates<T>(IEnumerable<T> enumeration, EqualityComparer<T> comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            throw new NotImplementedException();
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(comparer == null) {
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                return;
+            }
+
+            ContainsDuplicates(enumeration, comparer as IEqualityComparer<T>, _file, _method);
         }
 
         public void ContainsDuplicates(IEnumerable enumeration, IEqualityComparer comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            throw new NotImplementedException();
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(comparer == null) {
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                return;
+            }
+
+            ContainsDuplicates(enumeration.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), _file, _method);
         }
 
         public void ContainsDuplicates<T>(IEnumerable<T> enumeration, IEqualityComparer<T> comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            throw new NotImplementedException();
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(comparer == null) {
+                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                return;
+            }
         }
 
         #endregion
