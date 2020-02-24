@@ -386,6 +386,44 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsDuplicates
+
+        public void ContainsDuplicates(IEnumerable enumeration,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            throw new NotImplementedException();
+        }
+
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region ContainsDuplicatesComparer
+
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, EqualityComparer<T> comparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            throw new NotImplementedException();
+        }
+
+        public void ContainsDuplicates(IEnumerable enumeration, IEqualityComparer comparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            throw new NotImplementedException();
+        }
+
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, IEqualityComparer<T> comparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
         #region ContainsRange
 
         /// <summary>
