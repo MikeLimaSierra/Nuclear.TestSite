@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+
 using Ntt;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -551,26 +553,26 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region Contains
+        #region ContainsDuplicates
 
         [TestMethod]
         void ContainsDuplicates() {
 
             DDTContainsDuplicates(null, (1, false, "Parameter 'enumeration' is null."));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { }, (2, false, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 3 }, (3, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, true, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (6, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (7, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { }, (2, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 3 }, (3, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (6, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (7, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTContainsDuplicatesT<DummyIEquatableT>(null, (8, false, "Parameter 'enumeration' is null."));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { }, (9, false, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 3 }, (10, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, true, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (13, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (14, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { }, (9, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 3 }, (10, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (13, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (14, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
         }
 
@@ -598,20 +600,20 @@ namespace Nuclear.TestSite.TestSuites {
         void NotContainsDuplicates() {
 
             DDTNotContainsDuplicates(null, (1, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { }, (2, true, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 3 }, (3, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, false, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (6, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (7, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { }, (2, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 3 }, (3, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (6, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (7, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTNotContainsDuplicatesT<DummyIEquatableT>(null, (8, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { }, (9, true, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 3 }, (10, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, false, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (13, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (14, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { }, (9, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 3 }, (10, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (13, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (14, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
         }
 
@@ -646,12 +648,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((null, new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, null), (3, false, "Parameter 'comparer' is null."));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingEqualityComparer()), (4, false, "Comparer threw Exception:"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyEqualityComparer()), (5, false, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer()), (6, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, true, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyEqualityComparer()), (9, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyEqualityComparer()), (10, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyEqualityComparer()), (5, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer()), (6, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyEqualityComparer()), (9, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyEqualityComparer()), (10, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTContainsDuplicatesWithComparer((null, null), (11, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesWithComparer((null, new DummyIEqualityComparer()), (12, false, "Parameter 'enumeration' is null."));
@@ -659,12 +661,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())), (14, false, "Comparer threw Exception:"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, false, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, true, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparer()), (19, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparer()), (20, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparer()), (19, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparer()), (20, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTContainsDuplicatesWithComparer((null, (IEqualityComparer<Dummy>) null), (21, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesWithComparer((null, new DummyIEqualityComparerT()), (22, false, "Parameter 'enumeration' is null."));
@@ -672,12 +674,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate<Dummy>(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())), (24, false, "Comparer threw Exception:"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, false, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, false, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, true, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparerT()), (29, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparerT()), (30, true, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparerT()), (29, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparerT()), (30, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
         }
 
@@ -718,12 +720,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((null, new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, null), (3, false, "Parameter 'comparer' is null."));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingEqualityComparer()), (4, false, "Comparer threw Exception:"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyEqualityComparer()), (5, true, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer()), (6, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, false, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyEqualityComparer()), (9, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyEqualityComparer()), (10, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyEqualityComparer()), (5, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer()), (6, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyEqualityComparer()), (9, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyEqualityComparer()), (10, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTNotContainsDuplicatesWithComparer((null, null), (11, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesWithComparer((null, new DummyIEqualityComparer()), (12, false, "Parameter 'enumeration' is null."));
@@ -731,12 +733,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())), (14, false, "Comparer threw Exception:"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, true, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, false, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparer()), (19, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparer()), (20, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparer()), (19, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparer()), (20, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTNotContainsDuplicatesWithComparer((null, (IEqualityComparer<Dummy>) null), (21, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesWithComparer((null, new DummyIEqualityComparerT()), (22, false, "Parameter 'enumeration' is null."));
@@ -744,12 +746,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate<Dummy>(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())), (24, false, "Comparer threw Exception:"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, true, "Enumeration doesn't contain a duplicate. Enumeration is: []"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, true, "Enumeration doesn't contain a duplicate. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, false, "Enumeration contains a duplicate. Enumeration is: ['1', 'null', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparerT()), (29, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparerT()), (30, false, "Enumeration contains a duplicate. Enumeration is: ['1', '2', '2', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparerT()), (29, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparerT()), (30, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
         }
 
