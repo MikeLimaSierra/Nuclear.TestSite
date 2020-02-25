@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -208,8 +209,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if <paramref name="enumeration"/> contains <paramref name="element"/>.
         /// </summary>
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
-        /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
-        /// <param name="element">The <see cref="Object"/> to search for.</param>
+        /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="element">The element of type <typeparamref name="T"/> to search for.</param>
         /// <param name="comparer">The <see cref="EqualityComparer{T}"/> used to determine equality.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
@@ -290,7 +291,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
+            Boolean result;
 
             try {
                 result = enumeration.Contains(element, comparer);
@@ -388,6 +389,17 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region ContainsDuplicates
 
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains duplicate items.
+        /// </summary>
+        /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsDuplicates(someEnumeration);
+        /// </code>
+        /// </example>
         public void ContainsDuplicates(IEnumerable enumeration,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
@@ -399,6 +411,18 @@ namespace Nuclear.TestSite.TestSuites {
             ContainsDuplicates(enumeration.Cast<Object>(), _file, _method);
         }
 
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains duplicate items.
+        /// </summary>
+        /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsDuplicates(someEnumeration);
+        /// </code>
+        /// </example>
         public void ContainsDuplicates<T>(IEnumerable<T> enumeration,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
@@ -406,12 +430,37 @@ namespace Nuclear.TestSite.TestSuites {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
+
+            Boolean result = false;
+
+            foreach(T element in enumeration) {
+                if(enumeration.Where((other) => element.IsEqual(other)).Count() > 1) {
+                    result = true;
+                    break;
+                }
+            }
+
+            InternalTest(result, String.Format("Enumeration {0} duplicates. Enumeration is: {1}", result ? "contains" : "doesn't contain", enumeration.Format()),
+                _file, _method);
         }
 
         #endregion
 
         #region ContainsDuplicatesComparer
 
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains duplicate items.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="comparer">The <see cref="EqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
+        /// </code>
+        /// </example>
         public void ContainsDuplicates<T>(IEnumerable<T> enumeration, EqualityComparer<T> comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
@@ -428,6 +477,18 @@ namespace Nuclear.TestSite.TestSuites {
             ContainsDuplicates(enumeration, comparer as IEqualityComparer<T>, _file, _method);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
+        /// <param name="comparer">The <see cref="IEqualityComparer"/> used to determine equality.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
+        /// </code>
+        /// </example>
         public void ContainsDuplicates(IEnumerable enumeration, IEqualityComparer comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
@@ -444,6 +505,19 @@ namespace Nuclear.TestSite.TestSuites {
             ContainsDuplicates(enumeration.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), _file, _method);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
+        /// </code>
+        /// </example>
         public void ContainsDuplicates<T>(IEnumerable<T> enumeration, IEqualityComparer<T> comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
@@ -456,6 +530,20 @@ namespace Nuclear.TestSite.TestSuites {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
+
+            Boolean result;
+
+            try {
+                result = enumeration.Distinct(comparer).Count() != enumeration.Count();
+
+            } catch(Exception ex) {
+                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                    _file, _method);
+                return;
+            }
+
+            InternalTest(result, String.Format("Enumeration {0} duplicates. Enumeration is: {1}", result ? "contains" : "doesn't contain", enumeration.Format()),
+                _file, _method);
         }
 
         #endregion
@@ -495,7 +583,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
-        /// <param name="elements">The range of <see cref="Object"/> to search for.</param>
+        /// <param name="elements">The <see cref="IEnumerable{T}"/> to search for.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -503,7 +591,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection);
         /// </code>
         /// </example>
-        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable elements,
+        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -943,17 +1031,16 @@ namespace Nuclear.TestSite.TestSuites {
             if(!result && count1 == count2) {
                 result = true;
 
-                using(IEnumerator<T> enum1 = enumeration.GetEnumerator()) {
-                    using(IEnumerator<T> enum2 = other.GetEnumerator()) {
-                        while(enum1.MoveNext() && enum2.MoveNext()) {
-                            T element1 = enum1.Current;
-                            T element2 = enum2.Current;
+                using IEnumerator<T> enum1 = enumeration.GetEnumerator();
+                using IEnumerator<T> enum2 = other.GetEnumerator();
 
-                            if(!element1.IsEqual<T>(element2)) {
-                                result = false;
-                                break;
-                            }
-                        }
+                while(enum1.MoveNext() && enum2.MoveNext()) {
+                    T element1 = enum1.Current;
+                    T element2 = enum2.Current;
+
+                    if(!element1.IsEqual<T>(element2)) {
+                        result = false;
+                        break;
                     }
                 }
             }
