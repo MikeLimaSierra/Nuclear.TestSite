@@ -2,12 +2,12 @@
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
     class DirectoryTestSuite_uTests {
-
-        String _crazyLongPath = @"C:\Temp\" + String.Join(@"\", Enumerable.Repeat("abc", Int16.MaxValue / 4));
+        readonly String _crazyLongPath = @"C:\Temp\" + String.Join(@"\", Enumerable.Repeat("abc", Int16.MaxValue / 4));
 
         #region Exists
 

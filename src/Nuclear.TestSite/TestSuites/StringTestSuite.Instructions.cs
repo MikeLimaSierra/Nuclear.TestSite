@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -48,7 +49,8 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            String message = null;
+            String message;
+
             if(comparisonType == StringComparison.CurrentCulture) {
                 message = $"[String = {@string.Format()}; Value = {value.Format()}]";
             } else {
@@ -105,7 +107,8 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            String message = null;
+            String message;
+
             if(comparisonType == StringComparison.CurrentCulture) {
                 message = $"[String = {@string.Format()}; Value = {value.Format()}]";
             } else {
@@ -161,7 +164,8 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            String message = null;
+            String message;
+
             if(comparisonType == StringComparison.CurrentCulture) {
                 message = $"[String = {@string.Format()}; Value = {value.Format()}]";
             } else {
@@ -218,7 +222,8 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            String message = null;
+            String message;
+
             if(comparisonType == StringComparison.CurrentCulture) {
                 message = $"[String = {@string.Format()}; Value = {value.Format()}]";
             } else {

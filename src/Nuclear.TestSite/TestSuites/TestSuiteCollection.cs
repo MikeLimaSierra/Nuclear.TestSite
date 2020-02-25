@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
+
 using Nuclear.TestSite.TestSuites.Base;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -16,7 +17,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         private ITestResultSink _results;
 
-        private Boolean _invert;
+        private readonly Boolean _invert;
 
         #endregion
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -138,13 +139,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// </example>
         public void IsEqual<T>(T left, T right, IEqualityComparer<T> comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Boolean result = false;
-
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
+
+            Boolean result;
 
             try {
                 result = comparer.Equals(left, right);
@@ -225,13 +225,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// </example>
         public void IsEqual<T>(T left, T right, IComparer<T> comparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Boolean result = false;
-
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
+
+            Boolean result;
 
             try {
                 result = comparer.IsEqual(left, right);
@@ -426,7 +425,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
+            Boolean result;
 
             try {
                 result = comparer.IsLessThan(value, other);
@@ -551,7 +550,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
+            Boolean result;
 
             try {
                 result = comparer.IsLessThanOrEqual(value, other);
@@ -676,7 +675,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
+            Boolean result;
 
             try {
                 result = comparer.IsGreaterThan(value, other);
@@ -801,7 +800,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
+            Boolean result;
 
             try {
                 result = comparer.IsGreaterThanOrEqual(value, other);
@@ -1032,7 +1031,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
+            Boolean result;
 
             try {
                 result = comparer.IsClamped(value, min, max);
@@ -1177,7 +1176,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
+            Boolean result;
 
             try {
                 result = comparer.IsClampedExclusive(value, min, max);

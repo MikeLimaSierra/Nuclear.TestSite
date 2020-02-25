@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
+
 using Nuclear.TestSite.TestSuites;
 
 namespace Nuclear.TestSite {
@@ -44,6 +45,7 @@ namespace Nuclear.TestSite {
 
         #region hidden methods
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable IDE0060 // Remove unused parameter
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static new Boolean ReferenceEquals(Object objA, Object objB) => throw new MethodAccessException("This method is currently out of order.");
@@ -51,6 +53,7 @@ namespace Nuclear.TestSite {
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static new Boolean Equals(Object objA, Object objB) => throw new MethodAccessException("This method is currently out of order.");
 
+#pragma warning restore IDE0060 // Remove unused parameter
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         #endregion
 

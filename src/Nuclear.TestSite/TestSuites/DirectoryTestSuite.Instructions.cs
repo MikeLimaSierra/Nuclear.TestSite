@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Security;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -29,7 +30,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -104,7 +105,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -185,7 +186,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -276,7 +277,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -362,7 +363,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -472,7 +473,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -589,7 +590,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -675,7 +676,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);
@@ -785,7 +786,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            DirectoryInfo dir = null;
+            DirectoryInfo dir;
 
             try {
                 dir = new DirectoryInfo(path);

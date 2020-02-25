@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+
 using Ntt;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -15,15 +17,15 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTThrowsException<SystemException>((null, null),
                 (1, false, "Parameter 'action' is null.", false, ""));
-            DDTThrowsException<Exception>((new Action(() => { }), "() => {{ }}"),
+            DDTThrowsException<Exception>((() => { }, "() => {{ }}"),
                 (2, false, "[Exception = 'null']", false, ""));
-            DDTThrowsException<SystemException>((new Action(() => { throw new ArgumentException("test message"); }), "() => {{ throw new ArgumentException(\"test message\"); }}"),
+            DDTThrowsException<SystemException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
                 (3, true, "[Exception = 'System.ArgumentException", true, "test message"));
-            DDTThrowsException<NullReferenceException>((new Action(() => { throw new ArgumentException("test message"); }), "() => {{ throw new ArgumentException(\"test message\"); }}"),
+            DDTThrowsException<NullReferenceException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
                 (4, false, "[Exception = 'null']", false, ""));
-            DDTThrowsException<Exception>((new Action(() => { throw new Exception("test message"); }), "() => {{ throw new Exception(\"test message\"); }}"),
+            DDTThrowsException<Exception>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (5, true, "[Exception = 'System.Exception", true, "test message"));
-            DDTThrowsException<SystemException>((new Action(() => { throw new Exception("test message"); }), "() => {{ throw new Exception(\"test message\"); }}"),
+            DDTThrowsException<SystemException>(( () => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (6, false, "[Exception = 'null']", false, ""));
 
         }
@@ -52,15 +54,15 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTNotThrowsException<SystemException>((null, null),
                 (1, false, "Parameter 'action' is null.", false, ""));
-            DDTNotThrowsException<Exception>((new Action(() => { }), "() => {{ }}"),
+            DDTNotThrowsException<Exception>((() => { }, "() => {{ }}"),
                 (2, true, "[Exception = 'null']", false, ""));
-            DDTNotThrowsException<SystemException>((new Action(() => { throw new ArgumentException("test message"); }), "() => {{ throw new ArgumentException(\"test message\"); }}"),
+            DDTNotThrowsException<SystemException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
                 (3, false, "[Exception = 'System.ArgumentException", true, "test message"));
-            DDTNotThrowsException<NullReferenceException>((new Action(() => { throw new ArgumentException("test message"); }), "() => {{ throw new ArgumentException(\"test message\"); }}"),
+            DDTNotThrowsException<NullReferenceException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
                 (4, true, "[Exception = 'null']", false, ""));
-            DDTNotThrowsException<Exception>((new Action(() => { throw new Exception("test message"); }), "() => {{ throw new Exception(\"test message\"); }}"),
+            DDTNotThrowsException<Exception>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (5, false, "[Exception = 'System.Exception", true, "test message"));
-            DDTNotThrowsException<SystemException>((new Action(() => { throw new Exception("test message"); }), "() => {{ throw new Exception(\"test message\"); }}"),
+            DDTNotThrowsException<SystemException>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (6, true, "[Exception = 'null']", false, ""));
 
         }
@@ -97,14 +99,14 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", null));
             DDTRaisesPropertyChangedEvent((null, pccObject, null),
                 (2, false, "Parameter 'action' is null.", null));
-            DDTRaisesPropertyChangedEvent((new Action(() => { }), null, "() => {{ }}"),
+            DDTRaisesPropertyChangedEvent((() => { }, null, "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", null));
 
-            DDTRaisesPropertyChangedEvent((new Action(() => { }), pccObject, "() => {{ }}"),
+            DDTRaisesPropertyChangedEvent((() => { }, pccObject, "() => {{ }}"),
                 (4, false, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", null));
-            DDTRaisesPropertyChangedEvent((new Action(() => { throw new Exception(); }), pccObject, "() => {{ throw new Exception(); }}"),
+            DDTRaisesPropertyChangedEvent((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", null));
-            DDTRaisesPropertyChangedEvent((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
+            DDTRaisesPropertyChangedEvent((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
                 (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))));
 
         }
@@ -135,14 +137,14 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", null));
             DDTNotRaisesPropertyChangedEvent((null, pccObject, null),
                 (2, false, "Parameter 'action' is null.", null));
-            DDTNotRaisesPropertyChangedEvent((new Action(() => { }), null, "() => {{ }}"),
+            DDTNotRaisesPropertyChangedEvent((() => { }, null, "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", null));
 
-            DDTNotRaisesPropertyChangedEvent((new Action(() => { }), pccObject, "() => {{ }}"),
+            DDTNotRaisesPropertyChangedEvent((() => { }, pccObject, "() => {{ }}"),
                 (4, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", null));
-            DDTNotRaisesPropertyChangedEvent((new Action(() => { throw new Exception(); }), pccObject, "() => {{ throw new Exception(); }}"),
+            DDTNotRaisesPropertyChangedEvent((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", null));
-            DDTNotRaisesPropertyChangedEvent((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
+            DDTNotRaisesPropertyChangedEvent((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
                 (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))));
 
         }
@@ -177,19 +179,19 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", null));
             DDTRaisesPropertyChangedEvents((null, pccObject, null),
                 (2, false, "Parameter 'action' is null.", null));
-            DDTRaisesPropertyChangedEvents((new Action(() => { }), null, "() => {{ }}"),
+            DDTRaisesPropertyChangedEvents((() => { }, null, "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", null));
 
-            DDTRaisesPropertyChangedEvents((new Action(() => { }), pccObject, "() => {{ }}"),
+            DDTRaisesPropertyChangedEvents((() => { }, pccObject, "() => {{ }}"),
                 (4, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", null));
-            DDTRaisesPropertyChangedEvents((new Action(() => { throw new Exception(); }), pccObject, "() => {{ throw new Exception(); }}"),
+            DDTRaisesPropertyChangedEvents((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", null));
-            DDTRaisesPropertyChangedEvents((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
+            DDTRaisesPropertyChangedEvents((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
                 (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }));
-            DDTRaisesPropertyChangedEvents((new Action(() => { pccObject.Value1And2 = !pccObject.Value1; }), pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}"),
+            DDTRaisesPropertyChangedEvents((() => pccObject.Value1And2 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}"),
                 (7, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
@@ -224,19 +226,19 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", null));
             DDTNotRaisesPropertyChangedEvents((null, pccObject, null),
                 (2, false, "Parameter 'action' is null.", null));
-            DDTNotRaisesPropertyChangedEvents((new Action(() => { }), null, "() => {{ }}"),
+            DDTNotRaisesPropertyChangedEvents((() => { }, null, "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", null));
 
-            DDTNotRaisesPropertyChangedEvents((new Action(() => { }), pccObject, "() => {{ }}"),
+            DDTNotRaisesPropertyChangedEvents((() => { }, pccObject, "() => {{ }}"),
                 (4, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", null));
-            DDTNotRaisesPropertyChangedEvents((new Action(() => { throw new Exception(); }), pccObject, "() => {{ throw new Exception(); }}"),
+            DDTNotRaisesPropertyChangedEvents((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", null));
-            DDTNotRaisesPropertyChangedEvents((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
+            DDTNotRaisesPropertyChangedEvents((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
                 (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }));
-            DDTNotRaisesPropertyChangedEvents((new Action(() => { pccObject.Value1And2 = !pccObject.Value1; }), pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}"),
+            DDTNotRaisesPropertyChangedEvents((() => pccObject.Value1And2 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}"),
                 (7, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
@@ -275,21 +277,21 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", false));
             DDTRaisesEvent<PropertyChangedEventArgs>((null, pccObject, "PropertyChanged", null),
                 (2, false, "Parameter 'action' is null.", false));
-            DDTRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), null, "PropertyChanged", "() => {{ }}"),
+            DDTRaisesEvent<PropertyChangedEventArgs>((() => { }, null, "PropertyChanged", "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", false));
-            DDTRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), pccObject, null, "() => {{ }}"),
+            DDTRaisesEvent<PropertyChangedEventArgs>((() => { }, pccObject, null, "() => {{ }}"),
                 (4, false, "Parameter 'eventName' is null or empty.", false));
 
-            DDTRaisesEvent<PropertyChangedEventArgs>((new Action(() => { throw new Exception(); }), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
+            DDTRaisesEvent<PropertyChangedEventArgs>((() => throw new Exception(), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", false));
-            DDTRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}"),
+            DDTRaisesEvent<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged_", "() => {{ }}"),
                 (6, false, "Event with name 'PropertyChanged_' could not be found.", false));
-            DDTRaisesEvent<DoWorkEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTRaisesEvent<DoWorkEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", false));
 
-            DDTRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTRaisesEvent<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (8, false, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", false));
-            DDTRaisesEvent<PropertyChangedEventArgs>((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
+            DDTRaisesEvent<PropertyChangedEventArgs>((() => pccObject.Value1 = !pccObject.Value1, pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
                 (9, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", true));
 
         }
@@ -323,21 +325,21 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", false));
             DDTNotRaisesEvent<PropertyChangedEventArgs>((null, pccObject, "PropertyChanged", null),
                 (2, false, "Parameter 'action' is null.", false));
-            DDTNotRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), null, "PropertyChanged", "() => {{ }}"),
+            DDTNotRaisesEvent<PropertyChangedEventArgs>((() => { }, null, "PropertyChanged", "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", false));
-            DDTNotRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), pccObject, null, "() => {{ }}"),
+            DDTNotRaisesEvent<PropertyChangedEventArgs>((() => { }, pccObject, null, "() => {{ }}"),
                 (4, false, "Parameter 'eventName' is null or empty.", false));
 
-            DDTNotRaisesEvent<PropertyChangedEventArgs>((new Action(() => { throw new Exception(); }), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
+            DDTNotRaisesEvent<PropertyChangedEventArgs>((() => throw new Exception(), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", false));
-            DDTNotRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}"),
+            DDTNotRaisesEvent<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged_", "() => {{ }}"),
                 (6, false, "Event with name 'PropertyChanged_' could not be found.", false));
-            DDTNotRaisesEvent<DoWorkEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTNotRaisesEvent<DoWorkEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", false));
 
-            DDTNotRaisesEvent<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTNotRaisesEvent<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (8, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", false));
-            DDTNotRaisesEvent<PropertyChangedEventArgs>((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
+            DDTNotRaisesEvent<PropertyChangedEventArgs>((() => pccObject.Value1 = !pccObject.Value1, pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
                 (9, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", true));
 
         }
@@ -375,27 +377,27 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", null));
             DDTRaisesEvents<PropertyChangedEventArgs>((null, pccObject, "PropertyChanged", null),
                 (2, false, "Parameter 'action' is null.", null));
-            DDTRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), null, "PropertyChanged", "() => {{ }}"),
+            DDTRaisesEvents<PropertyChangedEventArgs>((() => { }, null, "PropertyChanged", "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", null));
-            DDTRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), pccObject, null, "() => {{ }}"),
+            DDTRaisesEvents<PropertyChangedEventArgs>((() => { }, pccObject, null, "() => {{ }}"),
                 (4, false, "Parameter 'eventName' is null or empty.", null));
 
-            DDTRaisesEvents<PropertyChangedEventArgs>((new Action(() => { throw new Exception(); }), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
+            DDTRaisesEvents<PropertyChangedEventArgs>((() => throw new Exception(), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", null));
-            DDTRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}"),
+            DDTRaisesEvents<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged_", "() => {{ }}"),
                 (6, false, "Event with name 'PropertyChanged_' could not be found.", null));
-            DDTRaisesEvents<DoWorkEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTRaisesEvents<DoWorkEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.",
                 null));
 
-            DDTRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTRaisesEvents<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (8, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", null));
-            DDTRaisesEvents((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
+            DDTRaisesEvents((() => pccObject.Value1 = !pccObject.Value1, pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
                 (9, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }));
-            DDTRaisesEvents((new Action(() => { pccObject.Value1And2 = !pccObject.Value1; }), pccObject, "PropertyChanged", "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
+            DDTRaisesEvents((() => pccObject.Value1And2 = !pccObject.Value1, pccObject, "PropertyChanged", "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
                 (10, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
@@ -436,26 +438,26 @@ namespace Nuclear.TestSite.TestSuites {
                 (1, false, "Parameter 'action' is null.", null));
             DDTNotRaisesEvents<PropertyChangedEventArgs>((null, pccObject, "PropertyChanged", null),
                 (2, false, "Parameter 'action' is null.", null));
-            DDTNotRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), null, "PropertyChanged", "() => {{ }}"),
+            DDTNotRaisesEvents<PropertyChangedEventArgs>((() => { }, null, "PropertyChanged", "() => {{ }}"),
                 (3, false, "Parameter 'object' is null.", null));
-            DDTNotRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), pccObject, null, "() => {{ }}"),
+            DDTNotRaisesEvents<PropertyChangedEventArgs>((() => { }, pccObject, null, "() => {{ }}"),
                 (4, false, "Parameter 'eventName' is null or empty.", null));
 
-            DDTNotRaisesEvents<PropertyChangedEventArgs>((new Action(() => { throw new Exception(); }), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
+            DDTNotRaisesEvents<PropertyChangedEventArgs>((() => throw new Exception(), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}"),
                 (5, false, "Action threw Exception:", null));
-            DDTNotRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}"),
+            DDTNotRaisesEvents<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged_", "() => {{ }}"),
                 (6, false, "Event with name 'PropertyChanged_' could not be found.", null));
-            DDTNotRaisesEvents<DoWorkEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTNotRaisesEvents<DoWorkEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", null));
 
-            DDTNotRaisesEvents<PropertyChangedEventArgs>((new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}"),
+            DDTNotRaisesEvents<PropertyChangedEventArgs>((() => { }, pccObject, "PropertyChanged", "() => {{ }}"),
                 (8, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", null));
-            DDTNotRaisesEvents((new Action(() => { pccObject.Value1 = !pccObject.Value1; }), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
+            DDTNotRaisesEvents((() => pccObject.Value1 = !pccObject.Value1, pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
                 (9, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }));
-            DDTNotRaisesEvents((new Action(() => { pccObject.Value1And2 = !pccObject.Value1; }), pccObject, "PropertyChanged", "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
+            DDTNotRaisesEvents((() => pccObject.Value1And2 = !pccObject.Value1, pccObject, "PropertyChanged", "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer()),
                 (10, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.",
                 new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),

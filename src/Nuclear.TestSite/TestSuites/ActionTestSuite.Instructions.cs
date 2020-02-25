@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+
 using Nuclear.Extensions;
 using Nuclear.TestSite.TestSuites.Proxies;
 
@@ -81,7 +82,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             EventData<PropertyChangedEventArgs> tmp = null;
 
-            PropertyChangedEventHandler handler = (Object sender, PropertyChangedEventArgs e) => tmp = new EventData<PropertyChangedEventArgs>(sender, e);
+            void handler(Object sender, PropertyChangedEventArgs e) => tmp = new EventData<PropertyChangedEventArgs>(sender, e);
 
             @object.PropertyChanged += handler;
 
@@ -132,7 +133,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             EventDataCollection<PropertyChangedEventArgs> tmp = new EventDataCollection<PropertyChangedEventArgs>();
 
-            PropertyChangedEventHandler handler = (Object sender, PropertyChangedEventArgs e) => tmp.Add(new EventData<PropertyChangedEventArgs>(sender, e));
+            void handler(Object sender, PropertyChangedEventArgs e) => tmp.Add(new EventData<PropertyChangedEventArgs>(sender, e));
 
             @object.PropertyChanged += handler;
 

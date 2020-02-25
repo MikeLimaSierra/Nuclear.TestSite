@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+
 using Nuclear.Exceptions;
 using Nuclear.Test;
 using Nuclear.Test.Results;
@@ -22,9 +23,11 @@ namespace Nuclear.TestSite {
             Assembly _assembly = typeof(Statics).Assembly;
             AssemblyName _assemblyName = _assembly.GetName();
 
+#pragma warning disable IDE0042 // Deconstruct variable declaration
             (FrameworkIdentifiers platform, Version version) testAssemblyInfo = NetVersionTree.GetTargetRuntimeFromAssembly(_assembly);
             Assembly executionAssembly = Assembly.GetEntryAssembly();
             (FrameworkIdentifiers platform, Version version) executionAssemblyInfo = NetVersionTree.GetTargetRuntimeFromAssembly(executionAssembly);
+#pragma warning restore IDE0042 // Deconstruct variable declaration
 
             _scenario = new TestScenario(_assemblyName.Name,
                testAssemblyInfo.platform, testAssemblyInfo.version, _assemblyName.ProcessorArchitecture,
@@ -51,8 +54,7 @@ namespace Nuclear.TestSite {
 
         internal static void DDTResultState(Action action, (Int32 count, Boolean result, String message) expected, String instruction,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.IfNot.Action.ThrowsException(action, out Exception ex, _file, _method);
+            Test.IfNot.Action.ThrowsException(action, out Exception _, _file, _method);
 
             ITestMethodResult results = GetResults(DummyTestResults.Instance, _file, _method);
             ITestInstructionResult lastResult = GetLastResult(DummyTestResults.Instance, _file, _method);
