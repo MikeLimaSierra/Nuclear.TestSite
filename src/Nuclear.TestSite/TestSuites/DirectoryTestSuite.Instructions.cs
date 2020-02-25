@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security;
 
@@ -27,6 +28,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
@@ -102,6 +108,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
@@ -183,6 +194,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
@@ -277,6 +293,11 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+                return;
+            }
+
             DirectoryInfo dir;
 
             try {
@@ -360,6 +381,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
@@ -470,6 +496,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
@@ -590,6 +621,11 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+                return;
+            }
+
             DirectoryInfo dir;
 
             try {
@@ -673,6 +709,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
@@ -783,6 +824,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
+                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
