@@ -486,14 +486,14 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContains((null, null), (1, false, "Parameter 'string' is null."));
             DDTContains((null, "abc"), (2, false, "Parameter 'string' is null."));
             DDTContains(("abc", null), (3, false, "Parameter 'value' is null."));
-            DDTContains((String.Empty, String.Empty), (4, true, "[String = ''; Value = '']"));
-            DDTContains((String.Empty, "abc"), (5, false, "[String = ''; Value = 'abc']"));
-            DDTContains(("abc", String.Empty), (6, true, "[String = 'abc'; Value = '']"));
-            DDTContains(("abcd", "abcd"), (7, true, "[String = 'abcd'; Value = 'abcd']"));
-            DDTContains(("abcd", "ab"), (8, true, "[String = 'abcd'; Value = 'ab']"));
-            DDTContains(("abcd", "cd"), (9, true, "[String = 'abcd'; Value = 'cd']"));
-            DDTContains(("abcd", "bc"), (10, true, "[String = 'abcd'; Value = 'bc']"));
-            DDTContains(("abcd", "cb"), (11, false, "[String = 'abcd'; Value = 'cb']"));
+            DDTContains((String.Empty, String.Empty), (4, true, "[String = ''; Value = ''; Comparison = 'CurrentCulture']"));
+            DDTContains((String.Empty, "abc"), (5, false, "[String = ''; Value = 'abc'; Comparison = 'CurrentCulture']"));
+            DDTContains(("abc", String.Empty), (6, true, "[String = 'abc'; Value = ''; Comparison = 'CurrentCulture']"));
+            DDTContains(("abcd", "abcd"), (7, true, "[String = 'abcd'; Value = 'abcd'; Comparison = 'CurrentCulture']"));
+            DDTContains(("abcd", "ab"), (8, true, "[String = 'abcd'; Value = 'ab'; Comparison = 'CurrentCulture']"));
+            DDTContains(("abcd", "cd"), (9, true, "[String = 'abcd'; Value = 'cd'; Comparison = 'CurrentCulture']"));
+            DDTContains(("abcd", "bc"), (10, true, "[String = 'abcd'; Value = 'bc'; Comparison = 'CurrentCulture']"));
+            DDTContains(("abcd", "cb"), (11, false, "[String = 'abcd'; Value = 'cb'; Comparison = 'CurrentCulture']"));
 
         }
 
@@ -513,14 +513,14 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContains((null, null), (1, false, "Parameter 'string' is null."));
             DDTNotContains((null, "abc"), (2, false, "Parameter 'string' is null."));
             DDTNotContains(("abc", null), (3, false, "Parameter 'value' is null."));
-            DDTNotContains((String.Empty, String.Empty), (4, false, "[String = ''; Value = '']"));
-            DDTNotContains((String.Empty, "abc"), (5, true, "[String = ''; Value = 'abc']"));
-            DDTNotContains(("abc", String.Empty), (6, false, "[String = 'abc'; Value = '']"));
-            DDTNotContains(("abcd", "abcd"), (7, false, "[String = 'abcd'; Value = 'abcd']"));
-            DDTNotContains(("abcd", "ab"), (8, false, "[String = 'abcd'; Value = 'ab']"));
-            DDTNotContains(("abcd", "cd"), (9, false, "[String = 'abcd'; Value = 'cd']"));
-            DDTNotContains(("abcd", "bc"), (10, false, "[String = 'abcd'; Value = 'bc']"));
-            DDTNotContains(("abcd", "cb"), (11, true, "[String = 'abcd'; Value = 'cb']"));
+            DDTNotContains((String.Empty, String.Empty), (4, false, "[String = ''; Value = ''; Comparison = 'CurrentCulture']"));
+            DDTNotContains((String.Empty, "abc"), (5, true, "[String = ''; Value = 'abc'; Comparison = 'CurrentCulture']"));
+            DDTNotContains(("abc", String.Empty), (6, false, "[String = 'abc'; Value = ''; Comparison = 'CurrentCulture']"));
+            DDTNotContains(("abcd", "abcd"), (7, false, "[String = 'abcd'; Value = 'abcd'; Comparison = 'CurrentCulture']"));
+            DDTNotContains(("abcd", "ab"), (8, false, "[String = 'abcd'; Value = 'ab'; Comparison = 'CurrentCulture']"));
+            DDTNotContains(("abcd", "cd"), (9, false, "[String = 'abcd'; Value = 'cd'; Comparison = 'CurrentCulture']"));
+            DDTNotContains(("abcd", "bc"), (10, false, "[String = 'abcd'; Value = 'bc'; Comparison = 'CurrentCulture']"));
+            DDTNotContains(("abcd", "cb"), (11, true, "[String = 'abcd'; Value = 'cb'; Comparison = 'CurrentCulture']"));
 
         }
 
@@ -530,6 +530,70 @@ namespace Nuclear.TestSite.TestSuites {
             Test.Note($"Test.IfNot.String.Contains({input.@string.Format()}, {input.value.Format()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.String.Contains(input.@string, input.value, _file, _method),
+                expected, "Test.IfNot.String.Contains", _file, _method);
+
+        }
+
+        #endregion
+
+        #region ContainsWithComparison
+
+        [TestMethod]
+        void ContainsWithComparison() {
+
+            DDTContains((null, null, (StringComparison) 1000), (1, false, "Parameter 'string' is null."));
+            DDTContains((null, "abc", StringComparison.Ordinal), (2, false, "Parameter 'string' is null."));
+            DDTContains(("abc", null, StringComparison.Ordinal), (3, false, "Parameter 'value' is null."));
+            DDTContains((String.Empty, String.Empty, (StringComparison) 1000), (4, false, "Parameter 'comparisonType' is out of bounds."));
+            DDTContains((String.Empty, String.Empty, StringComparison.InvariantCulture), (5, true, "[String = ''; Value = ''; Comparison = 'InvariantCulture']"));
+            DDTContains((String.Empty, "abc", StringComparison.InvariantCulture), (6, false, "[String = ''; Value = 'abc'; Comparison = 'InvariantCulture']"));
+            DDTContains(("abc", String.Empty, StringComparison.InvariantCulture), (7, true, "[String = 'abc'; Value = ''; Comparison = 'InvariantCulture']"));
+            DDTContains(("abcd", "abcd", StringComparison.InvariantCulture), (8, true, "[String = 'abcd'; Value = 'abcd'; Comparison = 'InvariantCulture']"));
+            DDTContains(("abcd", "ab", StringComparison.InvariantCulture), (9, true, "[String = 'abcd'; Value = 'ab'; Comparison = 'InvariantCulture']"));
+            DDTContains(("abcd", "cd", StringComparison.InvariantCulture), (10, true, "[String = 'abcd'; Value = 'cd'; Comparison = 'InvariantCulture']"));
+            DDTContains(("abcd", "bc", StringComparison.InvariantCulture), (11, true, "[String = 'abcd'; Value = 'bc'; Comparison = 'InvariantCulture']"));
+            DDTContains(("abcd", "cb", StringComparison.InvariantCulture), (12, false, "[String = 'abcd'; Value = 'cb'; Comparison = 'InvariantCulture']"));
+            DDTContains(("abcd", "Bc", StringComparison.InvariantCulture), (13, false, "[String = 'abcd'; Value = 'Bc'; Comparison = 'InvariantCulture']"));
+            DDTContains(("abcd", "Bc", StringComparison.InvariantCultureIgnoreCase), (14, true, "[String = 'abcd'; Value = 'Bc'; Comparison = 'InvariantCultureIgnoreCase']"));
+
+        }
+
+        void DDTContains((String @string, String value, StringComparison comparison) input, (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.String.Contains({input.@string.Format()}, {input.value.Format()}, {input.comparison.Format()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.String.Contains(input.@string, input.value, input.comparison, _file, _method),
+                expected, "Test.If.String.Contains", _file, _method);
+
+        }
+
+        [TestMethod]
+        void NotContainsWithComparison() {
+
+            DDTNotContains((null, null, (StringComparison) 1000), (1, false, "Parameter 'string' is null."));
+            DDTNotContains((null, "abc", StringComparison.Ordinal), (2, false, "Parameter 'string' is null."));
+            DDTNotContains(("abc", null, StringComparison.Ordinal), (3, false, "Parameter 'value' is null."));
+            DDTNotContains((String.Empty, String.Empty, (StringComparison) 1000), (4, false, "Parameter 'comparisonType' is out of bounds."));
+            DDTNotContains((String.Empty, String.Empty, StringComparison.InvariantCulture), (5, false, "[String = ''; Value = ''; Comparison = 'InvariantCulture']"));
+            DDTNotContains((String.Empty, "abc", StringComparison.InvariantCulture), (6, true, "[String = ''; Value = 'abc'; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abc", String.Empty, StringComparison.InvariantCulture), (7, false, "[String = 'abc'; Value = ''; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abcd", "abcd", StringComparison.InvariantCulture), (8, false, "[String = 'abcd'; Value = 'abcd'; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abcd", "ab", StringComparison.InvariantCulture), (9, false, "[String = 'abcd'; Value = 'ab'; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abcd", "cd", StringComparison.InvariantCulture), (10, false, "[String = 'abcd'; Value = 'cd'; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abcd", "bc", StringComparison.InvariantCulture), (11, false, "[String = 'abcd'; Value = 'bc'; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abcd", "cb", StringComparison.InvariantCulture), (12, true, "[String = 'abcd'; Value = 'cb'; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abcd", "Bc", StringComparison.InvariantCulture), (13, true, "[String = 'abcd'; Value = 'Bc'; Comparison = 'InvariantCulture']"));
+            DDTNotContains(("abcd", "Bc", StringComparison.InvariantCultureIgnoreCase), (14, false, "[String = 'abcd'; Value = 'Bc'; Comparison = 'InvariantCultureIgnoreCase']"));
+
+        }
+
+        void DDTNotContains((String @string, String value, StringComparison comparison) input, (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.String.Contains({input.@string.Format()}, {input.value.Format()}, {input.comparison.Format()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.Contains(input.@string, input.value, input.comparison, _file, _method),
                 expected, "Test.IfNot.String.Contains", _file, _method);
 
         }
