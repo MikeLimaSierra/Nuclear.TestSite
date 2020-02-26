@@ -64,5 +64,48 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region HasAttribute
+
+        [TestMethod]
+        void HasAttribute() {
+
+            (String path, FileInfo file) test = GetLocation();
+
+            FileTestSuite_uTests.DDTHasAttribute((test.path, FileAttributes.Hidden), (1, false, $"File {test.path.Format()} doesn't exist."));
+            FileTestSuite_uTests.DDTHasAttribute((test.file, FileAttributes.Hidden), (2, false, $"File {test.path.Format()} doesn't exist."));
+
+            FileTestSuite_uTests.DDTNotHasAttribute((test.path, FileAttributes.Hidden), (3, false, $"File {test.path.Format()} doesn't exist."));
+            FileTestSuite_uTests.DDTNotHasAttribute((test.file, FileAttributes.Hidden), (4, false, $"File {test.path.Format()} doesn't exist."));
+
+            Create(test.file);
+
+            FileTestSuite_uTests.DDTHasAttribute((test.path, FileAttributes.Hidden),
+                (5, false, $"File {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+            FileTestSuite_uTests.DDTHasAttribute((test.file, FileAttributes.Hidden),
+                (6, false, $"File {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+
+            FileTestSuite_uTests.DDTNotHasAttribute((test.path, FileAttributes.Hidden),
+                (7, true, $"File {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+            FileTestSuite_uTests.DDTNotHasAttribute((test.file, FileAttributes.Hidden),
+                (8, true, $"File {test.path.Format()} is not flagged with {FileAttributes.Hidden.Format()}."));
+
+            test.file.Attributes = FileAttributes.Hidden;
+
+            FileTestSuite_uTests.DDTHasAttribute((test.path, FileAttributes.Hidden),
+                (9, true, $"File {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+            FileTestSuite_uTests.DDTHasAttribute((test.file, FileAttributes.Hidden),
+                (10, true, $"File {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+
+            FileTestSuite_uTests.DDTNotHasAttribute((test.path, FileAttributes.Hidden),
+                (11, false, $"File {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+            FileTestSuite_uTests.DDTNotHasAttribute((test.file, FileAttributes.Hidden),
+                (12, false, $"File {test.path.Format()} is flagged with {FileAttributes.Hidden.Format()}."));
+
+            Delete(test.file);
+
+        }
+
+        #endregion
+
     }
 }
