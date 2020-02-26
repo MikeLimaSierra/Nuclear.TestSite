@@ -270,6 +270,10 @@ namespace Nuclear.TestSite.TestSuites {
             => InternalTest(String.IsNullOrWhiteSpace(@string), $"[String = {@string.Format()}]",
                 _file, _method);
 
+        #endregion
+
+        #region Contains
+
         /// <summary>
         /// Tests if a <see cref="String"/> contains a specific <see cref="String"/>.
         /// </summary>
@@ -283,6 +287,22 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void Contains(String @string, String value,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => Contains(@string, value, StringComparison.CurrentCulture, _file, _method);
+
+        /// <summary>
+        /// Tests if a <see cref="String"/> contains a specific <see cref="String"/>.
+        /// </summary>
+        /// <param name="string">The <see cref="String"/> to be checked.</param>
+        /// <param name="value">The <see cref="String"/> to check for.</param>
+        /// <param name="comparisonType">The value defining how strings are compared.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.String.Contains(someString, "John Doe");
+        /// </code>
+        /// </example>
+        public void Contains(String @string, String value, StringComparison comparisonType,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
@@ -295,7 +315,12 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            InternalTest(@string.Contains(value), $"[String = {@string.Format()}; Value = {value.Format()}]",
+            if(!Enum.IsDefined(typeof(StringComparison), comparisonType)) {
+                FailTest($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
+                return;
+            }
+
+            InternalTest(@string.Contains(value, comparisonType), $"[String = {@string.Format()}; Value = {value.Format()}; Comparison = {comparisonType.Format()}]",
                 _file, _method);
         }
 
