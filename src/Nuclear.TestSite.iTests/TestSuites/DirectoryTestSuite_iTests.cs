@@ -44,11 +44,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             (String path, DirectoryInfo dir) test = GetLocation();
 
-            DirectoryTestSuite_uTests.DDTExists(test.path, (1, false, $"Directory {test.path.Format()} does not exist."));
-            DirectoryTestSuite_uTests.DDTExists(test.dir, (2, false, $"Directory {test.path.Format()} does not exist."));
+            DirectoryTestSuite_uTests.DDTExists(test.path, (1, false, $"Directory {test.path.Format()} doesn't exist."));
+            DirectoryTestSuite_uTests.DDTExists(test.dir, (2, false, $"Directory {test.path.Format()} doesn't exist."));
 
-            DirectoryTestSuite_uTests.DDTNotExists(test.path, (3, true, $"Directory {test.path.Format()} does not exist."));
-            DirectoryTestSuite_uTests.DDTNotExists(test.dir, (4, true, $"Directory {test.path.Format()} does not exist."));
+            DirectoryTestSuite_uTests.DDTNotExists(test.path, (3, true, $"Directory {test.path.Format()} doesn't exist."));
+            DirectoryTestSuite_uTests.DDTNotExists(test.dir, (4, true, $"Directory {test.path.Format()} doesn't exist."));
 
             Create(test.dir);
 
@@ -326,36 +326,36 @@ namespace Nuclear.TestSite.TestSuites {
             Create(testContentDeep1);
             Create(testContentDeep2);
 
-            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.AllDirectories),
                 (17, true, $"Directory {test.path.Format()} contains 4 matching files in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (18, true, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
                 (19, true, $"Directory {test.path.Format()} contains 4 matching files in {SearchOption.AllDirectories.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (20, true, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.TopDirectoryOnly.Format()}."));
 
-            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.AllDirectories),
                 (21, false, $"Directory {test.path.Format()} contains 4 matching files in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (22, false, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
                 (23, false, $"Directory {test.path.Format()} contains 4 matching files in {SearchOption.AllDirectories.Format()}."));
             DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (24, false, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.TopDirectoryOnly.Format()}."));
 
-            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.AllDirectories),
                 (25, true, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.TopDirectoryOnly),
                 (26, true, $"Directory {test.path.Format()} contains 1 matching file in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.dir, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
                 (27, true, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.AllDirectories.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsFilesPredicate((test.dir, (_) => _.Name.Contains("Files1"), SearchOption.TopDirectoryOnly),
                 (28, true, $"Directory {test.path.Format()} contains 1 matching file in {SearchOption.TopDirectoryOnly.Format()}."));
 
-            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.AllDirectories),
                 (29, false, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.TopDirectoryOnly),
                 (30, false, $"Directory {test.path.Format()} contains 1 matching file in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTNotContainsFilesPredicate((test.dir, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
                 (31, false, $"Directory {test.path.Format()} contains 2 matching files in {SearchOption.AllDirectories.Format()}."));
@@ -553,36 +553,36 @@ namespace Nuclear.TestSite.TestSuites {
             Create(testContentDeep1);
             Create(testContentDeep2);
 
-            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.AllDirectories),
                 (17, true, $"Directory {test.path.Format()} contains 4 matching directories in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (18, true, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
                 (19, true, $"Directory {test.path.Format()} contains 4 matching directories in {SearchOption.AllDirectories.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (20, true, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.TopDirectoryOnly.Format()}."));
 
-            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.AllDirectories),
                 (21, false, $"Directory {test.path.Format()} contains 4 matching directories in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (22, false, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.AllDirectories),
                 (23, false, $"Directory {test.path.Format()} contains 4 matching directories in {SearchOption.AllDirectories.Format()}."));
             DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.dir, (_) => _.Name.Contains("Files"), SearchOption.TopDirectoryOnly),
                 (24, false, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.TopDirectoryOnly.Format()}."));
 
-            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.AllDirectories),
                 (25, true, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.TopDirectoryOnly),
                 (26, true, $"Directory {test.path.Format()} contains 1 matching directory in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.dir, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
                 (27, true, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.AllDirectories.Format()}."));
             DirectoryTestSuite_uTests.DDTContainsDirectoriesPredicate((test.dir, (_) => _.Name.Contains("Files1"), SearchOption.TopDirectoryOnly),
                 (28, true, $"Directory {test.path.Format()} contains 1 matching directory in {SearchOption.TopDirectoryOnly.Format()}."));
 
-            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
+            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.AllDirectories),
                 (29, false, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.AllDirectories.Format()}."));
-            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Name.Contains("Files1"), SearchOption.TopDirectoryOnly),
+            DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.path, (_) => _.Contains("Files1"), SearchOption.TopDirectoryOnly),
                 (30, false, $"Directory {test.path.Format()} contains 1 matching directory in {SearchOption.TopDirectoryOnly.Format()}."));
             DirectoryTestSuite_uTests.DDTNotContainsDirectoriesPredicate((test.dir, (_) => _.Name.Contains("Files1"), SearchOption.AllDirectories),
                 (31, false, $"Directory {test.path.Format()} contains 2 matching directories in {SearchOption.AllDirectories.Format()}."));

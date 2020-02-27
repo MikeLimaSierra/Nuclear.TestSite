@@ -31,34 +31,10 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-            }
+            Boolean result = Directory.Exists(path);
 
-            DirectoryInfo dir;
-
-            try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
-
-            } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
-                return;
-            }
-
-            Exists(dir, _file, _method);
+            InternalTest(result, String.Format("Directory {0} {1}.", path.Format(), result ? "exists" : "doesn't exist"),
+                _file, _method);
         }
 
         /// <summary>
@@ -84,7 +60,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Boolean result = directory.Exists;
 
-            InternalTest(result, String.Format("Directory {0} {1}.", directory.FullName.Format(), result ? "exists" : "does not exist"),
+            InternalTest(result, String.Format("Directory {0} {1}.", directory.FullName.Format(), result ? "exists" : "doesn't exist"),
                 _file, _method);
         }
 
@@ -111,34 +87,23 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
-            DirectoryInfo dir;
+            Boolean result = false;
 
             try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
+                result = Directory.GetFileSystemEntries(path).Length <= 0;
 
             } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
-            IsEmpty(dir, _file, _method);
+            InternalTest(result, String.Format("Directory {0} is {1}empty.", path.Format(), result ? String.Empty : "not "),
+                _file, _method);
         }
 
         /// <summary>
@@ -293,34 +258,23 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
-            DirectoryInfo dir;
+            Int32 result = 0;
 
             try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
+                result = Directory.GetFiles(path).Length;
 
             } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
-            ContainsFiles(dir, _file, _method);
+            InternalTest(result > 0, String.Format("Directory {0} contains {1} {2}.", path.Format(), result, result == 1 ? "file" : "files"),
+                _file, _method);
         }
 
         /// <summary>
@@ -384,33 +338,6 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-            }
-
-            DirectoryInfo dir;
-
-            try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
-
-            } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
-                return;
-            }
-
             if(searchPattern == null) {
                 FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
@@ -421,7 +348,24 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsFiles(dir, searchPattern, searchOption, _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                return;
+            }
+
+            Int32 result = 0;
+
+            try {
+                result = Directory.GetFiles(path, searchPattern, searchOption).Length;
+
+            } catch(Exception ex) {
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                return;
+            }
+
+            InternalTest(result > 0, String.Format("Directory {0} contains {1} {2} matching {3} in {4}.",
+                path.Format(), result, result == 1 ? "file" : "files", searchPattern.Format(), searchOption.Format()),
+                _file, _method);
         }
 
         /// <summary>
@@ -491,38 +435,11 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp", myFileMatch);
         /// </code>
         /// </example>
-        public void ContainsFiles(String path, Predicate<FileInfo> match, SearchOption searchOption,
+        public void ContainsFiles(String path, Predicate<String> match, SearchOption searchOption,
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
-                return;
-            }
-
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-            }
-
-            DirectoryInfo dir;
-
-            try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
-
-            } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
                 return;
             }
 
@@ -536,7 +453,39 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsFiles(dir, match, searchOption, _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                return;
+            }
+
+            String[] files = new String[0];
+
+            try {
+                files = Directory.GetFiles(path, "*", searchOption);
+
+            } catch(Exception ex) {
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                return;
+            }
+
+            List<String> matches = new List<String>();
+
+            try {
+                foreach(String file in files) {
+                    if(match(file)) {
+                        matches.Add(file);
+                    }
+                }
+
+            } catch(Exception ex) {
+                FailTest($"Predicate threw Exception: {ex.Message.Format()}",
+                    _file, _method);
+                return;
+            }
+
+            InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
+                path.Format(), matches.Count, matches.Count == 1 ? "file" : "files", searchOption.Format()),
+                _file, _method);
         }
 
         /// <summary>
@@ -621,34 +570,23 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
-            DirectoryInfo dir;
+            Int32 result = 0;
 
             try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
+                result = Directory.GetDirectories(path).Length;
 
             } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
-            ContainsDirectories(dir, _file, _method);
+            InternalTest(result > 0, String.Format("Directory {0} contains {1} {2}.", path.Format(), result, result == 1 ? "directory" : "directories"),
+                _file, _method);
         }
 
         /// <summary>
@@ -712,33 +650,6 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-            }
-
-            DirectoryInfo dir;
-
-            try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
-
-            } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
-                return;
-            }
-
             if(searchPattern == null) {
                 FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
@@ -749,7 +660,24 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsDirectories(dir, searchPattern, searchOption, _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                return;
+            }
+
+            Int32 result = 0;
+
+            try {
+                result = Directory.GetDirectories(path, searchPattern, searchOption).Length;
+
+            } catch(Exception ex) {
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                return;
+            }
+
+            InternalTest(result > 0, String.Format("Directory {0} contains {1} {2} matching {3} in {4}.",
+                path.Format(), result, result == 1 ? "directory" : "directories", searchPattern.Format(), searchOption.Format()),
+                _file, _method);
         }
 
         /// <summary>
@@ -819,38 +747,11 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp", myDirMatch);
         /// </code>
         /// </example>
-        public void ContainsDirectories(String path, Predicate<DirectoryInfo> match, SearchOption searchOption,
+        public void ContainsDirectories(String path, Predicate<String> match, SearchOption searchOption,
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
-                return;
-            }
-
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-            }
-
-            DirectoryInfo dir;
-
-            try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
-
-            } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
                 return;
             }
 
@@ -864,7 +765,39 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsDirectories(dir, match, searchOption, _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                return;
+            }
+
+            String[] dirs = new String[0];
+
+            try {
+                dirs = Directory.GetDirectories(path, "*", searchOption);
+
+            } catch(Exception ex) {
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                return;
+            }
+
+            List<String> matches = new List<String>();
+
+            try {
+                foreach(String dir in dirs) {
+                    if(match(dir)) {
+                        matches.Add(dir);
+                    }
+                }
+
+            } catch(Exception ex) {
+                FailTest($"Predicate threw Exception: {ex.Message.Format()}",
+                    _file, _method);
+                return;
+            }
+
+            InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
+                path.Format(), matches.Count, matches.Count == 1 ? "directory" : "directories", searchOption.Format()),
+                _file, _method);
         }
 
         /// <summary>

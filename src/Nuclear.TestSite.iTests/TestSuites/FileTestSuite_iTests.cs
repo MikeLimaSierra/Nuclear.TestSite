@@ -44,11 +44,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             (String path, FileInfo file) test = GetLocation();
 
-            FileTestSuite_uTests.DDTExists(test.path, (1, false, $"File {test.path.Format()} does not exist."));
-            FileTestSuite_uTests.DDTExists(test.file, (2, false, $"File {test.path.Format()} does not exist."));
+            FileTestSuite_uTests.DDTExists(test.path, (1, false, $"File {test.path.Format()} doesn't exist."));
+            FileTestSuite_uTests.DDTExists(test.file, (2, false, $"File {test.path.Format()} doesn't exist."));
 
-            FileTestSuite_uTests.DDTNotExists(test.path, (3, true, $"File {test.path.Format()} does not exist."));
-            FileTestSuite_uTests.DDTNotExists(test.file, (4, true, $"File {test.path.Format()} does not exist."));
+            FileTestSuite_uTests.DDTNotExists(test.path, (3, true, $"File {test.path.Format()} doesn't exist."));
+            FileTestSuite_uTests.DDTNotExists(test.file, (4, true, $"File {test.path.Format()} doesn't exist."));
 
             Create(test.file);
 
