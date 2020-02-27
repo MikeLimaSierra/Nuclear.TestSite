@@ -31,42 +31,18 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-            }
-
-            FileInfo dir;
+            Boolean result = false;
 
             try {
-                dir = new FileInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(UnauthorizedAccessException) {
-                FailTest($"Access to {path.Format()} is denied.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
-
-            } catch(NotSupportedException) {
-                FailTest($"{path.Format()} contains a colon (:) in the middle of the string.", _file, _method);
-                return;
+                result = File.Exists(path);
 
             } catch(Exception ex) {
-                FailTest($"Creating the FileInfo instance threw an exception: {ex.Format()}", _file, _method);
+                FailTest($"Checking the path threw an exception: {ex.Format()}", _file, _method);
                 return;
             }
 
-            Exists(dir, _file, _method);
+            InternalTest(result, String.Format("File {0} {1}.", path.Format(), result ? "exists" : "doesn't exist"),
+                _file, _method);
         }
 
         /// <summary>
@@ -92,7 +68,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Boolean result = file.Exists;
 
-            InternalTest(result, String.Format("File {0} {1}.", file.FullName.Format(), result ? "exists" : "does not exist"),
+            InternalTest(result, String.Format("File {0} {1}.", file.FullName.Format(), result ? "exists" : "doesn't exist"),
                 _file, _method);
         }
 

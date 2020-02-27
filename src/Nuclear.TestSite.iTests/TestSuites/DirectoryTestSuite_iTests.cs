@@ -44,11 +44,11 @@ namespace Nuclear.TestSite.TestSuites {
 
             (String path, DirectoryInfo dir) test = GetLocation();
 
-            DirectoryTestSuite_uTests.DDTExists(test.path, (1, false, $"Directory {test.path.Format()} does not exist."));
-            DirectoryTestSuite_uTests.DDTExists(test.dir, (2, false, $"Directory {test.path.Format()} does not exist."));
+            DirectoryTestSuite_uTests.DDTExists(test.path, (1, false, $"Directory {test.path.Format()} doesn't exist."));
+            DirectoryTestSuite_uTests.DDTExists(test.dir, (2, false, $"Directory {test.path.Format()} doesn't exist."));
 
-            DirectoryTestSuite_uTests.DDTNotExists(test.path, (3, true, $"Directory {test.path.Format()} does not exist."));
-            DirectoryTestSuite_uTests.DDTNotExists(test.dir, (4, true, $"Directory {test.path.Format()} does not exist."));
+            DirectoryTestSuite_uTests.DDTNotExists(test.path, (3, true, $"Directory {test.path.Format()} doesn't exist."));
+            DirectoryTestSuite_uTests.DDTNotExists(test.dir, (4, true, $"Directory {test.path.Format()} doesn't exist."));
 
             Create(test.dir);
 

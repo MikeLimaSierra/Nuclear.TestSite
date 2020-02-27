@@ -21,16 +21,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTExists((String) null, (2, false, "Parameter 'path' is null or white space."));
             DDTExists(String.Empty, (3, false, "Parameter 'path' is null or white space."));
             DDTExists(" ", (4, false, "Parameter 'path' is null or white space."));
-            DDTExists(_invalidPath, (5, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTExists(_crazyLongPath, (6, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTExists(_invalidPath, (5, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTExists(_crazyLongPath, (6, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
             DDTNotExists((DirectoryInfo) null, (7, false, "Parameter 'directory' is null."));
 
             DDTNotExists((String) null, (8, false, "Parameter 'path' is null or white space."));
             DDTNotExists(String.Empty, (9, false, "Parameter 'path' is null or white space."));
             DDTNotExists(" ", (10, false, "Parameter 'path' is null or white space."));
-            DDTNotExists(_invalidPath, (11, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotExists(_crazyLongPath, (12, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTNotExists(_invalidPath, (11, true, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTNotExists(_crazyLongPath, (12, true, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
         }
 
