@@ -31,15 +31,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Boolean result = false;
-
-            try {
-                result = Directory.Exists(path);
-
-            } catch(Exception ex) {
-                FailTest($"Checking the path threw an exception: {ex.Format()}", _file, _method);
-                return;
-            }
+            Boolean result = Directory.Exists(path);
 
             InternalTest(result, String.Format("Directory {0} {1}.", path.Format(), result ? "exists" : "doesn't exist"),
                 _file, _method);
