@@ -93,42 +93,26 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+            if(!File.Exists(path)) {
+                FailTest($"File {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
-            FileInfo dir;
+            FileAttributes attr = default;
 
             try {
-                dir = new FileInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(UnauthorizedAccessException) {
-                FailTest($"Access to {path.Format()} is denied.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
-
-            } catch(NotSupportedException) {
-                FailTest($"{path.Format()} contains a colon (:) in the middle of the string.", _file, _method);
-                return;
+                attr = File.GetAttributes(path);
 
             } catch(Exception ex) {
-                FailTest($"Creating the FileInfo instance threw an exception: {ex.Format()}", _file, _method);
+                FailTest($"Operation threw Exception: {ex.Message.Format()}",
+                    _file, _method);
                 return;
             }
 
-            HasAttribute(dir, attribute, _file, _method);
+            Boolean result = attr.HasFlag(attribute);
+
+            InternalTest(result, String.Format("File {0} is {1}flagged with {2}.", path.Format(), result ? String.Empty : "not ", attribute.Format()),
+                _file, _method);
         }
 
         /// <summary>

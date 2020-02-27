@@ -91,9 +91,9 @@ namespace Nuclear.TestSite.TestSuites {
             DDTHasAttribute((@"C:\Windows\explorer.exe", (FileAttributes) 1000000), (6, false, "Parameter 'attribute' is out of bounds."));
             DDTHasAttribute((String.Empty, FileAttributes.Normal), (7, false, "Parameter 'path' is null or white space."));
             DDTHasAttribute((" ", FileAttributes.Normal), (8, false, "Parameter 'path' is null or white space."));
-            DDTHasAttribute((_invalidPath, FileAttributes.Normal), (9, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTHasAttribute((_crazyLongPath, FileAttributes.Normal), (10, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
-            DDTHasAttribute((_pathWithColon, FileAttributes.Normal), (11, false, $"{_pathWithColon.Format()} contains a colon (:) in the middle of the string."));
+            DDTHasAttribute((_invalidPath, FileAttributes.Normal), (9, false, $"File {_invalidPath.Format()} doesn't exist."));
+            DDTHasAttribute((_crazyLongPath, FileAttributes.Normal), (10, false, $"File {_crazyLongPath.Format()} doesn't exist."));
+            DDTHasAttribute((_pathWithColon, FileAttributes.Normal), (11, false, $"File {_pathWithColon.Format()} doesn't exist."));
 
             DDTNotHasAttribute(((FileInfo) null, (FileAttributes) 1000000), (12, false, "Parameter 'file' is null."));
             DDTNotHasAttribute(((FileInfo) null, FileAttributes.Normal), (13, false, "Parameter 'file' is null."));
@@ -104,9 +104,9 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotHasAttribute((@"C:\Windows\explorer.exe", (FileAttributes) 1000000), (17, false, "Parameter 'attribute' is out of bounds."));
             DDTNotHasAttribute((String.Empty, FileAttributes.Normal), (18, false, "Parameter 'path' is null or white space."));
             DDTNotHasAttribute((" ", FileAttributes.Normal), (19, false, "Parameter 'path' is null or white space."));
-            DDTNotHasAttribute((_invalidPath, FileAttributes.Normal), (20, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotHasAttribute((_crazyLongPath, FileAttributes.Normal), (21, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
-            DDTNotHasAttribute((_pathWithColon, FileAttributes.Normal), (22, false, $"{_pathWithColon.Format()} contains a colon (:) in the middle of the string."));
+            DDTNotHasAttribute((_invalidPath, FileAttributes.Normal), (20, false, $"File {_invalidPath.Format()} doesn't exist."));
+            DDTNotHasAttribute((_crazyLongPath, FileAttributes.Normal), (21, false, $"File {_crazyLongPath.Format()} doesn't exist."));
+            DDTNotHasAttribute((_pathWithColon, FileAttributes.Normal), (22, false, $"File {_pathWithColon.Format()} doesn't exist."));
 
         }
 
