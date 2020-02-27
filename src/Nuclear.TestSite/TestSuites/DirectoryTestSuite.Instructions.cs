@@ -269,34 +269,23 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+            if(!Directory.Exists(path)) {
+                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
-            DirectoryInfo dir;
+            Int32 result = 0;
 
             try {
-                dir = new DirectoryInfo(path);
-
-            } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
-                return;
-
-            } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
-                return;
-
-            } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
-                return;
+                result = Directory.GetFiles(path).Length;
 
             } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
+                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
-            ContainsFiles(dir, _file, _method);
+            InternalTest(result > 0, String.Format("Directory {0} contains {1} {2}.", path.Format(), result, result == 1 ? "file" : "files"),
+                _file, _method);
         }
 
         /// <summary>
