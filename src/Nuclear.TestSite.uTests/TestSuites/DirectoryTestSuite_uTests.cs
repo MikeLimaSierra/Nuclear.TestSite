@@ -86,16 +86,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTIsEmpty((String) null, (2, false, "Parameter 'path' is null or white space."));
             DDTIsEmpty(String.Empty, (3, false, "Parameter 'path' is null or white space."));
             DDTIsEmpty(" ", (4, false, "Parameter 'path' is null or white space."));
-            DDTIsEmpty(_invalidPath, (5, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTIsEmpty(_crazyLongPath, (6, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTIsEmpty(_invalidPath, (5, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTIsEmpty(_crazyLongPath, (6, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
             DDTNotIsEmpty((DirectoryInfo) null, (7, false, "Parameter 'directory' is null."));
 
             DDTNotIsEmpty((String) null, (8, false, "Parameter 'path' is null or white space."));
             DDTNotIsEmpty(String.Empty, (9, false, "Parameter 'path' is null or white space."));
             DDTNotIsEmpty(" ", (10, false, "Parameter 'path' is null or white space."));
-            DDTNotIsEmpty(_invalidPath, (11, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotIsEmpty(_crazyLongPath, (12, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTNotIsEmpty(_invalidPath, (11, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTNotIsEmpty(_crazyLongPath, (12, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
         }
 
@@ -295,8 +295,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsFilesPattern((" ", "", SearchOption.AllDirectories), (8, false, "Parameter 'path' is null or white space."));
             DDTContainsFilesPattern((@"C:\Windows", null, SearchOption.AllDirectories), (9, false, "Parameter 'searchPattern' is null."));
             DDTContainsFilesPattern((@"C:\Windows", "", (SearchOption) 1000), (10, false, "Parameter 'searchOption' is out of bounds."));
-            DDTContainsFilesPattern((_invalidPath, null, SearchOption.AllDirectories), (11, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTContainsFilesPattern((_crazyLongPath, null, SearchOption.AllDirectories), (12, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTContainsFilesPattern((_invalidPath, "", SearchOption.AllDirectories), (11, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTContainsFilesPattern((_crazyLongPath, "", SearchOption.AllDirectories), (12, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
             DDTNotContainsFilesPattern(((DirectoryInfo) null, null, (SearchOption) 1000), (13, false, "Parameter 'directory' is null."));
             DDTNotContainsFilesPattern(((DirectoryInfo) null, "", SearchOption.AllDirectories), (14, false, "Parameter 'directory' is null."));
@@ -309,8 +309,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsFilesPattern((" ", "", SearchOption.AllDirectories), (20, false, "Parameter 'path' is null or white space."));
             DDTNotContainsFilesPattern((@"C:\Windows", null, SearchOption.AllDirectories), (21, false, "Parameter 'searchPattern' is null."));
             DDTNotContainsFilesPattern((@"C:\Windows", "", (SearchOption) 1000), (22, false, "Parameter 'searchOption' is out of bounds."));
-            DDTNotContainsFilesPattern((_invalidPath, null, SearchOption.AllDirectories), (23, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotContainsFilesPattern((_crazyLongPath, null, SearchOption.AllDirectories), (24, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTNotContainsFilesPattern((_invalidPath, "", SearchOption.AllDirectories), (23, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTNotContainsFilesPattern((_crazyLongPath, "", SearchOption.AllDirectories), (24, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
         }
 
@@ -363,39 +363,39 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTContainsFilesPredicate(((DirectoryInfo) null, null, (SearchOption) 1000), (1, false, "Parameter 'directory' is null."));
             DDTContainsFilesPredicate(((DirectoryInfo) null, (_) => true, SearchOption.AllDirectories), (2, false, "Parameter 'directory' is null."));
-            DDTContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.AllDirectories), (3, false, "Parameter 'match' is null."));
+            DDTContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.TopDirectoryOnly), (3, false, "Parameter 'match' is null."));
             DDTContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => true, (SearchOption) 1000), (4, false, "Parameter 'searchOption' is out of bounds."));
-            DDTContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.AllDirectories), (5, false, "Predicate threw Exception: "));
+            DDTContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (5, false, "Predicate threw Exception: "));
 
             DDTContainsFilesPredicate(((String) null, null, (SearchOption) 1000), (6, false, "Parameter 'path' is null or white space."));
             DDTContainsFilesPredicate(((String) null, (_) => true, SearchOption.AllDirectories), (7, false, "Parameter 'path' is null or white space."));
             DDTContainsFilesPredicate((String.Empty, (_) => true, SearchOption.AllDirectories), (8, false, "Parameter 'path' is null or white space."));
             DDTContainsFilesPredicate((" ", (_) => true, SearchOption.AllDirectories), (9, false, "Parameter 'path' is null or white space."));
-            DDTContainsFilesPredicate((@"C:\Windows", null, SearchOption.AllDirectories), (10, false, "Parameter 'match' is null."));
+            DDTContainsFilesPredicate((@"C:\Windows", null, SearchOption.TopDirectoryOnly), (10, false, "Parameter 'match' is null."));
             DDTContainsFilesPredicate((@"C:\Windows", (_) => true, (SearchOption) 1000), (11, false, "Parameter 'searchOption' is out of bounds."));
-            DDTContainsFilesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.AllDirectories), (12, false, "Predicate threw Exception: "));
-            DDTContainsFilesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (13, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTContainsFilesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (14, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTContainsFilesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (12, false, "Predicate threw Exception: "));
+            DDTContainsFilesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (13, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTContainsFilesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (14, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
             DDTNotContainsFilesPredicate(((DirectoryInfo) null, null, (SearchOption) 1000), (15, false, "Parameter 'directory' is null."));
             DDTNotContainsFilesPredicate(((DirectoryInfo) null, (_) => true, SearchOption.AllDirectories), (16, false, "Parameter 'directory' is null."));
-            DDTNotContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.AllDirectories), (17, false, "Parameter 'match' is null."));
+            DDTNotContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.TopDirectoryOnly), (17, false, "Parameter 'match' is null."));
             DDTNotContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => true, (SearchOption) 1000), (18, false, "Parameter 'searchOption' is out of bounds."));
-            DDTNotContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.AllDirectories), (19, false, "Predicate threw Exception: "));
+            DDTNotContainsFilesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (19, false, "Predicate threw Exception: "));
 
             DDTNotContainsFilesPredicate(((String) null, null, (SearchOption) 1000), (20, false, "Parameter 'path' is null or white space."));
             DDTNotContainsFilesPredicate(((String) null, (_) => true, SearchOption.AllDirectories), (21, false, "Parameter 'path' is null or white space."));
             DDTNotContainsFilesPredicate((String.Empty, (_) => true, SearchOption.AllDirectories), (22, false, "Parameter 'path' is null or white space."));
             DDTNotContainsFilesPredicate((" ", (_) => true, SearchOption.AllDirectories), (23, false, "Parameter 'path' is null or white space."));
-            DDTNotContainsFilesPredicate((@"C:\Windows", null, SearchOption.AllDirectories), (24, false, "Parameter 'match' is null."));
+            DDTNotContainsFilesPredicate((@"C:\Windows", null, SearchOption.TopDirectoryOnly), (24, false, "Parameter 'match' is null."));
             DDTNotContainsFilesPredicate((@"C:\Windows", (_) => true, (SearchOption) 1000), (25, false, "Parameter 'searchOption' is out of bounds."));
-            DDTNotContainsFilesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.AllDirectories), (26, false, "Predicate threw Exception: "));
-            DDTNotContainsFilesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (27, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotContainsFilesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (28, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTNotContainsFilesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (26, false, "Predicate threw Exception: "));
+            DDTNotContainsFilesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (27, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTNotContainsFilesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (28, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
         }
 
-        internal static void DDTContainsFilesPredicate((String path, Predicate<FileInfo> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
+        internal static void DDTContainsFilesPredicate((String path, Predicate<String> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Directory.ContainsFiles({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
@@ -415,7 +415,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        internal static void DDTNotContainsFilesPredicate((String path, Predicate<FileInfo> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
+        internal static void DDTNotContainsFilesPredicate((String path, Predicate<String> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Directory.ContainsFiles({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
@@ -447,16 +447,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDirectories((String) null, (2, false, "Parameter 'path' is null or white space."));
             DDTContainsDirectories(String.Empty, (3, false, "Parameter 'path' is null or white space."));
             DDTContainsDirectories(" ", (4, false, "Parameter 'path' is null or white space."));
-            DDTContainsDirectories(_invalidPath, (5, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTContainsDirectories(_crazyLongPath, (6, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTContainsDirectories(_invalidPath, (5, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTContainsDirectories(_crazyLongPath, (6, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
             DDTNotContainsDirectories((DirectoryInfo) null, (7, false, "Parameter 'directory' is null."));
 
             DDTNotContainsDirectories((String) null, (8, false, "Parameter 'path' is null or white space."));
             DDTNotContainsDirectories(String.Empty, (9, false, "Parameter 'path' is null or white space."));
             DDTNotContainsDirectories(" ", (10, false, "Parameter 'path' is null or white space."));
-            DDTNotContainsDirectories(_invalidPath, (11, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotContainsDirectories(_crazyLongPath, (12, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTNotContainsDirectories(_invalidPath, (11, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTNotContainsDirectories(_crazyLongPath, (12, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
         }
 
@@ -518,8 +518,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDirectoriesPattern((" ", "", SearchOption.AllDirectories), (8, false, "Parameter 'path' is null or white space."));
             DDTContainsDirectoriesPattern((@"C:\Windows", null, SearchOption.AllDirectories), (9, false, "Parameter 'searchPattern' is null."));
             DDTContainsDirectoriesPattern((@"C:\Windows", "", (SearchOption) 1000), (10, false, "Parameter 'searchOption' is out of bounds."));
-            DDTContainsDirectoriesPattern((_invalidPath, null, SearchOption.AllDirectories), (11, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTContainsDirectoriesPattern((_crazyLongPath, null, SearchOption.AllDirectories), (12, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTContainsDirectoriesPattern((_invalidPath, "", SearchOption.AllDirectories), (11, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTContainsDirectoriesPattern((_crazyLongPath, "", SearchOption.AllDirectories), (12, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
             DDTNotContainsDirectoriesPattern(((DirectoryInfo) null, null, (SearchOption) 1000), (13, false, "Parameter 'directory' is null."));
             DDTNotContainsDirectoriesPattern(((DirectoryInfo) null, "", SearchOption.AllDirectories), (14, false, "Parameter 'directory' is null."));
@@ -532,8 +532,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDirectoriesPattern((" ", "", SearchOption.AllDirectories), (20, false, "Parameter 'path' is null or white space."));
             DDTNotContainsDirectoriesPattern((@"C:\Windows", null, SearchOption.AllDirectories), (21, false, "Parameter 'searchPattern' is null."));
             DDTNotContainsDirectoriesPattern((@"C:\Windows", "", (SearchOption) 1000), (22, false, "Parameter 'searchOption' is out of bounds."));
-            DDTNotContainsDirectoriesPattern((_invalidPath, null, SearchOption.AllDirectories), (23, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotContainsDirectoriesPattern((_crazyLongPath, null, SearchOption.AllDirectories), (24, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTNotContainsDirectoriesPattern((_invalidPath, "", SearchOption.AllDirectories), (23, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTNotContainsDirectoriesPattern((_crazyLongPath, "", SearchOption.AllDirectories), (24, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
         }
 
@@ -586,39 +586,39 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTContainsDirectoriesPredicate(((DirectoryInfo) null, null, (SearchOption) 1000), (1, false, "Parameter 'directory' is null."));
             DDTContainsDirectoriesPredicate(((DirectoryInfo) null, (_) => true, SearchOption.AllDirectories), (2, false, "Parameter 'directory' is null."));
-            DDTContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.AllDirectories), (3, false, "Parameter 'match' is null."));
+            DDTContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.TopDirectoryOnly), (3, false, "Parameter 'match' is null."));
             DDTContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => true, (SearchOption) 1000), (4, false, "Parameter 'searchOption' is out of bounds."));
-            DDTContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.AllDirectories), (5, false, "Predicate threw Exception: "));
+            DDTContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (5, false, "Predicate threw Exception: "));
 
             DDTContainsDirectoriesPredicate(((String) null, null, (SearchOption) 1000), (6, false, "Parameter 'path' is null or white space."));
             DDTContainsDirectoriesPredicate(((String) null, (_) => true, SearchOption.AllDirectories), (7, false, "Parameter 'path' is null or white space."));
             DDTContainsDirectoriesPredicate((String.Empty, (_) => true, SearchOption.AllDirectories), (8, false, "Parameter 'path' is null or white space."));
             DDTContainsDirectoriesPredicate((" ", (_) => true, SearchOption.AllDirectories), (9, false, "Parameter 'path' is null or white space."));
-            DDTContainsDirectoriesPredicate((@"C:\Windows", null, SearchOption.AllDirectories), (10, false, "Parameter 'match' is null."));
+            DDTContainsDirectoriesPredicate((@"C:\Windows", null, SearchOption.TopDirectoryOnly), (10, false, "Parameter 'match' is null."));
             DDTContainsDirectoriesPredicate((@"C:\Windows", (_) => true, (SearchOption) 1000), (11, false, "Parameter 'searchOption' is out of bounds."));
-            DDTContainsDirectoriesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.AllDirectories), (12, false, "Predicate threw Exception: "));
-            DDTContainsDirectoriesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (13, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTContainsDirectoriesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (14, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTContainsDirectoriesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (12, false, "Predicate threw Exception: "));
+            DDTContainsDirectoriesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (13, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTContainsDirectoriesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (14, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
             DDTNotContainsDirectoriesPredicate(((DirectoryInfo) null, null, (SearchOption) 1000), (15, false, "Parameter 'directory' is null."));
             DDTNotContainsDirectoriesPredicate(((DirectoryInfo) null, (_) => true, SearchOption.AllDirectories), (16, false, "Parameter 'directory' is null."));
-            DDTNotContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.AllDirectories), (17, false, "Parameter 'match' is null."));
+            DDTNotContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), null, SearchOption.TopDirectoryOnly), (17, false, "Parameter 'match' is null."));
             DDTNotContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => true, (SearchOption) 1000), (18, false, "Parameter 'searchOption' is out of bounds."));
-            DDTNotContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.AllDirectories), (19, false, "Predicate threw Exception: "));
+            DDTNotContainsDirectoriesPredicate((new DirectoryInfo(@"C:\Windows"), (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (19, false, "Predicate threw Exception: "));
 
             DDTNotContainsDirectoriesPredicate(((String) null, null, (SearchOption) 1000), (20, false, "Parameter 'path' is null or white space."));
             DDTNotContainsDirectoriesPredicate(((String) null, (_) => true, SearchOption.AllDirectories), (21, false, "Parameter 'path' is null or white space."));
             DDTNotContainsDirectoriesPredicate((String.Empty, (_) => true, SearchOption.AllDirectories), (22, false, "Parameter 'path' is null or white space."));
             DDTNotContainsDirectoriesPredicate((" ", (_) => true, SearchOption.AllDirectories), (23, false, "Parameter 'path' is null or white space."));
-            DDTNotContainsDirectoriesPredicate((@"C:\Windows", null, SearchOption.AllDirectories), (24, false, "Parameter 'match' is null."));
+            DDTNotContainsDirectoriesPredicate((@"C:\Windows", null, SearchOption.TopDirectoryOnly), (24, false, "Parameter 'match' is null."));
             DDTNotContainsDirectoriesPredicate((@"C:\Windows", (_) => true, (SearchOption) 1000), (25, false, "Parameter 'searchOption' is out of bounds."));
-            DDTNotContainsDirectoriesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.AllDirectories), (26, false, "Predicate threw Exception: "));
-            DDTNotContainsDirectoriesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (27, false, $"The path {_invalidPath.Format()} contains invalid characters such as \", <, >, or |."));
-            DDTNotContainsDirectoriesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (28, false, $"The path {_crazyLongPath.Format()} exceeds the system-defined maximum length."));
+            DDTNotContainsDirectoriesPredicate((@"C:\Windows", (_) => throw new ArgumentException(), SearchOption.TopDirectoryOnly), (26, false, "Predicate threw Exception: "));
+            DDTNotContainsDirectoriesPredicate((@_invalidPath, (_) => true, SearchOption.AllDirectories), (27, false, $"Directory {_invalidPath.Format()} doesn't exist."));
+            DDTNotContainsDirectoriesPredicate((_crazyLongPath, (_) => true, SearchOption.AllDirectories), (28, false, $"Directory {_crazyLongPath.Format()} doesn't exist."));
 
         }
 
-        internal static void DDTContainsDirectoriesPredicate((String path, Predicate<DirectoryInfo> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
+        internal static void DDTContainsDirectoriesPredicate((String path, Predicate<String> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Directory.ContainsDirectories({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
@@ -638,7 +638,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        internal static void DDTNotContainsDirectoriesPredicate((String path, Predicate<DirectoryInfo> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
+        internal static void DDTNotContainsDirectoriesPredicate((String path, Predicate<String> match, SearchOption opt) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Directory.ContainsDirectories({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
