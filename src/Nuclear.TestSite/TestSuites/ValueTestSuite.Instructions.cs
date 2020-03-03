@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 using Nuclear.Extensions;
@@ -314,6 +315,72 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(Math.Abs(left - right) <= margin, $"[Left = {left.Format()}; Right = {right.Format()}; Margin = {margin.Format()}]",
                 _file, _method);
+
+        #endregion
+
+        #region IsEqualDirectory
+
+        /// <summary>
+        /// Tests if two <see cref="DirectoryInfo"/> values are equal.
+        /// </summary>
+        /// <param name="left">The first value.</param>
+        /// <param name="right">The second value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Value.Equals(dir1, dir2);
+        /// </code>
+        /// </example>
+        public void IsEqual(DirectoryInfo left, DirectoryInfo right,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(left == null) {
+                FailTest($"Parameter '{nameof(left)}' is null.", _file, _method);
+                return;
+            }
+
+            if(right == null) {
+                FailTest($"Parameter '{nameof(right)}' is null.", _file, _method);
+                return;
+            }
+
+            InternalTest(left.FullName == right.FullName, $"[Left = {left.FullName.Format()}; Right = {right.FullName.Format()}]",
+                _file, _method);
+        }
+
+        #endregion
+
+        #region IsEqualFile
+
+        /// <summary>
+        /// Tests if two <see cref="FileInfo"/> values are equal.
+        /// </summary>
+        /// <param name="left">The first value.</param>
+        /// <param name="right">The second value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Value.Equals(file1, file2);
+        /// </code>
+        /// </example>
+        public void IsEqual(FileInfo left, FileInfo right,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(left == null) {
+                FailTest($"Parameter '{nameof(left)}' is null.", _file, _method);
+                return;
+            }
+
+            if(right == null) {
+                FailTest($"Parameter '{nameof(right)}' is null.", _file, _method);
+                return;
+            }
+
+            InternalTest(left.FullName == right.FullName, $"[Left = {left.FullName.Format()}; Right = {right.FullName.Format()}]",
+                _file, _method);
+        }
 
         #endregion
 
