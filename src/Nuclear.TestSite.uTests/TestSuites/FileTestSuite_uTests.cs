@@ -77,6 +77,71 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region IsEmpty
+
+        [TestMethod]
+        void IsEmpty() {
+
+            DDTIsEmpty((FileInfo) null, (1, false, "Parameter 'file' is null."));
+
+            DDTIsEmpty((String) null, (2, false, "Parameter 'path' is null or white space."));
+            DDTIsEmpty(String.Empty, (3, false, "Parameter 'path' is null or white space."));
+            DDTIsEmpty(" ", (4, false, "Parameter 'path' is null or white space."));
+            DDTIsEmpty(_invalidPath, (5, false, $"File {_invalidPath.Format()} doesn't exist."));
+            DDTIsEmpty(_crazyLongPath, (6, false, $"File {_crazyLongPath.Format()} doesn't exist."));
+
+            DDTNotIsEmpty((FileInfo) null, (7, false, "Parameter 'file' is null."));
+
+            DDTNotIsEmpty((String) null, (8, false, "Parameter 'path' is null or white space."));
+            DDTNotIsEmpty(String.Empty, (9, false, "Parameter 'path' is null or white space."));
+            DDTNotIsEmpty(" ", (10, false, "Parameter 'path' is null or white space."));
+            DDTNotIsEmpty(_invalidPath, (11, false, $"File {_invalidPath.Format()} doesn't exist."));
+            DDTNotIsEmpty(_crazyLongPath, (12, false, $"File {_crazyLongPath.Format()} doesn't exist."));
+
+        }
+
+        internal static void DDTIsEmpty(String input, (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.File.IsEmpty({input.Format()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.File.IsEmpty(input, _file, _method),
+                expected, "Test.If.File.IsEmpty", _file, _method);
+
+        }
+
+        internal static void DDTIsEmpty(FileInfo input, (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.File.IsEmpty({input.Format()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.File.IsEmpty(input, _file, _method),
+                expected, "Test.If.File.IsEmpty", _file, _method);
+
+        }
+
+        internal static void DDTNotIsEmpty(String input, (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.File.IsEmpty({input.Format()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.File.IsEmpty(input, _file, _method),
+                expected, "Test.IfNot.File.IsEmpty", _file, _method);
+
+        }
+
+        internal static void DDTNotIsEmpty(FileInfo input, (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.File.IsEmpty({input.Format()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.File.IsEmpty(input, _file, _method),
+                expected, "Test.IfNot.File.IsEmpty", _file, _method);
+
+        }
+
+        #endregion
+
         #region HasAttribute
 
         [TestMethod]

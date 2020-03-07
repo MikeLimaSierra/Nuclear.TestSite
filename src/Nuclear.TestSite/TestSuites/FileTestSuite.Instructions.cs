@@ -66,6 +66,92 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region IsEmpty
+
+        /// <summary>
+        /// Tests if the file at <paramref name="path"/> is empty.
+        /// </summary>
+        /// <param name="path">The file path to be checked.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.File.IsEmpty(@"C:\Temp");
+        /// </code>
+        /// </example>
+        public void IsEmpty(String path,
+        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(String.IsNullOrWhiteSpace(path)) {
+                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                return;
+            }
+
+            if(!File.Exists(path)) {
+                FailTest($"File {path.Format()} doesn't exist.", _file, _method);
+                return;
+            }
+
+            Boolean result;
+
+            try {
+                result = File.ReadAllText(path).Length == 0;
+
+            } catch(Exception ex) {
+                FailTest($"Operation threw Exception: {ex.Message.Format()}",
+                    _file, _method);
+                return;
+            }
+
+            InternalTest(result, String.Format("File {0} is {1}empty.", path.Format(), result ? String.Empty : "not "),
+                _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if the <paramref name="file"/> is empty.
+        /// </summary>
+        /// <param name="file">The file to be checked.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Fil.IsEmpty(file);
+        /// </code>
+        /// </example>
+        public void IsEmpty(FileInfo file,
+        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(file == null) {
+                FailTest($"Parameter '{nameof(file)}' is null.", _file, _method);
+                return;
+            }
+
+            file.Refresh();
+
+            if(!file.Exists) {
+                FailTest($"File {file.Format()} doesn't exist.", _file, _method);
+                return;
+            }
+
+            Boolean result = false;
+
+            if(file.Length <= 6) {
+                try {
+                    result = File.ReadAllText(file.FullName).Length == 0;
+
+                } catch(Exception ex) {
+                    FailTest($"Operation threw Exception: {ex.Message.Format()}",
+                        _file, _method);
+                    return;
+                }
+            }
+
+            InternalTest(result, String.Format("File {0} is {1}empty.", file.FullName.Format(), result ? String.Empty : "not "),
+                _file, _method);
+        }
+
+        #endregion
+
         #region HasAttribute
 
         /// <summary>
