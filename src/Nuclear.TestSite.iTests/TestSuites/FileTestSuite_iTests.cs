@@ -64,6 +64,56 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region IsEmpty
+
+        [TestMethod]
+        void IsEmpty() {
+
+            (String path, FileInfo file) test = GetLocation();
+            FileInfo testContent = new FileInfo(Path.Combine(test.path, "IsEmpty"));
+
+            FileTestSuite_uTests.DDTIsEmpty(test.path, (1, false, $"File {test.path.Format()} doesn't exist."));
+            FileTestSuite_uTests.DDTIsEmpty(test.file, (2, false, $"File {test.path.Format()} doesn't exist."));
+
+            FileTestSuite_uTests.DDTNotIsEmpty(test.path, (3, false, $"File {test.path.Format()} doesn't exist."));
+            FileTestSuite_uTests.DDTNotIsEmpty(test.file, (4, false, $"File {test.path.Format()} doesn't exist."));
+
+            Create(test.file);
+
+            FileTestSuite_uTests.DDTIsEmpty(test.path, (5, true, $"File {test.path.Format()} is empty."));
+            FileTestSuite_uTests.DDTIsEmpty(test.file, (6, true, $"File {test.path.Format()} is empty."));
+
+            FileTestSuite_uTests.DDTNotIsEmpty(test.path, (7, false, $"File {test.path.Format()} is empty."));
+            FileTestSuite_uTests.DDTNotIsEmpty(test.file, (8, false, $"File {test.path.Format()} is empty."));
+
+            using(StreamWriter stream = test.file.AppendText()) {
+                stream.Write("");
+                stream.Close();
+            }
+
+            FileTestSuite_uTests.DDTIsEmpty(test.path, (9, true, $"File {test.path.Format()} is empty."));
+            FileTestSuite_uTests.DDTIsEmpty(test.file, (10, true, $"File {test.path.Format()} is empty."));
+
+            FileTestSuite_uTests.DDTNotIsEmpty(test.path, (11, false, $"File {test.path.Format()} is empty."));
+            FileTestSuite_uTests.DDTNotIsEmpty(test.file, (12, false, $"File {test.path.Format()} is empty."));
+
+            using(StreamWriter stream = test.file.AppendText()) {
+                stream.Write("asdf");
+                stream.Close();
+            }
+
+            FileTestSuite_uTests.DDTIsEmpty(test.path, (13, false, $"File {test.path.Format()} is not empty."));
+            FileTestSuite_uTests.DDTIsEmpty(test.file, (14, false, $"File {test.path.Format()} is not empty."));
+
+            FileTestSuite_uTests.DDTNotIsEmpty(test.path, (15, true, $"File {test.path.Format()} is not empty."));
+            FileTestSuite_uTests.DDTNotIsEmpty(test.file, (16, true, $"File {test.path.Format()} is not empty."));
+
+            Delete(test.file);
+
+        }
+
+        #endregion
+
         #region HasAttribute
 
         [TestMethod]
