@@ -1161,35 +1161,32 @@ namespace Nuclear.TestSite.TestSuites {
             if(!result && count1 == count2) {
                 result = true;
 
-                using(IEnumerator<T> enum1 = enumeration.GetEnumerator()) {
-                    using(IEnumerator<T> enum2 = other.GetEnumerator()) {
+                using IEnumerator<T> enum1 = enumeration.GetEnumerator();
+                using IEnumerator<T> enum2 = other.GetEnumerator();
 
-                        do {
-                            T element1 = enum1.Current;
-                            T element2 = enum2.Current;
-                            Boolean contains = false;
+                while(enum1.MoveNext() && enum2.MoveNext()) {
+                    T element1 = enum1.Current;
+                    T element2 = enum2.Current;
+                    Boolean contains = false;
 
-                            try {
-                                contains = comparer.Equals(element1, element2);
+                    try {
+                        contains = comparer.Equals(element1, element2);
 
-                            } catch(Exception ex) {
-                                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
-                                    _file, _method);
-                                return;
-                            }
+                    } catch(Exception ex) {
+                        FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                            _file, _method);
+                        return;
+                    }
 
-                            if(!contains) {
-                                result = false;
-                                break;
-                            }
-
-                        } while(enum1.MoveNext() && enum2.MoveNext());
+                    if(!contains) {
+                        result = false;
+                        break;
                     }
                 }
             }
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Elements are: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
-                _file, _method);
+                    _file, _method);
         }
 
         #endregion
