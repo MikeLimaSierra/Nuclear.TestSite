@@ -366,7 +366,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTContainsWithComparer<T>((IEnumerable<T> enumeration, T element, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Enumerable.Contains({input.enumeration.Format()}, {input.element.Format()}, {input.comparer.FormatType()})", _file, _method);
+            Test.Note($"Test.If.Enumerable.Contains<{typeof(T).Format()}>({input.enumeration.Format()}, {input.element.Format()}, {input.comparer.FormatType()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input.enumeration, input.element, input.comparer, _file, _method),
                 expected, "Test.If.Enumerable.Contains", _file, _method);
@@ -434,7 +434,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotContainsWithComparer<T>((IEnumerable<T> enumeration, T element, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Enumerable.Contains({input.enumeration.Format()}, {input.element.Format()}, {input.comparer.FormatType()})", _file, _method);
+            Test.Note($"Test.IfNot.Enumerable.Contains<{typeof(T).Format()}>({input.enumeration.Format()}, {input.element.Format()}, {input.comparer.FormatType()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input.enumeration, input.element, input.comparer, _file, _method),
                 expected, "Test.IfNot.Enumerable.Contains", _file, _method);
@@ -457,6 +457,176 @@ namespace Nuclear.TestSite.TestSuites {
             Test.Note($"Test.IfNot.Enumerable.Contains<{typeof(T).Format()}>({input.enumeration.Format()}, {input.element.Format()}, {input.comparer.FormatType()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input.enumeration, input.element, input.comparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.Contains", _file, _method);
+
+        }
+
+        #endregion
+
+        #region ContainsComparerKVP
+
+        [TestMethod]
+        void ContainsWithComparerKVP() {
+
+            DDTContainsWithComparerKVP<Dummy, Dummy>((null, default, null, null), (1, false, "Parameter 'enumeration' is null."));
+            DDTContainsWithComparerKVP<Dummy, Dummy>((null, default, new DummyEqualityComparer(), new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>(), default, null, new DummyEqualityComparer()), (3, false, "Parameter 'keyComparer' is null."));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>(), default, new DummyEqualityComparer(), null), (4, false, "Parameter 'valueComparer' is null."));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new ThrowingEqualityComparer(), new DummyEqualityComparer()),
+                (5, false, "Key comparer threw Exception:"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyEqualityComparer(), new ThrowingEqualityComparer()),
+                (6, false, "Value comparer threw Exception:"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(0, 0), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (7, false, "Enumeration doesn't contain element with key '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(0, 2), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (8, false, "Enumeration doesn't contain element with key '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (9, false, "Enumeration doesn't contain element ['1'] => '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 2), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (10, true, "Enumeration contains element ['1'] => '2'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 4), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (11, false, "Enumeration doesn't contain element ['1'] => '4'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+
+            DDTContainsWithComparerKVP((null, default, null, null), (12, false, "Parameter 'enumeration' is null."));
+            DDTContainsWithComparerKVP((null, default, new DummyIEqualityComparer(), new DummyIEqualityComparer()), (13, false, "Parameter 'enumeration' is null."));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>(), default, null, new DummyIEqualityComparer()), (14, false, "Parameter 'keyComparer' is null."));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>(), default, new DummyIEqualityComparer(), null), (15, false, "Parameter 'valueComparer' is null."));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry(1, 2), new DictionaryEntry(3, 4), new DictionaryEntry(5, 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 0), new ThrowingIEqualityComparer(), new DummyIEqualityComparer()),
+                (16, false, "Key comparer threw Exception:"));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry(1, 2), new DictionaryEntry(3, 4), new DictionaryEntry(5, 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 0), new DummyIEqualityComparer(), new ThrowingIEqualityComparer()),
+                (17, false, "Value comparer threw Exception:"));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry(1, 2), new DictionaryEntry(3, 4), new DictionaryEntry(5, 6) }, new DictionaryEntry((Dummy) 0, (Dummy) 0), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (18, false, "Enumeration doesn't contain element with key '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry(1, 2), new DictionaryEntry(3, 4), new DictionaryEntry(5, 6) }, new DictionaryEntry((Dummy) 0, (Dummy) 2), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (19, false, "Enumeration doesn't contain element with key '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry(1, 2), new DictionaryEntry(3, 4), new DictionaryEntry(5, 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 0), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (20, false, "Enumeration doesn't contain element ['1'] => '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry(1, 2), new DictionaryEntry(3, 4), new DictionaryEntry(5, 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 2), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (21, true, "Enumeration contains element ['1'] => '2'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry(1, 2), new DictionaryEntry(3, 4), new DictionaryEntry(5, 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 4), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (22, false, "Enumeration doesn't contain element ['1'] => '4'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+
+            DDTContainsWithComparerKVP((null, default, (IEqualityComparer<Dummy>) null, (IEqualityComparer<Dummy>) null), (23, false, "Parameter 'enumeration' is null."));
+            DDTContainsWithComparerKVP((null, default, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (24, false, "Parameter 'enumeration' is null."));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>(), default, null, new DummyIEqualityComparerT()), (25, false, "Parameter 'keyComparer' is null."));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>(), default, new DummyIEqualityComparerT(), null), (26, false, "Parameter 'valueComparer' is null."));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (27, false, "Key comparer threw Exception:"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT()),
+                (28, false, "Value comparer threw Exception:"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(0, 0), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (29, false, "Enumeration doesn't contain element with key '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(0, 2), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (30, false, "Enumeration doesn't contain element with key '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (31, false, "Enumeration doesn't contain element ['1'] => '0'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 2), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (32, true, "Enumeration contains element ['1'] => '2'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsWithComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 4), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (33, false, "Enumeration doesn't contain element ['1'] => '4'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+
+        }
+
+        void DDTContainsWithComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.Contains<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.element.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input.enumeration, input.element, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.Contains", _file, _method);
+
+        }
+
+        void DDTContainsWithComparerKVP((IEnumerable<DictionaryEntry> enumeration, DictionaryEntry element, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.Contains({input.enumeration.Format()}, {input.element.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input.enumeration, input.element, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.Contains", _file, _method);
+
+        }
+
+        void DDTContainsWithComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.Contains<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.element.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input.enumeration, input.element, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.Contains", _file, _method);
+
+        }
+
+        [TestMethod]
+        void NotContainsWithComparerKVP() {
+
+            //DDTNotContainsWithComparerKVP<Dummy>((null, null, null), (1, false, "Parameter 'enumeration' is null."));
+            //DDTNotContainsWithComparerKVP((null, 1, new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, null, new DummyEqualityComparer()), (3, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 1, null), (4, false, "Parameter 'comparer' is null."));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingEqualityComparer()), (5, false, "Comparer threw Exception:"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, null, 3 }, null, new DummyEqualityComparer()), (6, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 2, new DummyEqualityComparer()), (7, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 4, new DummyEqualityComparer()), (8, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
+
+            //DDTNotContainsWithComparerKVP((null, null, null), (9, false, "Parameter 'enumeration' is null."));
+            //DDTNotContainsWithComparerKVP((null, 1, new DummyIEqualityComparer()), (10, false, "Parameter 'enumeration' is null."));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer()), (11, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer) null), (12, false, "Parameter 'comparer' is null."));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 1, DynamicEqualityComparer.FromDelegate(
+            //    (x, y) => throw new NotImplementedException(),
+            //    (obj) => throw new NotImplementedException())),
+            //    (13, false, "Comparer threw Exception:"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer()), (14, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, (Dummy) 2, new DummyIEqualityComparer()), (15, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, (Dummy) 4, new DummyIEqualityComparer()), (16, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
+
+            //DDTNotContainsWithComparerKVP((null, null, (IEqualityComparer<Dummy>) null), (17, false, "Parameter 'enumeration' is null."));
+            //DDTNotContainsWithComparerKVP((null, 1, new DummyIEqualityComparerT()), (18, false, "Parameter 'enumeration' is null."));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT()), (19, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 1, DynamicEqualityComparer.FromDelegate<Dummy>(
+            //    (x, y) => throw new NotImplementedException(),
+            //    (obj) => throw new NotImplementedException())),
+            //    (21, false, "Comparer threw Exception:"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT()), (22, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 2, new DummyIEqualityComparerT()), (23, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
+            //DDTNotContainsWithComparerKVP((new List<Dummy>() { 1, 2, 3 }, 4, new DummyIEqualityComparerT()), (24, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
+
+        }
+
+        void DDTNotContainsWithComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.Contains<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.element.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input.enumeration, input.element, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.Contains", _file, _method);
+
+        }
+
+        void DDTNotContainsWithComparerKVP((IEnumerable<DictionaryEntry> enumeration, DictionaryEntry element, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.Contains({input.enumeration.Format()}, {input.element.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input.enumeration, input.element, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.Contains", _file, _method);
+
+        }
+
+        void DDTNotContainsWithComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.Contains<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.element.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input.enumeration, input.element, input.keyComparer, input.valueComparer, _file, _method),
                 expected, "Test.IfNot.Enumerable.Contains", _file, _method);
 
         }
@@ -686,7 +856,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTContainsDuplicatesWithComparer<T>((IEnumerable<T> enumeration, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Enumerable.ContainsDuplicates({input.enumeration.Format()}, {input.comparer.FormatType()})", _file, _method);
+            Test.Note($"Test.If.Enumerable.ContainsDuplicates<{typeof(T).Format()}>({input.enumeration.Format()}, {input.comparer.FormatType()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsDuplicates(input.enumeration, input.comparer, _file, _method),
                 expected, "Test.If.Enumerable.ContainsDuplicates", _file, _method);
@@ -758,7 +928,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotContainsDuplicatesWithComparer<T>((IEnumerable<T> enumeration, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Enumerable.ContainsDuplicates({input.enumeration.Format()}, {input.comparer.FormatType()})", _file, _method);
+            Test.Note($"Test.IfNot.Enumerable.ContainsDuplicates<{typeof(T).Format()}>({input.enumeration.Format()}, {input.comparer.FormatType()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsDuplicates(input.enumeration, input.comparer, _file, _method),
                 expected, "Test.IfNot.Enumerable.ContainsDuplicates", _file, _method);

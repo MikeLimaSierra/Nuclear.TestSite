@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+
 using Nuclear.TestSite;
 
 namespace Ntt {
@@ -186,6 +187,16 @@ namespace Ntt {
     internal class ThrowingEqualityComparer : EqualityComparer<Dummy> {
         public override Boolean Equals(Dummy x, Dummy y) => throw new NotImplementedException();
         public override Int32 GetHashCode(Dummy obj) => throw new NotImplementedException();
+    }
+
+    internal class ThrowingIEqualityComparer : IEqualityComparer {
+        public Boolean Equals(Object x, Object y) => throw new NotImplementedException();
+        public Int32 GetHashCode(Object obj) => throw new NotImplementedException();
+    }
+
+    internal class ThrowingIEqualityComparerT : IEqualityComparer<Dummy> {
+        public Boolean Equals(Dummy x, Dummy y) => throw new NotImplementedException();
+        public Int32 GetHashCode(Dummy obj) => throw new NotImplementedException();
     }
 
     internal class PropertyChangedEventDataEqualityComparer : IEqualityComparer<EventData<PropertyChangedEventArgs>> {
