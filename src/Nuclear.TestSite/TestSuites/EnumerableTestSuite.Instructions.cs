@@ -308,6 +308,155 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsComparerKVP
+
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains <paramref name="element"/>.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="element">The element of type <see cref="KeyValuePair{TKey, TValue}"/> to search for.</param>
+        /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
+        /// </code>
+        /// </example>
+        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            Contains(enumeration, element, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains <paramref name="element"/>.
+        /// </summary>
+        /// <param name="enumeration">The <see cref="IEnumerable{DictionaryEntry}"/> that is checked.</param>
+        /// <param name="element">The <see cref="DictionaryEntry"/> to search for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
+        /// </code>
+        /// </example>
+        public void Contains(IEnumerable<DictionaryEntry> enumeration, DictionaryEntry element, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            Contains(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), new KeyValuePair<Object, Object>(element.Key, element.Value),
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains <paramref name="element"/>.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="element">The element of type <see cref="KeyValuePair{TKey, TValue}"/> to search for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
+        /// </code>
+        /// </example>
+        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            Boolean result = default;
+            IEnumerable<TKey> keys = enumeration.Select(kvp => kvp.Key);
+
+            try {
+                result = keys.Contains(element.Key, keyComparer);
+
+            } catch(Exception ex) {
+                FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                    _file, _method);
+                return;
+            }
+
+            if(!result) {
+                InternalTest(result, String.Format("Enumeration {0} element with key {1}. Enumeration is: {2}", result ? "contains" : "doesn't contain", element.Key.Format(), enumeration.Format()),
+                    _file, _method);
+                return;
+            }
+
+            result = false;
+
+            foreach(KeyValuePair<TKey, TValue> kvp in enumeration.Where(kvp => keyComparer.Equals(kvp.Key, element.Key))) {
+                try {
+                    if(valueComparer.Equals(kvp.Value, element.Value)) {
+                        result = true;
+                        break;
+                    }
+
+                } catch(Exception ex) {
+                    FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                        _file, _method);
+                    return;
+                }
+            }
+
+            InternalTest(result, String.Format("Enumeration {0} element {1}. Enumeration is: {2}", result ? "contains" : "doesn't contain", element.Format(), enumeration.Format()),
+                _file, _method);
+        }
+
+        #endregion
+
         #region ContainsPredicate
 
         /// <summary>
