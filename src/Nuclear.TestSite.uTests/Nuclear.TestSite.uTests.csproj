@@ -27,9 +27,5 @@
       <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\$(Platform)\$(Configuration)\netstandard2.0\Nuclear.Test.dll</HintPath>
     </Reference>
   </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-  </ItemGroup>
 
 </Project>
