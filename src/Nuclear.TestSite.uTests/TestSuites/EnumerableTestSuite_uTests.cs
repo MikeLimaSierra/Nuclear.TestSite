@@ -341,10 +341,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsWithComparer((null, 1, new DummyIEqualityComparer()), (10, false, "Parameter 'enumeration' is null."));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer()), (11, false, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (13, false, "Comparer threw Exception:"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparer()), (13, false, "Comparer threw Exception:"));
             DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer()), (14, true, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 2, new DummyIEqualityComparer()), (15, true, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 4, new DummyIEqualityComparer()), (16, false, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
@@ -353,10 +350,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsWithComparer((null, 1, new DummyIEqualityComparerT()), (18, false, "Parameter 'enumeration' is null."));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT()), (19, false, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (21, false, "Comparer threw Exception:"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparerT()), (21, false, "Comparer threw Exception:"));
             DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT()), (22, true, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 2, new DummyIEqualityComparerT()), (23, true, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 4, new DummyIEqualityComparerT()), (24, false, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
@@ -409,10 +403,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsWithComparer((null, 1, new DummyIEqualityComparer()), (10, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer()), (11, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (13, false, "Comparer threw Exception:"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparer()), (13, false, "Comparer threw Exception:"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer()), (14, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 2, new DummyIEqualityComparer()), (15, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 4, new DummyIEqualityComparer()), (16, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
@@ -421,10 +412,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsWithComparer((null, 1, new DummyIEqualityComparerT()), (18, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT()), (19, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (21, false, "Comparer threw Exception:"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparerT()), (21, false, "Comparer threw Exception:"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT()), (22, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 2, new DummyIEqualityComparerT()), (23, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 4, new DummyIEqualityComparerT()), (24, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
@@ -852,9 +840,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((null, null), (11, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesWithComparer((null, new DummyIEqualityComparer()), (12, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, (IEqualityComparer) null), (13, false, "Parameter 'comparer' is null."));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())), (14, false, "Comparer threw Exception:"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparer()), (14, false, "Comparer threw Exception:"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
@@ -865,9 +851,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((null, (IEqualityComparer<Dummy>) null), (21, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesWithComparer((null, new DummyIEqualityComparerT()), (22, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, (IEqualityComparer<Dummy>) null), (23, false, "Parameter 'comparer' is null."));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())), (24, false, "Comparer threw Exception:"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparerT()), (24, false, "Comparer threw Exception:"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
@@ -924,9 +908,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((null, null), (11, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesWithComparer((null, new DummyIEqualityComparer()), (12, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, (IEqualityComparer) null), (13, false, "Parameter 'comparer' is null."));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())), (14, false, "Comparer threw Exception:"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparer()), (14, false, "Comparer threw Exception:"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
@@ -937,9 +919,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((null, (IEqualityComparer<Dummy>) null), (21, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesWithComparer((null, new DummyIEqualityComparerT()), (22, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, (IEqualityComparer<Dummy>) null), (23, false, "Parameter 'comparer' is null."));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())), (24, false, "Comparer threw Exception:"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparerT()), (24, false, "Comparer threw Exception:"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
@@ -1111,10 +1091,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsRangeComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (14, false, "Parameter 'enumeration' is null."));
             DDTContainsRangeComparer((new List<Dummy>(), null, new DummyIEqualityComparer()), (15, false, "Parameter 'elements' is null."));
             DDTContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (16, false, "Parameter 'comparer' is null."));
-            DDTContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (17, false, "Comparer threw Exception:"));
+            DDTContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (17, false, "Comparer threw Exception:"));
 
             DDTContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparer()), (18, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
             DDTContainsRangeComparer((new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (19, false, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']"));
@@ -1129,10 +1106,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsRangeComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (26, false, "Parameter 'enumeration' is null."));
             DDTContainsRangeComparer((new List<Dummy>(), null, new DummyIEqualityComparerT()), (27, false, "Parameter 'elements' is null."));
             DDTContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (28, false, "Parameter 'comparer' is null."));
-            DDTContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (29, false, "Comparer threw Exception:"));
+            DDTContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (29, false, "Comparer threw Exception:"));
 
             DDTContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparerT()), (30, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
             DDTContainsRangeComparer((new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (31, false, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']"));
@@ -1197,10 +1171,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsRangeComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (14, false, "Parameter 'enumeration' is null."));
             DDTNotContainsRangeComparer((new List<Dummy>(), null, new DummyIEqualityComparer()), (15, false, "Parameter 'elements' is null."));
             DDTNotContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (16, false, "Parameter 'comparer' is null."));
-            DDTNotContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (17, false, "Comparer threw Exception:"));
+            DDTNotContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (17, false, "Comparer threw Exception:"));
 
             DDTNotContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparer()), (18, false, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
             DDTNotContainsRangeComparer((new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (19, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']"));
@@ -1215,10 +1186,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsRangeComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (26, false, "Parameter 'enumeration' is null."));
             DDTNotContainsRangeComparer((new List<Dummy>(), null, new DummyIEqualityComparerT()), (27, false, "Parameter 'elements' is null."));
             DDTNotContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (28, false, "Parameter 'comparer' is null."));
-            DDTNotContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (29, false, "Comparer threw Exception:"));
+            DDTNotContainsRangeComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (29, false, "Comparer threw Exception:"));
 
             DDTNotContainsRangeComparer((new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparerT()), (30, false, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
             DDTNotContainsRangeComparer((new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (31, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']"));
@@ -1257,6 +1225,284 @@ namespace Nuclear.TestSite.TestSuites {
             Test.Note($"Test.IfNot.Enumerable.ContainsRange<{typeof(T).Format()}>({input.enumeration.Format()}, {input.elements.Format()}, {input.comparer.FormatType()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input.enumeration, input.elements, input.comparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.ContainsRange", _file, _method);
+
+        }
+
+        #endregion
+
+        #region ContainsRangeComparerKVP
+
+        [TestMethod]
+        void ContainsRangeComparerKVP() {
+
+            DDTContainsRangeComparerKVP<Dummy, Dummy>((null, null, null, null), (1, false, "Parameter 'enumeration' is null."));
+            DDTContainsRangeComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer()), (3, false, "Parameter 'elements' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer()), (4, false, "Parameter 'keyComparer' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null), (5, false, "Parameter 'valueComparer' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer()), (6, false, "Key comparer threw Exception:"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer()), (7, false, "Value comparer threw Exception:"));
+
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (8, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (9, false, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (10, true, "Enumeration contains 0 of 0 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: []"));
+
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (11, false, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '3']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 3, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (12, false, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['3'] => '2']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (13, true, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (14, true, "Enumeration contains 2 of 2 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['1'] => '2']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 5 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (15, false, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '5']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 6, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (16, false, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['6'] => '6']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (17, true, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+
+            DDTContainsRangeComparerKVP((null, null, null, null), (18, false, "Parameter 'enumeration' is null."));
+            DDTContainsRangeComparerKVP((null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()), (19, false, "Parameter 'enumeration' is null."));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer()), (20, false, "Parameter 'elements' is null."));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer()), (21, false, "Parameter 'keyComparer' is null."));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null), (22, false, "Parameter 'valueComparer' is null."));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new ThrowingIEqualityComparer(), new DummyIEqualityComparer()), (23, false, "Key comparer threw Exception:"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new DummyIEqualityComparer(), new ThrowingIEqualityComparer()), (24, false, "Value comparer threw Exception:"));
+
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (25, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (26, false, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (27, true, "Enumeration contains 0 of 0 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: []"));
+
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 3) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (28, false, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '3']"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 3, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (29, false, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['3'] => '2']"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (30, true, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (31, true, "Enumeration contains 2 of 2 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['1'] => '2']"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 5) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (32, false, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '5']"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 6, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (33, false, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['6'] => '6']"));
+            DDTContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (34, true, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+
+            DDTContainsRangeComparerKVP((null, null, (IEqualityComparer<Dummy>) null, (IEqualityComparer<Dummy>) null), (35, false, "Parameter 'enumeration' is null."));
+            DDTContainsRangeComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (36, false, "Parameter 'enumeration' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (37, false, "Parameter 'elements' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT()), (38, false, "Parameter 'keyComparer' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null), (39, false, "Parameter 'valueComparer' is null."));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT()), (40, false, "Key comparer threw Exception:"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT()), (41, false, "Value comparer threw Exception:"));
+
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (42, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (43, false, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (44, true, "Enumeration contains 0 of 0 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: []"));
+
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (45, false, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '3']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 3, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (46, false, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['3'] => '2']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (47, true, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (48, true, "Enumeration contains 2 of 2 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['1'] => '2']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 5 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (49, false, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '5']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 6, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (50, false, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['6'] => '6']"));
+            DDTContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (51, true, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+
+        }
+
+        void DDTContainsRangeComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.ContainsRange<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.elements.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input.enumeration, input.elements, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.ContainsRange", _file, _method);
+
+        }
+
+        void DDTContainsRangeComparerKVP((IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> elements, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.ContainsRange({input.enumeration.Format()}, {input.elements.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input.enumeration, input.elements, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.ContainsRange", _file, _method);
+
+        }
+
+        void DDTContainsRangeComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.ContainsRange<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.elements.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input.enumeration, input.elements, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.ContainsRange", _file, _method);
+
+        }
+
+        [TestMethod]
+        void NotContainsRangeComparerKVP() {
+
+            DDTNotContainsRangeComparerKVP<Dummy, Dummy>((null, null, null, null), (1, false, "Parameter 'enumeration' is null."));
+            DDTNotContainsRangeComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer()), (3, false, "Parameter 'elements' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer()), (4, false, "Parameter 'keyComparer' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null), (5, false, "Parameter 'valueComparer' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer()), (6, false, "Key comparer threw Exception:"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer()), (7, false, "Value comparer threw Exception:"));
+
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (8, false, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (9, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (10, false, "Enumeration contains 0 of 0 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: []"));
+
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (11, true, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '3']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 3, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (12, true, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['3'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (13, false, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (14, false, "Enumeration contains 2 of 2 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['1'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 5 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (15, true, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '5']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 6, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (16, true, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['6'] => '6']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (17, false, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+
+            DDTNotContainsRangeComparerKVP((null, null, null, null), (18, false, "Parameter 'enumeration' is null."));
+            DDTNotContainsRangeComparerKVP((null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()), (19, false, "Parameter 'enumeration' is null."));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer()), (20, false, "Parameter 'elements' is null."));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer()), (21, false, "Parameter 'keyComparer' is null."));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null), (22, false, "Parameter 'valueComparer' is null."));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new ThrowingIEqualityComparer(), new DummyIEqualityComparer()), (23, false, "Key comparer threw Exception:"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new DummyIEqualityComparer(), new ThrowingIEqualityComparer()), (24, false, "Value comparer threw Exception:"));
+
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (25, false, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (26, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (27, false, "Enumeration contains 0 of 0 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: []"));
+
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 3) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (28, true, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '3']"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 3, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (29, true, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['3'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (30, false, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (31, false, "Enumeration contains 2 of 2 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['1'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 5) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (32, true, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '5']"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 6, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (33, true, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['6'] => '6']"));
+            DDTNotContainsRangeComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) },
+                new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (34, false, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+
+            DDTNotContainsRangeComparerKVP((null, null, (IEqualityComparer<Dummy>) null, (IEqualityComparer<Dummy>) null), (35, false, "Parameter 'enumeration' is null."));
+            DDTNotContainsRangeComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (36, false, "Parameter 'enumeration' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (37, false, "Parameter 'elements' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT()), (38, false, "Parameter 'keyComparer' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null), (39, false, "Parameter 'valueComparer' is null."));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT()), (40, false, "Key comparer threw Exception:"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT()), (41, false, "Value comparer threw Exception:"));
+
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (42, false, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (43, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (44, false, "Enumeration contains 0 of 0 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: []"));
+
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (45, true, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '3']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 3, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (46, true, "Enumeration contains 0 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['3'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (47, false, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (48, false, "Enumeration contains 2 of 2 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['1'] => '2']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 5 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (49, true, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '5']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 6, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (50, true, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['6'] => '6']"));
+            DDTNotContainsRangeComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (51, false, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']"));
+
+        }
+
+        void DDTNotContainsRangeComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.ContainsRange<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.elements.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input.enumeration, input.elements, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.ContainsRange", _file, _method);
+
+        }
+
+        void DDTNotContainsRangeComparerKVP((IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> elements, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.ContainsRange({input.enumeration.Format()}, {input.elements.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input.enumeration, input.elements, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.ContainsRange", _file, _method);
+
+        }
+
+        void DDTNotContainsRangeComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.ContainsRange<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.elements.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input.enumeration, input.elements, input.keyComparer, input.valueComparer, _file, _method),
                 expected, "Test.IfNot.Enumerable.ContainsRange", _file, _method);
 
         }
@@ -1403,10 +1649,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
             DDTMatchesComparer((new List<Dummy>(), null, new DummyIEqualityComparer()), (18, false, "Parameter 'other' is null."));
             DDTMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
-            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (20, false, "Comparer threw Exception:"));
+            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
             DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
@@ -1423,10 +1666,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
             DDTMatchesComparer((new List<Dummy>(), null, new DummyIEqualityComparerT()), (33, false, "Parameter 'other' is null."));
             DDTMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
-            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (35, false, "Comparer threw Exception:"));
+            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
             DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
@@ -1495,10 +1735,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesComparer((new List<Dummy>(), null, new DummyIEqualityComparer()), (18, false, "Parameter 'other' is null."));
             DDTNotMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
-            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (20, false, "Comparer threw Exception:"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
             DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
@@ -1515,10 +1752,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesComparer((new List<Dummy>(), null, new DummyIEqualityComparerT()), (33, false, "Parameter 'other' is null."));
             DDTNotMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
-            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (35, false, "Comparer threw Exception:"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
             DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
@@ -1705,10 +1939,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyComparer((new List<Dummy>(), null, new DummyIEqualityComparer()), (18, false, "Parameter 'other' is null."));
             DDTMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (20, false, "Comparer threw Exception:"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
             DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
@@ -1725,10 +1956,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyComparer((new List<Dummy>(), null, new DummyIEqualityComparerT()), (33, false, "Parameter 'other' is null."));
             DDTMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (35, false, "Comparer threw Exception:"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
             DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
@@ -1797,10 +2025,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyComparer((new List<Dummy>(), null, new DummyIEqualityComparer()), (18, false, "Parameter 'other' is null."));
             DDTNotMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (20, false, "Comparer threw Exception:"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
@@ -1817,10 +2042,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyComparer((new List<Dummy>(), null, new DummyIEqualityComparerT()), (33, false, "Parameter 'other' is null."));
             DDTNotMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, DynamicEqualityComparer.FromDelegate<Dummy>(
-                (x, y) => throw new NotImplementedException(),
-                (obj) => throw new NotImplementedException())),
-                (35, false, "Comparer threw Exception:"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
