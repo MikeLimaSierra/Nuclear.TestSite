@@ -326,7 +326,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -891,6 +891,170 @@ namespace Nuclear.TestSite.TestSuites {
                 }
 
                 if(contains) { elementsFound++; }
+            }
+
+            InternalTest(elementsCount == elementsFound, $"Enumeration contains {elementsFound} of {elementsCount} elements. Enumeration is: {enumeration.Format()}; Elements are: {elements.Format()}",
+                _file, _method);
+        }
+
+        #endregion
+
+        #region ContainsRangeComparerKVP
+
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains a range of <paramref name="elements"/>.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="elements">The <see cref="IEnumerable{KeyValuePair}"/> to search for.</param>
+        /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
+        /// </code>
+        /// </example>
+        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(elements == null) {
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            ContainsRange(enumeration, elements, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains a range of <paramref name="elements"/>.
+        /// </summary>
+        /// <param name="enumeration">The <see cref="IEnumerable{DictionaryEntry}"/> that is checked.</param>
+        /// <param name="elements">The <see cref="IEnumerable{DictionaryEntry}"/> to search for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
+        /// </code>
+        /// </example>
+        public void ContainsRange(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> elements, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(elements == null) {
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            ContainsRange(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), elements.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)),
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if <paramref name="enumeration"/> contains a range of <paramref name="elements"/>.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="elements">The <see cref="IEnumerable{KeyValuePair}"/> to search for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
+        /// </code>
+        /// </example>
+        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(elements == null) {
+                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            Int32 elementsCount = elements.Count();
+            Int32 elementsFound = 0;
+
+
+            foreach(KeyValuePair<TKey, TValue> element in elements) {
+                IEnumerable<TKey> keys = enumeration.Select(kvp => kvp.Key);
+
+                try {
+                    if(!keys.Contains(element.Key, keyComparer)) {
+                        break;
+                    }
+
+                } catch(Exception ex) {
+                    FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                        _file, _method);
+                    return;
+                }
+
+                IEnumerable<TValue> values = enumeration.Where(kvp => keyComparer.Equals(element.Key, kvp.Key)).Select(kvp => kvp.Value);
+
+                try {
+                    if(!values.Contains(element.Value, valueComparer)) {
+                        break;
+                    }
+
+                } catch(Exception ex) {
+                    FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                        _file, _method);
+                    return;
+                }
+
+                elementsFound++;
             }
 
             InternalTest(elementsCount == elementsFound, $"Enumeration contains {elementsFound} of {elementsCount} elements. Enumeration is: {enumeration.Format()}; Elements are: {elements.Format()}",
