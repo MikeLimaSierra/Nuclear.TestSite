@@ -4,9 +4,11 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
+using Nuclear.Assemblies.Runtimes;
 using Nuclear.Exceptions;
 using Nuclear.Test;
 using Nuclear.Test.Results;
+using Nuclear.Test.TestExecution;
 
 namespace Nuclear.TestSite {
     static class Statics {
@@ -24,14 +26,14 @@ namespace Nuclear.TestSite {
             AssemblyName _assemblyName = _assembly.GetName();
 
 #pragma warning disable IDE0042 // Deconstruct variable declaration
-            (FrameworkIdentifiers platform, Version version) testAssemblyInfo = NetVersionTree.GetTargetRuntimeFromAssembly(_assembly);
+            RuntimeInfo testAssemblyInfo = TestExecutor.GetRuntimeInfoFromAssembly(_assembly);
             Assembly executionAssembly = Assembly.GetEntryAssembly();
-            (FrameworkIdentifiers platform, Version version) executionAssemblyInfo = NetVersionTree.GetTargetRuntimeFromAssembly(executionAssembly);
+            RuntimeInfo executionAssemblyInfo = TestExecutor.GetRuntimeInfoFromAssembly(executionAssembly);
 #pragma warning restore IDE0042 // Deconstruct variable declaration
 
             _scenario = new TestScenario(_assemblyName.Name,
-               testAssemblyInfo.platform, testAssemblyInfo.version, _assemblyName.ProcessorArchitecture,
-               executionAssemblyInfo.platform, executionAssemblyInfo.version, executionAssembly.GetName().ProcessorArchitecture);
+               testAssemblyInfo, _assemblyName.ProcessorArchitecture,
+               executionAssemblyInfo, executionAssembly.GetName().ProcessorArchitecture);
         }
 
         #endregion
