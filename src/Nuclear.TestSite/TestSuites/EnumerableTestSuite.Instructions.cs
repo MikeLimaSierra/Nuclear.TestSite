@@ -1281,6 +1281,133 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesComparerKVP
+
+        /// <summary>
+        /// Tests if the elements of <paramref name="enumeration"/> match the elements of <paramref name="other"/> ignoring order.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
+        /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
+        /// </code>
+        /// </example>
+        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(other == null) {
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            Matches(enumeration, other, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if the elements of <paramref name="enumeration"/> match the elements of <paramref name="other"/> ignoring order.
+        /// </summary>
+        /// <param name="enumeration">The <see cref="IEnumerable{DictionaryEntry}"/> that is checked.</param>
+        /// <param name="other">The other <see cref="IEnumerable{DictionaryEntry}"/> that is checked for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
+        /// </code>
+        /// </example>
+        public void Matches(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(other == null) {
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            Matches(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), other.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)),
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if the elements of <paramref name="enumeration"/> match the elements of <paramref name="other"/> ignoring order.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
+        /// </code>
+        /// </example>
+        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(other == null) {
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+        }
+
+        #endregion
+
         #region MatchesExactly
 
         /// <summary>
@@ -1500,6 +1627,133 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Elements are: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
                     _file, _method);
+        }
+
+        #endregion
+
+        #region MatchesComparerKVP
+
+        /// <summary>
+        /// Tests if the elements of <paramref name="enumeration"/> match the elements of <paramref name="other"/> respecting order.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
+        /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
+        /// </code>
+        /// </example>
+        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(other == null) {
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            MatchesExactly(enumeration, other, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if the elements of <paramref name="enumeration"/> match the elements of <paramref name="other"/> respecting order.
+        /// </summary>
+        /// <param name="enumeration">The <see cref="IEnumerable{DictionaryEntry}"/> that is checked.</param>
+        /// <param name="other">The other <see cref="IEnumerable{DictionaryEntry}"/> that is checked for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
+        /// </code>
+        /// </example>
+        public void MatchesExactly(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(other == null) {
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            MatchesExactly(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), other.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)),
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+        }
+
+        /// <summary>
+        /// Tests if the elements of <paramref name="enumeration"/> match the elements of <paramref name="other"/> respecting order.
+        /// </summary>
+        /// <typeparam name="TKey">The key type.</typeparam>
+        /// <typeparam name="TValue">The value type.</typeparam>
+        /// <param name="enumeration">The <see cref="IEnumerable{KeyValuePair}"/> that is checked.</param>
+        /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
+        /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
+        /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
+        /// <example>
+        /// <code>
+        /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
+        /// </code>
+        /// </example>
+        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            if(enumeration == null) {
+                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                return;
+            }
+
+            if(other == null) {
+                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                return;
+            }
+
+            if(keyComparer == null) {
+                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                return;
+            }
+
+            if(valueComparer == null) {
+                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                return;
+            }
         }
 
         #endregion
