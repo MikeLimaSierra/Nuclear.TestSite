@@ -8,6 +8,7 @@
   <Import Project="..\Configurations.targets" />
   
   <ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <PackageReference Include="Nuclear.Assemblies" Version="1.0.0" />
     <PackageReference Include="Nuclear.Test" Version="2.0.0" />
     <PackageReference Include="Nuclear.TestSite" Version="2.0.0" />
   </ItemGroup>
@@ -15,16 +16,19 @@
   <ItemGroup Condition="'$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Integration'">
     <ProjectReference Include="..\Nuclear.TestSite\Nuclear.TestSite.csproj" />
     <Reference Include="Nuclear.Exceptions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Exceptions\$(Platform)\$(Configuration)\netstandard1.0\Nuclear.Exceptions.dll</HintPath>
+      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Exceptions\AnyCPU\$(Configuration)\netstandard1.0\Nuclear.Exceptions.dll</HintPath>
     </Reference>
     <Reference Include="Nuclear.Extensions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Extensions\$(Platform)\$(Configuration)\netstandard1.0\Nuclear.Extensions.dll</HintPath>
+      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Extensions\AnyCPU\$(Configuration)\netstandard1.0\Nuclear.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Nuclear.Assemblies">
+      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Assemblies\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Assemblies.dll</HintPath>
     </Reference>
     <Reference Include="Nuclear.Test.Contracts">
-      <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\$(Platform)\$(Configuration)\netstandard1.3\Nuclear.Test.Contracts.dll</HintPath>
+      <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard1.3\Nuclear.Test.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="Nuclear.Test">
-      <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\$(Platform)\$(Configuration)\netstandard2.0\Nuclear.Test.dll</HintPath>
+      <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Test.dll</HintPath>
     </Reference>
   </ItemGroup>
 
