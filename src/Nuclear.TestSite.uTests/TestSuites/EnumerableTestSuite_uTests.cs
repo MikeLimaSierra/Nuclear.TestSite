@@ -1518,31 +1518,31 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatches((null, new List<DummyIEquatableT>()), (2, false, "Parameter 'enumeration' is null."));
             DDTMatches((new List<DummyIEquatableT>(), null), (3, false, "Parameter 'other' is null."));
 
-            DDTMatches((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTMatchesT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTMatchesT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
             DDTMatchesT((new List<DummyIEquatableT>(), null), (16, false, "Parameter 'other' is null."));
 
-            DDTMatchesT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -1573,31 +1573,31 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatches((null, new List<DummyIEquatableT>()), (2, false, "Parameter 'enumeration' is null."));
             DDTNotMatches((new List<DummyIEquatableT>(), null), (3, false, "Parameter 'other' is null."));
 
-            DDTNotMatches((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTNotMatchesT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesT((new List<DummyIEquatableT>(), null), (16, false, "Parameter 'other' is null."));
 
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -1634,16 +1634,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((new List<Dummy>(), new List<Dummy>(), null), (4, false, "Parameter 'comparer' is null."));
             DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTMatchesComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -1651,16 +1651,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
             DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
-            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTMatchesComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -1668,16 +1668,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
             DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
-            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -1720,16 +1720,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((new List<Dummy>(), new List<Dummy>(), null), (4, false, "Parameter 'comparer' is null."));
             DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTNotMatchesComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -1737,16 +1737,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
             DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
-            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTNotMatchesComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -1754,16 +1754,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
             DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
-            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -1799,6 +1799,314 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesComparerKVP
+
+        [TestMethod]
+        void MatchesComparerKVP() {
+
+            DDTMatchesComparerKVP<Dummy, Dummy>((null, null, null, null), (1, false, "Parameter 'enumeration' is null."));
+            DDTMatchesComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer()), (3, false, "Parameter 'elements' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer()), (4, false, "Parameter 'keyComparer' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null), (5, false, "Parameter 'valueComparer' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer()),
+                (6, false, "Key comparer threw Exception:"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer()),
+                (7, false, "Value comparer threw Exception:"));
+
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (8, true, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (9, false, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (10, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (11, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (12, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (13, false, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (14, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (15, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (16, false, "Enumerations don't match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (17, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (18, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (19, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (20, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTMatchesComparerKVP((null, null, null, null), (21, false, "Parameter 'enumeration' is null."));
+            DDTMatchesComparerKVP((null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()), (22, false, "Parameter 'enumeration' is null."));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer()), (23, false, "Parameter 'elements' is null."));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer()), (24, false, "Parameter 'keyComparer' is null."));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null), (25, false, "Parameter 'valueComparer' is null."));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new ThrowingIEqualityComparer(), new DummyIEqualityComparer()), (26, false, "Key comparer threw Exception:"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new DummyIEqualityComparer(), new ThrowingIEqualityComparer()), (27, false, "Value comparer threw Exception:"));
+
+            DDTMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (28, true, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (29, false, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (30, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 3) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (31, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 2, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (32, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (33, true, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (34, true, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (35, true, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (36, false, "Enumerations don't match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (37, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (38, true, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (39, true, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (40, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTMatchesComparerKVP((null, null, (IEqualityComparer<Dummy>) null, (IEqualityComparer<Dummy>) null), (41, false, "Parameter 'enumeration' is null."));
+            DDTMatchesComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (42, false, "Parameter 'enumeration' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (43, false, "Parameter 'elements' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT()), (44, false, "Parameter 'keyComparer' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null), (45, false, "Parameter 'valueComparer' is null."));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (46, false, "Key comparer threw Exception:"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT()),
+                (47, false, "Value comparer threw Exception:"));
+
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (48, true, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (49, false, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (50, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (51, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (52, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (53, true, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (54, true, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (55, true, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (56, false, "Enumerations don't match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (57, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (58, true, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (59, true, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (60, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+        }
+
+        void DDTMatchesComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.Matches<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.Matches", _file, _method);
+
+        }
+
+        void DDTMatchesComparerKVP((IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.Matches({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.Matches", _file, _method);
+
+        }
+
+        void DDTMatchesComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.Matches<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.Matches", _file, _method);
+
+        }
+
+        [TestMethod]
+        void NotMatchesComparerKVP() {
+
+            DDTNotMatchesComparerKVP<Dummy, Dummy>((null, null, null, null), (1, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer()), (3, false, "Parameter 'elements' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer()), (4, false, "Parameter 'keyComparer' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null), (5, false, "Parameter 'valueComparer' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer()),
+                (6, false, "Key comparer threw Exception:"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer()),
+                (7, false, "Value comparer threw Exception:"));
+
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (8, false, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (10, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (11, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (12, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (13, false, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (14, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (15, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (16, true, "Enumerations don't match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (17, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (18, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (19, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (20, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTNotMatchesComparerKVP((null, null, null, null), (21, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesComparerKVP((null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()), (22, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer()), (23, false, "Parameter 'elements' is null."));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer()), (24, false, "Parameter 'keyComparer' is null."));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null), (25, false, "Parameter 'valueComparer' is null."));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new ThrowingIEqualityComparer(), new DummyIEqualityComparer()), (26, false, "Key comparer threw Exception:"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new DummyIEqualityComparer(), new ThrowingIEqualityComparer()), (27, false, "Value comparer threw Exception:"));
+
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (28, false, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (29, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (30, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 3) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (31, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 2, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (32, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (33, false, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (34, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (35, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (36, true, "Enumerations don't match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (37, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (38, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (39, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (40, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTNotMatchesComparerKVP((null, null, (IEqualityComparer<Dummy>) null, (IEqualityComparer<Dummy>) null), (41, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (42, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (43, false, "Parameter 'elements' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT()), (44, false, "Parameter 'keyComparer' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null), (45, false, "Parameter 'valueComparer' is null."));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (46, false, "Key comparer threw Exception:"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT()),
+                (47, false, "Value comparer threw Exception:"));
+
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (48, false, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (49, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (50, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (51, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (52, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (53, false, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (54, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (55, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (56, true, "Enumerations don't match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (57, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (58, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (59, false, "Enumerations match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (60, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+        }
+
+        void DDTNotMatchesComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.Matches<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.Matches", _file, _method);
+
+        }
+
+        void DDTNotMatchesComparerKVP((IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.Matches({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.Matches", _file, _method);
+
+        }
+
+        void DDTNotMatchesComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.Matches<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.Matches", _file, _method);
+
+        }
+
+        #endregion
+
         #region MatchesExactly
 
         [TestMethod]
@@ -1808,31 +2116,31 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactly((null, new List<DummyIEquatableT>()), (2, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactly((new List<DummyIEquatableT>(), null), (3, false, "Parameter 'other' is null."));
 
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTMatchesExactlyT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyT((new List<DummyIEquatableT>(), null), (16, false, "Parameter 'other' is null."));
 
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -1863,31 +2171,31 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactly((null, new List<DummyIEquatableT>()), (2, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactly((new List<DummyIEquatableT>(), null), (3, false, "Parameter 'other' is null."));
 
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (4, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (5, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (6, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (7, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (8, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTNotMatchesExactlyT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyT((new List<DummyIEquatableT>(), null), (16, false, "Parameter 'other' is null."));
 
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }), (17, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }), (18, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (19, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }), (20, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (21, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -1924,16 +2232,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), null), (4, false, "Parameter 'comparer' is null."));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTMatchesExactlyComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -1941,16 +2249,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTMatchesExactlyComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -1958,16 +2266,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, true, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, true, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, false, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, true, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, false, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -2010,16 +2318,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), null), (4, false, "Parameter 'comparer' is null."));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer()), (6, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer()), (7, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (8, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer()), (9, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (10, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTNotMatchesExactlyComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -2027,16 +2335,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer) null), (19, false, "Parameter 'comparer' is null."));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer()), (20, false, "Comparer threw Exception:"));
 
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer()), (21, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer()), (22, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (23, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer()), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (25, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
             DDTNotMatchesExactlyComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -2044,16 +2352,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((new List<Dummy>(), new List<Dummy>(), (IEqualityComparer<Dummy>) null), (34, false, "Parameter 'comparer' is null."));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT()), (35, false, "Comparer threw Exception:"));
 
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, false, "Enumerations match. Enumeration is: ['1']; Elements are: ['1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['2', '1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, false, "Enumerations match. Enumeration is: ['1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, true, "Enumerations don't match. Enumeration is: ['1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '1', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '1']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Elements are: ['1', '2', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Elements are: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Elements are: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT()), (36, false, "Enumerations match. Enumeration is: ['1']; Other is: ['1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT()), (37, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (38, false, "Enumerations match. Enumeration is: ['1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT()), (39, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (40, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
 
         }
 
@@ -2083,6 +2391,314 @@ namespace Nuclear.TestSite.TestSuites {
             Test.Note($"Test.IfNot.Enumerable.MatchesExactly<{typeof(T).Format()}>({input.enumeration.Format()}, {input.elements.Format()}, {input.comparer.FormatType()})", _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input.enumeration, input.elements, input.comparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.MatchesExactly", _file, _method);
+
+        }
+
+        #endregion
+
+        #region MatchesExactlyComparerKVP
+
+        [TestMethod]
+        void MatchesExactlyComparerKVP() {
+
+            DDTMatchesExactlyComparerKVP<Dummy, Dummy>((null, null, null, null), (1, false, "Parameter 'enumeration' is null."));
+            DDTMatchesExactlyComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer()), (3, false, "Parameter 'elements' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer()), (4, false, "Parameter 'keyComparer' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null), (5, false, "Parameter 'valueComparer' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer()),
+                (6, false, "Key comparer threw Exception:"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer()),
+                (7, false, "Value comparer threw Exception:"));
+
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (8, true, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (9, false, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (10, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (11, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (12, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (13, true, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (14, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (15, true, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (16, false, "Enumerations don't match. Enumeration is: [['1'] => '2',['1'] => '2',  ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (17, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (18, true, "Enumerations match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (19, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (20, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTMatchesExactlyComparerKVP((null, null, null, null), (21, false, "Parameter 'enumeration' is null."));
+            DDTMatchesExactlyComparerKVP((null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()), (22, false, "Parameter 'enumeration' is null."));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer()), (23, false, "Parameter 'elements' is null."));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer()), (24, false, "Parameter 'keyComparer' is null."));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null), (25, false, "Parameter 'valueComparer' is null."));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new ThrowingIEqualityComparer(), new DummyIEqualityComparer()), (26, false, "Key comparer threw Exception:"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new DummyIEqualityComparer(), new ThrowingIEqualityComparer()), (27, false, "Value comparer threw Exception:"));
+
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (28, true, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (29, false, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (30, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 3) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (31, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 2, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (32, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (33, true, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (34, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (35, true, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (36, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (37, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (38, true, "Enumerations match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (39, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (40, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTMatchesExactlyComparerKVP((null, null, (IEqualityComparer<Dummy>) null, (IEqualityComparer<Dummy>) null), (41, false, "Parameter 'enumeration' is null."));
+            DDTMatchesExactlyComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (42, false, "Parameter 'enumeration' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (43, false, "Parameter 'elements' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT()), (44, false, "Parameter 'keyComparer' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null), (45, false, "Parameter 'valueComparer' is null."));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (46, false, "Key comparer threw Exception:"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT()),
+                (47, false, "Value comparer threw Exception:"));
+
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (48, true, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (49, false, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (50, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (51, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (52, false, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (53, true, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (54, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (55, true, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (56, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (57, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (58, true, "Enumerations match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (59, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (60, false, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+        }
+
+        void DDTMatchesExactlyComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.MatchesExactly<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.MatchesExactly", _file, _method);
+
+        }
+
+        void DDTMatchesExactlyComparerKVP((IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.MatchesExactly({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.MatchesExactly", _file, _method);
+
+        }
+
+        void DDTMatchesExactlyComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.If.Enumerable.MatchesExactly<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.If.Enumerable.MatchesExactly", _file, _method);
+
+        }
+
+        [TestMethod]
+        void NotMatchesExactlyComparerKVP() {
+
+            DDTNotMatchesExactlyComparerKVP<Dummy, Dummy>((null, null, null, null), (1, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesExactlyComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer()), (3, false, "Parameter 'elements' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer()), (4, false, "Parameter 'keyComparer' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null), (5, false, "Parameter 'valueComparer' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer()),
+                (6, false, "Key comparer threw Exception:"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer()),
+                (7, false, "Value comparer threw Exception:"));
+
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (8, false, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (10, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (11, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (12, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (13, false, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (14, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (15, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (16, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (17, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (18, false, "Enumerations match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (19, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyEqualityComparer(), new DummyEqualityComparer()),
+                (20, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTNotMatchesExactlyComparerKVP((null, null, null, null), (21, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesExactlyComparerKVP((null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()), (22, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer()), (23, false, "Parameter 'elements' is null."));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer()), (24, false, "Parameter 'keyComparer' is null."));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null), (25, false, "Parameter 'valueComparer' is null."));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new ThrowingIEqualityComparer(), new DummyIEqualityComparer()), (26, false, "Key comparer threw Exception:"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                new DummyIEqualityComparer(), new ThrowingIEqualityComparer()), (27, false, "Value comparer threw Exception:"));
+
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (28, false, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (29, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (30, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 3) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (31, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 2, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (32, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (33, false, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (34, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (35, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (36, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (37, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (38, false, "Enumerations match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (39, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer()),
+                (40, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+            DDTNotMatchesExactlyComparerKVP((null, null, (IEqualityComparer<Dummy>) null, (IEqualityComparer<Dummy>) null), (41, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesExactlyComparerKVP((null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (42, false, "Parameter 'enumeration' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()), (43, false, "Parameter 'elements' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT()), (44, false, "Parameter 'keyComparer' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null), (45, false, "Parameter 'valueComparer' is null."));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (46, false, "Key comparer threw Exception:"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT()),
+                (47, false, "Value comparer threw Exception:"));
+
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (48, false, "Enumerations match. Enumeration is: []; Other is: []"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (49, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (50, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Other is: []"));
+
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 3 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (51, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '3']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 2, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (52, true, "Enumerations don't match. Enumeration is: [['1'] => '2']; Other is: [['2'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (53, false, "Enumerations match. Enumeration is: [['1'] => '2']; Other is: [['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (54, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (55, false, "Enumerations match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (56, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (57, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (58, false, "Enumerations match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['1'] => '2', ['3'] => '4']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 1, 2 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (59, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']"));
+            DDTNotMatchesExactlyComparerKVP((new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT()),
+                (60, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']"));
+
+        }
+
+        void DDTNotMatchesExactlyComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.MatchesExactly<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.MatchesExactly", _file, _method);
+
+        }
+
+        void DDTNotMatchesExactlyComparerKVP((IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.MatchesExactly({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
+                expected, "Test.IfNot.Enumerable.MatchesExactly", _file, _method);
+
+        }
+
+        void DDTNotMatchesExactlyComparerKVP<TKey, TValue>((IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer) input,
+            (Int32 count, Boolean result, String message) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
+            Test.Note($"Test.IfNot.Enumerable.MatchesExactly<{typeof(TKey).Format()}, {typeof(TValue).Format()}>({input.enumeration.Format()}, {input.other.Format()}, {input.keyComparer.FormatType()}, {input.valueComparer.FormatType()})", _file, _method);
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input.enumeration, input.other, input.keyComparer, input.valueComparer, _file, _method),
                 expected, "Test.IfNot.Enumerable.MatchesExactly", _file, _method);
 
         }

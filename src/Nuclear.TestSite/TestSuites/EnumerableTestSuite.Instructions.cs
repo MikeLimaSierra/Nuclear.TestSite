@@ -1137,7 +1137,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
             }
 
-            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Elements are: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
+            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
                 _file, _method);
         }
 
@@ -1275,7 +1275,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
             }
 
-            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Elements are: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
+            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
                 _file, _method);
         }
 
@@ -1485,7 +1485,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
             }
 
-            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Elements are: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
+            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
                 _file, _method);
         }
 
@@ -1625,13 +1625,13 @@ namespace Nuclear.TestSite.TestSuites {
                 }
             }
 
-            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Elements are: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
+            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
                     _file, _method);
         }
 
         #endregion
 
-        #region MatchesComparerKVP
+        #region MatchesExactlyComparerKVP
 
         /// <summary>
         /// Tests if the elements of <paramref name="enumeration"/> match the elements of <paramref name="other"/> respecting order.
