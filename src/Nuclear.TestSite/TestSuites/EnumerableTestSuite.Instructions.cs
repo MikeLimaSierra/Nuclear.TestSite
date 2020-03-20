@@ -1404,6 +1404,53 @@ namespace Nuclear.TestSite.TestSuites {
                 FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
+
+            Int32 count1 = enumeration.Count();
+            Int32 count2 = other.Count();
+            Boolean result = count1 == 0 && count2 == 0;
+
+            if(!result && count1 == count2) {
+                result = true;
+                List<KeyValuePair<TKey, TValue>> otherAsList = other.ToList();
+
+                foreach(KeyValuePair<TKey, TValue> element in enumeration) {
+                    Int32 index = -1;
+
+                    try {
+                        index = otherAsList.FindIndex(kvp => keyComparer.Equals(kvp.Key, element.Key));
+
+                    } catch(Exception ex) {
+                        FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                            _file, _method);
+                        return;
+                    }
+
+                    if(index < 0) {
+                        result = false;
+                        break;
+                    }
+
+                    try {
+                        index = otherAsList.FindIndex((_) => keyComparer.Equals(_.Key, element.Key) && valueComparer.Equals(_.Value, element.Value));
+
+                    } catch(Exception ex) {
+                        FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                            _file, _method);
+                        return;
+                    }
+
+                    if(index >= 0) {
+                        otherAsList.RemoveAt(index);
+
+                    } else {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+
+            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
+                _file, _method);
         }
 
         #endregion
@@ -1478,7 +1525,7 @@ namespace Nuclear.TestSite.TestSuites {
                     T element1 = enum1.Current;
                     T element2 = enum2.Current;
 
-                    if(!element1.IsEqual<T>(element2)) {
+                    if(!element1.IsEqual(element2)) {
                         result = false;
                         break;
                     }
@@ -1754,6 +1801,49 @@ namespace Nuclear.TestSite.TestSuites {
                 FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
+
+            Int32 count1 = enumeration.Count();
+            Int32 count2 = other.Count();
+            Boolean result = count1 == 0 && count2 == 0;
+
+            if(!result && count1 == count2) {
+                result = true;
+
+                using IEnumerator<KeyValuePair<TKey, TValue>> enum1 = enumeration.GetEnumerator();
+                using IEnumerator<KeyValuePair<TKey, TValue>> enum2 = other.GetEnumerator();
+
+                while(enum1.MoveNext() && enum2.MoveNext()) {
+                    KeyValuePair<TKey, TValue> element1 = enum1.Current;
+                    KeyValuePair<TKey, TValue> element2 = enum2.Current;
+
+                    try {
+                        if(!keyComparer.Equals(element1.Key, element2.Key)) {
+                            result = false;
+                            break;
+                        }
+
+                    } catch(Exception ex) {
+                        FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                            _file, _method);
+                        return;
+                    }
+
+                    try {
+                        if(!valueComparer.Equals(element1.Value, element2.Value)) {
+                            result = false;
+                            break;
+                        }
+
+                    } catch(Exception ex) {
+                        FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                            _file, _method);
+                        return;
+                    }
+                }
+            }
+
+            InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
+                    _file, _method);
         }
 
         #endregion
