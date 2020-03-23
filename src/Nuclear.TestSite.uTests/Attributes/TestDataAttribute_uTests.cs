@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Ntt;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite {
@@ -68,6 +70,33 @@ namespace Nuclear.TestSite {
             Test.If.Object.IsNull(attr.Parameters, _file, _method);
             Test.If.Value.IsEqual(attr.Provider, expected.provider, _file, _method);
             Test.If.Value.IsEqual(attr.ProviderName, expected.name, _file, _method);
+
+        }
+
+        [TestMethod]
+        [TestData(1, 2, TestMode.Parallel, "[TestData(['1', '2', 'Parallel'])]")]
+        void ToStringWithParameters(Int32 input1, Single input2, TestMode input3, String expected) {
+
+            String result = default;
+            TestDataAttribute attr = new TestDataAttribute(input1, input2, input3);
+
+            Test.IfNot.Action.ThrowsException(() => result = attr.ToString(), out Exception ex);
+
+            Test.If.Value.IsEqual(result, expected);
+
+        }
+
+        [TestMethod]
+        [TestData(typeof(TestDataAttribute_uTests), null, "[TestData('Nuclear.TestSite.TestDataAttribute_uTests', null)]")]
+        [TestData(typeof(TestDataAttribute_uTests), "SomeMethod", "[TestData('Nuclear.TestSite.TestDataAttribute_uTests', 'SomeMethod')]")]
+        void ToStringWithProvider(Type provider, String providerName, String expected) {
+
+            String result = default;
+            TestDataAttribute attr = new TestDataAttribute(provider, providerName);
+
+            Test.IfNot.Action.ThrowsException(() => result = attr.ToString(), out Exception ex);
+
+            Test.If.Value.IsEqual(result, expected);
 
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
+using Nuclear.Extensions;
 
 namespace Nuclear.TestSite {
 
@@ -60,6 +61,25 @@ namespace Nuclear.TestSite {
             Provider = provider;
             ProviderName = providerName;
             DataKind = TestDataKind.ProviderType;
+        }
+
+        #endregion
+
+        #region methods
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public override String ToString() {
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+            switch(DataKind) {
+                case TestDataKind.ParameterArray:
+                    return $"[TestData({Parameters.Format()})]";
+
+                case TestDataKind.ProviderType:
+                    return $"[TestData({Provider.Format()}, {ProviderName.Format()})]";
+
+                default:
+                    return "[TestData]";
+            }
         }
 
         #endregion
