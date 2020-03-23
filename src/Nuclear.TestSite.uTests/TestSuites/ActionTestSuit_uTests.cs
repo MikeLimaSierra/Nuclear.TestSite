@@ -18,15 +18,15 @@ namespace Nuclear.TestSite.TestSuites {
             DDTThrowsException<SystemException>((null, null),
                 (1, false, "Parameter 'action' is null.", false, ""));
             DDTThrowsException<Exception>((() => { }, "() => {{ }}"),
-                (2, false, "[Exception = 'null']", false, ""));
+                (2, false, "[Exception = null]", false, ""));
             DDTThrowsException<SystemException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
                 (3, true, "[Exception = 'System.ArgumentException", true, "test message"));
             DDTThrowsException<NullReferenceException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
-                (4, false, "[Exception = 'null']", false, ""));
+                (4, false, "[Exception = null]", false, ""));
             DDTThrowsException<Exception>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (5, true, "[Exception = 'System.Exception", true, "test message"));
             DDTThrowsException<SystemException>(( () => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
-                (6, false, "[Exception = 'null']", false, ""));
+                (6, false, "[Exception = null]", false, ""));
 
         }
 
@@ -55,15 +55,15 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotThrowsException<SystemException>((null, null),
                 (1, false, "Parameter 'action' is null.", false, ""));
             DDTNotThrowsException<Exception>((() => { }, "() => {{ }}"),
-                (2, true, "[Exception = 'null']", false, ""));
+                (2, true, "[Exception = null]", false, ""));
             DDTNotThrowsException<SystemException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
                 (3, false, "[Exception = 'System.ArgumentException", true, "test message"));
             DDTNotThrowsException<NullReferenceException>((() => throw new ArgumentException("test message"), "() => {{ throw new ArgumentException(\"test message\"); }}"),
-                (4, true, "[Exception = 'null']", false, ""));
+                (4, true, "[Exception = null]", false, ""));
             DDTNotThrowsException<Exception>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (5, false, "[Exception = 'System.Exception", true, "test message"));
             DDTNotThrowsException<SystemException>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
-                (6, true, "[Exception = 'null']", false, ""));
+                (6, true, "[Exception = null]", false, ""));
 
         }
 

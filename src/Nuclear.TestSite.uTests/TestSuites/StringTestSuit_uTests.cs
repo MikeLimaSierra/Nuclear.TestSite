@@ -395,7 +395,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsNullOrEmpty() {
 
-            DDTIsNOE(null, (1, true, "[String = 'null']"));
+            DDTIsNOE(null, (1, true, "[String = null]"));
             DDTIsNOE(String.Empty, (2, true, "[String = '']"));
             DDTIsNOE(" ", (3, false, "[String = ' ']"));
             DDTIsNOE("content", (4, false, "[String = 'content']"));
@@ -415,7 +415,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsNullOrEmpty() {
 
-            DDTIsNotNOE(null, (1, false, "[String = 'null']"));
+            DDTIsNotNOE(null, (1, false, "[String = null]"));
             DDTIsNotNOE(String.Empty, (2, false, "[String = '']"));
             DDTIsNotNOE(" ", (3, true, "[String = ' ']"));
             DDTIsNotNOE("content", (4, true, "[String = 'content']"));
@@ -439,7 +439,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsNullWhiteSpace() {
 
-            DDTIsNOW(null, (1, true, "[String = 'null']"));
+            DDTIsNOW(null, (1, true, "[String = null]"));
             DDTIsNOW(String.Empty, (2, true, "[String = '']"));
             DDTIsNOW(" ", (3, true, "[String = ' ']"));
             DDTIsNOW("content", (4, false, "[String = 'content']"));
@@ -459,7 +459,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsNullWhiteSpace() {
 
-            DDTIsNotNOW(null, (1, false, "[String = 'null']"));
+            DDTIsNotNOW(null, (1, false, "[String = null]"));
             DDTIsNotNOW(String.Empty, (2, false, "[String = '']"));
             DDTIsNotNOW(" ", (3, false, "[String = ' ']"));
             DDTIsNotNOW("content", (4, true, "[String = 'content']"));

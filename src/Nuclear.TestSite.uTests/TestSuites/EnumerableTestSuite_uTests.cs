@@ -19,14 +19,14 @@ namespace Nuclear.TestSite.TestSuites {
             DDTIsEmpty(null, (1, false, "Parameter 'enumeration' is null."));
             DDTIsEmpty(Enumerable.Empty<Dummy>(), (2, true, "Enumeration is empty. Enumeration is: []"));
             DDTIsEmpty(new List<Dummy>() { 1, 2, 3 }, (3, false, "Enumeration is not empty. Enumeration is: ['1', '2', '3']"));
-            DDTIsEmpty(new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration is not empty. Enumeration is: ['1', 'null', '3']"));
-            DDTIsEmpty(new List<Dummy>() { null, null, }, (5, false, "Enumeration is not empty. Enumeration is: ['null', 'null']"));
+            DDTIsEmpty(new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration is not empty. Enumeration is: ['1', null, '3']"));
+            DDTIsEmpty(new List<Dummy>() { null, null, }, (5, false, "Enumeration is not empty. Enumeration is: [null, null]"));
 
             DDTIsEmptyT<Dummy>(null, (6, false, "Parameter 'enumeration' is null."));
             DDTIsEmptyT(Enumerable.Empty<Dummy>(), (7, true, "Enumeration is empty. Enumeration is: []"));
             DDTIsEmptyT(new List<Dummy>() { 1, 2, 3 }, (8, false, "Enumeration is not empty. Enumeration is: ['1', '2', '3']"));
-            DDTIsEmptyT(new List<Dummy>() { 1, null, 3 }, (9, false, "Enumeration is not empty. Enumeration is: ['1', 'null', '3']"));
-            DDTIsEmptyT(new List<Dummy>() { null, null, }, (10, false, "Enumeration is not empty. Enumeration is: ['null', 'null']"));
+            DDTIsEmptyT(new List<Dummy>() { 1, null, 3 }, (9, false, "Enumeration is not empty. Enumeration is: ['1', null, '3']"));
+            DDTIsEmptyT(new List<Dummy>() { null, null, }, (10, false, "Enumeration is not empty. Enumeration is: [null, null]"));
 
         }
 
@@ -56,14 +56,14 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotIsEmpty(null, (1, false, "Parameter 'enumeration' is null."));
             DDTNotIsEmpty(Enumerable.Empty<Dummy>(), (2, false, "Enumeration is empty. Enumeration is: []"));
             DDTNotIsEmpty(new List<Dummy>() { 1, 2, 3 }, (3, true, "Enumeration is not empty. Enumeration is: ['1', '2', '3']"));
-            DDTNotIsEmpty(new List<Dummy>() { 1, null, 3 }, (4, true, "Enumeration is not empty. Enumeration is: ['1', 'null', '3']"));
-            DDTNotIsEmpty(new List<Dummy>() { null, null, }, (5, true, "Enumeration is not empty. Enumeration is: ['null', 'null']"));
+            DDTNotIsEmpty(new List<Dummy>() { 1, null, 3 }, (4, true, "Enumeration is not empty. Enumeration is: ['1', null, '3']"));
+            DDTNotIsEmpty(new List<Dummy>() { null, null, }, (5, true, "Enumeration is not empty. Enumeration is: [null, null]"));
 
             DDTNotIsEmptyT<Dummy>(null, (6, false, "Parameter 'enumeration' is null."));
             DDTNotIsEmptyT(Enumerable.Empty<Dummy>(), (7, false, "Enumeration is empty. Enumeration is: []"));
             DDTNotIsEmptyT(new List<Dummy>() { 1, 2, 3 }, (8, true, "Enumeration is not empty. Enumeration is: ['1', '2', '3']"));
-            DDTNotIsEmptyT(new List<Dummy>() { 1, null, 3 }, (9, true, "Enumeration is not empty. Enumeration is: ['1', 'null', '3']"));
-            DDTNotIsEmptyT(new List<Dummy>() { null, null, }, (10, true, "Enumeration is not empty. Enumeration is: ['null', 'null']"));
+            DDTNotIsEmptyT(new List<Dummy>() { 1, null, 3 }, (9, true, "Enumeration is not empty. Enumeration is: ['1', null, '3']"));
+            DDTNotIsEmptyT(new List<Dummy>() { null, null, }, (10, true, "Enumeration is not empty. Enumeration is: [null, null]"));
 
         }
 
@@ -97,12 +97,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsNull(null, (1, false, "Parameter 'enumeration' is null."));
             DDTContainsNull(Enumerable.Empty<Dummy>(), (2, false, "Enumeration doesn't contain null. Enumeration is: []"));
             DDTContainsNull(new List<Dummy>() { 1, 2, 3 }, (3, false, "Enumeration doesn't contain null. Enumeration is: ['1', '2', '3']"));
-            DDTContainsNull(new List<Dummy>() { 1, null, 3 }, (4, true, "Enumeration contains null. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsNull(new List<Dummy>() { 1, null, 3 }, (4, true, "Enumeration contains null. Enumeration is: ['1', null, '3']"));
 
             DDTContainsNullT<Dummy>(null, (5, false, "Parameter 'enumeration' is null."));
             DDTContainsNullT(Enumerable.Empty<Dummy>(), (6, false, "Enumeration doesn't contain null. Enumeration is: []"));
             DDTContainsNullT(new List<Dummy>() { 1, 2, 3 }, (7, false, "Enumeration doesn't contain null. Enumeration is: ['1', '2', '3']"));
-            DDTContainsNullT(new List<Dummy>() { 1, null, 3 }, (8, true, "Enumeration contains null. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsNullT(new List<Dummy>() { 1, null, 3 }, (8, true, "Enumeration contains null. Enumeration is: ['1', null, '3']"));
 
         }
 
@@ -132,12 +132,12 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsNull(null, (1, false, "Parameter 'enumeration' is null."));
             DDTNotContainsNull(Enumerable.Empty<Dummy>(), (2, true, "Enumeration doesn't contain null. Enumeration is: []"));
             DDTNotContainsNull(new List<Dummy>() { 1, 2, 3 }, (3, true, "Enumeration doesn't contain null. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsNull(new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration contains null. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsNull(new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration contains null. Enumeration is: ['1', null, '3']"));
 
             DDTNotContainsNullT<Dummy>(null, (5, false, "Parameter 'enumeration' is null."));
             DDTNotContainsNullT(Enumerable.Empty<Dummy>(), (6, true, "Enumeration doesn't contain null. Enumeration is: []"));
             DDTNotContainsNullT(new List<Dummy>() { 1, 2, 3 }, (7, true, "Enumeration doesn't contain null. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsNullT(new List<Dummy>() { 1, null, 3 }, (8, false, "Enumeration contains null. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsNullT(new List<Dummy>() { 1, null, 3 }, (8, false, "Enumeration contains null. Enumeration is: ['1', null, '3']"));
 
         }
 
@@ -171,14 +171,14 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsNonNull(null, (1, false, "Parameter 'enumeration' is null."));
             DDTContainsNonNull(Enumerable.Empty<Dummy>(), (2, false, "Enumeration doesn't contain a non null value. Enumeration is: []"));
             DDTContainsNonNull(new List<Dummy>() { 1, 2, 3 }, (3, true, "Enumeration contains a non null value. Enumeration is: ['1', '2', '3']"));
-            DDTContainsNonNull(new List<Dummy>() { 1, null, 3 }, (4, true, "Enumeration contains a non null value. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsNonNull(new List<Dummy>() { null }, (5, false, "Enumeration doesn't contain a non null value. Enumeration is: ['null']"));
+            DDTContainsNonNull(new List<Dummy>() { 1, null, 3 }, (4, true, "Enumeration contains a non null value. Enumeration is: ['1', null, '3']"));
+            DDTContainsNonNull(new List<Dummy>() { null }, (5, false, "Enumeration doesn't contain a non null value. Enumeration is: [null]"));
 
             DDTContainsNonNullT<Dummy>(null, (6, false, "Parameter 'enumeration' is null."));
             DDTContainsNonNullT(Enumerable.Empty<Dummy>(), (7, false, "Enumeration doesn't contain a non null value. Enumeration is: []"));
             DDTContainsNonNullT(new List<Dummy>() { 1, 2, 3 }, (8, true, "Enumeration contains a non null value. Enumeration is: ['1', '2', '3']"));
-            DDTContainsNonNullT(new List<Dummy>() { 1, null, 3 }, (9, true, "Enumeration contains a non null value. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsNonNullT(new List<Dummy>() { null }, (10, false, "Enumeration doesn't contain a non null value. Enumeration is: ['null']"));
+            DDTContainsNonNullT(new List<Dummy>() { 1, null, 3 }, (9, true, "Enumeration contains a non null value. Enumeration is: ['1', null, '3']"));
+            DDTContainsNonNullT(new List<Dummy>() { null }, (10, false, "Enumeration doesn't contain a non null value. Enumeration is: [null]"));
 
         }
 
@@ -208,14 +208,14 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsNonNull(null, (1, false, "Parameter 'enumeration' is null."));
             DDTNotContainsNonNull(Enumerable.Empty<Dummy>(), (2, true, "Enumeration doesn't contain a non null value. Enumeration is: []"));
             DDTNotContainsNonNull(new List<Dummy>() { 1, 2, 3 }, (3, false, "Enumeration contains a non null value. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsNonNull(new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration contains a non null value. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsNonNull(new List<Dummy>() { null }, (5, true, "Enumeration doesn't contain a non null value. Enumeration is: ['null']"));
+            DDTNotContainsNonNull(new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration contains a non null value. Enumeration is: ['1', null, '3']"));
+            DDTNotContainsNonNull(new List<Dummy>() { null }, (5, true, "Enumeration doesn't contain a non null value. Enumeration is: [null]"));
 
             DDTNotContainsNonNullT<Dummy>(null, (6, false, "Parameter 'enumeration' is null."));
             DDTNotContainsNonNullT(Enumerable.Empty<Dummy>(), (7, true, "Enumeration doesn't contain a non null value. Enumeration is: []"));
             DDTNotContainsNonNullT(new List<Dummy>() { 1, 2, 3 }, (8, false, "Enumeration contains a non null value. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsNonNullT(new List<Dummy>() { 1, null, 3 }, (9, false, "Enumeration contains a non null value. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsNonNullT(new List<Dummy>() { null }, (10, true, "Enumeration doesn't contain a non null value. Enumeration is: ['null']"));
+            DDTNotContainsNonNullT(new List<Dummy>() { 1, null, 3 }, (9, false, "Enumeration contains a non null value. Enumeration is: ['1', null, '3']"));
+            DDTNotContainsNonNullT(new List<Dummy>() { null }, (10, true, "Enumeration doesn't contain a non null value. Enumeration is: [null]"));
 
         }
 
@@ -248,15 +248,15 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTContains((null, null), (1, false, "Parameter 'enumeration' is null."));
             DDTContains((null, 1), (2, false, "Parameter 'enumeration' is null."));
-            DDTContains((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
-            DDTContains((new List<DummyIEquatableT>() { 1, null, 3 }, null), (4, true, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTContains((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
+            DDTContains((new List<DummyIEquatableT>() { 1, null, 3 }, null), (4, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTContains((new List<DummyIEquatableT>() { 1, 2, 3 }, (DummyIEquatableT) 2), (5, true, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTContains((new List<DummyIEquatableT>() { 1, 2, 3 }, (DummyIEquatableT) 4), (6, false, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
             DDTContainsT<DummyIEquatableT>((null, null), (7, false, "Parameter 'enumeration' is null."));
             DDTContainsT<DummyIEquatableT>((null, 1), (8, false, "Parameter 'enumeration' is null."));
-            DDTContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (9, false, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
-            DDTContainsT((new List<DummyIEquatableT>() { 1, null, 3 }, null), (10, true, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (9, false, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
+            DDTContainsT((new List<DummyIEquatableT>() { 1, null, 3 }, null), (10, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, 2), (11, true, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, 4), (12, false, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
@@ -287,15 +287,15 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTNotContains((null, null), (1, false, "Parameter 'enumeration' is null."));
             DDTNotContains((null, 1), (2, false, "Parameter 'enumeration' is null."));
-            DDTNotContains((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
-            DDTNotContains((new List<DummyIEquatableT>() { 1, null, 3 }, null), (4, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContains((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
+            DDTNotContains((new List<DummyIEquatableT>() { 1, null, 3 }, null), (4, false, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTNotContains((new List<DummyIEquatableT>() { 1, 2, 3 }, (DummyIEquatableT) 2), (5, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTNotContains((new List<DummyIEquatableT>() { 1, 2, 3 }, (DummyIEquatableT) 4), (6, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
             DDTNotContainsT<DummyIEquatableT>((null, null), (7, false, "Parameter 'enumeration' is null."));
             DDTNotContainsT<DummyIEquatableT>((null, 1), (8, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (9, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsT((new List<DummyIEquatableT>() { 1, null, 3 }, null), (10, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (9, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsT((new List<DummyIEquatableT>() { 1, null, 3 }, null), (10, false, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTNotContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, 2), (11, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsT((new List<DummyIEquatableT>() { 1, 2, 3 }, 4), (12, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
@@ -330,28 +330,28 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTContainsWithComparer<Dummy>((null, null, null), (1, false, "Parameter 'enumeration' is null."));
             DDTContainsWithComparer((null, 1, new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
-            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyEqualityComparer()), (3, false, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyEqualityComparer()), (3, false, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, null), (4, false, "Parameter 'comparer' is null."));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingEqualityComparer()), (5, false, "Comparer threw Exception:"));
-            DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyEqualityComparer()), (6, true, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyEqualityComparer()), (6, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 2, new DummyEqualityComparer()), (7, true, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 4, new DummyEqualityComparer()), (8, false, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
             DDTContainsWithComparer((null, null, null), (9, false, "Parameter 'enumeration' is null."));
             DDTContainsWithComparer((null, 1, new DummyIEqualityComparer()), (10, false, "Parameter 'enumeration' is null."));
-            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer()), (11, false, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer()), (11, false, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer) null), (12, false, "Parameter 'comparer' is null."));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparer()), (13, false, "Comparer threw Exception:"));
-            DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer()), (14, true, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer()), (14, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 2, new DummyIEqualityComparer()), (15, true, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 4, new DummyIEqualityComparer()), (16, false, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
             DDTContainsWithComparer((null, null, (IEqualityComparer<Dummy>) null), (17, false, "Parameter 'enumeration' is null."));
             DDTContainsWithComparer((null, 1, new DummyIEqualityComparerT()), (18, false, "Parameter 'enumeration' is null."));
-            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT()), (19, false, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT()), (19, false, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparerT()), (21, false, "Comparer threw Exception:"));
-            DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT()), (22, true, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT()), (22, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 2, new DummyIEqualityComparerT()), (23, true, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 4, new DummyIEqualityComparerT()), (24, false, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
@@ -392,28 +392,28 @@ namespace Nuclear.TestSite.TestSuites {
 
             DDTNotContainsWithComparer<Dummy>((null, null, null), (1, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithComparer((null, 1, new DummyEqualityComparer()), (2, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyEqualityComparer()), (3, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyEqualityComparer()), (3, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, null), (4, false, "Parameter 'comparer' is null."));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingEqualityComparer()), (5, false, "Comparer threw Exception:"));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyEqualityComparer()), (6, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyEqualityComparer()), (6, false, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 2, new DummyEqualityComparer()), (7, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 4, new DummyEqualityComparer()), (8, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
             DDTNotContainsWithComparer((null, null, null), (9, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithComparer((null, 1, new DummyIEqualityComparer()), (10, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer()), (11, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer()), (11, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer) null), (12, false, "Parameter 'comparer' is null."));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparer()), (13, false, "Comparer threw Exception:"));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer()), (14, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer()), (14, false, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 2, new DummyIEqualityComparer()), (15, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, (Dummy) 4, new DummyIEqualityComparer()), (16, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
             DDTNotContainsWithComparer((null, null, (IEqualityComparer<Dummy>) null), (17, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithComparer((null, 1, new DummyIEqualityComparerT()), (18, false, "Parameter 'enumeration' is null."));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT()), (19, true, "Enumeration doesn't contain element 'null'. Enumeration is: ['1', '2', '3']"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT()), (19, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, (IEqualityComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 1, new ThrowingIEqualityComparerT()), (21, false, "Comparer threw Exception:"));
-            DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT()), (22, false, "Enumeration contains element 'null'. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsWithComparer((new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT()), (22, false, "Enumeration contains element null. Enumeration is: ['1', null, '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 2, new DummyIEqualityComparerT()), (23, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithComparer((new List<Dummy>() { 1, 2, 3 }, 4, new DummyIEqualityComparerT()), (24, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']"));
 
@@ -654,7 +654,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsWithFilter((null, new Predicate<Object>((_) => true)), (2, false, "Parameter 'enumeration' is null."));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Parameter 'match' is null."));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ == null)), (4, false, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
-            DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null)), (5, true, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null)), (5, true, "Enumeration contains a matching element. Enumeration is: ['1', null, '3']"));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 2)), (6, true, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 4)), (7, false, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => throw new Exception("test"))), (8, false, "Predicate threw Exception: 'test'"));
@@ -663,7 +663,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsWithFilterT((null, new Predicate<DummyIEquatableT>((_) => true)), (10, false, "Parameter 'enumeration' is null."));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (11, false, "Parameter 'match' is null."));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (12, false, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
-            DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (13, true, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
+            DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (13, true, "Enumeration contains a matching element. Enumeration is: ['1', null, '3']"));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == 2)), (14, true, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == 4)), (15, false, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => throw new Exception("test"))), (16, false, "Predicate threw Exception: 'test'"));
@@ -697,7 +697,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsWithFilter((null, new Predicate<Object>((_) => true)), (2, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (3, false, "Parameter 'match' is null."));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ == null)), (4, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null)), (5, false, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null)), (5, false, "Enumeration contains a matching element. Enumeration is: ['1', null, '3']"));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 2)), (6, false, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 4)), (7, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithFilter((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => throw new Exception("test"))), (8, false, "Predicate threw Exception: 'test'"));
@@ -706,7 +706,7 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsWithFilterT((null, new Predicate<DummyIEquatableT>((_) => true)), (10, false, "Parameter 'enumeration' is null."));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, null), (11, false, "Parameter 'match' is null."));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (12, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (13, false, "Enumeration contains a matching element. Enumeration is: ['1', 'null', '3']"));
+            DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null)), (13, false, "Enumeration contains a matching element. Enumeration is: ['1', null, '3']"));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == 2)), (14, false, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == 4)), (15, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']"));
             DDTNotContainsWithFilterT((new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => throw new Exception("test"))), (16, false, "Predicate threw Exception: 'test'"));
@@ -743,16 +743,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicates(null, (1, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicates(new List<DummyIEquatableT>() { }, (2, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 3 }, (3, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (6, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (7, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTContainsDuplicatesT<DummyIEquatableT>(null, (8, false, "Parameter 'enumeration' is null."));
             DDTContainsDuplicatesT(new List<DummyIEquatableT>() { }, (9, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 3 }, (10, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (13, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (14, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -784,16 +784,16 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicates(null, (1, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicates(new List<DummyIEquatableT>() { }, (2, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 3 }, (3, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, 3 }, (4, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, false, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (6, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTNotContainsDuplicates(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (7, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
             DDTNotContainsDuplicatesT<DummyIEquatableT>(null, (8, false, "Parameter 'enumeration' is null."));
             DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { }, (9, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 3 }, (10, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, 3 }, (11, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, null, null, 3 }, (12, false, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (13, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTNotContainsDuplicatesT(new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (14, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -832,8 +832,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingEqualityComparer()), (4, false, "Comparer threw Exception:"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyEqualityComparer()), (5, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer()), (6, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyEqualityComparer()), (9, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyEqualityComparer()), (10, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -843,8 +843,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparer()), (14, false, "Comparer threw Exception:"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparer()), (19, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparer()), (20, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -854,8 +854,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparerT()), (24, false, "Comparer threw Exception:"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, false, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, true, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, false, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparerT()), (29, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparerT()), (30, true, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -900,8 +900,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingEqualityComparer()), (4, false, "Comparer threw Exception:"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyEqualityComparer()), (5, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer()), (6, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyEqualityComparer()), (7, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer()), (8, false, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyEqualityComparer()), (9, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyEqualityComparer()), (10, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -911,8 +911,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparer()), (14, false, "Comparer threw Exception:"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparer()), (15, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer()), (16, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparer()), (17, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer()), (18, false, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparer()), (19, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparer()), (20, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -922,8 +922,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparerT()), (24, false, "Comparer threw Exception:"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { }, new DummyIEqualityComparerT()), (25, true, "Enumeration doesn't contain duplicates. Enumeration is: []"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT()), (26, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', '2', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', 'null', '3']"));
-            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, false, "Enumeration contains duplicates. Enumeration is: ['1', 'null', 'null', '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, 3 }, new DummyIEqualityComparerT()), (27, true, "Enumeration doesn't contain duplicates. Enumeration is: ['1', null, '3']"));
+            DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT()), (28, false, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparerT()), (29, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']"));
             DDTNotContainsDuplicatesWithComparer((new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparerT()), (30, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']"));
 
@@ -1526,8 +1526,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTMatchesT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTMatchesT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
@@ -1541,8 +1541,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
@@ -1581,8 +1581,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatches((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatches((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTNotMatchesT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
@@ -1596,8 +1596,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
@@ -1642,8 +1642,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTMatchesComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -1659,8 +1659,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTMatchesComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -1676,8 +1676,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
@@ -1728,8 +1728,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTNotMatchesComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -1745,8 +1745,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTNotMatchesComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -1762,8 +1762,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
@@ -2124,8 +2124,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, false, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTMatchesExactlyT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
@@ -2139,8 +2139,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, false, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
@@ -2179,8 +2179,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (9, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (10, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (12, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesExactly((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (13, true, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTNotMatchesExactlyT<DummyIEquatableT>((null, null), (14, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyT((null, new List<DummyIEquatableT>()), (15, false, "Parameter 'enumeration' is null."));
@@ -2194,8 +2194,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 1, 2 }), (22, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 1 }), (23, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }), (24, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (25, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesExactlyT((new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }), (26, true, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
@@ -2240,8 +2240,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, false, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTMatchesExactlyComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -2257,8 +2257,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, false, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTMatchesExactlyComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -2274,8 +2274,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, true, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, false, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, true, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, false, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
@@ -2326,8 +2326,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyEqualityComparer()), (11, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyEqualityComparer()), (12, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyEqualityComparer()), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (14, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyEqualityComparer()), (15, true, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTNotMatchesExactlyComparer((null, null, null), (16, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparer()), (17, false, "Parameter 'enumeration' is null."));
@@ -2343,8 +2343,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparer()), (26, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparer()), (27, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparer()), (28, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (29, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparer()), (30, true, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
             DDTNotMatchesExactlyComparer((null, null, (IEqualityComparer<Dummy>) null), (31, false, "Parameter 'enumeration' is null."));
             DDTNotMatchesExactlyComparer((null, new List<Dummy>(), new DummyIEqualityComparerT()), (32, false, "Parameter 'enumeration' is null."));
@@ -2360,8 +2360,8 @@ namespace Nuclear.TestSite.TestSuites {
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 1, 2 }, new DummyIEqualityComparerT()), (41, false, "Enumerations match. Enumeration is: ['1', '1', '2']; Other is: ['1', '1', '2']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 1 }, new DummyIEqualityComparerT()), (42, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '1']"));
             DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT()), (43, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', 'null', 'null', '2']; Other is: ['1', 'null', 'null', '2']"));
-            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations don't match. Enumeration is: ['1', 'null', '2', 'null']; Other is: ['1', 'null', 'null', '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (44, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']"));
+            DDTNotMatchesExactlyComparer((new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT()), (45, true, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']"));
 
         }
 
