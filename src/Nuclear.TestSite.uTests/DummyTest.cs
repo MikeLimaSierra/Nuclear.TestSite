@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+
 using Nuclear.Extensions;
 using Nuclear.Test;
 using Nuclear.Test.Results;
@@ -67,9 +68,7 @@ namespace Nuclear.TestSite {
             => _results.GetOrAdd(new TestResultKey(Scenario, _method.DeclaringType.Name, _method.Name),
                 new TestMethodResult());
 
-        public void FailTestMethod(MethodInfo _method, Exception ex)
-            => _results.GetOrAdd(new TestResultKey(Scenario, _method.DeclaringType.Name, _method.Name),
-                new TestMethodResult()).Fail(ex.ToString());
+        public void LogException(MethodInfo _method, Exception ex) => AddResult(false, ex.FormatType(), ex.Message, _method.DeclaringType.Name, _method.Name);
 
         #endregion
 
