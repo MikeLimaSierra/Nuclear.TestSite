@@ -106,11 +106,11 @@ namespace Nuclear.TestSite {
 
         public void AddResult(Boolean result, String testInstruction, String message, String _file, String _method)
             => _results.GetOrAdd(new TestResultKey(Scenario, _file, _method),
-                new TestMethodResult()).InstructionResults.Add(new TestInstructionResult(result, testInstruction, message));
+                new TestMethodResult()).TestEntries.Add(new TestEntry(result ? EntryTypes.ResultOk : EntryTypes.ResultFail, testInstruction, message));
 
         public void AddNote(String message, String _file, String _method)
             => _results.GetOrAdd(new TestResultKey(Scenario, _file, _method),
-                new TestMethodResult()).InstructionResults.Add(new TestInstructionResult(message));
+                new TestMethodResult()).TestEntries.Add(new TestEntry(EntryTypes.Note, null, message));
 
         #endregion
 

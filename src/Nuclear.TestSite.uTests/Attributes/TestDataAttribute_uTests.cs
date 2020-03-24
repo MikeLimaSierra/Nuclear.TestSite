@@ -37,7 +37,7 @@ namespace Nuclear.TestSite {
             Test.If.Value.IsEqual(attr.DataKind, TestDataAttribute.TestDataKind.ParameterArray, _file, _method);
             Test.If.Enumerable.MatchesExactly(attr.Parameters, expected, _file, _method);
             Test.If.Object.IsNull(attr.Provider, _file, _method);
-            Test.If.Object.IsNull(attr.ProviderName, _file, _method);
+            Test.If.Object.IsNull(attr.ProviderMember, _file, _method);
 
         }
 
@@ -53,7 +53,7 @@ namespace Nuclear.TestSite {
             Test.If.Value.IsEqual(attr.DataKind, TestDataAttribute.TestDataKind.ProviderType, _file, _method);
             Test.If.Object.IsNull(attr.Parameters, _file, _method);
             Test.If.Value.IsEqual(attr.Provider, expected.provider, _file, _method);
-            Test.If.Value.IsEqual(attr.ProviderName, expected.name, _file, _method);
+            Test.If.Value.IsEqual(attr.ProviderMember, expected.name, _file, _method);
 
         }
 
@@ -69,7 +69,7 @@ namespace Nuclear.TestSite {
             Test.If.Value.IsEqual(attr.DataKind, TestDataAttribute.TestDataKind.ProviderType, _file, _method);
             Test.If.Object.IsNull(attr.Parameters, _file, _method);
             Test.If.Value.IsEqual(attr.Provider, expected.provider, _file, _method);
-            Test.If.Value.IsEqual(attr.ProviderName, expected.name, _file, _method);
+            Test.If.Value.IsEqual(attr.ProviderMember, expected.name, _file, _method);
 
         }
 

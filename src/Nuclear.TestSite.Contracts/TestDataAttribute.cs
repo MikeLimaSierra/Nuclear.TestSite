@@ -31,9 +31,9 @@ namespace Nuclear.TestSite {
         public Type Provider { get; private set; }
 
         /// <summary>
-        /// Gets the name of the providing method.
+        /// Gets the name of the providing member.
         /// </summary>
-        public String ProviderName { get; private set; }
+        public String ProviderMember { get; private set; }
 
         #endregion
 
@@ -49,17 +49,29 @@ namespace Nuclear.TestSite {
         }
 
         /// <summary>
-        /// Creates a new instance of <see cref="TestDataAttribute"/>.
-        ///     If <paramref name="providerName"/> is a valid method name of <paramref name="provider"/> and
-        ///       returns <see cref="IEnumerable{Object}"/> then this is invoked to yield test data.
-        ///     Otherwise <see cref="IEnumerable{Object}.GetEnumerator()"/> will be invoked on an instance of
-        ///       <paramref name="provider"/> if the type implements <see cref="IEnumerable{Object}"/>.
+        /// Creates a new instance of <see cref="TestDataAttribute"/> using <see cref="IEnumerable{T}.GetEnumerator"/>
+        ///   where the generic type argument is <see cref="T:Object[]"/> declared by <paramref name="provider"/> to provide test data.
+        /// </summary>
+        /// <param name="provider">The provider <see cref="Type"/> that implements <see cref="IEnumerable{T}"/>
+        ///   where the generic type argument is <see cref="T:Object[]"/>.</param>
+        public TestDataAttribute(Type provider) : this(provider, null) { }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="TestDataAttribute"/> using a member named <paramref name="providerMember"/>
+        ///   declared by the test class to provide test data.
+        /// </summary>
+        /// <param name="providerMember">The name of the member that provides test data.</param>
+        public TestDataAttribute(String providerMember = null) : this(null, providerMember) { }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="TestDataAttribute"/> using a member named <paramref name="providerMember"/>
+        ///   declared by <paramref name="provider"/> to provide test data.
         /// </summary>
         /// <param name="provider">The provider <see cref="Type"/> that implements <see cref="IEnumerable{Object}"/>.</param>
-        /// <param name="providerName">The name of the method to invoke on an instance of <paramref name="provider"/>.</param>
-        public TestDataAttribute(Type provider, String providerName = null) {
+        /// <param name="providerMember">The name of the member that provides test data.</param>
+        public TestDataAttribute(Type provider, String providerMember) {
             Provider = provider;
-            ProviderName = providerName;
+            ProviderMember = providerMember;
             DataKind = TestDataKind.ProviderType;
         }
 
@@ -75,7 +87,7 @@ namespace Nuclear.TestSite {
                     return $"[TestData({Parameters.Format()})]";
 
                 case TestDataKind.ProviderType:
-                    return $"[TestData({Provider.Format()}, {ProviderName.Format()})]";
+                    return $"[TestData({Provider.Format()}, {ProviderMember.Format()})]";
 
                 default:
                     return "[TestData]";
