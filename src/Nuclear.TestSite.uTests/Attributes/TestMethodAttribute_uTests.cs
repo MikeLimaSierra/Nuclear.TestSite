@@ -1,88 +1,69 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using Nuclear.Extensions;
 
 namespace Nuclear.TestSite {
     class TestMethodAttribute_uTests {
 
         [TestMethod]
-        void Ctor() {
-
-            DDTCtor((TestMode.Parallel, null, false));
-
-            DDTCtor((TestMode) 1000, (TestMode.Parallel, null, false));
-            DDTCtor(TestMode.Parallel, (TestMode.Parallel, null, false));
-            DDTCtor(TestMode.Sequential, (TestMode.Sequential, null, false));
-
-            DDTCtor(null, (TestMode.Parallel, null, false));
-            DDTCtor("", (TestMode.Parallel, "", false));
-            DDTCtor(" ", (TestMode.Parallel, " ", false));
-            DDTCtor("reason", (TestMode.Parallel, "reason", true));
-
-            DDTCtor(((TestMode) 1000, null), (TestMode.Parallel, null, false));
-            DDTCtor((TestMode.Parallel, ""), (TestMode.Parallel, "", false));
-            DDTCtor((TestMode.Sequential, " "), (TestMode.Sequential, " ", false));
-            DDTCtor((TestMode.Sequential, "reason"), (TestMode.Sequential, "reason", true));
-
-        }
-
-        void DDTCtor((TestMode mode, String reason, Boolean ignored) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestParameters(TestMode.Parallel, null, false)]
+        void Ctor(TestMode mode, String reason, Boolean ignored) {
 
             TestMethodAttribute attr = null;
 
-            Test.Note($"new TestMethodAttribute() => ({expected.mode.Format()}, {expected.reason.Format()}, {expected.ignored.Format()})", _file, _method);
+            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(), out Exception ex);
 
-            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(), out Exception ex, _file, _method);
-
-            Test.If.Value.IsEqual(attr.TestMode, expected.mode, _file, _method);
-            Test.If.Value.IsEqual(attr.IgnoreReason, expected.reason, _file, _method);
-            Test.If.Value.IsEqual(attr.IsIgnored, expected.ignored, _file, _method);
+            Test.If.Value.IsEqual(attr.TestMode, mode);
+            Test.If.Value.IsEqual(attr.IgnoreReason, reason);
+            Test.If.Value.IsEqual(attr.IsIgnored, ignored);
 
         }
 
-        void DDTCtor(TestMode input, (TestMode mode, String reason, Boolean ignored) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters((TestMode) 1000, TestMode.Parallel, null, false)]
+        [TestParameters(TestMode.Parallel, TestMode.Parallel, null, false)]
+        [TestParameters(TestMode.Sequential, TestMode.Sequential, null, false)]
+        void CtorMode(TestMode input, TestMode mode, String reason, Boolean ignored) {
 
             TestMethodAttribute attr = null;
 
-            Test.Note($"new TestMethodAttribute({input.Format()}) => ({expected.mode.Format()}, {expected.reason.Format()}, {expected.ignored.Format()})", _file, _method);
+            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(input), out Exception ex);
 
-            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(input), out Exception ex, _file, _method);
-
-            Test.If.Value.IsEqual(attr.TestMode, expected.mode, _file, _method);
-            Test.If.Value.IsEqual(attr.IgnoreReason, expected.reason, _file, _method);
-            Test.If.Value.IsEqual(attr.IsIgnored, expected.ignored, _file, _method);
+            Test.If.Value.IsEqual(attr.TestMode, mode);
+            Test.If.Value.IsEqual(attr.IgnoreReason, reason);
+            Test.If.Value.IsEqual(attr.IsIgnored, ignored);
 
         }
 
-        void DDTCtor(String input, (TestMode mode, String reason, Boolean ignored) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters(null, TestMode.Parallel, null, false)]
+        [TestParameters("", TestMode.Parallel, "", false)]
+        [TestParameters(" ", TestMode.Parallel, " ", false)]
+        [TestParameters("reason", TestMode.Parallel, "reason", true)]
+        void CtorIgnore(String input, TestMode mode, String reason, Boolean ignored) {
 
             TestMethodAttribute attr = null;
 
-            Test.Note($"new TestMethodAttribute({input.Format()}) => ({expected.mode.Format()}, {expected.reason.Format()}, {expected.ignored.Format()})", _file, _method);
+            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(input), out Exception ex);
 
-            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(input), out Exception ex, _file, _method);
-
-            Test.If.Value.IsEqual(attr.TestMode, expected.mode, _file, _method);
-            Test.If.Value.IsEqual(attr.IgnoreReason, expected.reason, _file, _method);
-            Test.If.Value.IsEqual(attr.IsIgnored, expected.ignored, _file, _method);
+            Test.If.Value.IsEqual(attr.TestMode, mode);
+            Test.If.Value.IsEqual(attr.IgnoreReason, reason);
+            Test.If.Value.IsEqual(attr.IsIgnored, ignored);
 
         }
 
-        void DDTCtor((TestMode mode, String reason) input, (TestMode mode, String reason, Boolean ignored) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters((TestMode) 1000, null, TestMode.Parallel, null, false)]
+        [TestParameters(TestMode.Parallel, "", TestMode.Parallel, "", false)]
+        [TestParameters(TestMode.Sequential, " ", TestMode.Sequential, " ", false)]
+        [TestParameters(TestMode.Sequential, "reason", TestMode.Sequential, "reason", true)]
+        void CtorModeAndIgnore(TestMode input1, String input2, TestMode mode, String reason, Boolean ignored) {
 
             TestMethodAttribute attr = null;
 
-            Test.Note($"new TestMethodAttribute({input.mode.Format()}, {input.reason.Format()}) => ({expected.mode.Format()}, {expected.reason.Format()}, {expected.ignored.Format()})", _file, _method);
+            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(input1, input2), out Exception ex);
 
-            Test.IfNot.Action.ThrowsException(() => attr = new TestMethodAttribute(input.mode, input.reason), out Exception ex, _file, _method);
-
-            Test.If.Value.IsEqual(attr.TestMode, expected.mode, _file, _method);
-            Test.If.Value.IsEqual(attr.IgnoreReason, expected.reason, _file, _method);
-            Test.If.Value.IsEqual(attr.IsIgnored, expected.ignored, _file, _method);
+            Test.If.Value.IsEqual(attr.TestMode, mode);
+            Test.If.Value.IsEqual(attr.IgnoreReason, reason);
+            Test.If.Value.IsEqual(attr.IsIgnored, ignored);
 
         }
 
