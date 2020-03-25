@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Nuclear.TestSite.TestSuites.Proxies {
@@ -16,24 +17,28 @@ namespace Nuclear.TestSite.TestSuites.Proxies {
         }
 
         [TestMethod]
-        void OnEventRaised() {
+        [TestData(nameof(OnEventRaisedData))]
+        void OnEventRaised(Object input1, PropertyChangedEventArgs input2, Object sender, PropertyChangedEventArgs e) {
 
             EventProxy<PropertyChangedEventArgs> proxy = new EventProxy<PropertyChangedEventArgs>();
-            Object sender = new Object();
-            PropertyChangedEventArgs e = new PropertyChangedEventArgs("dummy");
 
-            Test.IfNot.Action.ThrowsException(() => proxy.OnEventRaised(null, null), out Exception ex);
-            Test.If.Value.IsTrue(proxy.EventRaised);
-            Test.IfNot.Object.IsNull(proxy.EventData);
-            Test.If.Object.IsNull(proxy.EventData.Sender);
-            Test.If.Object.IsNull(proxy.EventData.EventArgs);
+            Test.IfNot.Action.ThrowsException(() => proxy.OnEventRaised(input1, input2), out Exception ex);
 
-            Test.IfNot.Action.ThrowsException(() => proxy.OnEventRaised(sender, e), out ex);
             Test.If.Value.IsTrue(proxy.EventRaised);
             Test.IfNot.Object.IsNull(proxy.EventData);
             Test.If.Reference.IsEqual(proxy.EventData.Sender, sender);
             Test.If.Reference.IsEqual(proxy.EventData.EventArgs, e);
 
+        }
+
+        IEnumerable<Object[]> OnEventRaisedData() {
+            Object sender = new Object();
+            PropertyChangedEventArgs e = new PropertyChangedEventArgs("dummy");
+
+            return new List<Object[]>() {
+                new Object[] { null, null, null, null },
+                new Object[] { sender, e, sender, e },
+            };
         }
 
     }
