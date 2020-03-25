@@ -6,22 +6,20 @@ namespace Nuclear.TestSite {
     class Test_uTests {
 
         [TestMethod]
+        [TestParameters(null, 0)]
+        [TestParameters("", 0)]
+        [TestParameters(" ", 0)]
+        void TestNoteThrows(String input, Int32 results) {
+
+            Test.If.Action.ThrowsException(() => DummyTest.Note(input), out ArgumentException argEx);
+            Test.If.Value.IsEqual(Statics.GetResults(DummyTestResults.Instance).CountResults, results);
+
+        }
+
+        [TestMethod]
         void TestNote() {
 
-            Test.Note("Test.Note(\"This is a note\")");
             Test.IfNot.Action.ThrowsException(() => DummyTest.Note("This is a note"), out Exception ex);
-            Test.If.Value.IsEqual(Statics.GetResults(DummyTestResults.Instance).CountResults, 0);
-            Test.If.Value.IsEqual(Statics.GetLastResult(DummyTestResults.Instance).EntryType, EntryTypes.Note);
-            Test.If.Value.IsEqual(Statics.GetLastResult(DummyTestResults.Instance).Message, "This is a note");
-
-            Test.Note("Test.Note(String.Empty)");
-            Test.If.Action.ThrowsException(() => DummyTest.Note(String.Empty), out ArgumentException argEx);
-            Test.If.Value.IsEqual(Statics.GetResults(DummyTestResults.Instance).CountResults, 0);
-            Test.If.Value.IsEqual(Statics.GetLastResult(DummyTestResults.Instance).EntryType, EntryTypes.Note);
-            Test.If.Value.IsEqual(Statics.GetLastResult(DummyTestResults.Instance).Message, "This is a note");
-
-            Test.Note("Test.Note(null)");
-            Test.If.Action.ThrowsException(() => DummyTest.Note(null), out ArgumentNullException argNullEx);
             Test.If.Value.IsEqual(Statics.GetResults(DummyTestResults.Instance).CountResults, 0);
             Test.If.Value.IsEqual(Statics.GetLastResult(DummyTestResults.Instance).EntryType, EntryTypes.Note);
             Test.If.Value.IsEqual(Statics.GetLastResult(DummyTestResults.Instance).Message, "This is a note");
