@@ -175,7 +175,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters("", 'x', 2, false, "[String = ''; Value = 'x']")]
         [TestParameters("ax", 'x', 3, true, "[String = 'ax'; Value = 'x']")]
         [TestParameters("xa", 'x', 4, false, "[String = 'xa'; Value = 'x']")]
-        void DDTEndsWithChar(String input1, Char input2, Int32 count, Boolean result, String message) {
+        void EndsWithChar(String input1, Char input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.If.String.EndsWith(input1, input2),
                 (count, result, message), "Test.If.String.EndsWith");
@@ -187,7 +187,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters("", 'x', 2, true, "[String = ''; Value = 'x']")]
         [TestParameters("ax", 'x', 3, false, "[String = 'ax'; Value = 'x']")]
         [TestParameters("xa", 'x', 4, true, "[String = 'xa'; Value = 'x']")]
-        void DDTNotEndsWithChar(String input1, Char input2, Int32 count, Boolean result, String message) {
+        void NotEndsWithChar(String input1, Char input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.String.EndsWith(input1, input2),
                 (count, result, message), "Test.IfNot.String.EndsWith");
@@ -203,7 +203,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters("xy", "", 6, true, "[String = 'xy'; Value = '']")]
         [TestParameters("axy", "xy", 7, true, "[String = 'axy'; Value = 'xy']")]
         [TestParameters("xya", "xy", 8, false, "[String = 'xya'; Value = 'xy']")]
-        void DDTEndsWithString(String input1, String input2, Int32 count, Boolean result, String message) {
+        void EndsWithString(String input1, String input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.If.String.EndsWith(input1, input2),
                 (count, result, message), "Test.If.String.EndsWith");
@@ -219,7 +219,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters("xy", "", 6, false, "[String = 'xy'; Value = '']")]
         [TestParameters("axy", "xy", 7, false, "[String = 'axy'; Value = 'xy']")]
         [TestParameters("xya", "xy", 8, true, "[String = 'xya'; Value = 'xy']")]
-        void DDTNotEndsWithString(String input1, String input2, Int32 count, Boolean result, String message) {
+        void NotEndsWithString(String input1, String input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.String.EndsWith(input1, input2),
                 (count, result, message), "Test.IfNot.String.EndsWith");
