@@ -235,68 +235,44 @@ namespace Nuclear.TestSite.TestSuites {
         #region IsEqualSingle
 
         [TestMethod]
-        void IsEqualSingle() {
+        [TestParameters(1f, 0f, 1, false, "[Left = '1'; Right = '0'; Margin = '1E-12']")]
+        [TestParameters(1f, 1f, 2, true, "[Left = '1'; Right = '1'; Margin = '1E-12']")]
+        [TestParameters(1e-11f, 1.1e-11f, 3, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']")]
+        [TestParameters(1e-12f, 1.1e-12f, 4, true, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']")]
+        void IsEqualSingle(Single input1, Single input2, Int32 count, Boolean result, String message) {
 
-            DDTIsEqualSingle((1f, 0f), (1, false, "[Left = '1'; Right = '0'; Margin = '1E-12']"));
-            DDTIsEqualSingle((1f, 1f), (2, true, "[Left = '1'; Right = '1'; Margin = '1E-12']"));
-            DDTIsEqualSingle((1e-11f, 1.1e-11f), (3, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']"));
-            DDTIsEqualSingle((1e-12f, 1.1e-12f), (4, true, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']"));
-            DDTIsEqualSingle((1e-11f, 1.1e-11f, 1e-11f), (5, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']"));
-
-        }
-
-        void DDTIsEqualSingle((Single left, Single right) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsEqual({input.left.Format()}, {input.right.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
-
-        }
-
-        void DDTIsEqualSingle((Single left, Single right, Single margin) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsEqual({input.left.Format()}, {input.right.Format()}, {input.margin.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, input.margin, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2),
+                (count, result, message), "Test.If.Value.IsEqual");
 
         }
 
         [TestMethod]
-        void NotIsEqualSingle() {
+        [TestParameters(1e-11f, 1.1e-11f, 1e-11f, 1, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
+        void IsEqualSingleMargin(Single input1, Single input2, Single input3, Int32 count, Boolean result, String message) {
 
-            DDTNotIsEqualSingle((1f, 0f), (1, true, "[Left = '1'; Right = '0'; Margin = '1E-12']"));
-            DDTNotIsEqualSingle((1f, 1f), (2, false, "[Left = '1'; Right = '1'; Margin = '1E-12']"));
-            DDTNotIsEqualSingle((1e-11f, 1.1e-11f), (3, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']"));
-            DDTNotIsEqualSingle((1e-12f, 1.1e-12f), (4, false, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']"));
-            DDTNotIsEqualSingle((1e-11f, 1.1e-11f, 1e-11f), (5, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']"));
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
+                (count, result, message), "Test.If.Value.IsEqual");
 
         }
 
-        void DDTNotIsEqualSingle((Single left, Single right) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters(1f, 0f, 1, true, "[Left = '1'; Right = '0'; Margin = '1E-12']")]
+        [TestParameters(1f, 1f, 2, false, "[Left = '1'; Right = '1'; Margin = '1E-12']")]
+        [TestParameters(1e-11f, 1.1e-11f, 3, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']")]
+        [TestParameters(1e-12f, 1.1e-12f, 4, false, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']")]
+        void NotIsEqualSingle(Single input1, Single input2, Int32 count, Boolean result, String message) {
 
-            Test.Note($"Test.IfNot.Value.IsEqual({input.left.Format()}, {input.right.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2),
+                (count, result, message), "Test.IfNot.Value.IsEqual");
 
         }
 
-        void DDTNotIsEqualSingle((Single left, Single right, Single margin) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters(1e-11f, 1.1e-11f, 1e-11f, 1, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
+        void NotIsEqualSingleMargin(Single input1, Single input2, Single input3, Int32 count, Boolean result, String message) {
 
-            Test.Note($"Test.IfNot.Value.IsEqual({input.left.Format()}, {input.right.Format()}, {input.margin.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, input.margin, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2, input3),
+                (count, result, message), "Test.IfNot.Value.IsEqual");
 
         }
 
@@ -305,68 +281,44 @@ namespace Nuclear.TestSite.TestSuites {
         #region IsEqualDouble
 
         [TestMethod]
-        void IsEqualDouble() {
+        [TestParameters(1d, 0d, 1, false, "[Left = '1'; Right = '0'; Margin = '1E-12']")]
+        [TestParameters(1d, 1d, 2, true, "[Left = '1'; Right = '1'; Margin = '1E-12']")]
+        [TestParameters(1e-11d, 1.1e-11d, 3, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']")]
+        [TestParameters(1e-12d, 1.1e-12d, 4, true, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']")]
+        void IsEqualDouble(Double input1, Double input2 , Int32 count, Boolean result, String message) {
 
-            DDTIsEqualDouble((1d, 0d), (1, false, "[Left = '1'; Right = '0'; Margin = '1E-12']"));
-            DDTIsEqualDouble((1d, 1d), (2, true, "[Left = '1'; Right = '1'; Margin = '1E-12']"));
-            DDTIsEqualDouble((1e-11d, 1.1e-11d), (3, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']"));
-            DDTIsEqualDouble((1e-12d, 1.1e-12d), (4, true, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']"));
-            DDTIsEqualDouble((1e-11d, 1.1e-11d, 1e-11d), (5, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']"));
-
-        }
-
-        void DDTIsEqualDouble((Double left, Double right) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsEqual({input.left.Format()}, {input.right.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
-
-        }
-
-        void DDTIsEqualDouble((Double left, Double right, Double margin) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsEqual({input.left.Format()}, {input.right.Format()}, {input.margin.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, input.margin, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2),
+                (count, result, message), "Test.If.Value.IsEqual");
 
         }
 
         [TestMethod]
-        void NotIsEqualDouble() {
+        [TestParameters(1e-11d, 1.1e-11d, 1e-11d, 1, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
+        void IsEqualDoubleMargin(Double input1, Double input2, Double input3, Int32 count, Boolean result, String message) {
 
-            DDTNotIsEqualDouble((1d, 0d), (1, true, "[Left = '1'; Right = '0'; Margin = '1E-12']"));
-            DDTNotIsEqualDouble((1d, 1d), (2, false, "[Left = '1'; Right = '1'; Margin = '1E-12']"));
-            DDTNotIsEqualDouble((1e-11d, 1.1e-11d), (3, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']"));
-            DDTNotIsEqualDouble((1e-12d, 1.1e-12d), (4, false, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']"));
-            DDTNotIsEqualDouble((1e-11d, 1.1e-11d, 1e-11d), (5, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']"));
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
+                (count, result, message), "Test.If.Value.IsEqual");
 
         }
 
-        void DDTNotIsEqualDouble((Double left, Double right) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters(1d, 0d, 1, true, "[Left = '1'; Right = '0'; Margin = '1E-12']")]
+        [TestParameters(1d, 1d, 2, false, "[Left = '1'; Right = '1'; Margin = '1E-12']")]
+        [TestParameters(1e-11d, 1.1e-11d, 3, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']")]
+        [TestParameters(1e-12d, 1.1e-12d, 4, false, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']")]
+        void NotIsEqualDouble(Double input1, Double input2, Int32 count, Boolean result, String message) {
 
-            Test.Note($"Test.IfNot.Value.IsEqual({input.left.Format()}, {input.right.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2),
+                (count, result, message), "Test.IfNot.Value.IsEqual");
 
         }
 
-        void DDTNotIsEqualDouble((Double left, Double right, Double margin) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters(1e-11d, 1.1e-11d, 1e-11d, 1, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
+        void NotIsEqualDoubleMargin(Double input1, Double input2, Double input3, Int32 count, Boolean result, String message) {
 
-            Test.Note($"Test.IfNot.Value.IsEqual({input.left.Format()}, {input.right.Format()}, {input.margin.Format()})",
-                _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, input.margin, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2, input3),
+                (count, result, message), "Test.IfNot.Value.IsEqual");
 
         }
 
@@ -1227,66 +1179,44 @@ namespace Nuclear.TestSite.TestSuites {
         #region IsTrue
 
         [TestMethod]
-        void True() {
+        [TestParameters(true, 1, true, "[Value = 'True']")]
+        [TestParameters(false, 2, false, "[Value = 'False']")]
+        void True(Boolean input, Int32 count, Boolean result, String message) {
 
-            DDTTrue(true, (1, true, "[Value = 'True']"));
-            DDTTrue(false, (2, false, "[Value = 'False']"));
-
-            DDTTrueNullable(true, (3, true, "[Value = 'True']"));
-            DDTTrueNullable(false, (4, false, "[Value = 'False']"));
-            DDTTrueNullable(null, (5, false, "Parameter 'value' is null."));
-
-        }
-
-        void DDTTrue(Boolean input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsTrue({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsTrue(input, _file, _method),
-                expected, "Test.If.Value.IsTrue", _file, _method);
-
-        }
-
-        void DDTTrueNullable(Boolean? input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsTrue({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsTrue(input, _file, _method),
-                expected, "Test.If.Value.IsTrue", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsTrue(input),
+                (count, result, message), "Test.If.Value.IsTrue");
 
         }
 
         [TestMethod]
-        void NotTrue() {
+        [TestParameters(true, 1, true, "[Value = 'True']")]
+        [TestParameters(false, 2, false, "[Value = 'False']")]
+        [TestParameters(null, 3, false, "Parameter 'value' is null.")]
+        void TrueNullable(Boolean? input, Int32 count, Boolean result, String message) {
 
-            DDTNotTrue(true, (1, false, "[Value = 'True']"));
-            DDTNotTrue(false, (2, true, "[Value = 'False']"));
-
-            DDTNotTrueNullable(true, (3, false, "[Value = 'True']"));
-            DDTNotTrueNullable(false, (4, true, "[Value = 'False']"));
-            DDTNotTrueNullable(null, (5, false, "Parameter 'value' is null."));
-
-        }
-
-        void DDTNotTrue(Boolean input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.IfNot.Value.IsTrue({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsTrue(input, _file, _method),
-                expected, "Test.IfNot.Value.IsTrue", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsTrue(input),
+                (count, result, message), "Test.If.Value.IsTrue");
 
         }
 
-        void DDTNotTrueNullable(Boolean? input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters(true, 1, false, "[Value = 'True']")]
+        [TestParameters(false, 2, true, "[Value = 'False']")]
+        void NotTrue(Boolean input, Int32 count, Boolean result, String message) {
 
-            Test.Note($"Test.IfNot.Value.IsTrue({input.Format()})", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsTrue(input),
+                (count, result, message), "Test.IfNot.Value.IsTrue");
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsTrue(input, _file, _method),
-                expected, "Test.IfNot.Value.IsTrue", _file, _method);
+        }
+
+        [TestMethod]
+        [TestParameters(true, 1, false, "[Value = 'True']")]
+        [TestParameters(false, 2, true, "[Value = 'False']")]
+        [TestParameters(null, 3, false, "Parameter 'value' is null.")]
+        void NotTrueNullable(Boolean? input, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsTrue(input),
+                (count, result, message), "Test.IfNot.Value.IsTrue");
 
         }
 
@@ -1295,66 +1225,44 @@ namespace Nuclear.TestSite.TestSuites {
         #region IsFalse
 
         [TestMethod]
-        void False() {
+        [TestParameters(true, 1, false, "[Value = 'True']")]
+        [TestParameters(false, 2, true, "[Value = 'False']")]
+        void IsFalse(Boolean input, Int32 count, Boolean result, String message) {
 
-            DDTFalse(true, (1, false, "[Value = 'True']"));
-            DDTFalse(false, (2, true, "[Value = 'False']"));
-
-            DDTFalseNullable(true, (3, false, "[Value = 'True']"));
-            DDTFalseNullable(false, (4, true, "[Value = 'False']"));
-            DDTFalseNullable(null, (5, false, "Parameter 'value' is null."));
-
-        }
-
-        void DDTFalse(Boolean input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsFalse({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsFalse(input, _file, _method),
-                expected, "Test.If.Value.IsFalse", _file, _method);
-
-        }
-
-        void DDTFalseNullable(Boolean? input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Value.IsFalse({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsFalse(input, _file, _method),
-                expected, "Test.If.Value.IsFalse", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsFalse(input),
+                (count, result, message), "Test.If.Value.IsFalse");
 
         }
 
         [TestMethod]
-        void NotFalse() {
+        [TestParameters(true, 1, false, "[Value = 'True']")]
+        [TestParameters(false, 2, true, "[Value = 'False']")]
+        [TestParameters(null, 3, false, "Parameter 'value' is null.")]
+        void IsFalseNullable(Boolean? input, Int32 count, Boolean result, String message) {
 
-            DDTNotFalse(true, (1, true, "[Value = 'True']"));
-            DDTNotFalse(false, (2, false, "[Value = 'False']"));
-
-            DDTNotFalseNullable(true, (3, true, "[Value = 'True']"));
-            DDTNotFalseNullable(false, (4, false, "[Value = 'False']"));
-            DDTNotFalseNullable(null, (5, false, "Parameter 'value' is null."));
-
-        }
-
-        void DDTNotFalse(Boolean input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.IfNot.Value.IsFalse({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsFalse(input, _file, _method),
-                expected, "Test.IfNot.Value.IsFalse", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsFalse(input),
+                (count, result, message), "Test.If.Value.IsFalse");
 
         }
 
-        void DDTNotFalseNullable(Boolean? input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestParameters(true, 1, true, "[Value = 'True']")]
+        [TestParameters(false, 2, false, "[Value = 'False']")]
+        void NotFalse(Boolean input, Int32 count, Boolean result, String message) {
 
-            Test.Note($"Test.IfNot.Value.IsFalse({input.Format()})", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsFalse(input),
+                (count, result, message), "Test.IfNot.Value.IsFalse");
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsFalse(input, _file, _method),
-                expected, "Test.IfNot.Value.IsFalse", _file, _method);
+        }
+
+        [TestMethod]
+        [TestParameters(true, 1, true, "[Value = 'True']")]
+        [TestParameters(false, 2, false, "[Value = 'False']")]
+        [TestParameters(null, 3, false, "Parameter 'value' is null.")]
+        void NotFalseNullable(Boolean? input, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsFalse(input),
+                (count, result, message), "Test.IfNot.Value.IsFalse");
 
         }
 
