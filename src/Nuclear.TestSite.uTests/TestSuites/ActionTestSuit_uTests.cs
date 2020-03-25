@@ -25,7 +25,7 @@ namespace Nuclear.TestSite.TestSuites {
                 (4, false, "[Exception = null]", false, ""));
             DDTThrowsException<Exception>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (5, true, "[Exception = 'System.Exception", true, "test message"));
-            DDTThrowsException<SystemException>(( () => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
+            DDTThrowsException<SystemException>((() => throw new Exception("test message"), "() => {{ throw new Exception(\"test message\"); }}"),
                 (6, false, "[Exception = null]", false, ""));
 
         }
