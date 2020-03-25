@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
-using Nuclear.Extensions;
+using System.Collections.Generic;
 
 namespace Nuclear.TestSite.TestSuites {
     class ReferenceTestSuite_uTests {
@@ -8,45 +7,41 @@ namespace Nuclear.TestSite.TestSuites {
         #region IsEqual
 
         [TestMethod]
-        void IsEqual() {
+        [TestData(nameof(IsEqualData))]
+        void IsEqual(Object input1, Object input2, (Int32 count, Boolean result, String message) expected) {
 
-            DDTIsEqual((null, null), (1, true, "References equal."));
-            DDTIsEqual((null, new Object()), (2, false, "References don't equal."));
-            DDTIsEqual((new Object(), null), (3, false, "References don't equal."));
-            DDTIsEqual((new Object(), new Object()), (4, false, "References don't equal."));
-            DDTIsEqual((DummyTestResults.Instance, DummyTestResults.Instance), (5, true, "References equal."));
+            Statics.DDTResultState(() => DummyTest.If.Reference.IsEqual(input1, input2),
+                expected, "Test.If.Reference.IsEqual");
 
         }
 
-        void DDTIsEqual((Object @object, Object other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Reference.IsEqual({input.@object.Format()}, {input.other.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Reference.IsEqual(input.@object, input.other, _file, _method),
-                expected, "Test.If.Reference.IsEqual", _file, _method);
-
+        IEnumerable<Object[]> IsEqualData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, (1, true, "References equal.") },
+                new Object[] { null, new Object(), (2, false, "References don't equal.") },
+                new Object[] { new Object(), null, (3, false, "References don't equal.") },
+                new Object[] { new Object(), new Object(), (4, false, "References don't equal.") },
+                new Object[] { DummyTestResults.Instance, DummyTestResults.Instance, (5, true, "References equal.") },
+            };
         }
 
         [TestMethod]
-        void NotIsEqual() {
+        [TestData(nameof(NotIsEqualData))]
+        void NotIsEqual(Object input1, Object input2, (Int32 count, Boolean result, String message) expected) {
 
-            IsEqual((null, null), (1, false, "References equal."));
-            IsEqual((null, new Object()), (2, true, "References don't equal."));
-            IsEqual((new Object(), null), (3, true, "References don't equal."));
-            IsEqual((new Object(), new Object()), (4, true, "References don't equal."));
-            IsEqual((DummyTestResults.Instance, DummyTestResults.Instance), (5, false, "References equal."));
+            Statics.DDTResultState(() => DummyTest.IfNot.Reference.IsEqual(input1, input2),
+                expected, "Test.IfNot.Reference.IsEqual");
 
         }
 
-        void IsEqual((Object @object, Object other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.IfNot.Reference.IsEqual({input.@object.Format()}, {input.other.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Reference.IsEqual(input.@object, input.other, _file, _method),
-                expected, "Test.IfNot.Reference.IsEqual", _file, _method);
-
+        IEnumerable<Object[]> NotIsEqualData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, (1, false, "References equal.") },
+                new Object[] { null, new Object(), (2, true, "References don't equal.") },
+                new Object[] { new Object(), null, (3, true, "References don't equal.") },
+                new Object[] { new Object(), new Object(), (4, true, "References don't equal.") },
+                new Object[] { DummyTestResults.Instance, DummyTestResults.Instance, (5, false, "References equal.") },
+            };
         }
 
         #endregion
