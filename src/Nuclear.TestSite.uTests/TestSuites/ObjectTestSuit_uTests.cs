@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+
 using Ntt;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -9,38 +11,22 @@ namespace Nuclear.TestSite.TestSuites {
         #region IsNull
 
         [TestMethod]
-        void IsNull() {
+        [TestParameters(null, 1, true, "[Object: null]")]
+        [TestParameters("", 2, false, "[Object: not null]")]
+        void IsNull(Object input, Int32 count, Boolean result, String message) {
 
-            DDTIsNull(null, (1, true, "[Object: null]"));
-            DDTIsNull(new Object(), (2, false, "[Object: not null]"));
-
-        }
-
-        void DDTIsNull(Object input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Object.IsNull({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Object.IsNull(input, _file, _method),
-                expected, "Test.If.Object.IsNull", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Object.IsNull(input),
+                (count, result, message), "Test.If.Object.IsNull");
 
         }
 
         [TestMethod]
-        void NotIsNull() {
+        [TestParameters(null, 1, false, "[Object: null]")]
+        [TestParameters("", 2, true, "[Object: not null]")]
+        void NotIsNull(Object input, Int32 count, Boolean result, String message) {
 
-            DDTNotIsNull(null, (1, false, "[Object: null]"));
-            DDTNotIsNull(new Object(), (2, true, "[Object: not null]"));
-
-        }
-
-        void DDTNotIsNull(Object input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.IfNot.Object.IsNull({input.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Object.IsNull(input, _file, _method),
-                expected, "Test.IfNot.Object.IsNull", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Object.IsNull(input),
+                (count, result, message), "Test.IfNot.Object.IsNull");
 
         }
 
