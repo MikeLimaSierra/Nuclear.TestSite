@@ -91,79 +91,73 @@ namespace Nuclear.TestSite.TestSuites {
         #region RaisesPropertyChangedEvent
 
         [TestMethod]
-        void RaisesPropertyChangedEvent() {
-
-            PropertyChangedClass pccObject = new PropertyChangedClass();
-
-            DDTRaisesPropertyChangedEvent((null, null, null),
-                (1, false, "Parameter 'action' is null.", null));
-            DDTRaisesPropertyChangedEvent((null, pccObject, null),
-                (2, false, "Parameter 'action' is null.", null));
-            DDTRaisesPropertyChangedEvent((() => { }, null, "() => {{ }}"),
-                (3, false, "Parameter 'object' is null.", null));
-
-            DDTRaisesPropertyChangedEvent((() => { }, pccObject, "() => {{ }}"),
-                (4, false, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", null));
-            DDTRaisesPropertyChangedEvent((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
-                (5, false, "Action threw Exception:", null));
-            DDTRaisesPropertyChangedEvent((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
-                (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))));
-
-        }
-
-        void DDTRaisesPropertyChangedEvent((Action action, INotifyPropertyChanged @object, String actionString) input,
-            (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestData(nameof(RaisesPropertyChangedEventData))]
+        void RaisesPropertyChangedEvent(Action input1, INotifyPropertyChanged input2, String input3,
+            (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected) {
 
             EventData<PropertyChangedEventArgs> eventData = null;
 
-            Test.Note($"Test.If.Action.RaisesPropertyChangedEvent({input.actionString.Format()}, {input.@object.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Action.RaisesPropertyChangedEvent(input.action, input.@object, out eventData, _file, _method),
-                (expected.count, expected.result, expected.message), "Test.If.Action.RaisesPropertyChangedEvent", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Action.RaisesPropertyChangedEvent(input1, input2, out eventData),
+                (expected.count, expected.result, expected.message), "Test.If.Action.RaisesPropertyChangedEvent");
 
             if(expected.eventData != null) {
-                Test.If.Value.IsEqual(eventData, expected.eventData, new PropertyChangedEventDataEqualityComparer(), _file, _method);
+                Test.If.Value.IsEqual(eventData, expected.eventData, new PropertyChangedEventDataEqualityComparer());
             }
 
+        }
+
+        IEnumerable<Object[]> RaisesPropertyChangedEventData() {
+            PropertyChangedClass pccObject = new PropertyChangedClass();
+
+            return new List<Object[]>() {
+                new Object[] { null, null, null,
+                    (1, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { null, pccObject, null,
+                    (2, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => { }), null, "() => {{ }}",
+                    (3, false, "Parameter 'object' is null.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+                    (4, false, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+                    (5, false, "Action threw Exception:", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                    (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))) },
+            };
         }
 
         [TestMethod]
-        void NotRaisesPropertyChangedEvent() {
-
-            PropertyChangedClass pccObject = new PropertyChangedClass();
-
-            DDTNotRaisesPropertyChangedEvent((null, null, null),
-                (1, false, "Parameter 'action' is null.", null));
-            DDTNotRaisesPropertyChangedEvent((null, pccObject, null),
-                (2, false, "Parameter 'action' is null.", null));
-            DDTNotRaisesPropertyChangedEvent((() => { }, null, "() => {{ }}"),
-                (3, false, "Parameter 'object' is null.", null));
-
-            DDTNotRaisesPropertyChangedEvent((() => { }, pccObject, "() => {{ }}"),
-                (4, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", null));
-            DDTNotRaisesPropertyChangedEvent((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
-                (5, false, "Action threw Exception:", null));
-            DDTNotRaisesPropertyChangedEvent((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
-                (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))));
-
-        }
-
-        void DDTNotRaisesPropertyChangedEvent((Action action, INotifyPropertyChanged @object, String actionString) input,
-            (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestData(nameof(NotRaisesPropertyChangedEventData))]
+        void NotRaisesPropertyChangedEvent(Action input1, INotifyPropertyChanged input2, String input3,
+            (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected) {
 
             EventData<PropertyChangedEventArgs> eventData = null;
 
-            Test.Note($"Test.IfNot.Action.RaisesPropertyChangedEvent({input.actionString.Format()}, {input.@object.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Action.RaisesPropertyChangedEvent(input.action, input.@object, out eventData, _file, _method),
-                (expected.count, expected.result, expected.message), "Test.IfNot.Action.RaisesPropertyChangedEvent", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Action.RaisesPropertyChangedEvent(input1, input2, out eventData),
+                (expected.count, expected.result, expected.message), "Test.IfNot.Action.RaisesPropertyChangedEvent");
 
             if(expected.eventData != null) {
-                Test.If.Value.IsEqual(eventData, expected.eventData, new PropertyChangedEventDataEqualityComparer(), _file, _method);
+                Test.If.Value.IsEqual(eventData, expected.eventData, new PropertyChangedEventDataEqualityComparer());
             }
 
+        }
+
+        IEnumerable<Object[]> NotRaisesPropertyChangedEventData() {
+            PropertyChangedClass pccObject = new PropertyChangedClass();
+
+            return new List<Object[]>() {
+                new Object[] { null, null, null,
+                    (1, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { null, pccObject, null,
+                    (2, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => { }), null, "() => {{ }}",
+                    (3, false, "Parameter 'object' is null.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+                    (4, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+                    (5, false, "Action threw Exception:", (EventData<PropertyChangedEventArgs>) null) },
+                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                    (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))) },
+            };
         }
 
         #endregion
@@ -171,97 +165,91 @@ namespace Nuclear.TestSite.TestSuites {
         #region RaisesMultiplePropertyChangedEvents
 
         [TestMethod]
-        void RaisesPropertyChangedEvents() {
-
-            PropertyChangedClass pccObject = new PropertyChangedClass();
-
-            DDTRaisesPropertyChangedEvents((null, null, null),
-                (1, false, "Parameter 'action' is null.", null));
-            DDTRaisesPropertyChangedEvents((null, pccObject, null),
-                (2, false, "Parameter 'action' is null.", null));
-            DDTRaisesPropertyChangedEvents((() => { }, null, "() => {{ }}"),
-                (3, false, "Parameter 'object' is null.", null));
-
-            DDTRaisesPropertyChangedEvents((() => { }, pccObject, "() => {{ }}"),
-                (4, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", null));
-            DDTRaisesPropertyChangedEvents((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
-                (5, false, "Action threw Exception:", null));
-            DDTRaisesPropertyChangedEvents((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
-                (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.",
-                new EventDataCollection<PropertyChangedEventArgs>() {
-                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
-                }));
-            DDTRaisesPropertyChangedEvents((() => pccObject.Value1And2 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}"),
-                (7, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.",
-                new EventDataCollection<PropertyChangedEventArgs>() {
-                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
-                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
-                }));
-
-        }
-
-        void DDTRaisesPropertyChangedEvents((Action action, INotifyPropertyChanged @object, String actionString) input,
-            (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestData(nameof(RaisesPropertyChangedEvenstData))]
+        void RaisesPropertyChangedEvents(Action input1, INotifyPropertyChanged input2, String input3,
+            (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected) {
 
             EventDataCollection<PropertyChangedEventArgs> eventDatas = null;
 
-            Test.Note($"Test.If.Action.RaisesPropertyChangedEvent({input.actionString.Format()}, {input.@object.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Action.RaisesPropertyChangedEvent(input.action, input.@object, out eventDatas, _file, _method),
-                (expected.count, expected.result, expected.message), "Test.If.Action.RaisesPropertyChangedEvent", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Action.RaisesPropertyChangedEvent(input1, input2, out eventDatas),
+                (expected.count, expected.result, expected.message), "Test.If.Action.RaisesPropertyChangedEvent");
 
             if(expected.eventDatas != null) {
-                Test.If.Enumerable.MatchesExactly(eventDatas, expected.eventDatas, new PropertyChangedEventDataEqualityComparer(), _file, _method);
+                Test.If.Enumerable.MatchesExactly(eventDatas, expected.eventDatas, new PropertyChangedEventDataEqualityComparer());
             }
 
+        }
+
+        IEnumerable<Object[]> RaisesPropertyChangedEvenstData() {
+            PropertyChangedClass pccObject = new PropertyChangedClass();
+
+            return new List<Object[]>() {
+
+            new Object[] { null, null, null,
+                (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { null, pccObject, null,
+                (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { new Action(() => { }), null, "() => {{ }}",
+                (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+
+            new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+                (4, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+                (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
+                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
+                }) },
+            new Object[] { new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}",
+                (7, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.", new EventDataCollection<PropertyChangedEventArgs>() {
+                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
+                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
+                }) },
+            };
         }
 
         [TestMethod]
-        void NotRaisesPropertyChangedEvents() {
-
-            PropertyChangedClass pccObject = new PropertyChangedClass();
-
-            DDTNotRaisesPropertyChangedEvents((null, null, null),
-                (1, false, "Parameter 'action' is null.", null));
-            DDTNotRaisesPropertyChangedEvents((null, pccObject, null),
-                (2, false, "Parameter 'action' is null.", null));
-            DDTNotRaisesPropertyChangedEvents((() => { }, null, "() => {{ }}"),
-                (3, false, "Parameter 'object' is null.", null));
-
-            DDTNotRaisesPropertyChangedEvents((() => { }, pccObject, "() => {{ }}"),
-                (4, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", null));
-            DDTNotRaisesPropertyChangedEvents((() => throw new Exception(), pccObject, "() => {{ throw new Exception(); }}"),
-                (5, false, "Action threw Exception:", null));
-            DDTNotRaisesPropertyChangedEvents((() => pccObject.Value1 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}"),
-                (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.",
-                new EventDataCollection<PropertyChangedEventArgs>() {
-                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
-                }));
-            DDTNotRaisesPropertyChangedEvents((() => pccObject.Value1And2 = !pccObject.Value1, pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}"),
-                (7, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.",
-                new EventDataCollection<PropertyChangedEventArgs>() {
-                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
-                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
-                }));
-
-        }
-
-        void DDTNotRaisesPropertyChangedEvents((Action action, INotifyPropertyChanged @object, String actionString) input,
-            (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestData(nameof(NotRaisesPropertyChangedEventsData))]
+        void NotRaisesPropertyChangedEvents(Action input1, INotifyPropertyChanged input2, String input3,
+            (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected) {
 
             EventDataCollection<PropertyChangedEventArgs> eventDatas = null;
 
-            Test.Note($"Test.IfNot.Action.RaisesPropertyChangedEvent({input.actionString.Format()}, {input.@object.Format()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Action.RaisesPropertyChangedEvent(input.action, input.@object, out eventDatas, _file, _method),
-                (expected.count, expected.result, expected.message), "Test.IfNot.Action.RaisesPropertyChangedEvent", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Action.RaisesPropertyChangedEvent(input1, input2, out eventDatas),
+                (expected.count, expected.result, expected.message), "Test.IfNot.Action.RaisesPropertyChangedEvent");
 
             if(expected.eventDatas != null) {
-                Test.If.Enumerable.MatchesExactly(eventDatas, expected.eventDatas, new PropertyChangedEventDataEqualityComparer(), _file, _method);
+                Test.If.Enumerable.MatchesExactly(eventDatas, expected.eventDatas, new PropertyChangedEventDataEqualityComparer());
             }
 
+        }
+
+        IEnumerable<Object[]> NotRaisesPropertyChangedEventsData() {
+            PropertyChangedClass pccObject = new PropertyChangedClass();
+
+            return new List<Object[]>() {
+
+            new Object[] { null, null, null,
+                (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { null, pccObject, null,
+                (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { new Action(() => { }), null, "() => {{ }}",
+                (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+
+            new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+                (4, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+                (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
+            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
+                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
+                }) },
+            new Object[] { new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}",
+                (7, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.", new EventDataCollection<PropertyChangedEventArgs>() {
+                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
+                    new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
+                }) },
+            };
         }
 
         #endregion
@@ -472,8 +460,8 @@ namespace Nuclear.TestSite.TestSuites {
             where TEventArgs : EventArgs => DDTNotRaisesEvents((input.action, input.@object, input.eventName, input.actionString, null), expected, _file, _method);
 
         void DDTNotRaisesEvents<TEventArgs>((Action action, INotifyPropertyChanged @object, String eventName, String actionString, IEqualityComparer<EventData<TEventArgs>> comparer) input,
-        (Int32 count, Boolean result, String message, EventDataCollection<TEventArgs> eventDatas) expected,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            (Int32 count, Boolean result, String message, EventDataCollection<TEventArgs> eventDatas) expected,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
         where TEventArgs : EventArgs {
 
             EventDataCollection<TEventArgs> eventDatas = null;
