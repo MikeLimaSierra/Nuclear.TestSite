@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+
 using Ntt;
+
 using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
@@ -285,7 +287,7 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(1d, 1d, 2, true, "[Left = '1'; Right = '1'; Margin = '1E-12']")]
         [TestParameters(1e-11d, 1.1e-11d, 3, false, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']")]
         [TestParameters(1e-12d, 1.1e-12d, 4, true, "[Left = '1E-12'; Right = '1.1E-12'; Margin = '1E-12']")]
-        void IsEqualDouble(Double input1, Double input2 , Int32 count, Boolean result, String message) {
+        void IsEqualDouble(Double input1, Double input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2),
                 (count, result, message), "Test.If.Value.IsEqual");
@@ -351,7 +353,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.If.Value.IsLessThan({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, _file, _method),
@@ -363,7 +365,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.If.Value.IsLessThanT({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsLessThanT<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanT(input.value, input.other, _file, _method),
@@ -375,7 +377,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.IfNot.Value.IsLessThan({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, _file, _method),
@@ -387,7 +389,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.IfNot.Value.IsLessThanT({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsLessThanT<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanT(input.value, input.other, _file, _method),
@@ -437,7 +439,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsLessThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
@@ -448,7 +450,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsLessThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsLessThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
@@ -459,7 +461,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsLessThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsLessThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
@@ -505,7 +507,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsLessThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
@@ -516,7 +518,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsLessThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsLessThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
@@ -527,7 +529,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsLessThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsLessThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
@@ -564,7 +566,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.If.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, _file, _method),
@@ -576,7 +578,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.If.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqualT(input.value, input.other, _file, _method),
@@ -588,7 +590,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, _file, _method),
@@ -600,7 +602,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqualT(input.value, input.other, _file, _method),
@@ -650,7 +652,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -661,7 +663,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -672,7 +674,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -718,7 +720,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -729,7 +731,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -740,7 +742,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -777,7 +779,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.If.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, _file, _method),
@@ -789,7 +791,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.If.Value.IsGreaterThanT({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsGreaterThanT<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanT(input.value, input.other, _file, _method),
@@ -801,7 +803,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, _file, _method),
@@ -813,7 +815,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThanT({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThanT<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanT(input.value, input.other, _file, _method),
@@ -863,7 +865,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
@@ -874,7 +876,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsGreaterThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
@@ -885,7 +887,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsGreaterThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
@@ -931,7 +933,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
@@ -942,7 +944,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsGreaterThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
@@ -953,7 +955,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsGreaterThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThan({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
@@ -990,7 +992,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.If.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, _file, _method),
@@ -1002,7 +1004,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.If.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqualT(input.value, input.other, _file, _method),
@@ -1014,7 +1016,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, _file, _method),
@@ -1026,7 +1028,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqualT(input.value, input.other, _file, _method),
@@ -1076,7 +1078,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -1087,7 +1089,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -1098,7 +1100,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -1144,7 +1146,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -1155,7 +1157,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -1166,7 +1168,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
@@ -1303,7 +1305,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.If.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
+            Test.Note($"Test.If.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, _file, _method),
@@ -1315,7 +1317,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.If.Value.IsClampedT({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
+            Test.Note($"Test.If.Value.IsClampedT<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClampedT(input.value, input.min, input.max, _file, _method),
@@ -1356,7 +1358,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note($"Test.IfNot.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
+            Test.Note($"Test.IfNot.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, _file, _method),
@@ -1368,7 +1370,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note($"Test.IfNot.Value.IsClampedT({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
+            Test.Note($"Test.IfNot.Value.IsClampedT<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedT(input.value, input.min, input.max, _file, _method),
@@ -1433,7 +1435,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1444,7 +1446,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsClampedComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1455,7 +1457,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsClampedComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1516,7 +1518,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1527,7 +1529,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsClampedComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1538,7 +1540,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsClampedComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsClamped({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1583,7 +1585,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note(String.Format("Test.If.Value.IsClampedExclusive({0}, {1}, {2})", input.value.Format(), input.min.Format(), input.max.Format()),
+            Test.Note($"Test.If.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, _file, _method),
@@ -1595,7 +1597,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note(String.Format("Test.If.Value.IsClampedExclusiveT({0}, {1}, {2})", input.value.Format(), input.min.Format(), input.max.Format()),
+            Test.Note($"Test.If.Value.IsClampedExclusiveT<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusiveT(input.value, input.min, input.max, _file, _method),
@@ -1636,7 +1638,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
-            Test.Note(String.Format("Test.IfNot.Value.IsClampedExclusive({0}, {1}, {2})", input.value.Format(), input.min.Format(), input.max.Format()),
+            Test.Note($"Test.IfNot.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, _file, _method),
@@ -1648,7 +1650,7 @@ namespace Nuclear.TestSite.TestSuites {
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
-            Test.Note(String.Format("Test.IfNot.Value.IsClampedExclusiveT({0}, {1}, {2})", input.value.Format(), input.min.Format(), input.max.Format()),
+            Test.Note($"Test.IfNot.Value.IsClampedExclusiveT<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusiveT(input.value, input.min, input.max, _file, _method),
@@ -1713,7 +1715,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsClampedExclusive({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1724,7 +1726,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsClampedExclusive({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1735,7 +1737,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.If.Value.IsClampedExclusive({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.If.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1796,7 +1798,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsClampedExclusive({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1807,7 +1809,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsClampedExclusive({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
@@ -1818,7 +1820,7 @@ namespace Nuclear.TestSite.TestSuites {
         void DDTNotIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
-            Test.Note($"Test.IfNot.Value.IsClampedExclusive({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
+            Test.Note($"Test.IfNot.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
                 _file, _method);
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
