@@ -190,7 +190,7 @@ namespace Ntt {
     }
 
     internal class ThrowingIEqualityComparer : IEqualityComparer {
-        public Boolean Equals(Object x, Object y) => throw new NotImplementedException();
+        public new Boolean Equals(Object x, Object y) => throw new NotImplementedException();
         public Int32 GetHashCode(Object obj) => throw new NotImplementedException();
     }
 
