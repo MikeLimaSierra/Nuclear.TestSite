@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 using Ntt;
-
-using Nuclear.Extensions;
 
 namespace Nuclear.TestSite.TestSuites {
     class ObjectTestSuit_uTests {
@@ -33,29 +30,49 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region IsOfType
+        #region IsOfTypeGeneric
 
         [TestMethod]
-        void IsOfTypeGeneric() {
+        [TestData(nameof(IsOfTypeGenericData))]
+        void IsOfTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected) {
 
-            DDTIsOfTypeGeneric<Zero>(null, (1, false, "Parameter 'object' is null."));
-            DDTIsOfTypeGeneric<Zero>(new Zero(), (2, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'."));
-            DDTIsOfTypeGeneric<Zero>(new DerivesFromZero(), (3, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'."));
-            DDTIsOfTypeGeneric<Zero>(new Two(), (4, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'."));
-            DDTIsOfTypeGeneric<ITwo>(new Two(), (5, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'."));
-            DDTIsOfTypeGeneric<IZero>(new Two(), (6, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'."));
+            Statics.DDTResultState(() => DummyTest.If.Object.IsOfType<TType>(input),
+                expected, "Test.If.Object.IsOfType");
 
         }
 
-        void DDTIsOfTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsOfTypeGenericData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Zero), new Zero(), (1, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (2, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (3, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (4, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (5, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+            };
+        }
 
-            Test.Note($"Test.If.Object.IsOfType<{typeof(TType).Format()}>({input.FormatType()})", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsOfTypeGenericData))]
+        void NotIsOfTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Object.IsOfType<TType>(input, _file, _method),
-                expected, "Test.If.Object.IsOfType", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Object.IsOfType<TType>(input),
+                expected, "Test.IfNot.Object.IsOfType");
 
         }
+
+        IEnumerable<Object[]> NotIsOfTypeGenericData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Zero), new Zero(), (1, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (2, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (3, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (4, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (5, true, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+            };
+        }
+
+        #endregion
+
+        #region IsOfType
 
         [TestMethod]
         [TestData(nameof(IsOfTypeData))]
@@ -77,28 +94,6 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { new Two(), typeof(ITwo), (7, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
                 new Object[] { new Two(), typeof(IZero), (8, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
             };
-        }
-
-        [TestMethod]
-        void NotIsOfTypeGeneric() {
-
-            DDTNotIsOfTypeGeneric<Zero>(null, (1, false, "Parameter 'object' is null."));
-            DDTNotIsOfTypeGeneric<Zero>(new Zero(), (2, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'."));
-            DDTNotIsOfTypeGeneric<Zero>(new DerivesFromZero(), (3, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'."));
-            DDTNotIsOfTypeGeneric<Zero>(new Two(), (4, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'."));
-            DDTNotIsOfTypeGeneric<ITwo>(new Two(), (5, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'."));
-            DDTNotIsOfTypeGeneric<IZero>(new Two(), (6, true, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'."));
-
-        }
-
-        void DDTNotIsOfTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.IfNot.Object.IsOfType<{typeof(TType).Format()}>({input.FormatType()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Object.IsOfType<TType>(input, _file, _method),
-                expected, "Test.IfNot.Object.IsOfType", _file, _method);
-
         }
 
         [TestMethod]
@@ -125,27 +120,51 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region IsOfExactType
+        #region IsOfExactTypeGeneric
 
         [TestMethod]
-        void IsOfExactTypeGeneric() {
+        [TestData(nameof(IsOfExactTypeGenericData))]
+        void IsOfExactTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected) {
 
-            DDTIsOfExactTypeGeneric<Zero>(null, (1, false, "Parameter 'object' is null."));
-            DDTIsOfExactTypeGeneric<Zero>(new Zero(), (2, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'."));
-            DDTIsOfExactTypeGeneric<Zero>(new DerivesFromZero(), (3, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'."));
-            DDTIsOfExactTypeGeneric<Zero>(new Two(), (4, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'."));
+            Statics.DDTResultState(() => DummyTest.If.Object.IsOfExactType<TType>(input),
+                expected, "Test.If.Object.IsOfExactType");
+
+        }
+
+        IEnumerable<Object[]> IsOfExactTypeGenericData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Zero), null, (1, false, "Parameter 'object' is null.") },
+                new Object[] { typeof(Zero), new Zero(), (2, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (3, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (4, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (5, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (6, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsOfExactTypeGenericData))]
+        void NotIsOfExactTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Object.IsOfExactType<TType>(input),
+                expected, "Test.IfNot.Object.IsOfExactType");
 
         }
 
-        void DDTIsOfExactTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.If.Object.IsOfExactType<{typeof(TType).Format()}>({input.FormatType()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.If.Object.IsOfExactType<TType>(input, _file, _method),
-                expected, "Test.If.Object.IsOfExactType", _file, _method);
-
+        IEnumerable<Object[]> NotIsOfExactTypeGenericData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Zero), null, (1, false, "Parameter 'object' is null.") },
+                new Object[] { typeof(Zero), new Zero(), (2, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (3, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (4, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (5, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (6, true, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+            };
         }
+
+        #endregion
+
+        #region IsOfExactType
 
         [TestMethod]
         [TestData(nameof(IsOfExactTypeData))]
@@ -167,26 +186,6 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { new Two(), typeof(ITwo), (7, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
                 new Object[] { new Two(), typeof(IZero), (8, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
             };
-        }
-
-        [TestMethod]
-        void NotIsOfExactTypeGeneric() {
-
-            DDTNotIsOfExactTypeGeneric<Zero>(null, (1, false, "Parameter 'object' is null."));
-            DDTNotIsOfExactTypeGeneric<Zero>(new Zero(), (2, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'."));
-            DDTNotIsOfExactTypeGeneric<Zero>(new DerivesFromZero(), (3, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'."));
-            DDTNotIsOfExactTypeGeneric<Zero>(new Two(), (4, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'."));
-
-        }
-
-        void DDTNotIsOfExactTypeGeneric<TType>(Object input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
-
-            Test.Note($"Test.IfNot.Object.IsOfExactType<{typeof(TType).Format()}>({input.FormatType()})", _file, _method);
-
-            Statics.DDTResultState(() => DummyTest.IfNot.Object.IsOfExactType<TType>(input, _file, _method),
-                expected, "Test.IfNot.Object.IsOfExactType", _file, _method);
-
         }
 
         [TestMethod]
