@@ -13,83 +13,77 @@ namespace Nuclear.TestSite.TestSuites {
         #region IsEqual
 
         [TestMethod]
-        void IsEqual() {
+        [TestData(nameof(IsEqualData))]
+        void IsEqual<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected) {
 
-            DDTIsEqualT<DummyIEquatableT>((null, null), (1, true, "[Left = null; Right = null]"));
-            DDTIsEqualT((null, new DummyIEquatableT(0)), (2, false, "('GenericEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTIsEqualT((new DummyIEquatableT(0), null), (3, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]"));
-            DDTIsEqualT((new DummyIEquatableT(5), new DummyIEquatableT(0)), (4, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']"));
-            DDTIsEqualT((new DummyIEquatableT(5), new DummyIEquatableT(5)), (5, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']"));
-
-            DDTIsEqualT<DummyIComparableT>((null, null), (6, true, "[Left = null; Right = null]"));
-            DDTIsEqualT((null, new DummyIComparableT(0)), (7, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTIsEqualT((new DummyIComparableT(0), null), (8, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTIsEqualT((new DummyIComparableT(5), new DummyIComparableT(0)), (9, false, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']"));
-            DDTIsEqualT((new DummyIComparableT(5), new DummyIComparableT(5)), (10, true, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']"));
-
-            DDTIsEqualT<DummyIComparable>((null, null), (11, true, "[Left = null; Right = null]"));
-            DDTIsEqualT((null, new DummyIComparable(0)), (12, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTIsEqualT((new DummyIComparable(0), null), (13, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTIsEqualT((new DummyIComparable(5), new DummyIComparable(0)), (14, false, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '0']"));
-            DDTIsEqualT((new DummyIComparable(5), new DummyIComparable(5)), (15, true, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '5']"));
-
-            DDTIsEqualT<Dummy>((null, null), (16, true, "[Left = null; Right = null]"));
-            DDTIsEqualT((null, new Dummy(0)), (17, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTIsEqualT((new Dummy(0), null), (18, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTIsEqualT((new Dummy(5), new Dummy(0)), (19, false, "('ObjectEqualityComparer`1') [Left = '5'; Right = '0']"));
-            DDTIsEqualT((new Dummy(5), new Dummy(5)), (20, false, "('ObjectEqualityComparer`1') [Left = '5'; Right = '5']"));
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2),
+                expected, "Test.If.Value.IsEqual");
 
         }
 
-        void DDTIsEqualT<T>((T left, T right) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsEqualData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, (1, true, "[Left = null; Right = null]") },
+                new Object[] { typeof(DummyIEquatableT), null, new DummyIEquatableT(0), (2, false, "('GenericEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(0), null, (3, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(0), (4, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(5), (5, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']") },
 
-            Test.Note($"Test.If.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()})",
-                _file, _method);
+                new Object[] { typeof(DummyIComparableT), null, null, (6, true, "[Left = null; Right = null]") },
+                new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), (7, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, (8, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(0), (9, false, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(5), (10, true, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']") },
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
+                new Object[] { typeof(DummyIComparable), null, null, (11, true, "[Left = null; Right = null]") },
+                new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), (12, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, (13, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(0), (14, false, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(5), (15, true, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '5']") },
 
+                new Object[] { typeof(Dummy), null, null, (16, true, "[Left = null; Right = null]") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), (17, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, (18, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), (19, false, "('ObjectEqualityComparer`1') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), (20, false, "('ObjectEqualityComparer`1') [Left = '5'; Right = '5']") },
+            };
         }
 
         [TestMethod]
-        void NotIsEqual() {
+        [TestData(nameof(NotIsEqualData))]
+        void NotIsEqual<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected) {
 
-            DDTNotIsEqualT<DummyIEquatableT>((null, null), (1, false, "[Left = null; Right = null]"));
-            DDTNotIsEqualT((null, new DummyIEquatableT(0)), (2, true, "('GenericEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTNotIsEqualT((new DummyIEquatableT(0), null), (3, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]"));
-            DDTNotIsEqualT((new DummyIEquatableT(5), new DummyIEquatableT(0)), (4, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']"));
-            DDTNotIsEqualT((new DummyIEquatableT(5), new DummyIEquatableT(5)), (5, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']"));
-
-            DDTNotIsEqualT<DummyIComparableT>((null, null), (6, false, "[Left = null; Right = null]"));
-            DDTNotIsEqualT((null, new DummyIComparableT(0)), (7, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTNotIsEqualT((new DummyIComparableT(0), null), (8, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTNotIsEqualT((new DummyIComparableT(5), new DummyIComparableT(0)), (9, true, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']"));
-            DDTNotIsEqualT((new DummyIComparableT(5), new DummyIComparableT(5)), (10, false, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']"));
-
-            DDTNotIsEqualT<DummyIComparable>((null, null), (11, false, "[Left = null; Right = null]"));
-            DDTNotIsEqualT((null, new DummyIComparable(0)), (12, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTNotIsEqualT((new DummyIComparable(0), null), (13, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTNotIsEqualT((new DummyIComparable(5), new DummyIComparable(0)), (14, true, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '0']"));
-            DDTNotIsEqualT((new DummyIComparable(5), new DummyIComparable(5)), (15, false, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '5']"));
-
-            DDTNotIsEqualT<Dummy>((null, null), (16, false, "[Left = null; Right = null]"));
-            DDTNotIsEqualT((null, new Dummy(0)), (17, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTNotIsEqualT((new Dummy(0), null), (18, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTNotIsEqualT((new Dummy(5), new Dummy(0)), (19, true, "('ObjectEqualityComparer`1') [Left = '5'; Right = '0']"));
-            DDTNotIsEqualT((new Dummy(5), new Dummy(5)), (20, true, "('ObjectEqualityComparer`1') [Left = '5'; Right = '5']"));
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2),
+                expected, "Test.IfNot.Value.IsEqual");
 
         }
 
-        void DDTNotIsEqualT<T>((T left, T right) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> NotIsEqualData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, (1, false, "[Left = null; Right = null]") },
+                new Object[] { typeof(DummyIEquatableT), null, new DummyIEquatableT(0), (2, true, "('GenericEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(0), null, (3, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(0), (4, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(5), (5, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']") },
 
-            Test.Note($"Test.IfNot.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()})",
-                _file, _method);
+                new Object[] { typeof(DummyIComparableT), null, null, (6, false, "[Left = null; Right = null]") },
+                new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), (7, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, (8, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(0), (9, true, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(5), (10, false, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']") },
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+                new Object[] { typeof(DummyIComparable), null, null, (11, false, "[Left = null; Right = null]") },
+                new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), (12, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, (13, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(0), (14, true, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(5), (15, false, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '5']") },
 
+                new Object[] { typeof(Dummy), null, null, (16, false, "[Left = null; Right = null]") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), (17, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, (18, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), (19, true, "('ObjectEqualityComparer`1') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), (20, true, "('ObjectEqualityComparer`1') [Left = '5'; Right = '5']") },
+            };
         }
 
         #endregion
