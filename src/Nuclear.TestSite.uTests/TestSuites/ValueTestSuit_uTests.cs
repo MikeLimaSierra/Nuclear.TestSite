@@ -86,132 +86,140 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsEqualComparer() {
-
-        //    IsEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    IsEqualComparer((null, 0, new DummyEqualityComparer()), (2, false, "('DummyEqualityComparer') [Left = null; Right = '0']"));
-        //    IsEqualComparer((0, null, new DummyEqualityComparer()), (3, false, "('DummyEqualityComparer') [Left = '0'; Right = null]"));
-        //    IsEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    IsEqualComparer<Dummy>((5, 0, new DummyEqualityComparer()), (5, false, "('DummyEqualityComparer') [Left = '5'; Right = '0']"));
-        //    IsEqualComparer<Dummy>((5, 5, new DummyEqualityComparer()), (6, true, "('DummyEqualityComparer') [Left = '5'; Right = '5']"));
-        //    IsEqualComparer<Dummy>((5, 5, new ThrowingEqualityComparer()), (7, false, "Comparison threw Exception:"));
-
-        //    IsEqualComparer<Dummy>((null, null, (IEqualityComparer) null), (8, false, "Parameter 'comparer' is null."));
-        //    IsEqualComparer<Dummy>((null, 0, new DummyIEqualityComparer()), (9, false, "('InternalEqualityComparer`1') [Left = null; Right = '0']"));
-        //    IsEqualComparer<Dummy>((0, null, new DummyIEqualityComparer()), (10, false, "('InternalEqualityComparer`1') [Left = '0'; Right = null]"));
-        //    IsEqualComparer<Dummy>((0, 0, (IEqualityComparer) null), (11, false, "Parameter 'comparer' is null."));
-        //    IsEqualComparer<Dummy>((5, 0, new DummyIEqualityComparer()), (12, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']"));
-        //    IsEqualComparer<Dummy>((5, 5, new DummyIEqualityComparer()), (13, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']"));
-        //    IsEqualComparer<Dummy>((5, 5, DynamicEqualityComparer.FromDelegate(
-        //        (x, y) => throw new NotImplementedException(),
-        //        (obj) => throw new NotImplementedException())),
-        //        (14, false, "Comparison threw Exception:"));
-
-        //    IsEqualComparer((null, null, (IEqualityComparer<Dummy>) null), (15, false, "Parameter 'comparer' is null."));
-        //    IsEqualComparer((null, 0, new DummyIEqualityComparerT()), (16, false, "('DummyIEqualityComparerT') [Left = null; Right = '0']"));
-        //    IsEqualComparer((0, null, new DummyIEqualityComparerT()), (17, false, "('DummyIEqualityComparerT') [Left = '0'; Right = null]"));
-        //    IsEqualComparer((0, 0, (IEqualityComparer<Dummy>) null), (18, false, "Parameter 'comparer' is null."));
-        //    IsEqualComparer((5, 0, new DummyIEqualityComparerT()), (19, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']"));
-        //    IsEqualComparer((5, 5, new DummyIEqualityComparerT()), (20, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']"));
-        //    IsEqualComparer((5, 5, DynamicEqualityComparer.FromDelegate<Dummy>(
-        //        (x, y) => throw new NotImplementedException(),
-        //        (obj) => throw new NotImplementedException())),
-        //        (21, false, "Comparison threw Exception:"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsEqualComparer() {
-
-        //    NotIsEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    NotIsEqualComparer((null, 0, new DummyEqualityComparer()), (2, true, "('DummyEqualityComparer') [Left = null; Right = '0']"));
-        //    NotIsEqualComparer((0, null, new DummyEqualityComparer()), (3, true, "('DummyEqualityComparer') [Left = '0'; Right = null]"));
-        //    NotIsEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    NotIsEqualComparer<Dummy>((5, 0, new DummyEqualityComparer()), (5, true, "('DummyEqualityComparer') [Left = '5'; Right = '0']"));
-        //    NotIsEqualComparer<Dummy>((5, 5, new DummyEqualityComparer()), (6, false, "('DummyEqualityComparer') [Left = '5'; Right = '5']"));
-        //    NotIsEqualComparer<Dummy>((5, 5, new ThrowingEqualityComparer()), (7, false, "Comparison threw Exception:"));
-
-        //    NotIsEqualComparer<Dummy>((null, null, (IEqualityComparer) null), (8, false, "Parameter 'comparer' is null."));
-        //    NotIsEqualComparer<Dummy>((null, 0, new DummyIEqualityComparer()), (9, true, "('InternalEqualityComparer`1') [Left = null; Right = '0']"));
-        //    NotIsEqualComparer<Dummy>((0, null, new DummyIEqualityComparer()), (10, true, "('InternalEqualityComparer`1') [Left = '0'; Right = null]"));
-        //    NotIsEqualComparer<Dummy>((0, 0, (IEqualityComparer) null), (11, false, "Parameter 'comparer' is null."));
-        //    NotIsEqualComparer<Dummy>((5, 0, new DummyIEqualityComparer()), (12, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']"));
-        //    NotIsEqualComparer<Dummy>((5, 5, new DummyIEqualityComparer()), (13, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']"));
-        //    NotIsEqualComparer<Dummy>((5, 5, DynamicEqualityComparer.FromDelegate(
-        //        (x, y) => throw new NotImplementedException(),
-        //        (obj) => throw new NotImplementedException())),
-        //        (14, false, "Comparison threw Exception:"));
-
-        //    NotIsEqualComparer((null, null, (IEqualityComparer<Dummy>) null), (15, false, "Parameter 'comparer' is null."));
-        //    NotIsEqualComparer((null, 0, new DummyIEqualityComparerT()), (16, true, "('DummyIEqualityComparerT') [Left = null; Right = '0']"));
-        //    NotIsEqualComparer((0, null, new DummyIEqualityComparerT()), (17, true, "('DummyIEqualityComparerT') [Left = '0'; Right = null]"));
-        //    NotIsEqualComparer((0, 0, (IEqualityComparer<Dummy>) null), (18, false, "Parameter 'comparer' is null."));
-        //    NotIsEqualComparer((5, 0, new DummyIEqualityComparerT()), (19, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']"));
-        //    NotIsEqualComparer((5, 5, new DummyIEqualityComparerT()), (20, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']"));
-        //    NotIsEqualComparer((5, 5, DynamicEqualityComparer.FromDelegate<Dummy>(
-        //        (x, y) => throw new NotImplementedException(),
-        //        (obj) => throw new NotImplementedException())),
-        //        (21, false, "Comparison threw Exception:"));
-
-        //}
-
         #region IsEqualComparer
 
-        void IsEqualComparer<T>((T left, T right, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsEqualComparerData))]
+        void IsEqualComparer<T>(T input1, T input2, EqualityComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsEqual");
 
         }
 
-        void NotIsEqualComparer<T>((T left, T right, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsEqualComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyEqualityComparer(), (2, false, "('DummyEqualityComparer') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyEqualityComparer(), (3, false, "('DummyEqualityComparer') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), new DummyEqualityComparer(), (5, false, "('DummyEqualityComparer') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new DummyEqualityComparer(), (6, true, "('DummyEqualityComparer') [Left = '5'; Right = '5']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new ThrowingEqualityComparer(), (7, false, "Comparison threw Exception:") },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsEqualComparerData))]
+        void NotIsEqualComparer<T>(T input1, T input2, EqualityComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsEqualComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyEqualityComparer(), (2, true, "('DummyEqualityComparer') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyEqualityComparer(), (3, true, "('DummyEqualityComparer') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), new DummyEqualityComparer(), (5, true, "('DummyEqualityComparer') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new DummyEqualityComparer(), (6, false, "('DummyEqualityComparer') [Left = '5'; Right = '5']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new ThrowingEqualityComparer(), (7, false, "Comparison threw Exception:") },
+            };
         }
 
         #endregion
 
         #region IsEqualIComparer
 
-        void IsEqualIComparer<T>((T left, T right, IEqualityComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsEqualIComparerData))]
+        void IsEqualIComparer<T>(T input1, T input2, IEqualityComparer input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsEqual");
 
         }
 
-        void NotIsEqualIComparer<T>((T left, T right, IEqualityComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsEqualIComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIEqualityComparer(), (2, false, "('InternalEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIEqualityComparer(), (3, false, "('InternalEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), new DummyIEqualityComparer(), (5, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new DummyIEqualityComparer(), (6, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new ThrowingIEqualityComparer(), (7, false, "Comparison threw Exception:") },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsEqualIComparerData))]
+        void NotIsEqualIComparer<T>(T input1, T input2, IEqualityComparer input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsEqualIComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIEqualityComparer(), (2, true, "('InternalEqualityComparer`1') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIEqualityComparer(), (3, true, "('InternalEqualityComparer`1') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), new DummyIEqualityComparer(), (5, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new DummyIEqualityComparer(), (6, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new ThrowingIEqualityComparer(), (7, false, "Comparison threw Exception:") },
+            };
         }
 
         #endregion
 
         #region IsEqualIComparerT
 
-        void IsEqualIComparerT<T>((T left, T right, IEqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsEqualIComparerTData))]
+        void IsEqualIComparerT<T>(T input1, T input2, IEqualityComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input.left, input.right, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsEqual");
 
         }
 
-        void NotIsEqualIComparerT<T>((T left, T right, IEqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsEqualIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIEqualityComparerT(), (2, false, "('DummyIEqualityComparerT') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIEqualityComparerT(), (3, false, "('DummyIEqualityComparerT') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), new DummyIEqualityComparerT(), (5, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new DummyIEqualityComparerT(), (6, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new ThrowingIEqualityComparerT(), (7, false, "Comparison threw Exception:") },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input.left, input.right, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsEqualIComparerTData))]
+        void NotIsEqualIComparerT<T>(T input1, T input2, IEqualityComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsEqualIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIEqualityComparerT(), (2, true, "('DummyIEqualityComparerT') [Left = null; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIEqualityComparerT(), (3, true, "('DummyIEqualityComparerT') [Left = '0'; Right = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(0), new DummyIEqualityComparerT(), (5, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new DummyIEqualityComparerT(), (6, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']") },
+                new Object[] { typeof(Dummy), new Dummy(5), new Dummy(5), new ThrowingIEqualityComparerT(), (7, false, "Comparison threw Exception:") },
+            };
         }
 
         #endregion
@@ -396,132 +404,152 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsLessThanComparer() {
-
-        //    IsLessThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    IsLessThanComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-        //    IsLessThanComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-        //    IsLessThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    IsLessThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    IsLessThanComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-        //    IsLessThanComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
-
-        //    IsLessThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    IsLessThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-        //    IsLessThanComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-        //    IsLessThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    IsLessThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    IsLessThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-        //    IsLessThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
-
-        //    IsLessThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    IsLessThanComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-        //    IsLessThanComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-        //    IsLessThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    IsLessThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    IsLessThanComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-        //    IsLessThanComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsLessThanComparer() {
-
-        //    NotIsLessThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-        //    NotIsLessThanComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-        //    NotIsLessThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    NotIsLessThanComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-        //    NotIsLessThanComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-        //    NotIsLessThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    NotIsLessThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-        //    NotIsLessThanComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-        //    NotIsLessThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    NotIsLessThanComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
-
-        //}
-
         #region IsLessThanComparer
 
-        void IsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsLessThanComparerData))]
+        void IsLessThanComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsLessThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input1, input2, input3),
+                expected, "Test.If.Value.IsLessThan");
 
         }
 
-        void NotIsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsLessThanComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThan", _file, _method);
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, false, "[Value = '1'; Other = '0']") },
+            };
+        }
 
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanComparerData))]
+        void NotIsLessThanComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsLessThan");
+
+        }
+
+        IEnumerable<Object[]> NotIsLessThanComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, true, "[Value = '1'; Other = '0']") },
+            };
         }
 
         #endregion
 
         #region IsLessThanIComparer
 
-        void IsLessThanIComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsLessThanIComparerData))]
+        void IsLessThanIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsLessThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input1, input2, input3),
+                expected, "Test.If.Value.IsLessThan");
 
         }
 
-        void NotIsLessThanIComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsLessThanIComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThan", _file, _method);
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, false, "[Value = '1'; Other = '0']") },
+            };
+        }
 
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanIComparerData))]
+        void NotIsLessThanIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsLessThan");
+
+        }
+
+        IEnumerable<Object[]> NotIsLessThanIComparerData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, true, "[Value = '1'; Other = '0']") },
+            };
         }
 
         #endregion
 
         #region IsLessThanIComparerT
 
-        void IsLessThanIComparerT<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsLessThanIComparerTData))]
+        void IsLessThanIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsLessThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input1, input2, input3),
+                expected, "Test.If.Value.IsLessThan");
 
         }
 
-        void NotIsLessThanIComparerT<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsLessThanIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThan", _file, _method);
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, false, "[Value = '1'; Other = '0']") },
+            };
+        }
 
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanIComparerTData))]
+        void NotIsLessThanIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsLessThan");
+
+        }
+
+        IEnumerable<Object[]> NotIsLessThanIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, true, "[Value = '1'; Other = '0']") },
+            };
         }
 
         #endregion
@@ -678,84 +706,105 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsLessThanOrEqualComparer
 
-        void IsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsLessThanOrEqualComparerData))]
+        void IsLessThanOrEqualComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsLessThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsLessThanOrEqual");
 
         }
 
-        void NotIsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsLessThanOrEqualComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThanOrEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanOrEqualComparerData))]
+        void NotIsLessThanOrEqualComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsLessThanOrEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsLessThanOrEqualComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsLessThanOrEqualIComparer
 
-        void IsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsLessThanOrEqualIComparerData))]
+        void IsLessThanOrEqualIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsLessThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsLessThanOrEqual");
 
         }
 
-        void NotIsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsLessThanOrEqualIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThanOrEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanOrEqualIComparerData))]
+        void NotIsLessThanOrEqualIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsLessThanOrEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsLessThanOrEqualIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsLessThanOrEqualIComparerT
 
-        void IsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsLessThanOrEqualIComparerTData))]
+        void IsLessThanOrEqualIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsLessThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsLessThanOrEqual");
 
         }
 
-        void NotIsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsLessThanOrEqualIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThanOrEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanOrEqualIComparerTData))]
+        void NotIsLessThanOrEqualIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsLessThanOrEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsLessThanOrEqualIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
-
-        //[TestMethod]
-        //void IsGreaterThan() {
-
-        //    IsGreaterThan<DummyIComparable>((0, 0), (1, false, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThan<DummyIComparable>((0, 1), (2, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThan<DummyIComparable>((1, 0), (3, true, "[Value = '1'; Other = '0']"));
-
-        //    IsGreaterThanT<DummyIComparableT>((0, 0), (4, false, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanT<DummyIComparableT>((0, 1), (5, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanT<DummyIComparableT>((1, 0), (6, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThan<DummyIComparable>((0, 0), (7, true, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThan<DummyIComparable>((0, 1), (8, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThan<DummyIComparable>((1, 0), (9, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThanT<DummyIComparableT>((0, 0), (10, true, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanT<DummyIComparableT>((0, 1), (11, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanT<DummyIComparableT>((1, 0), (12, false, "[Value = '1'; Other = '0']"));
-
-        //}
 
         #region IsGreaterThan
 
@@ -771,7 +820,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -787,7 +838,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -807,7 +860,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -823,7 +878,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -901,84 +958,105 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsGreaterThanComparer
 
-        void IsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanComparerData))]
+        void IsGreaterThanComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsGreaterThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input1, input2, input3),
+                expected, "Test.If.Value.IsGreaterThan");
 
         }
 
-        void NotIsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsGreaterThanComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThan", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanComparerData))]
+        void NotIsGreaterThanComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsGreaterThan");
+
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsGreaterThanIComparer
 
-        void IsGreaterThanIComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanIComparerData))]
+        void IsGreaterThanIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsGreaterThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input1, input2, input3),
+                expected, "Test.If.Value.IsGreaterThan");
 
         }
 
-        void NotIsGreaterThanIComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsGreaterThanIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThan", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanIComparerData))]
+        void NotIsGreaterThanIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsGreaterThan");
+
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsGreaterThanIComparerT
 
-        void IsGreaterThanIComparerT<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanIComparerTData))]
+        void IsGreaterThanIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsGreaterThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input1, input2, input3),
+                expected, "Test.If.Value.IsGreaterThan");
 
         }
 
-        void NotIsGreaterThanIComparerT<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsGreaterThanIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThan", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanIComparerTData))]
+        void NotIsGreaterThanIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsGreaterThan");
+
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
-
-        //[TestMethod]
-        //void IsGreaterThanOrEqual() {
-
-        //    IsGreaterThanOrEqual<DummyIComparable>((0, 0), (1, true, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanOrEqual<DummyIComparable>((0, 1), (2, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanOrEqual<DummyIComparable>((1, 0), (3, true, "[Value = '1'; Other = '0']"));
-
-        //    IsGreaterThanOrEqualT<DummyIComparableT>((0, 0), (4, true, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanOrEqualT<DummyIComparableT>((0, 1), (5, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanOrEqualT<DummyIComparableT>((1, 0), (6, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThanOrEqual<DummyIComparable>((0, 0), (7, false, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanOrEqual<DummyIComparable>((0, 1), (8, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanOrEqual<DummyIComparable>((1, 0), (9, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThanOrEqualT<DummyIComparableT>((0, 0), (10, false, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanOrEqualT<DummyIComparableT>((0, 1), (11, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanOrEqualT<DummyIComparableT>((1, 0), (12, false, "[Value = '1'; Other = '0']"));
-
-        //}
 
         #region IsGreaterThanOrEqual
 
@@ -994,7 +1072,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanOrEqualData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1010,7 +1090,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanOrEqualData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1030,7 +1112,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanOrEqualTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1046,7 +1130,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanOrEqualTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1124,60 +1210,102 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsGreaterThanOrEqualComparer
 
-        void IsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanOrEqualComparerData))]
+        void IsGreaterThanOrEqualComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsGreaterThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsGreaterThanOrEqual");
 
         }
 
-        void NotIsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsGreaterThanOrEqualComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThanOrEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanOrEqualComparerData))]
+        void NotIsGreaterThanOrEqualComparer<T>(T input1, T input2, Comparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsGreaterThanOrEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanOrEqualComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsGreaterThanOrEqualIComparer
 
-        void IsGreaterThanOrEqualIComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanOrEqualIComparerData))]
+        void IsGreaterThanOrEqualIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsGreaterThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsGreaterThanOrEqual");
 
         }
 
-        void NotIsGreaterThanOrEqualIComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsGreaterThanOrEqualIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThanOrEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanOrEqualIComparerData))]
+        void NotIsGreaterThanOrEqualIComparer<T>(T input1, T input2, IComparer input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsGreaterThanOrEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanOrEqualIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsGreaterThanOrEqualIComparerT
 
-        void IsGreaterThanOrEqualIComparerT<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanOrEqualIComparerTData))]
+        void IsGreaterThanOrEqualIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsGreaterThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input1, input2, input3),
+                expected, "Test.If.Value.IsGreaterThanOrEqual");
 
         }
 
-        void NotIsGreaterThanOrEqualIComparerT<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsGreaterThanOrEqualIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThanOrEqual", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanOrEqualIComparerTData))]
+        void NotIsGreaterThanOrEqualIComparerT<T>(T input1, T input2, IComparer<T> input3, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsGreaterThanOrEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanOrEqualIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
@@ -1496,60 +1624,102 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsClampedComparer
 
-        void IsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsClampedComparerData))]
+        void IsClampedComparer<T>(T input1, T input2, T input3, Comparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsClamped", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input1, input2, input3, input4),
+                expected, "Test.If.Value.IsClamped");
 
         }
 
-        void NotIsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsClampedComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsClamped", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsClampedComparerData))]
+        void NotIsClampedComparer<T>(T input1, T input2, T input3, Comparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input1, input2, input3, input4),
+                expected, "Test.IfNot.Value.IsClamped");
+
+        }
+
+        IEnumerable<Object[]> NotIsClampedComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsClampedIComparer
 
-        void IsClampedIComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsClampedIComparerData))]
+        void IsClampedIComparer<T>(T input1, T input2, T input3, IComparer input4, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsClamped", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input1, input2, input3, input4),
+                expected, "Test.If.Value.IsClamped");
 
         }
 
-        void NotIsClampedIComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsClampedIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsClamped", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsClampedIComparerData))]
+        void NotIsClampedIComparer<T>(T input1, T input2, T input3, IComparer input4, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input1, input2, input3, input4),
+                expected, "Test.IfNot.Value.IsClamped");
+
+        }
+
+        IEnumerable<Object[]> NotIsClampedIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsClampedIComparerT
 
-        void IsClampedIComparerT<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsClampedIComparerTData))]
+        void IsClampedIComparerT<T>(T input1, T input2, T input3, IComparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsClamped", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input1, input2, input3, input4),
+                expected, "Test.If.Value.IsClamped");
 
         }
 
-        void NotIsClampedIComparerT<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsClampedIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsClamped", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsClampedIComparerTData))]
+        void NotIsClampedIComparerT<T>(T input1, T input2, T input3, IComparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input1, input2, input3, input4),
+                expected, "Test.IfNot.Value.IsClamped");
+
+        }
+
+        IEnumerable<Object[]> NotIsClampedIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
@@ -1768,60 +1938,102 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsClampedExclusiveComparer
 
-        void IsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsClampedExclusiveComparerData))]
+        void IsClampedExclusiveComparer<T>(T input1, T input2, T input3, Comparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsClampedExclusive", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input1, input2, input3, input4),
+                expected, "Test.If.Value.IsClampedExclusive");
 
         }
 
-        void NotIsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsClampedExclusiveComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsClampedExclusive", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsClampedExclusiveComparerData))]
+        void NotIsClampedExclusiveComparer<T>(T input1, T input2, T input3, Comparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input1, input2, input3, input4),
+                expected, "Test.IfNot.Value.IsClampedExclusive");
+
+        }
+
+        IEnumerable<Object[]> NotIsClampedExclusiveComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsClampedExclusiveIComparer
 
-        void IsClampedExclusiveIComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsClampedExclusiveIComparerData))]
+        void IsClampedExclusiveIComparer<T>(T input1, T input2, T input3, IComparer input4, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsClampedExclusive", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input1, input2, input3, input4),
+                expected, "Test.If.Value.IsClampedExclusive");
 
         }
 
-        void NotIsClampedExclusiveIComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsClampedExclusiveIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsClampedExclusive", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsClampedExclusiveIComparerData))]
+        void NotIsClampedExclusiveIComparer<T>(T input1, T input2, T input3, IComparer input4, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input1, input2, input3, input4),
+                expected, "Test.IfNot.Value.IsClampedExclusive");
+
+        }
+
+        IEnumerable<Object[]> NotIsClampedExclusiveIComparerData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsClampedExclusiveIComparerT
 
-        void IsClampedExclusiveIComparerT<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        [TestMethod]
+        [TestData(nameof(IsClampedExclusiveIComparerTData))]
+        void IsClampedExclusiveIComparerT<T>(T input1, T input2, T input3, IComparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.If.Value.IsClampedExclusive", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input1, input2, input3, input4),
+                expected, "Test.If.Value.IsClampedExclusive");
 
         }
 
-        void NotIsClampedExclusiveIComparerT<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        IEnumerable<Object[]> IsClampedExclusiveIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, input.comparer, _file, _method),
-                expected, "Test.IfNot.Value.IsClampedExclusive", _file, _method);
+        [TestMethod]
+        [TestData(nameof(NotIsClampedExclusiveIComparerTData))]
+        void NotIsClampedExclusiveIComparerT<T>(T input1, T input2, T input3, IComparer<T> input4, (Int32 count, Boolean result, String message) expected) {
 
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input1, input2, input3, input4),
+                expected, "Test.IfNot.Value.IsClampedExclusive");
+
+        }
+
+        IEnumerable<Object[]> NotIsClampedExclusiveIComparerTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
