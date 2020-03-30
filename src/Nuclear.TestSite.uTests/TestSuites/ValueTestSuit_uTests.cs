@@ -225,15 +225,6 @@ namespace Nuclear.TestSite.TestSuites {
         }
 
         [TestMethod]
-        [TestParameters(1e-11f, 1.1e-11f, 1e-11f, 1, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
-        void IsEqualSingleMargin(Single input1, Single input2, Single input3, Int32 count, Boolean result, String message) {
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
-                (count, result, message), "Test.If.Value.IsEqual");
-
-        }
-
-        [TestMethod]
         [TestParameters(1f, 0f, 1, true, "[Left = '1'; Right = '0'; Margin = '1E-12']")]
         [TestParameters(1f, 1f, 2, false, "[Left = '1'; Right = '1'; Margin = '1E-12']")]
         [TestParameters(1e-11f, 1.1e-11f, 3, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']")]
@@ -242,6 +233,19 @@ namespace Nuclear.TestSite.TestSuites {
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2),
                 (count, result, message), "Test.IfNot.Value.IsEqual");
+
+        }
+
+        #endregion
+
+        #region IsEqualSingleMargin
+
+        [TestMethod]
+        [TestParameters(1e-11f, 1.1e-11f, 1e-11f, 1, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
+        void IsEqualSingleMargin(Single input1, Single input2, Single input3, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
+                (count, result, message), "Test.If.Value.IsEqual");
 
         }
 
@@ -271,15 +275,6 @@ namespace Nuclear.TestSite.TestSuites {
         }
 
         [TestMethod]
-        [TestParameters(1e-11d, 1.1e-11d, 1e-11d, 1, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
-        void IsEqualDoubleMargin(Double input1, Double input2, Double input3, Int32 count, Boolean result, String message) {
-
-            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
-                (count, result, message), "Test.If.Value.IsEqual");
-
-        }
-
-        [TestMethod]
         [TestParameters(1d, 0d, 1, true, "[Left = '1'; Right = '0'; Margin = '1E-12']")]
         [TestParameters(1d, 1d, 2, false, "[Left = '1'; Right = '1'; Margin = '1E-12']")]
         [TestParameters(1e-11d, 1.1e-11d, 3, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-12']")]
@@ -288,6 +283,19 @@ namespace Nuclear.TestSite.TestSuites {
 
             Statics.DDTResultState(() => DummyTest.IfNot.Value.IsEqual(input1, input2),
                 (count, result, message), "Test.IfNot.Value.IsEqual");
+
+        }
+
+        #endregion
+
+        #region IsEqualDoubleMargin
+
+        [TestMethod]
+        [TestParameters(1e-11d, 1.1e-11d, 1e-11d, 1, true, "[Left = '1E-11'; Right = '1.1E-11'; Margin = '1E-11']")]
+        void IsEqualDoubleMargin(Double input1, Double input2, Double input3, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.Value.IsEqual(input1, input2, input3),
+                (count, result, message), "Test.If.Value.IsEqual");
 
         }
 
