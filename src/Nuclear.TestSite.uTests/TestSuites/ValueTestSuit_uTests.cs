@@ -1094,76 +1094,6 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsGreaterThanOrEqualComparer() {
-
-        //    IsGreaterThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanOrEqualComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-        //    IsGreaterThanOrEqualComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
-
-        //    IsGreaterThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
-
-        //    IsGreaterThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-        //    IsGreaterThanOrEqualComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-        //    IsGreaterThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    IsGreaterThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsGreaterThanOrEqualComparer() {
-
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanOrEqualComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-        //    NotIsGreaterThanOrEqualComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-        //    NotIsGreaterThanOrEqualComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-        //    NotIsGreaterThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    NotIsGreaterThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
-
-        //}
-
         #region IsGreaterThanOrEqualComparer
 
         [TestMethod]
@@ -1177,7 +1107,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanOrEqualComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1192,7 +1130,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanOrEqualComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1211,7 +1157,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanOrEqualIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1226,7 +1180,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanOrEqualIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1245,7 +1207,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanOrEqualIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1260,7 +1230,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanOrEqualIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1478,106 +1456,6 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsClampedComparer() {
-
-        //    IsClampedComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-        //    IsClampedComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-        //    IsClampedComparer((0, null, 0, new DummyComparer()), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedComparer((0, 0, null, new DummyComparer()), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-        //    IsClampedComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
-
-        //    IsClampedComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    IsClampedComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-        //    IsClampedComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-        //    IsClampedComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-        //    IsClampedComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
-
-        //    IsClampedComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    IsClampedComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-        //    IsClampedComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-        //    IsClampedComparer((0, null, 0, new DummyIComparerT()), (29, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedComparer((0, 0, null, new DummyIComparerT()), (30, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-        //    IsClampedComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
-
-        //    IsClampedComparer((0, 0, 0, new DummyIComparerT()), (33, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedComparer((0, -1, 1, new DummyIComparerT()), (34, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedComparer((0, 1, -1, new DummyIComparerT()), (35, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedComparer((0, 0, 1, new DummyIComparerT()), (36, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedComparer((0, -1, 0, new DummyIComparerT()), (37, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedComparer((0, 1, 2, new DummyIComparerT()), (38, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedComparer((0, -2, -1, new DummyIComparerT()), (39, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsClampedComparer() {
-
-        //    NotIsClampedComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-        //    NotIsClampedComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-        //    NotIsClampedComparer((0, null, 0, new DummyComparer()), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedComparer((0, 0, null, new DummyComparer()), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-        //    NotIsClampedComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
-
-        //    NotIsClampedComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    NotIsClampedComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-        //    NotIsClampedComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-        //    NotIsClampedComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-        //    NotIsClampedComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
-
-        //    NotIsClampedComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    NotIsClampedComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-        //    NotIsClampedComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-        //    NotIsClampedComparer((0, null, 0, new DummyIComparerT()), (29, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedComparer((0, 0, null, new DummyIComparerT()), (30, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-        //    NotIsClampedComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
-
-        //    NotIsClampedComparer((0, 0, 0, new DummyIComparerT()), (33, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedComparer((0, -1, 1, new DummyIComparerT()), (34, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedComparer((0, 1, -1, new DummyIComparerT()), (35, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedComparer((0, 0, 1, new DummyIComparerT()), (36, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedComparer((0, -1, 0, new DummyIComparerT()), (37, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedComparer((0, 1, 2, new DummyIComparerT()), (38, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedComparer((0, -2, -1, new DummyIComparerT()), (39, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
         #region IsClampedComparer
 
         [TestMethod]
@@ -1591,7 +1469,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsClampedComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyComparer(), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyComparer(), (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyComparer(), (7, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyComparer(), (8, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyComparer(), (9, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyComparer(), (10, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyComparer(), (11, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyComparer(), (12, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyComparer(), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1606,7 +1497,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsClampedComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyComparer(), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyComparer(), (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyComparer(), (7, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyComparer(), (8, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyComparer(), (9, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyComparer(), (10, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyComparer(), (11, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyComparer(), (12, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyComparer(), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1625,7 +1529,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsClampedIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparer(), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparer(), (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparer(), (7, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparer(), (8, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparer(), (9, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparer(), (10, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparer(), (11, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparer(), (12, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparer(), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1640,7 +1557,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsClampedIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparer(), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparer(), (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparer(), (7, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparer(), (8, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparer(), (9, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparer(), (10, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparer(), (11, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparer(), (12, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparer(), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1659,7 +1589,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsClampedIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparerT(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparerT(), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparerT(), (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparerT(), (7, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparerT(), (8, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparerT(), (9, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparerT(), (10, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparerT(), (11, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparerT(), (12, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparerT(), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1674,7 +1617,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsClampedIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparerT(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparerT(), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparerT(), (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparerT(), (7, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparerT(), (8, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparerT(), (9, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparerT(), (10, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparerT(), (11, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparerT(), (12, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparerT(), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1792,106 +1748,6 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsClampedExclusiveComparer() {
-
-        //    IsClampedExclusiveComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveComparer((0, null, 0, new DummyComparer()), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedExclusiveComparer((0, 0, null, new DummyComparer()), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
-
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    IsClampedExclusiveComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
-
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    IsClampedExclusiveComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveComparer((0, null, 0, new DummyIComparerT()), (29, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedExclusiveComparer((0, 0, null, new DummyIComparerT()), (30, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedExclusiveComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-        //    IsClampedExclusiveComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
-
-        //    IsClampedExclusiveComparer((0, 0, 0, new DummyIComparerT()), (33, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedExclusiveComparer((0, -1, 1, new DummyIComparerT()), (34, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedExclusiveComparer((0, 1, -1, new DummyIComparerT()), (35, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedExclusiveComparer((0, 0, 1, new DummyIComparerT()), (36, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedExclusiveComparer((0, -1, 0, new DummyIComparerT()), (37, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedExclusiveComparer((0, 1, 2, new DummyIComparerT()), (38, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedExclusiveComparer((0, -2, -1, new DummyIComparerT()), (39, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsClampedExclusiveComparer() {
-
-        //    NotIsClampedExclusiveComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveComparer((0, null, 0, new DummyComparer()), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedExclusiveComparer((0, 0, null, new DummyComparer()), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
-
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    NotIsClampedExclusiveComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
-
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    NotIsClampedExclusiveComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveComparer((0, null, 0, new DummyIComparerT()), (29, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedExclusiveComparer((0, 0, null, new DummyIComparerT()), (30, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedExclusiveComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-        //    NotIsClampedExclusiveComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
-
-        //    NotIsClampedExclusiveComparer((0, 0, 0, new DummyIComparerT()), (33, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedExclusiveComparer((0, -1, 1, new DummyIComparerT()), (34, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedExclusiveComparer((0, 1, -1, new DummyIComparerT()), (35, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedExclusiveComparer((0, 0, 1, new DummyIComparerT()), (36, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedExclusiveComparer((0, -1, 0, new DummyIComparerT()), (37, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedExclusiveComparer((0, 1, 2, new DummyIComparerT()), (38, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedExclusiveComparer((0, -2, -1, new DummyIComparerT()), (39, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
         #region IsClampedExclusiveComparer
 
         [TestMethod]
@@ -1905,7 +1761,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsClampedExclusiveComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyComparer(), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyComparer(), (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyComparer(), (7, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyComparer(), (8, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyComparer(), (9, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyComparer(), (10, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyComparer(), (11, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyComparer(), (12, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyComparer(), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1920,7 +1789,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsClampedExclusiveComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyComparer(), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyComparer(), (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyComparer(), (7, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyComparer(), (8, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyComparer(), (9, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyComparer(), (10, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyComparer(), (11, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyComparer(), (12, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyComparer(), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1939,7 +1821,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsClampedExclusiveIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparer(), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparer(), (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparer(), (7, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparer(), (8, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparer(), (9, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparer(), (10, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparer(), (11, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparer(), (12, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparer(), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1954,7 +1849,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsClampedExclusiveIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparer(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparer(), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparer(), (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparer(), (7, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparer(), (8, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparer(), (9, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparer(), (10, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparer(), (11, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparer(), (12, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparer(), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1973,7 +1881,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsClampedExclusiveIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparerT(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparerT(), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparerT(), (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparerT(), (7, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparerT(), (8, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparerT(), (9, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparerT(), (10, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparerT(), (11, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparerT(), (12, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparerT(), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
@@ -1988,7 +1909,20 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsClampedExclusiveIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new Dummy(0), new DummyIComparerT(), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new Dummy(0), new DummyIComparerT(), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, new DummyIComparerT(), (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), null, (5, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (6, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(0), new DummyIComparerT(), (7, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(1), new DummyIComparerT(), (8, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(-1), new DummyIComparerT(), (9, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new Dummy(1), new DummyIComparerT(), (10, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-1), new Dummy(0), new DummyIComparerT(), (11, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new Dummy(2), new DummyIComparerT(), (12, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(-2), new Dummy(-1), new DummyIComparerT(), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
             };
         }
 
