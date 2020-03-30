@@ -339,44 +339,72 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsLessThan
 
-        void IsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsLessThanData))]
+        void IsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsLessThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other),
+                expected, "Test.If.Value.IsLessThan");
 
         }
 
-        void NotIsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsLessThanData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanData))]
+        void NotIsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other),
+                expected, "Test.IfNot.Value.IsLessThan");
 
+        }
+
+        IEnumerable<Object[]> NotIsLessThanData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsLessThanT
 
-        void IsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsLessThanTData))]
+        void IsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanT(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsLessThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanT(input.value, input.other),
+                expected, "Test.If.Value.IsLessThan");
 
         }
 
-        void NotIsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsLessThanTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanTData))]
+        void NotIsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanT(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanT(input.value, input.other),
+                expected, "Test.IfNot.Value.IsLessThan");
 
+        }
+
+        IEnumerable<Object[]> NotIsLessThanTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
@@ -534,44 +562,72 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsLessThanOrEqual
 
-        void IsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsLessThanOrEqualData))]
+        void IsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsLessThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other),
+                expected, "Test.If.Value.IsLessThanOrEqual");
 
         }
 
-        void NotIsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsLessThanOrEqualData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanOrEqualData))]
+        void NotIsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other),
+                expected, "Test.IfNot.Value.IsLessThanOrEqual");
 
+        }
+
+        IEnumerable<Object[]> NotIsLessThanOrEqualData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsLessThanOrEqualT
 
-        void IsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsLessThanOrEqualTData))]
+        void IsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqualT(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsLessThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqualT(input.value, input.other),
+                expected, "Test.If.Value.IsLessThanOrEqual");
 
         }
 
-        void NotIsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsLessThanOrEqualTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsLessThanOrEqualTData))]
+        void NotIsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqualT(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsLessThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqualT(input.value, input.other),
+                expected, "Test.IfNot.Value.IsLessThanOrEqual");
 
+        }
+
+        IEnumerable<Object[]> NotIsLessThanOrEqualTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
@@ -729,44 +785,72 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsGreaterThan
 
-        void IsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanData))]
+        void IsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsGreaterThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other),
+                expected, "Test.If.Value.IsGreaterThan");
 
         }
 
-        void NotIsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsGreaterThanData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanData))]
+        void NotIsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other),
+                expected, "Test.IfNot.Value.IsGreaterThan");
 
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsGreaterThanT
 
-        void IsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanTData))]
+        void IsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanT(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsGreaterThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanT(input.value, input.other),
+                expected, "Test.If.Value.IsGreaterThan");
 
         }
 
-        void NotIsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsGreaterThanTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanTData))]
+        void NotIsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanT(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThan", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanT(input.value, input.other),
+                expected, "Test.IfNot.Value.IsGreaterThan");
 
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
@@ -924,44 +1008,72 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region IsGreaterThanOrEqual
 
-        void IsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanOrEqualData))]
+        void IsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsGreaterThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other),
+                expected, "Test.If.Value.IsGreaterThanOrEqual");
 
         }
 
-        void NotIsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsGreaterThanOrEqualData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanOrEqualData))]
+        void NotIsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other),
+                expected, "Test.IfNot.Value.IsGreaterThanOrEqual");
 
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanOrEqualData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
 
         #region IsGreaterThanOrEqualT
 
-        void IsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsGreaterThanOrEqualTData))]
+        void IsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqualT(input.value, input.other, _file, _method),
-                expected, "Test.If.Value.IsGreaterThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqualT(input.value, input.other),
+                expected, "Test.If.Value.IsGreaterThanOrEqual");
 
         }
 
-        void NotIsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsGreaterThanOrEqualTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsGreaterThanOrEqualTData))]
+        void NotIsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqualT(input.value, input.other, _file, _method),
-                expected, "Test.IfNot.Value.IsGreaterThanOrEqual", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqualT(input.value, input.other),
+                expected, "Test.IfNot.Value.IsGreaterThanOrEqual");
 
+        }
+
+        IEnumerable<Object[]> NotIsGreaterThanOrEqualTData() {
+            return new List<Object[]>() {
+                new Object[] {  },
+            };
         }
 
         #endregion
@@ -1196,104 +1308,114 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsClamped() {
-
-        //    IsClamped<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-        //    IsClamped<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-        //    IsClamped<DummyIComparable>((0, null, 0), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClamped<DummyIComparable>((0, 0, null), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClamped<DummyIComparable>((0, 0, 0), (5, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClamped<DummyIComparable>((0, -1, 1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClamped<DummyIComparable>((0, 1, -1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClamped<DummyIComparable>((0, 0, 1), (8, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClamped<DummyIComparable>((0, -1, 0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClamped<DummyIComparable>((0, 1, 2), (10, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClamped<DummyIComparable>((0, -2, -1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    IsClampedT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-        //    IsClampedT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-        //    IsClampedT<DummyIComparableT>((0, null, 0), (14, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedT<DummyIComparableT>((0, 0, null), (15, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedT<DummyIComparableT>((0, 0, 0), (16, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedT<DummyIComparableT>((0, -1, 1), (17, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedT<DummyIComparableT>((0, 1, -1), (18, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedT<DummyIComparableT>((0, 0, 1), (19, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedT<DummyIComparableT>((0, -1, 0), (20, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedT<DummyIComparableT>((0, 1, 2), (21, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedT<DummyIComparableT>((0, -2, -1), (22, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsClamped() {
-
-        //    NotIsClamped<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-        //    NotIsClamped<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-        //    NotIsClamped<DummyIComparable>((0, null, 0), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClamped<DummyIComparable>((0, 0, null), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClamped<DummyIComparable>((0, 0, 0), (5, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClamped<DummyIComparable>((0, -1, 1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClamped<DummyIComparable>((0, 1, -1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClamped<DummyIComparable>((0, 0, 1), (8, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClamped<DummyIComparable>((0, -1, 0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClamped<DummyIComparable>((0, 1, 2), (10, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClamped<DummyIComparable>((0, -2, -1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    NotIsClampedT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-        //    NotIsClampedT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-        //    NotIsClampedT<DummyIComparableT>((0, null, 0), (14, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedT<DummyIComparableT>((0, 0, null), (15, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedT<DummyIComparableT>((0, 0, 0), (16, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedT<DummyIComparableT>((0, -1, 1), (17, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedT<DummyIComparableT>((0, 1, -1), (18, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedT<DummyIComparableT>((0, 0, 1), (19, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedT<DummyIComparableT>((0, -1, 0), (20, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedT<DummyIComparableT>((0, 1, 2), (21, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedT<DummyIComparableT>((0, -2, -1), (22, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
         #region IsClamped
 
-        void IsClamped<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsClampedData))]
+        void IsClamped<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input.value, input.min, input.max, _file, _method),
-                expected, "Test.If.Value.IsClamped", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClamped(input1, input2, input3),
+                expected, "Test.If.Value.IsClamped");
 
         }
 
-        void NotIsClamped<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsClampedData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparable), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), new DummyIComparable(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, new DummyIComparable(0), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), null, (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(0), (5, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(-1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(1), (8, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(2), (10, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-2), new DummyIComparable(-1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsClampedData))]
+        void NotIsClamped<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input.value, input.min, input.max, _file, _method),
-                expected, "Test.IfNot.Value.IsClamped", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClamped(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsClamped");
 
+        }
+
+        IEnumerable<Object[]> NotIsClampedData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparable), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), new DummyIComparable(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, new DummyIComparable(0), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), null, (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(0), (5, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(-1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(1), (8, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(2), (10, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-2), new DummyIComparable(-1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
         }
 
         #endregion
 
         #region IsClampedT
 
-        void IsClampedT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsClampedTData))]
+        void IsClampedT<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedT(input.value, input.min, input.max, _file, _method),
-                expected, "Test.If.Value.IsClamped", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedT(input1, input2, input3),
+                expected, "Test.If.Value.IsClamped");
 
         }
 
-        void NotIsClampedT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsClampedTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparableT), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), new DummyIComparableT(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, new DummyIComparableT(0), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), null, (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(0), (5, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(-1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(1), (8, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(2), (10, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-2), new DummyIComparableT(-1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsClampedTData))]
+        void NotIsClampedT<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedT(input.value, input.min, input.max, _file, _method),
-                expected, "Test.IfNot.Value.IsClamped", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedT(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsClamped");
 
+        }
+
+        IEnumerable<Object[]> NotIsClampedTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparableT), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), new DummyIComparableT(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, new DummyIComparableT(0), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), null, (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(0), (5, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(-1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(1), (8, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(2), (10, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-2), new DummyIComparableT(-1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
         }
 
         #endregion
@@ -1458,104 +1580,114 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsClampedExclusive() {
-
-        //    IsClampedExclusive<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-        //    IsClampedExclusive<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-        //    IsClampedExclusive<DummyIComparable>((0, null, 0), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedExclusive<DummyIComparable>((0, 0, null), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedExclusive<DummyIComparable>((0, 0, 0), (5, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedExclusive<DummyIComparable>((0, -1, 1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedExclusive<DummyIComparable>((0, 1, -1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedExclusive<DummyIComparable>((0, 0, 1), (8, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedExclusive<DummyIComparable>((0, -1, 0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedExclusive<DummyIComparable>((0, 1, 2), (10, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedExclusive<DummyIComparable>((0, -2, -1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    IsClampedExclusiveT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, null, 0), (14, false, "[Value = '0'; Min = null; Max = '0']"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, 0, null), (15, false, "[Value = '0'; Min = '0'; Max = null]"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, 0, 0), (16, false, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, -1, 1), (17, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, 1, -1), (18, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, 0, 1), (19, false, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, -1, 0), (20, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, 1, 2), (21, false, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    IsClampedExclusiveT<DummyIComparableT>((0, -2, -1), (22, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsClampedExclusive() {
-
-        //    NotIsClampedExclusive<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusive<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusive<DummyIComparable>((0, null, 0), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, 0, null), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, 0, 0), (5, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, -1, 1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, 1, -1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, 0, 1), (8, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, -1, 0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, 1, 2), (10, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedExclusive<DummyIComparable>((0, -2, -1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //    NotIsClampedExclusiveT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, null, 0), (14, true, "[Value = '0'; Min = null; Max = '0']"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, 0, null), (15, true, "[Value = '0'; Min = '0'; Max = null]"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, 0, 0), (16, true, "[Value = '0'; Min = '0'; Max = '0']"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, -1, 1), (17, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, 1, -1), (18, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, 0, 1), (19, true, "[Value = '0'; Min = '0'; Max = '1']"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, -1, 0), (20, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, 1, 2), (21, true, "[Value = '0'; Min = '1'; Max = '2']"));
-        //    NotIsClampedExclusiveT<DummyIComparableT>((0, -2, -1), (22, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
-
-        //}
-
         #region IsClampedExclusive
 
-        void IsClampedExclusive<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsClampedExclusiveData))]
+        void IsClampedExclusive<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input.value, input.min, input.max, _file, _method),
-                expected, "Test.If.Value.IsClampedExclusive", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusive(input1, input2, input3),
+                expected, "Test.If.Value.IsClampedExclusive");
 
         }
 
-        void NotIsClampedExclusive<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsClampedExclusiveData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparable), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), new DummyIComparable(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, new DummyIComparable(0), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), null, (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(0), (5, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(-1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(1), (8, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(2), (10, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-2), new DummyIComparable(-1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsClampedExclusiveData))]
+        void NotIsClampedExclusive<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input.value, input.min, input.max, _file, _method),
-                expected, "Test.IfNot.Value.IsClampedExclusive", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusive(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsClampedExclusive");
 
+        }
+
+        IEnumerable<Object[]> NotIsClampedExclusiveData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparable), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), new DummyIComparable(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, new DummyIComparable(0), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), null, (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(0), (5, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(-1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), new DummyIComparable(1), (8, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-1), new DummyIComparable(0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), new DummyIComparable(2), (10, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(-2), new DummyIComparable(-1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
         }
 
         #endregion
 
         #region IsClampedExclusiveT
 
-        void IsClampedExclusiveT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        [TestMethod]
+        [TestData(nameof(IsClampedExclusiveTData))]
+        void IsClampedExclusiveT<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusiveT(input.value, input.min, input.max, _file, _method),
-                expected, "Test.If.Value.IsClampedExclusive", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Value.IsClampedExclusiveT(input1, input2, input3),
+                expected, "Test.If.Value.IsClampedExclusive");
 
         }
 
-        void NotIsClampedExclusiveT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        IEnumerable<Object[]> IsClampedExclusiveTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparableT), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), new DummyIComparableT(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, new DummyIComparableT(0), (3, false, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), null, (4, false, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(0), (5, false, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(-1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(1), (8, false, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(2), (10, false, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-2), new DummyIComparableT(-1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsClampedExclusiveTData))]
+        void NotIsClampedExclusiveT<T>(T input1, T input2, T input3, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusiveT(input.value, input.min, input.max, _file, _method),
-                expected, "Test.IfNot.Value.IsClampedExclusive", _file, _method);
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsClampedExclusiveT(input1, input2, input3),
+                expected, "Test.IfNot.Value.IsClampedExclusive");
 
+        }
+
+        IEnumerable<Object[]> NotIsClampedExclusiveTData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIComparableT), null, null, null, (1, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), new DummyIComparableT(0), (2, false, "Parameter 'value' is null.") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, new DummyIComparableT(0), (3, true, "[Value = '0'; Min = null; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), null, (4, true, "[Value = '0'; Min = '0'; Max = null]") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(0), (5, true, "[Value = '0'; Min = '0'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(-1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), new DummyIComparableT(1), (8, true, "[Value = '0'; Min = '0'; Max = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-1), new DummyIComparableT(0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), new DummyIComparableT(2), (10, true, "[Value = '0'; Min = '1'; Max = '2']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(-2), new DummyIComparableT(-1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']") },
+            };
         }
 
         #endregion
