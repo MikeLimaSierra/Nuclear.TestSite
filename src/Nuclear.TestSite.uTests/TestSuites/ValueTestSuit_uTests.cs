@@ -93,39 +93,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsEqualComparer() {
 
-            DDTIsEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTIsEqualComparer((null, 0, new DummyEqualityComparer()), (2, false, "('DummyEqualityComparer') [Left = null; Right = '0']"));
-            DDTIsEqualComparer((0, null, new DummyEqualityComparer()), (3, false, "('DummyEqualityComparer') [Left = '0'; Right = null]"));
-            DDTIsEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTIsEqualComparer<Dummy>((5, 0, new DummyEqualityComparer()), (5, false, "('DummyEqualityComparer') [Left = '5'; Right = '0']"));
-            DDTIsEqualComparer<Dummy>((5, 5, new DummyEqualityComparer()), (6, true, "('DummyEqualityComparer') [Left = '5'; Right = '5']"));
-            DDTIsEqualComparer<Dummy>((5, 5, new ThrowingEqualityComparer()), (7, false, "Comparison threw Exception:"));
+            IsEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            IsEqualComparer((null, 0, new DummyEqualityComparer()), (2, false, "('DummyEqualityComparer') [Left = null; Right = '0']"));
+            IsEqualComparer((0, null, new DummyEqualityComparer()), (3, false, "('DummyEqualityComparer') [Left = '0'; Right = null]"));
+            IsEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            IsEqualComparer<Dummy>((5, 0, new DummyEqualityComparer()), (5, false, "('DummyEqualityComparer') [Left = '5'; Right = '0']"));
+            IsEqualComparer<Dummy>((5, 5, new DummyEqualityComparer()), (6, true, "('DummyEqualityComparer') [Left = '5'; Right = '5']"));
+            IsEqualComparer<Dummy>((5, 5, new ThrowingEqualityComparer()), (7, false, "Comparison threw Exception:"));
 
-            DDTIsEqualComparer<Dummy>((null, null, (IEqualityComparer) null), (8, false, "Parameter 'comparer' is null."));
-            DDTIsEqualComparer<Dummy>((null, 0, new DummyIEqualityComparer()), (9, false, "('InternalEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTIsEqualComparer<Dummy>((0, null, new DummyIEqualityComparer()), (10, false, "('InternalEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTIsEqualComparer<Dummy>((0, 0, (IEqualityComparer) null), (11, false, "Parameter 'comparer' is null."));
-            DDTIsEqualComparer<Dummy>((5, 0, new DummyIEqualityComparer()), (12, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']"));
-            DDTIsEqualComparer<Dummy>((5, 5, new DummyIEqualityComparer()), (13, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']"));
-            DDTIsEqualComparer<Dummy>((5, 5, DynamicEqualityComparer.FromDelegate(
+            IsEqualComparer<Dummy>((null, null, (IEqualityComparer) null), (8, false, "Parameter 'comparer' is null."));
+            IsEqualComparer<Dummy>((null, 0, new DummyIEqualityComparer()), (9, false, "('InternalEqualityComparer`1') [Left = null; Right = '0']"));
+            IsEqualComparer<Dummy>((0, null, new DummyIEqualityComparer()), (10, false, "('InternalEqualityComparer`1') [Left = '0'; Right = null]"));
+            IsEqualComparer<Dummy>((0, 0, (IEqualityComparer) null), (11, false, "Parameter 'comparer' is null."));
+            IsEqualComparer<Dummy>((5, 0, new DummyIEqualityComparer()), (12, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']"));
+            IsEqualComparer<Dummy>((5, 5, new DummyIEqualityComparer()), (13, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']"));
+            IsEqualComparer<Dummy>((5, 5, DynamicEqualityComparer.FromDelegate(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())),
                 (14, false, "Comparison threw Exception:"));
 
-            DDTIsEqualComparer((null, null, (IEqualityComparer<Dummy>) null), (15, false, "Parameter 'comparer' is null."));
-            DDTIsEqualComparer((null, 0, new DummyIEqualityComparerT()), (16, false, "('DummyIEqualityComparerT') [Left = null; Right = '0']"));
-            DDTIsEqualComparer((0, null, new DummyIEqualityComparerT()), (17, false, "('DummyIEqualityComparerT') [Left = '0'; Right = null]"));
-            DDTIsEqualComparer((0, 0, (IEqualityComparer<Dummy>) null), (18, false, "Parameter 'comparer' is null."));
-            DDTIsEqualComparer((5, 0, new DummyIEqualityComparerT()), (19, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']"));
-            DDTIsEqualComparer((5, 5, new DummyIEqualityComparerT()), (20, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']"));
-            DDTIsEqualComparer((5, 5, DynamicEqualityComparer.FromDelegate<Dummy>(
+            IsEqualComparer((null, null, (IEqualityComparer<Dummy>) null), (15, false, "Parameter 'comparer' is null."));
+            IsEqualComparer((null, 0, new DummyIEqualityComparerT()), (16, false, "('DummyIEqualityComparerT') [Left = null; Right = '0']"));
+            IsEqualComparer((0, null, new DummyIEqualityComparerT()), (17, false, "('DummyIEqualityComparerT') [Left = '0'; Right = null]"));
+            IsEqualComparer((0, 0, (IEqualityComparer<Dummy>) null), (18, false, "Parameter 'comparer' is null."));
+            IsEqualComparer((5, 0, new DummyIEqualityComparerT()), (19, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']"));
+            IsEqualComparer((5, 5, new DummyIEqualityComparerT()), (20, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']"));
+            IsEqualComparer((5, 5, DynamicEqualityComparer.FromDelegate<Dummy>(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())),
                 (21, false, "Comparison threw Exception:"));
 
         }
 
-        void DDTIsEqualComparer<T>((T left, T right, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsEqualComparer<T>((T left, T right, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()}, {input.comparer.Format()})",
@@ -136,7 +136,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsEqualComparer<T>((T left, T right, IEqualityComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsEqualComparer<T>((T left, T right, IEqualityComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()}, {input.comparer.Format()})",
@@ -147,7 +147,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsEqualComparer<T>((T left, T right, IEqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsEqualComparer<T>((T left, T right, IEqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()}, {input.comparer.Format()})",
@@ -161,39 +161,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsEqualComparer() {
 
-            DDTNotIsEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTNotIsEqualComparer((null, 0, new DummyEqualityComparer()), (2, true, "('DummyEqualityComparer') [Left = null; Right = '0']"));
-            DDTNotIsEqualComparer((0, null, new DummyEqualityComparer()), (3, true, "('DummyEqualityComparer') [Left = '0'; Right = null]"));
-            DDTNotIsEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTNotIsEqualComparer<Dummy>((5, 0, new DummyEqualityComparer()), (5, true, "('DummyEqualityComparer') [Left = '5'; Right = '0']"));
-            DDTNotIsEqualComparer<Dummy>((5, 5, new DummyEqualityComparer()), (6, false, "('DummyEqualityComparer') [Left = '5'; Right = '5']"));
-            DDTNotIsEqualComparer<Dummy>((5, 5, new ThrowingEqualityComparer()), (7, false, "Comparison threw Exception:"));
+            NotIsEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            NotIsEqualComparer((null, 0, new DummyEqualityComparer()), (2, true, "('DummyEqualityComparer') [Left = null; Right = '0']"));
+            NotIsEqualComparer((0, null, new DummyEqualityComparer()), (3, true, "('DummyEqualityComparer') [Left = '0'; Right = null]"));
+            NotIsEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            NotIsEqualComparer<Dummy>((5, 0, new DummyEqualityComparer()), (5, true, "('DummyEqualityComparer') [Left = '5'; Right = '0']"));
+            NotIsEqualComparer<Dummy>((5, 5, new DummyEqualityComparer()), (6, false, "('DummyEqualityComparer') [Left = '5'; Right = '5']"));
+            NotIsEqualComparer<Dummy>((5, 5, new ThrowingEqualityComparer()), (7, false, "Comparison threw Exception:"));
 
-            DDTNotIsEqualComparer<Dummy>((null, null, (IEqualityComparer) null), (8, false, "Parameter 'comparer' is null."));
-            DDTNotIsEqualComparer<Dummy>((null, 0, new DummyIEqualityComparer()), (9, true, "('InternalEqualityComparer`1') [Left = null; Right = '0']"));
-            DDTNotIsEqualComparer<Dummy>((0, null, new DummyIEqualityComparer()), (10, true, "('InternalEqualityComparer`1') [Left = '0'; Right = null]"));
-            DDTNotIsEqualComparer<Dummy>((0, 0, (IEqualityComparer) null), (11, false, "Parameter 'comparer' is null."));
-            DDTNotIsEqualComparer<Dummy>((5, 0, new DummyIEqualityComparer()), (12, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']"));
-            DDTNotIsEqualComparer<Dummy>((5, 5, new DummyIEqualityComparer()), (13, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']"));
-            DDTNotIsEqualComparer<Dummy>((5, 5, DynamicEqualityComparer.FromDelegate(
+            NotIsEqualComparer<Dummy>((null, null, (IEqualityComparer) null), (8, false, "Parameter 'comparer' is null."));
+            NotIsEqualComparer<Dummy>((null, 0, new DummyIEqualityComparer()), (9, true, "('InternalEqualityComparer`1') [Left = null; Right = '0']"));
+            NotIsEqualComparer<Dummy>((0, null, new DummyIEqualityComparer()), (10, true, "('InternalEqualityComparer`1') [Left = '0'; Right = null]"));
+            NotIsEqualComparer<Dummy>((0, 0, (IEqualityComparer) null), (11, false, "Parameter 'comparer' is null."));
+            NotIsEqualComparer<Dummy>((5, 0, new DummyIEqualityComparer()), (12, true, "('InternalEqualityComparer`1') [Left = '5'; Right = '0']"));
+            NotIsEqualComparer<Dummy>((5, 5, new DummyIEqualityComparer()), (13, false, "('InternalEqualityComparer`1') [Left = '5'; Right = '5']"));
+            NotIsEqualComparer<Dummy>((5, 5, DynamicEqualityComparer.FromDelegate(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())),
                 (14, false, "Comparison threw Exception:"));
 
-            DDTNotIsEqualComparer((null, null, (IEqualityComparer<Dummy>) null), (15, false, "Parameter 'comparer' is null."));
-            DDTNotIsEqualComparer((null, 0, new DummyIEqualityComparerT()), (16, true, "('DummyIEqualityComparerT') [Left = null; Right = '0']"));
-            DDTNotIsEqualComparer((0, null, new DummyIEqualityComparerT()), (17, true, "('DummyIEqualityComparerT') [Left = '0'; Right = null]"));
-            DDTNotIsEqualComparer((0, 0, (IEqualityComparer<Dummy>) null), (18, false, "Parameter 'comparer' is null."));
-            DDTNotIsEqualComparer((5, 0, new DummyIEqualityComparerT()), (19, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']"));
-            DDTNotIsEqualComparer((5, 5, new DummyIEqualityComparerT()), (20, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']"));
-            DDTNotIsEqualComparer((5, 5, DynamicEqualityComparer.FromDelegate<Dummy>(
+            NotIsEqualComparer((null, null, (IEqualityComparer<Dummy>) null), (15, false, "Parameter 'comparer' is null."));
+            NotIsEqualComparer((null, 0, new DummyIEqualityComparerT()), (16, true, "('DummyIEqualityComparerT') [Left = null; Right = '0']"));
+            NotIsEqualComparer((0, null, new DummyIEqualityComparerT()), (17, true, "('DummyIEqualityComparerT') [Left = '0'; Right = null]"));
+            NotIsEqualComparer((0, 0, (IEqualityComparer<Dummy>) null), (18, false, "Parameter 'comparer' is null."));
+            NotIsEqualComparer((5, 0, new DummyIEqualityComparerT()), (19, true, "('DummyIEqualityComparerT') [Left = '5'; Right = '0']"));
+            NotIsEqualComparer((5, 5, new DummyIEqualityComparerT()), (20, false, "('DummyIEqualityComparerT') [Left = '5'; Right = '5']"));
+            NotIsEqualComparer((5, 5, DynamicEqualityComparer.FromDelegate<Dummy>(
                 (x, y) => throw new NotImplementedException(),
                 (obj) => throw new NotImplementedException())),
                 (21, false, "Comparison threw Exception:"));
 
         }
 
-        void DDTNotIsEqualComparer<T>((T left, T right, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsEqualComparer<T>((T left, T right, EqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()}, {input.comparer.Format()})",
@@ -204,7 +204,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsEqualComparer<T>((T left, T right, IEqualityComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsEqualComparer<T>((T left, T right, IEqualityComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()}, {input.comparer.Format()})",
@@ -215,7 +215,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsEqualComparer<T>((T left, T right, IEqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsEqualComparer<T>((T left, T right, IEqualityComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsEqual<{typeof(T).Format()}>({input.left.Format()}, {input.right.Format()}, {input.comparer.Format()})",
@@ -325,25 +325,25 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsLessThan() {
 
-            DDTIsLessThan<DummyIComparable>((0, 0), (1, false, "[Value = '0'; Other = '0']"));
-            DDTIsLessThan<DummyIComparable>((0, 1), (2, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThan<DummyIComparable>((1, 0), (3, false, "[Value = '1'; Other = '0']"));
+            IsLessThan<DummyIComparable>((0, 0), (1, false, "[Value = '0'; Other = '0']"));
+            IsLessThan<DummyIComparable>((0, 1), (2, true, "[Value = '0'; Other = '1']"));
+            IsLessThan<DummyIComparable>((1, 0), (3, false, "[Value = '1'; Other = '0']"));
 
-            DDTIsLessThanT<DummyIComparableT>((0, 0), (4, false, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanT<DummyIComparableT>((0, 1), (5, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanT<DummyIComparableT>((1, 0), (6, false, "[Value = '1'; Other = '0']"));
+            IsLessThanT<DummyIComparableT>((0, 0), (4, false, "[Value = '0'; Other = '0']"));
+            IsLessThanT<DummyIComparableT>((0, 1), (5, true, "[Value = '0'; Other = '1']"));
+            IsLessThanT<DummyIComparableT>((1, 0), (6, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThan<DummyIComparable>((0, 0), (7, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThan<DummyIComparable>((0, 1), (8, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThan<DummyIComparable>((1, 0), (9, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThan<DummyIComparable>((0, 0), (7, true, "[Value = '0'; Other = '0']"));
+            NotIsLessThan<DummyIComparable>((0, 1), (8, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThan<DummyIComparable>((1, 0), (9, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThanT<DummyIComparableT>((0, 0), (10, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanT<DummyIComparableT>((0, 1), (11, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanT<DummyIComparableT>((1, 0), (12, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanT<DummyIComparableT>((0, 0), (10, true, "[Value = '0'; Other = '0']"));
+            NotIsLessThanT<DummyIComparableT>((0, 1), (11, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanT<DummyIComparableT>((1, 0), (12, true, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -355,7 +355,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -367,7 +367,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -379,7 +379,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -398,39 +398,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsLessThanComparer() {
 
-            DDTIsLessThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-            DDTIsLessThanComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-            DDTIsLessThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            IsLessThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            IsLessThanComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
+            IsLessThanComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
+            IsLessThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            IsLessThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTIsLessThanComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
+            IsLessThanComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
+            IsLessThanComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
+            IsLessThanComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
 
-            DDTIsLessThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-            DDTIsLessThanComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-            DDTIsLessThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            IsLessThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            IsLessThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
+            IsLessThanComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
+            IsLessThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            IsLessThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTIsLessThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
+            IsLessThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
+            IsLessThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
+            IsLessThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
 
-            DDTIsLessThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-            DDTIsLessThanComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-            DDTIsLessThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            IsLessThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            IsLessThanComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
+            IsLessThanComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
+            IsLessThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            IsLessThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTIsLessThanComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
+            IsLessThanComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
+            IsLessThanComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
+            IsLessThanComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -441,7 +441,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsLessThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -452,7 +452,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsLessThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -466,39 +466,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsLessThanComparer() {
 
-            DDTNotIsLessThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-            DDTNotIsLessThanComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-            DDTNotIsLessThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            NotIsLessThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            NotIsLessThanComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
+            NotIsLessThanComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
+            NotIsLessThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            NotIsLessThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTNotIsLessThanComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
+            NotIsLessThanComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-            DDTNotIsLessThanComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-            DDTNotIsLessThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            NotIsLessThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            NotIsLessThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
+            NotIsLessThanComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
+            NotIsLessThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            NotIsLessThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTNotIsLessThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
+            NotIsLessThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-            DDTNotIsLessThanComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-            DDTNotIsLessThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            NotIsLessThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            NotIsLessThanComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
+            NotIsLessThanComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
+            NotIsLessThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            NotIsLessThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTNotIsLessThanComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
+            NotIsLessThanComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTNotIsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -509,7 +509,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -520,7 +520,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsLessThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -538,25 +538,25 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsLessThanOrEqual() {
 
-            DDTIsLessThanOrEqual<DummyIComparable>((0, 0), (1, true, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanOrEqual<DummyIComparable>((0, 1), (2, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanOrEqual<DummyIComparable>((1, 0), (3, false, "[Value = '1'; Other = '0']"));
+            IsLessThanOrEqual<DummyIComparable>((0, 0), (1, true, "[Value = '0'; Other = '0']"));
+            IsLessThanOrEqual<DummyIComparable>((0, 1), (2, true, "[Value = '0'; Other = '1']"));
+            IsLessThanOrEqual<DummyIComparable>((1, 0), (3, false, "[Value = '1'; Other = '0']"));
 
-            DDTIsLessThanOrEqualT<DummyIComparableT>((0, 0), (4, true, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanOrEqualT<DummyIComparableT>((0, 1), (5, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanOrEqualT<DummyIComparableT>((1, 0), (6, false, "[Value = '1'; Other = '0']"));
+            IsLessThanOrEqualT<DummyIComparableT>((0, 0), (4, true, "[Value = '0'; Other = '0']"));
+            IsLessThanOrEqualT<DummyIComparableT>((0, 1), (5, true, "[Value = '0'; Other = '1']"));
+            IsLessThanOrEqualT<DummyIComparableT>((1, 0), (6, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThanOrEqual<DummyIComparable>((0, 0), (7, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanOrEqual<DummyIComparable>((0, 1), (8, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanOrEqual<DummyIComparable>((1, 0), (9, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanOrEqual<DummyIComparable>((0, 0), (7, false, "[Value = '0'; Other = '0']"));
+            NotIsLessThanOrEqual<DummyIComparable>((0, 1), (8, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanOrEqual<DummyIComparable>((1, 0), (9, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThanOrEqualT<DummyIComparableT>((0, 0), (10, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanOrEqualT<DummyIComparableT>((0, 1), (11, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanOrEqualT<DummyIComparableT>((1, 0), (12, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanOrEqualT<DummyIComparableT>((0, 0), (10, false, "[Value = '0'; Other = '0']"));
+            NotIsLessThanOrEqualT<DummyIComparableT>((0, 1), (11, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanOrEqualT<DummyIComparableT>((1, 0), (12, true, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -568,7 +568,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -580,7 +580,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -592,7 +592,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -611,39 +611,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsLessThanOrEqualComparer() {
 
-            DDTIsLessThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanOrEqualComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-            DDTIsLessThanOrEqualComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            IsLessThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            IsLessThanOrEqualComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
+            IsLessThanOrEqualComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
+            IsLessThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            IsLessThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
+            IsLessThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
+            IsLessThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
+            IsLessThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
 
-            DDTIsLessThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-            DDTIsLessThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            IsLessThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            IsLessThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
+            IsLessThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
+            IsLessThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            IsLessThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
+            IsLessThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
+            IsLessThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
+            IsLessThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
 
-            DDTIsLessThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-            DDTIsLessThanOrEqualComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-            DDTIsLessThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTIsLessThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            IsLessThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            IsLessThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
+            IsLessThanOrEqualComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
+            IsLessThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            IsLessThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTIsLessThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-            DDTIsLessThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-            DDTIsLessThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
+            IsLessThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
+            IsLessThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
+            IsLessThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -654,7 +654,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -665,7 +665,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -679,39 +679,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsLessThanOrEqualComparer() {
 
-            DDTNotIsLessThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanOrEqualComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-            DDTNotIsLessThanOrEqualComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            NotIsLessThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            NotIsLessThanOrEqualComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
+            NotIsLessThanOrEqualComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            NotIsLessThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            NotIsLessThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
+            NotIsLessThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
+            NotIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsLessThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-            DDTNotIsLessThanOrEqualComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-            DDTNotIsLessThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTNotIsLessThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            NotIsLessThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            NotIsLessThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
+            NotIsLessThanOrEqualComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
+            NotIsLessThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            NotIsLessThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTNotIsLessThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsLessThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-            DDTNotIsLessThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
+            NotIsLessThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
+            NotIsLessThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
+            NotIsLessThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTNotIsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -722,7 +722,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -733,7 +733,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsLessThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsLessThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -751,25 +751,25 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsGreaterThan() {
 
-            DDTIsGreaterThan<DummyIComparable>((0, 0), (1, false, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThan<DummyIComparable>((0, 1), (2, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThan<DummyIComparable>((1, 0), (3, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThan<DummyIComparable>((0, 0), (1, false, "[Value = '0'; Other = '0']"));
+            IsGreaterThan<DummyIComparable>((0, 1), (2, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThan<DummyIComparable>((1, 0), (3, true, "[Value = '1'; Other = '0']"));
 
-            DDTIsGreaterThanT<DummyIComparableT>((0, 0), (4, false, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanT<DummyIComparableT>((0, 1), (5, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanT<DummyIComparableT>((1, 0), (6, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanT<DummyIComparableT>((0, 0), (4, false, "[Value = '0'; Other = '0']"));
+            IsGreaterThanT<DummyIComparableT>((0, 1), (5, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanT<DummyIComparableT>((1, 0), (6, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThan<DummyIComparable>((0, 0), (7, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThan<DummyIComparable>((0, 1), (8, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThan<DummyIComparable>((1, 0), (9, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThan<DummyIComparable>((0, 0), (7, true, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThan<DummyIComparable>((0, 1), (8, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThan<DummyIComparable>((1, 0), (9, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThanT<DummyIComparableT>((0, 0), (10, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanT<DummyIComparableT>((0, 1), (11, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanT<DummyIComparableT>((1, 0), (12, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanT<DummyIComparableT>((0, 0), (10, true, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanT<DummyIComparableT>((0, 1), (11, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanT<DummyIComparableT>((1, 0), (12, false, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -781,7 +781,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -793,7 +793,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -805,7 +805,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -824,39 +824,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsGreaterThanComparer() {
 
-            DDTIsGreaterThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-            DDTIsGreaterThanComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-            DDTIsGreaterThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            IsGreaterThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            IsGreaterThanComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
+            IsGreaterThanComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
+            IsGreaterThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            IsGreaterThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTIsGreaterThanComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
+            IsGreaterThanComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
 
-            DDTIsGreaterThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-            DDTIsGreaterThanComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-            DDTIsGreaterThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            IsGreaterThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            IsGreaterThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
+            IsGreaterThanComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
+            IsGreaterThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            IsGreaterThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTIsGreaterThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
+            IsGreaterThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
 
-            DDTIsGreaterThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-            DDTIsGreaterThanComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-            DDTIsGreaterThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            IsGreaterThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            IsGreaterThanComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
+            IsGreaterThanComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
+            IsGreaterThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            IsGreaterThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTIsGreaterThanComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
+            IsGreaterThanComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -867,7 +867,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsGreaterThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -878,7 +878,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsGreaterThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -892,39 +892,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsGreaterThanComparer() {
 
-            DDTNotIsGreaterThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-            DDTNotIsGreaterThanComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-            DDTNotIsGreaterThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            NotIsGreaterThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
+            NotIsGreaterThanComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
+            NotIsGreaterThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTNotIsGreaterThanComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-            DDTNotIsGreaterThanComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-            DDTNotIsGreaterThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            NotIsGreaterThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
+            NotIsGreaterThanComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
+            NotIsGreaterThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTNotIsGreaterThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-            DDTNotIsGreaterThanComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-            DDTNotIsGreaterThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            NotIsGreaterThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
+            NotIsGreaterThanComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
+            NotIsGreaterThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTNotIsGreaterThanComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTNotIsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -935,7 +935,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -946,7 +946,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsGreaterThan<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -964,25 +964,25 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsGreaterThanOrEqual() {
 
-            DDTIsGreaterThanOrEqual<DummyIComparable>((0, 0), (1, true, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanOrEqual<DummyIComparable>((0, 1), (2, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanOrEqual<DummyIComparable>((1, 0), (3, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanOrEqual<DummyIComparable>((0, 0), (1, true, "[Value = '0'; Other = '0']"));
+            IsGreaterThanOrEqual<DummyIComparable>((0, 1), (2, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanOrEqual<DummyIComparable>((1, 0), (3, true, "[Value = '1'; Other = '0']"));
 
-            DDTIsGreaterThanOrEqualT<DummyIComparableT>((0, 0), (4, true, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanOrEqualT<DummyIComparableT>((0, 1), (5, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanOrEqualT<DummyIComparableT>((1, 0), (6, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanOrEqualT<DummyIComparableT>((0, 0), (4, true, "[Value = '0'; Other = '0']"));
+            IsGreaterThanOrEqualT<DummyIComparableT>((0, 1), (5, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanOrEqualT<DummyIComparableT>((1, 0), (6, true, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThanOrEqual<DummyIComparable>((0, 0), (7, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanOrEqual<DummyIComparable>((0, 1), (8, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanOrEqual<DummyIComparable>((1, 0), (9, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanOrEqual<DummyIComparable>((0, 0), (7, false, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanOrEqual<DummyIComparable>((0, 1), (8, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanOrEqual<DummyIComparable>((1, 0), (9, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThanOrEqualT<DummyIComparableT>((0, 0), (10, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanOrEqualT<DummyIComparableT>((0, 1), (11, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanOrEqualT<DummyIComparableT>((1, 0), (12, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanOrEqualT<DummyIComparableT>((0, 0), (10, false, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanOrEqualT<DummyIComparableT>((0, 1), (11, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanOrEqualT<DummyIComparableT>((1, 0), (12, false, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -994,7 +994,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -1006,7 +1006,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -1018,7 +1018,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -1037,39 +1037,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsGreaterThanOrEqualComparer() {
 
-            DDTIsGreaterThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanOrEqualComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-            DDTIsGreaterThanOrEqualComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            IsGreaterThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            IsGreaterThanOrEqualComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
+            IsGreaterThanOrEqualComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
 
-            DDTIsGreaterThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            IsGreaterThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            IsGreaterThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
+            IsGreaterThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
+            IsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
 
-            DDTIsGreaterThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-            DDTIsGreaterThanOrEqualComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-            DDTIsGreaterThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTIsGreaterThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            IsGreaterThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            IsGreaterThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
+            IsGreaterThanOrEqualComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
+            IsGreaterThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            IsGreaterThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTIsGreaterThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-            DDTIsGreaterThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-            DDTIsGreaterThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
+            IsGreaterThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
+            IsGreaterThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
+            IsGreaterThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTIsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -1080,7 +1080,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -1091,7 +1091,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsGreaterThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -1105,39 +1105,39 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsGreaterThanOrEqualComparer() {
 
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanOrEqualComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-            DDTNotIsGreaterThanOrEqualComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanOrEqualComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
 
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
 
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
 
-            DDTNotIsGreaterThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-            DDTNotIsGreaterThanOrEqualComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-            DDTNotIsGreaterThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-            DDTNotIsGreaterThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
+            NotIsGreaterThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
+            NotIsGreaterThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
+            NotIsGreaterThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
 
-            DDTNotIsGreaterThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-            DDTNotIsGreaterThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-            DDTNotIsGreaterThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
+            NotIsGreaterThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
+            NotIsGreaterThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
 
         }
 
-        void DDTNotIsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanOrEqualComparer<T>((T value, T other, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -1148,7 +1148,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -1159,7 +1159,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsGreaterThanOrEqualComparer<T>((T value, T other, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsGreaterThanOrEqual<{typeof(T).Format()}>({input.value.Format()}, {input.other.Format()}, {input.comparer.FormatType()})",
@@ -1269,33 +1269,33 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsClamped() {
 
-            DDTIsClamped<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTIsClamped<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-            DDTIsClamped<DummyIComparable>((0, null, 0), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClamped<DummyIComparable>((0, 0, null), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClamped<DummyIComparable>((0, 0, 0), (5, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClamped<DummyIComparable>((0, -1, 1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClamped<DummyIComparable>((0, 1, -1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClamped<DummyIComparable>((0, 0, 1), (8, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClamped<DummyIComparable>((0, -1, 0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClamped<DummyIComparable>((0, 1, 2), (10, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClamped<DummyIComparable>((0, -2, -1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClamped<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
+            IsClamped<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
+            IsClamped<DummyIComparable>((0, null, 0), (3, true, "[Value = '0'; Min = null; Max = '0']"));
+            IsClamped<DummyIComparable>((0, 0, null), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClamped<DummyIComparable>((0, 0, 0), (5, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClamped<DummyIComparable>((0, -1, 1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClamped<DummyIComparable>((0, 1, -1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClamped<DummyIComparable>((0, 0, 1), (8, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClamped<DummyIComparable>((0, -1, 0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClamped<DummyIComparable>((0, 1, 2), (10, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClamped<DummyIComparable>((0, -2, -1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTIsClampedT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-            DDTIsClampedT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-            DDTIsClampedT<DummyIComparableT>((0, null, 0), (14, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedT<DummyIComparableT>((0, 0, null), (15, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedT<DummyIComparableT>((0, 0, 0), (16, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedT<DummyIComparableT>((0, -1, 1), (17, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedT<DummyIComparableT>((0, 1, -1), (18, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedT<DummyIComparableT>((0, 0, 1), (19, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedT<DummyIComparableT>((0, -1, 0), (20, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedT<DummyIComparableT>((0, 1, 2), (21, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedT<DummyIComparableT>((0, -2, -1), (22, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
+            IsClampedT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
+            IsClampedT<DummyIComparableT>((0, null, 0), (14, true, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedT<DummyIComparableT>((0, 0, null), (15, true, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedT<DummyIComparableT>((0, 0, 0), (16, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedT<DummyIComparableT>((0, -1, 1), (17, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedT<DummyIComparableT>((0, 1, -1), (18, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedT<DummyIComparableT>((0, 0, 1), (19, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedT<DummyIComparableT>((0, -1, 0), (20, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedT<DummyIComparableT>((0, 1, 2), (21, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedT<DummyIComparableT>((0, -2, -1), (22, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTIsClamped<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void IsClamped<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -1307,7 +1307,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsClampedT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -1322,33 +1322,33 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsClamped() {
 
-            DDTNotIsClamped<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTNotIsClamped<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-            DDTNotIsClamped<DummyIComparable>((0, null, 0), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClamped<DummyIComparable>((0, 0, null), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClamped<DummyIComparable>((0, 0, 0), (5, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClamped<DummyIComparable>((0, -1, 1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClamped<DummyIComparable>((0, 1, -1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClamped<DummyIComparable>((0, 0, 1), (8, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClamped<DummyIComparable>((0, -1, 0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClamped<DummyIComparable>((0, 1, 2), (10, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClamped<DummyIComparable>((0, -2, -1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClamped<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
+            NotIsClamped<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
+            NotIsClamped<DummyIComparable>((0, null, 0), (3, false, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClamped<DummyIComparable>((0, 0, null), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClamped<DummyIComparable>((0, 0, 0), (5, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClamped<DummyIComparable>((0, -1, 1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClamped<DummyIComparable>((0, 1, -1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClamped<DummyIComparable>((0, 0, 1), (8, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClamped<DummyIComparable>((0, -1, 0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClamped<DummyIComparable>((0, 1, 2), (10, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClamped<DummyIComparable>((0, -2, -1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTNotIsClampedT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-            DDTNotIsClampedT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-            DDTNotIsClampedT<DummyIComparableT>((0, null, 0), (14, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedT<DummyIComparableT>((0, 0, null), (15, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedT<DummyIComparableT>((0, 0, 0), (16, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedT<DummyIComparableT>((0, -1, 1), (17, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedT<DummyIComparableT>((0, 1, -1), (18, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedT<DummyIComparableT>((0, 0, 1), (19, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedT<DummyIComparableT>((0, -1, 0), (20, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedT<DummyIComparableT>((0, 1, 2), (21, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedT<DummyIComparableT>((0, -2, -1), (22, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
+            NotIsClampedT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
+            NotIsClampedT<DummyIComparableT>((0, null, 0), (14, false, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedT<DummyIComparableT>((0, 0, null), (15, false, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedT<DummyIComparableT>((0, 0, 0), (16, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedT<DummyIComparableT>((0, -1, 1), (17, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedT<DummyIComparableT>((0, 1, -1), (18, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedT<DummyIComparableT>((0, 0, 1), (19, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedT<DummyIComparableT>((0, -1, 0), (20, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedT<DummyIComparableT>((0, 1, 2), (21, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedT<DummyIComparableT>((0, -2, -1), (22, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTNotIsClamped<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClamped<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -1360,7 +1360,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsClampedT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -1379,54 +1379,54 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsClampedComparer() {
 
-            DDTIsClampedComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTIsClampedComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-            DDTIsClampedComparer((0, null, 0, new DummyComparer()), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedComparer((0, 0, null, new DummyComparer()), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-            DDTIsClampedComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
+            IsClampedComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
+            IsClampedComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
+            IsClampedComparer((0, null, 0, new DummyComparer()), (3, true, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedComparer((0, 0, null, new DummyComparer()), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
+            IsClampedComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
 
-            DDTIsClampedComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTIsClampedComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-            DDTIsClampedComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-            DDTIsClampedComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-            DDTIsClampedComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
+            IsClampedComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
+            IsClampedComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
+            IsClampedComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, true, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, true, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
+            IsClampedComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
 
-            DDTIsClampedComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTIsClampedComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-            DDTIsClampedComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-            DDTIsClampedComparer((0, null, 0, new DummyIComparerT()), (29, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedComparer((0, 0, null, new DummyIComparerT()), (30, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-            DDTIsClampedComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
+            IsClampedComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
+            IsClampedComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
+            IsClampedComparer((0, null, 0, new DummyIComparerT()), (29, true, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedComparer((0, 0, null, new DummyIComparerT()), (30, true, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
+            IsClampedComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
 
-            DDTIsClampedComparer((0, 0, 0, new DummyIComparerT()), (33, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedComparer((0, -1, 1, new DummyIComparerT()), (34, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedComparer((0, 1, -1, new DummyIComparerT()), (35, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedComparer((0, 0, 1, new DummyIComparerT()), (36, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedComparer((0, -1, 0, new DummyIComparerT()), (37, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedComparer((0, 1, 2, new DummyIComparerT()), (38, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedComparer((0, -2, -1, new DummyIComparerT()), (39, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedComparer((0, 0, 0, new DummyIComparerT()), (33, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedComparer((0, -1, 1, new DummyIComparerT()), (34, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedComparer((0, 1, -1, new DummyIComparerT()), (35, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedComparer((0, 0, 1, new DummyIComparerT()), (36, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedComparer((0, -1, 0, new DummyIComparerT()), (37, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedComparer((0, 1, 2, new DummyIComparerT()), (38, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedComparer((0, -2, -1, new DummyIComparerT()), (39, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTIsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1437,7 +1437,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsClampedComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1448,7 +1448,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsClampedComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1462,54 +1462,54 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsClampedComparer() {
 
-            DDTNotIsClampedComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTNotIsClampedComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-            DDTNotIsClampedComparer((0, null, 0, new DummyComparer()), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedComparer((0, 0, null, new DummyComparer()), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-            DDTNotIsClampedComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
+            NotIsClampedComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
+            NotIsClampedComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
+            NotIsClampedComparer((0, null, 0, new DummyComparer()), (3, false, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedComparer((0, 0, null, new DummyComparer()), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
+            NotIsClampedComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
 
-            DDTNotIsClampedComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTNotIsClampedComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-            DDTNotIsClampedComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-            DDTNotIsClampedComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-            DDTNotIsClampedComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
+            NotIsClampedComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
+            NotIsClampedComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
+            NotIsClampedComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, false, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, false, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
+            NotIsClampedComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
 
-            DDTNotIsClampedComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTNotIsClampedComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-            DDTNotIsClampedComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-            DDTNotIsClampedComparer((0, null, 0, new DummyIComparerT()), (29, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedComparer((0, 0, null, new DummyIComparerT()), (30, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-            DDTNotIsClampedComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
+            NotIsClampedComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
+            NotIsClampedComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
+            NotIsClampedComparer((0, null, 0, new DummyIComparerT()), (29, false, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedComparer((0, 0, null, new DummyIComparerT()), (30, false, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
+            NotIsClampedComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
 
-            DDTNotIsClampedComparer((0, 0, 0, new DummyIComparerT()), (33, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedComparer((0, -1, 1, new DummyIComparerT()), (34, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedComparer((0, 1, -1, new DummyIComparerT()), (35, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedComparer((0, 0, 1, new DummyIComparerT()), (36, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedComparer((0, -1, 0, new DummyIComparerT()), (37, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedComparer((0, 1, 2, new DummyIComparerT()), (38, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedComparer((0, -2, -1, new DummyIComparerT()), (39, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedComparer((0, 0, 0, new DummyIComparerT()), (33, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedComparer((0, -1, 1, new DummyIComparerT()), (34, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedComparer((0, 1, -1, new DummyIComparerT()), (35, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedComparer((0, 0, 1, new DummyIComparerT()), (36, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedComparer((0, -1, 0, new DummyIComparerT()), (37, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedComparer((0, 1, 2, new DummyIComparerT()), (38, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedComparer((0, -2, -1, new DummyIComparerT()), (39, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTNotIsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1520,7 +1520,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsClampedComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1531,7 +1531,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsClampedComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsClamped<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1549,33 +1549,33 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsClampedExclusive() {
 
-            DDTIsClampedExclusive<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusive<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusive<DummyIComparable>((0, null, 0), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedExclusive<DummyIComparable>((0, 0, null), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedExclusive<DummyIComparable>((0, 0, 0), (5, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedExclusive<DummyIComparable>((0, -1, 1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedExclusive<DummyIComparable>((0, 1, -1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedExclusive<DummyIComparable>((0, 0, 1), (8, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedExclusive<DummyIComparable>((0, -1, 0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedExclusive<DummyIComparable>((0, 1, 2), (10, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedExclusive<DummyIComparable>((0, -2, -1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedExclusive<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
+            IsClampedExclusive<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
+            IsClampedExclusive<DummyIComparable>((0, null, 0), (3, false, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedExclusive<DummyIComparable>((0, 0, null), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedExclusive<DummyIComparable>((0, 0, 0), (5, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedExclusive<DummyIComparable>((0, -1, 1), (6, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedExclusive<DummyIComparable>((0, 1, -1), (7, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedExclusive<DummyIComparable>((0, 0, 1), (8, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedExclusive<DummyIComparable>((0, -1, 0), (9, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedExclusive<DummyIComparable>((0, 1, 2), (10, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedExclusive<DummyIComparable>((0, -2, -1), (11, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTIsClampedExclusiveT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, null, 0), (14, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, 0, null), (15, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, 0, 0), (16, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, -1, 1), (17, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, 1, -1), (18, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, 0, 1), (19, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, -1, 0), (20, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, 1, 2), (21, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedExclusiveT<DummyIComparableT>((0, -2, -1), (22, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedExclusiveT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
+            IsClampedExclusiveT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
+            IsClampedExclusiveT<DummyIComparableT>((0, null, 0), (14, false, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedExclusiveT<DummyIComparableT>((0, 0, null), (15, false, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedExclusiveT<DummyIComparableT>((0, 0, 0), (16, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedExclusiveT<DummyIComparableT>((0, -1, 1), (17, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedExclusiveT<DummyIComparableT>((0, 1, -1), (18, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedExclusiveT<DummyIComparableT>((0, 0, 1), (19, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedExclusiveT<DummyIComparableT>((0, -1, 0), (20, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedExclusiveT<DummyIComparableT>((0, 1, 2), (21, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedExclusiveT<DummyIComparableT>((0, -2, -1), (22, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTIsClampedExclusive<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedExclusive<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -1587,7 +1587,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsClampedExclusiveT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedExclusiveT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -1602,33 +1602,33 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsClampedExclusive() {
 
-            DDTNotIsClampedExclusive<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusive<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, null, 0), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, 0, null), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, 0, 0), (5, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, -1, 1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, 1, -1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, 0, 1), (8, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, -1, 0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, 1, 2), (10, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedExclusive<DummyIComparable>((0, -2, -1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedExclusive<DummyIComparable>((null, null, null), (1, false, "Parameter 'value' is null."));
+            NotIsClampedExclusive<DummyIComparable>((null, 0, 0), (2, false, "Parameter 'value' is null."));
+            NotIsClampedExclusive<DummyIComparable>((0, null, 0), (3, true, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedExclusive<DummyIComparable>((0, 0, null), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedExclusive<DummyIComparable>((0, 0, 0), (5, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedExclusive<DummyIComparable>((0, -1, 1), (6, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedExclusive<DummyIComparable>((0, 1, -1), (7, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedExclusive<DummyIComparable>((0, 0, 1), (8, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedExclusive<DummyIComparable>((0, -1, 0), (9, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedExclusive<DummyIComparable>((0, 1, 2), (10, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedExclusive<DummyIComparable>((0, -2, -1), (11, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, null, 0), (14, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, 0, null), (15, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, 0, 0), (16, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, -1, 1), (17, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, 1, -1), (18, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, 0, 1), (19, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, -1, 0), (20, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, 1, 2), (21, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedExclusiveT<DummyIComparableT>((0, -2, -1), (22, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((null, null, null), (12, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveT<DummyIComparableT>((null, 0, 0), (13, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, null, 0), (14, true, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, 0, null), (15, true, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, 0, 0), (16, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, -1, 1), (17, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, 1, -1), (18, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, 0, 1), (19, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, -1, 0), (20, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, 1, 2), (21, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedExclusiveT<DummyIComparableT>((0, -2, -1), (22, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTNotIsClampedExclusive<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedExclusive<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable {
 
@@ -1640,7 +1640,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsClampedExclusiveT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedExclusiveT<T>((T value, T min, T max) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where T : IComparable<T> {
 
@@ -1659,54 +1659,54 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void IsClampedExclusiveComparer() {
 
-            DDTIsClampedExclusiveComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveComparer((0, null, 0, new DummyComparer()), (3, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedExclusiveComparer((0, 0, null, new DummyComparer()), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
+            IsClampedExclusiveComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
+            IsClampedExclusiveComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
+            IsClampedExclusiveComparer((0, null, 0, new DummyComparer()), (3, false, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedExclusiveComparer((0, 0, null, new DummyComparer()), (4, false, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
 
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTIsClampedExclusiveComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
+            IsClampedExclusiveComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
+            IsClampedExclusiveComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
+            IsClampedExclusiveComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, false, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedExclusiveComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, false, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
 
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTIsClampedExclusiveComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-            DDTIsClampedExclusiveComparer((0, null, 0, new DummyIComparerT()), (29, false, "[Value = '0'; Min = null; Max = '0']"));
-            DDTIsClampedExclusiveComparer((0, 0, null, new DummyIComparerT()), (30, false, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTIsClampedExclusiveComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-            DDTIsClampedExclusiveComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
+            IsClampedExclusiveComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
+            IsClampedExclusiveComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
+            IsClampedExclusiveComparer((0, null, 0, new DummyIComparerT()), (29, false, "[Value = '0'; Min = null; Max = '0']"));
+            IsClampedExclusiveComparer((0, 0, null, new DummyIComparerT()), (30, false, "[Value = '0'; Min = '0'; Max = null]"));
+            IsClampedExclusiveComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
+            IsClampedExclusiveComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
 
-            DDTIsClampedExclusiveComparer((0, 0, 0, new DummyIComparerT()), (33, false, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTIsClampedExclusiveComparer((0, -1, 1, new DummyIComparerT()), (34, true, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTIsClampedExclusiveComparer((0, 1, -1, new DummyIComparerT()), (35, true, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTIsClampedExclusiveComparer((0, 0, 1, new DummyIComparerT()), (36, false, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTIsClampedExclusiveComparer((0, -1, 0, new DummyIComparerT()), (37, false, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTIsClampedExclusiveComparer((0, 1, 2, new DummyIComparerT()), (38, false, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTIsClampedExclusiveComparer((0, -2, -1, new DummyIComparerT()), (39, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            IsClampedExclusiveComparer((0, 0, 0, new DummyIComparerT()), (33, false, "[Value = '0'; Min = '0'; Max = '0']"));
+            IsClampedExclusiveComparer((0, -1, 1, new DummyIComparerT()), (34, true, "[Value = '0'; Min = '-1'; Max = '1']"));
+            IsClampedExclusiveComparer((0, 1, -1, new DummyIComparerT()), (35, true, "[Value = '0'; Min = '1'; Max = '-1']"));
+            IsClampedExclusiveComparer((0, 0, 1, new DummyIComparerT()), (36, false, "[Value = '0'; Min = '0'; Max = '1']"));
+            IsClampedExclusiveComparer((0, -1, 0, new DummyIComparerT()), (37, false, "[Value = '0'; Min = '-1'; Max = '0']"));
+            IsClampedExclusiveComparer((0, 1, 2, new DummyIComparerT()), (38, false, "[Value = '0'; Min = '1'; Max = '2']"));
+            IsClampedExclusiveComparer((0, -2, -1, new DummyIComparerT()), (39, false, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTIsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1717,7 +1717,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedExclusiveComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1728,7 +1728,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void IsClampedExclusiveComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.If.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1742,54 +1742,54 @@ namespace Nuclear.TestSite.TestSuites {
         [TestMethod]
         void NotIsClampedExclusiveComparer() {
 
-            DDTNotIsClampedExclusiveComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveComparer((0, null, 0, new DummyComparer()), (3, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer((0, 0, null, new DummyComparer()), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
+            NotIsClampedExclusiveComparer<Dummy>((null, null, null, null), (1, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveComparer((null, 0, 0, new DummyComparer()), (2, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveComparer((0, null, 0, new DummyComparer()), (3, true, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedExclusiveComparer((0, 0, null, new DummyComparer()), (4, true, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, null), (5, false, "Parameter 'comparer' is null."));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new ThrowingComparer()), (6, false, "Comparer threw Exception:"));
 
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyComparer()), (7, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyComparer()), (8, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyComparer()), (9, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyComparer()), (10, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyComparer()), (11, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyComparer()), (12, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyComparer()), (13, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTNotIsClampedExclusiveComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
+            NotIsClampedExclusiveComparer<Dummy>((null, null, null, (IComparer) null), (14, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveComparer<Dummy>((null, 0, 0, new DummyIComparer()), (15, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveComparer<Dummy>((0, null, 0, new DummyIComparer()), (16, true, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, null, new DummyIComparer()), (17, true, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, (IComparer) null), (18, false, "Parameter 'comparer' is null."));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (19, false, "Comparer threw Exception:"));
 
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 0, new DummyIComparer()), (20, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, -1, 1, new DummyIComparer()), (21, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 1, -1, new DummyIComparer()), (22, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 0, 1, new DummyIComparer()), (23, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, -1, 0, new DummyIComparer()), (24, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, 1, 2, new DummyIComparer()), (25, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedExclusiveComparer<Dummy>((0, -2, -1, new DummyIComparer()), (26, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
-            DDTNotIsClampedExclusiveComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
-            DDTNotIsClampedExclusiveComparer((0, null, 0, new DummyIComparerT()), (29, true, "[Value = '0'; Min = null; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer((0, 0, null, new DummyIComparerT()), (30, true, "[Value = '0'; Min = '0'; Max = null]"));
-            DDTNotIsClampedExclusiveComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
-            DDTNotIsClampedExclusiveComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
+            NotIsClampedExclusiveComparer((null, null, null, (IComparer<Dummy>) null), (27, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveComparer((null, 0, 0, new DummyIComparerT()), (28, false, "Parameter 'value' is null."));
+            NotIsClampedExclusiveComparer((0, null, 0, new DummyIComparerT()), (29, true, "[Value = '0'; Min = null; Max = '0']"));
+            NotIsClampedExclusiveComparer((0, 0, null, new DummyIComparerT()), (30, true, "[Value = '0'; Min = '0'; Max = null]"));
+            NotIsClampedExclusiveComparer((0, 0, 0, (IComparer<Dummy>) null), (31, false, "Parameter 'comparer' is null."));
+            NotIsClampedExclusiveComparer((0, 0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (32, false, "Comparer threw Exception:"));
 
-            DDTNotIsClampedExclusiveComparer((0, 0, 0, new DummyIComparerT()), (33, true, "[Value = '0'; Min = '0'; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer((0, -1, 1, new DummyIComparerT()), (34, false, "[Value = '0'; Min = '-1'; Max = '1']"));
-            DDTNotIsClampedExclusiveComparer((0, 1, -1, new DummyIComparerT()), (35, false, "[Value = '0'; Min = '1'; Max = '-1']"));
-            DDTNotIsClampedExclusiveComparer((0, 0, 1, new DummyIComparerT()), (36, true, "[Value = '0'; Min = '0'; Max = '1']"));
-            DDTNotIsClampedExclusiveComparer((0, -1, 0, new DummyIComparerT()), (37, true, "[Value = '0'; Min = '-1'; Max = '0']"));
-            DDTNotIsClampedExclusiveComparer((0, 1, 2, new DummyIComparerT()), (38, true, "[Value = '0'; Min = '1'; Max = '2']"));
-            DDTNotIsClampedExclusiveComparer((0, -2, -1, new DummyIComparerT()), (39, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
+            NotIsClampedExclusiveComparer((0, 0, 0, new DummyIComparerT()), (33, true, "[Value = '0'; Min = '0'; Max = '0']"));
+            NotIsClampedExclusiveComparer((0, -1, 1, new DummyIComparerT()), (34, false, "[Value = '0'; Min = '-1'; Max = '1']"));
+            NotIsClampedExclusiveComparer((0, 1, -1, new DummyIComparerT()), (35, false, "[Value = '0'; Min = '1'; Max = '-1']"));
+            NotIsClampedExclusiveComparer((0, 0, 1, new DummyIComparerT()), (36, true, "[Value = '0'; Min = '0'; Max = '1']"));
+            NotIsClampedExclusiveComparer((0, -1, 0, new DummyIComparerT()), (37, true, "[Value = '0'; Min = '-1'; Max = '0']"));
+            NotIsClampedExclusiveComparer((0, 1, 2, new DummyIComparerT()), (38, true, "[Value = '0'; Min = '1'; Max = '2']"));
+            NotIsClampedExclusiveComparer((0, -2, -1, new DummyIComparerT()), (39, true, "[Value = '0'; Min = '-2'; Max = '-1']"));
 
         }
 
-        void DDTNotIsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedExclusiveComparer<T>((T value, T min, T max, Comparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1800,7 +1800,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
@@ -1811,7 +1811,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         }
 
-        void DDTNotIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
+        void NotIsClampedExclusiveComparer<T>((T value, T min, T max, IComparer<T> comparer) input, (Int32 count, Boolean result, String message) expected,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.Note($"Test.IfNot.Value.IsClampedExclusive<{typeof(T).Format()}>({input.value.Format()}, {input.min.Format()}, {input.max.Format()}, {input.comparer.FormatType()})",
