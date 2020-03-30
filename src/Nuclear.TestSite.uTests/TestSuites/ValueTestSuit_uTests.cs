@@ -316,58 +316,41 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsLessThan() {
-
-        //    IsLessThan<DummyIComparable>((0, 0), (1, false, "[Value = '0'; Other = '0']"));
-        //    IsLessThan<DummyIComparable>((0, 1), (2, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThan<DummyIComparable>((1, 0), (3, false, "[Value = '1'; Other = '0']"));
-
-        //    IsLessThanT<DummyIComparableT>((0, 0), (4, false, "[Value = '0'; Other = '0']"));
-        //    IsLessThanT<DummyIComparableT>((0, 1), (5, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanT<DummyIComparableT>((1, 0), (6, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThan<DummyIComparable>((0, 0), (7, true, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThan<DummyIComparable>((0, 1), (8, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThan<DummyIComparable>((1, 0), (9, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThanT<DummyIComparableT>((0, 0), (10, true, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanT<DummyIComparableT>((0, 1), (11, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanT<DummyIComparableT>((1, 0), (12, true, "[Value = '1'; Other = '0']"));
-
-        //}
-
         #region IsLessThan
 
         [TestMethod]
         [TestData(nameof(IsLessThanData))]
-        void IsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsLessThan<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThan(input1, input2),
                 expected, "Test.If.Value.IsLessThan");
 
         }
 
         IEnumerable<Object[]> IsLessThanData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotIsLessThanData))]
-        void NotIsLessThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsLessThan<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThan(input1, input2),
                 expected, "Test.IfNot.Value.IsLessThan");
 
         }
 
         IEnumerable<Object[]> NotIsLessThanData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -377,33 +360,37 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(IsLessThanTData))]
-        void IsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsLessThanT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanT(input1, input2),
                 expected, "Test.If.Value.IsLessThan");
 
         }
 
         IEnumerable<Object[]> IsLessThanTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotIsLessThanTData))]
-        void NotIsLessThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsLessThanT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanT(input1, input2),
                 expected, "Test.IfNot.Value.IsLessThan");
 
         }
 
         IEnumerable<Object[]> NotIsLessThanTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -539,58 +526,41 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsLessThanOrEqual() {
-
-        //    IsLessThanOrEqual<DummyIComparable>((0, 0), (1, true, "[Value = '0'; Other = '0']"));
-        //    IsLessThanOrEqual<DummyIComparable>((0, 1), (2, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanOrEqual<DummyIComparable>((1, 0), (3, false, "[Value = '1'; Other = '0']"));
-
-        //    IsLessThanOrEqualT<DummyIComparableT>((0, 0), (4, true, "[Value = '0'; Other = '0']"));
-        //    IsLessThanOrEqualT<DummyIComparableT>((0, 1), (5, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanOrEqualT<DummyIComparableT>((1, 0), (6, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThanOrEqual<DummyIComparable>((0, 0), (7, false, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanOrEqual<DummyIComparable>((0, 1), (8, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanOrEqual<DummyIComparable>((1, 0), (9, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThanOrEqualT<DummyIComparableT>((0, 0), (10, false, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanOrEqualT<DummyIComparableT>((0, 1), (11, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanOrEqualT<DummyIComparableT>((1, 0), (12, true, "[Value = '1'; Other = '0']"));
-
-        //}
-
         #region IsLessThanOrEqual
 
         [TestMethod]
         [TestData(nameof(IsLessThanOrEqualData))]
-        void IsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsLessThanOrEqual<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqual(input1, input2),
                 expected, "Test.If.Value.IsLessThanOrEqual");
 
         }
 
         IEnumerable<Object[]> IsLessThanOrEqualData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotIsLessThanOrEqualData))]
-        void NotIsLessThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsLessThanOrEqual<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqual(input1, input2),
                 expected, "Test.IfNot.Value.IsLessThanOrEqual");
 
         }
 
         IEnumerable<Object[]> NotIsLessThanOrEqualData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(0), new DummyIComparable(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(1), new DummyIComparable(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -600,33 +570,37 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(IsLessThanOrEqualTData))]
-        void IsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsLessThanOrEqualT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqualT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsLessThanOrEqualT(input1, input2),
                 expected, "Test.If.Value.IsLessThanOrEqual");
 
         }
 
         IEnumerable<Object[]> IsLessThanOrEqualTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, false, "[Value = '1'; Other = '0']") },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotIsLessThanOrEqualTData))]
-        void NotIsLessThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsLessThanOrEqualT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqualT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsLessThanOrEqualT(input1, input2),
                 expected, "Test.IfNot.Value.IsLessThanOrEqual");
 
         }
 
         IEnumerable<Object[]> NotIsLessThanOrEqualTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(0), (1, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), new DummyIComparableT(1), (2, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(1), new DummyIComparableT(0), (3, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -787,10 +761,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(IsGreaterThanData))]
-        void IsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsGreaterThan<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThan(input1, input2),
                 expected, "Test.If.Value.IsGreaterThan");
 
         }
@@ -803,10 +777,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotIsGreaterThanData))]
-        void NotIsGreaterThan<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsGreaterThan<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThan(input1, input2),
                 expected, "Test.IfNot.Value.IsGreaterThan");
 
         }
@@ -823,10 +797,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(IsGreaterThanTData))]
-        void IsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsGreaterThanT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanT(input1, input2),
                 expected, "Test.If.Value.IsGreaterThan");
 
         }
@@ -839,10 +813,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotIsGreaterThanTData))]
-        void NotIsGreaterThanT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsGreaterThanT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanT(input1, input2),
                 expected, "Test.IfNot.Value.IsGreaterThan");
 
         }
@@ -1010,10 +984,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(IsGreaterThanOrEqualData))]
-        void IsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsGreaterThanOrEqual<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqual(input1, input2),
                 expected, "Test.If.Value.IsGreaterThanOrEqual");
 
         }
@@ -1026,10 +1000,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotIsGreaterThanOrEqualData))]
-        void NotIsGreaterThanOrEqual<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsGreaterThanOrEqual<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqual(input1, input2),
                 expected, "Test.IfNot.Value.IsGreaterThanOrEqual");
 
         }
@@ -1046,10 +1020,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(IsGreaterThanOrEqualTData))]
-        void IsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void IsGreaterThanOrEqualT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqualT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.If.Value.IsGreaterThanOrEqualT(input1, input2),
                 expected, "Test.If.Value.IsGreaterThanOrEqual");
 
         }
@@ -1062,10 +1036,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotIsGreaterThanOrEqualTData))]
-        void NotIsGreaterThanOrEqualT<T>((T value, T other) input, (Int32 count, Boolean result, String message) expected)
+        void NotIsGreaterThanOrEqualT<T>(T input1, T input2, (Int32 count, Boolean result, String message) expected)
             where T : IComparable<T> {
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqualT(input.value, input.other),
+            Statics.DDTResultState(() => DummyTest.IfNot.Value.IsGreaterThanOrEqualT(input1, input2),
                 expected, "Test.IfNot.Value.IsGreaterThanOrEqual");
 
         }
