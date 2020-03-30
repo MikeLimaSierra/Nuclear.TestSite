@@ -148,6 +148,14 @@ namespace Ntt {
         public override Int32 Compare(Dummy x, Dummy y) => throw new NotImplementedException();
     }
 
+    internal class ThrowingIComparer : IComparer {
+        public Int32 Compare(Object x, Object y) => throw new NotImplementedException();
+    }
+
+    internal class ThrowingIComparerT : IComparer<Dummy> {
+        public Int32 Compare(Dummy x, Dummy y) => throw new NotImplementedException();
+    }
+
     internal class DummyEqualityComparer : EqualityComparer<Dummy> {
         public override Boolean Equals(Dummy x, Dummy y) {
             if(x == null) {
