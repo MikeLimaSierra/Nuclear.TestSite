@@ -634,76 +634,6 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsLessThanOrEqualComparer() {
-
-        //    IsLessThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    IsLessThanOrEqualComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-        //    IsLessThanOrEqualComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-        //    IsLessThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    IsLessThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    IsLessThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-        //    IsLessThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
-
-        //    IsLessThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    IsLessThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-        //    IsLessThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-        //    IsLessThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    IsLessThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    IsLessThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-        //    IsLessThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
-
-        //    IsLessThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    IsLessThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-        //    IsLessThanOrEqualComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-        //    IsLessThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    IsLessThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    IsLessThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-        //    IsLessThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-        //    IsLessThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsLessThanOrEqualComparer() {
-
-        //    NotIsLessThanOrEqualComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanOrEqualComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-        //    NotIsLessThanOrEqualComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThanOrEqualComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanOrEqualComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanOrEqualComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanOrEqualComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
-
-        //    NotIsLessThanOrEqualComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanOrEqualComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-        //    NotIsLessThanOrEqualComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-        //    NotIsLessThanOrEqualComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    NotIsLessThanOrEqualComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    NotIsLessThanOrEqualComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-        //    NotIsLessThanOrEqualComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-        //    NotIsLessThanOrEqualComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
-
-        //}
-
         #region IsLessThanOrEqualComparer
 
         [TestMethod]
@@ -717,7 +647,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsLessThanOrEqualComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -732,7 +670,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsLessThanOrEqualComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -751,7 +697,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsLessThanOrEqualIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -766,7 +720,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsLessThanOrEqualIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -785,7 +747,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsLessThanOrEqualIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -800,7 +770,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsLessThanOrEqualIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -886,76 +864,6 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        //[TestMethod]
-        //void IsGreaterThanComparer() {
-
-        //    IsGreaterThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanComparer((null, 0, new DummyComparer()), (2, false, "[Value = null; Other = '0']"));
-        //    IsGreaterThanComparer((0, null, new DummyComparer()), (3, true, "[Value = '0'; Other = null]"));
-        //    IsGreaterThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    IsGreaterThanComparer<Dummy>((0, 0, new DummyComparer()), (6, false, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanComparer<Dummy>((0, 1, new DummyComparer()), (7, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanComparer<Dummy>((1, 0, new DummyComparer()), (8, true, "[Value = '1'; Other = '0']"));
-
-        //    IsGreaterThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, false, "[Value = null; Other = '0']"));
-        //    IsGreaterThanComparer<Dummy>((0, null, new DummyIComparer()), (11, true, "[Value = '0'; Other = null]"));
-        //    IsGreaterThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    IsGreaterThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, false, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, true, "[Value = '1'; Other = '0']"));
-
-        //    IsGreaterThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanComparer((null, 0, new DummyIComparerT()), (18, false, "[Value = null; Other = '0']"));
-        //    IsGreaterThanComparer((0, null, new DummyIComparerT()), (19, true, "[Value = '0'; Other = null]"));
-        //    IsGreaterThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    IsGreaterThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    IsGreaterThanComparer((0, 0, new DummyIComparerT()), (22, false, "[Value = '0'; Other = '0']"));
-        //    IsGreaterThanComparer((0, 1, new DummyIComparerT()), (23, false, "[Value = '0'; Other = '1']"));
-        //    IsGreaterThanComparer((1, 0, new DummyIComparerT()), (24, true, "[Value = '1'; Other = '0']"));
-
-        //}
-
-        //[TestMethod]
-        //void NotIsGreaterThanComparer() {
-
-        //    NotIsGreaterThanComparer<Dummy>((null, null, null), (1, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanComparer((null, 0, new DummyComparer()), (2, true, "[Value = null; Other = '0']"));
-        //    NotIsGreaterThanComparer((0, null, new DummyComparer()), (3, false, "[Value = '0'; Other = null]"));
-        //    NotIsGreaterThanComparer<Dummy>((0, 0, null), (4, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanComparer<Dummy>((0, 0, new ThrowingComparer()), (5, false, "Comparer threw Exception:"));
-
-        //    NotIsGreaterThanComparer<Dummy>((0, 0, new DummyComparer()), (6, true, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanComparer<Dummy>((0, 1, new DummyComparer()), (7, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanComparer<Dummy>((1, 0, new DummyComparer()), (8, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThanComparer<Dummy>((null, null, (IComparer) null), (9, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanComparer<Dummy>((null, 0, new DummyIComparer()), (10, true, "[Value = null; Other = '0']"));
-        //    NotIsGreaterThanComparer<Dummy>((0, null, new DummyIComparer()), (11, false, "[Value = '0'; Other = null]"));
-        //    NotIsGreaterThanComparer<Dummy>((0, 0, (IComparer) null), (12, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanComparer<Dummy>((0, 0, DynamicComparer.FromDelegate((x, y) => throw new NotImplementedException())), (13, false, "Comparer threw Exception:"));
-
-        //    NotIsGreaterThanComparer<Dummy>((0, 0, new DummyIComparer()), (14, true, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanComparer<Dummy>((0, 1, new DummyIComparer()), (15, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanComparer<Dummy>((1, 0, new DummyIComparer()), (16, false, "[Value = '1'; Other = '0']"));
-
-        //    NotIsGreaterThanComparer((null, null, (IComparer<Dummy>) null), (17, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanComparer((null, 0, new DummyIComparerT()), (18, true, "[Value = null; Other = '0']"));
-        //    NotIsGreaterThanComparer((0, null, new DummyIComparerT()), (19, false, "[Value = '0'; Other = null]"));
-        //    NotIsGreaterThanComparer((0, 0, (IComparer<Dummy>) null), (20, false, "Parameter 'comparer' is null."));
-        //    NotIsGreaterThanComparer((0, 0, DynamicComparer.FromDelegate<Dummy>((x, y) => throw new NotImplementedException())), (21, false, "Comparer threw Exception:"));
-
-        //    NotIsGreaterThanComparer((0, 0, new DummyIComparerT()), (22, true, "[Value = '0'; Other = '0']"));
-        //    NotIsGreaterThanComparer((0, 1, new DummyIComparerT()), (23, true, "[Value = '0'; Other = '1']"));
-        //    NotIsGreaterThanComparer((1, 0, new DummyIComparerT()), (24, false, "[Value = '1'; Other = '0']"));
-
-        //}
-
         #region IsGreaterThanComparer
 
         [TestMethod]
@@ -969,7 +877,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -984,7 +900,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyComparer(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1003,7 +927,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1018,7 +950,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanIComparerData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparer(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparer(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparer(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparer(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparer(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparer(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1037,7 +977,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsGreaterThanIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, false, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, true, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, false, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, false, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, true, "[Value = '1'; Other = '0']") },
             };
         }
 
@@ -1052,7 +1000,15 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsGreaterThanIComparerTData() {
             return new List<Object[]>() {
-                new Object[] {  },
+                new Object[] { typeof(Dummy), null, null, null, (1, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), null, new Dummy(0), new DummyIComparerT(), (2, true, "[Value = null; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), null, new DummyIComparerT(), (3, false, "[Value = '0'; Other = null]") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), null, (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new ThrowingIComparerT(), (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(0), new DummyIComparerT(), (6, true, "[Value = '0'; Other = '0']") },
+                new Object[] { typeof(Dummy), new Dummy(0), new Dummy(1), new DummyIComparerT(), (7, true, "[Value = '0'; Other = '1']") },
+                new Object[] { typeof(Dummy), new Dummy(1), new Dummy(0), new DummyIComparerT(), (8, false, "[Value = '1'; Other = '0']") },
             };
         }
 
