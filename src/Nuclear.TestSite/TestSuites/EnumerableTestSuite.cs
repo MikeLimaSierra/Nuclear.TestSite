@@ -24,12 +24,13 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="condition">The condition to check.</param>
         /// <param name="message">The message.</param>
+        /// <param name="customMessage">The custom fail message.</param>
         /// <param name="file">The file name where the test method is located.</param>
         /// <param name="method">The test method name.</param>
         /// <param name="testInstruction">The test instruction.</param>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void InternalTest(Boolean condition, String message, String file, String method, [CallerMemberName] String testInstruction = null)
-            => Parent.CreateResult(condition, message, file, method, testInstruction);
+        public void InternalTest(Boolean condition, String message, String customMessage, String file, String method, [CallerMemberName] String testInstruction = null)
+            => Parent.CreateResult(condition, message, customMessage, file, method, testInstruction);
 
         /// <summary>
         /// Fails the calling test.

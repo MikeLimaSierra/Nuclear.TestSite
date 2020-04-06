@@ -112,12 +112,25 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="condition">The condition to check.</param>
         /// <param name="message">The message.</param>
+        /// <param name="customMessage">The custom fail message.</param>
         /// <param name="file">The file name where the test method is located.</param>
         /// <param name="method">The test method name.</param>
         /// <param name="testInstruction">The test instruction.</param>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void InternalTest(Boolean condition, String message, String file, String method, [CallerMemberName] String testInstruction = null)
-            => CreateResult(condition, message, file, method, testInstruction);
+        public void InternalTest(Boolean condition, String message, String customMessage, String file, String method, [CallerMemberName] String testInstruction = null)
+            => CreateResult(condition, message, customMessage, file, method, testInstruction);
+
+        /// <summary>
+        /// Fails the calling test.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="testClassPath">The file path where the test method is located.</param>
+        /// <param name="testMethod">The test method name.</param>
+        /// <param name="testInstruction">The test instruction.</param>
+        /// <param name="testSuitePath">The file path where the calling test suite is located.</param>
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public void InternalFail(String message, String testClassPath, String testMethod, String testInstruction, [CallerFilePath] String testSuitePath = null)
+            => CreateResult(_invert, message, null, testClassPath, testMethod, testInstruction, testSuitePath);
 
         /// <summary>
         /// Fails the calling test.
@@ -126,7 +139,6 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="file">The file name where the test method is located.</param>
         /// <param name="method">The test method name.</param>
         /// <param name="testInstruction">The test instruction.</param>
-        [EditorBrowsable(EditorBrowsableState.Never)]
         public void FailTest(String message, String file, String method, [CallerMemberName] String testInstruction = null)
             => InternalFail(message, file, method, testInstruction);
 
@@ -134,7 +146,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         #region internal methods
 
-        internal void CreateResult(Boolean condition, String message, String testClassPath, String testMethod, String testInstruction, [CallerFilePath] String testSuitePath = null) {
+        internal void CreateResult(Boolean condition, String message, String customMessage,
+            String testClassPath, String testMethod, String testInstruction, [CallerFilePath] String testSuitePath = null) {
+
             Boolean adjustedCondition = _invert ? !condition : condition;
             String testSuite = Path.GetFileNameWithoutExtension(testSuitePath);
 
@@ -146,11 +160,10 @@ namespace Nuclear.TestSite.TestSuites {
                 isCollectionMember ? System.String.Empty : ".",
                 testInstruction);
 
-            Results.AddResult(adjustedCondition, testInstructionString, message, Path.GetFileNameWithoutExtension(testClassPath), testMethod);
+            Results.AddResult(adjustedCondition, testInstructionString,
+                (!adjustedCondition && !System.String.IsNullOrWhiteSpace(customMessage)) ? customMessage: message,
+                Path.GetFileNameWithoutExtension(testClassPath), testMethod);
         }
-
-        internal void InternalFail(String message, String testClassPath, String testMethod, String testInstruction, [CallerFilePath] String testSuitePath = null)
-            => CreateResult(_invert, message, testClassPath, testMethod, testInstruction, testSuitePath);
 
         #endregion
 
