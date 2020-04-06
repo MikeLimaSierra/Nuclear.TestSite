@@ -18,6 +18,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="TException">The expected type of exception.</typeparam>
         /// <param name="action">The action to be executed.</param>
         /// <param name="exception">Contains the exception if thrown.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -25,7 +28,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.ThrowsException&lt;ArgumentException&gt;(() => obj.DoSomething(), out ArgumentException exception);
         /// </code>
         /// </example>
-        public void ThrowsException<TException>(Action action, out TException exception,
+        public void ThrowsException<TException>(Action action, out TException exception, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where TException : Exception {
 
@@ -38,13 +41,16 @@ namespace Nuclear.TestSite.TestSuites {
 
             try {
                 action();
+
             } catch(TException ex) {
                 exception = ex;
+
             } catch(Exception) {
                 // don't care about all the other ones, this is just about TException!
+
             } finally {
                 InternalTest(exception != null, $"[Exception = {exception.Format()}]",
-                    _file, _method);
+                    customMessage, _file, _method);
             }
         }
 
@@ -58,6 +64,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="action">The action to be invoked.</param>
         /// <param name="object">The object that raises the event.</param>
         /// <param name="eventData">The event data containing sender and arguments.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -65,7 +74,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesPropertyChangedEvent(() => obj.Title = "new content", obj, out Object sender, out PropertyChangedEventArgs e);
         /// </code>
         /// </example>
-        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventData<PropertyChangedEventArgs> eventData,
+        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventData<PropertyChangedEventArgs> eventData, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             eventData = null;
@@ -91,7 +100,7 @@ namespace Nuclear.TestSite.TestSuites {
                 eventData = tmp;
 
                 InternalTest(tmp != null, String.Format("{0} of type {1} raised.", tmp != null ? "Event" : "No event", typeof(PropertyChangedEventHandler).Format()),
-                    _file, _method);
+                    customMessage, _file, _method);
 
             } catch(Exception ex) {
                 FailTest($"Action threw Exception: {ex.Message.Format()}",
@@ -109,6 +118,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="action">The action to be invoked.</param>
         /// <param name="object">The object that raises the event.</param>
         /// <param name="eventDatas">The collection of event datas containing senders and arguments.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -116,7 +128,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesPropertyChangedEvent(() => obj.Title = "new content", obj, out Object sender, out PropertyChangedEventArgs e);
         /// </code>
         /// </example>
-        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventDataCollection<PropertyChangedEventArgs> eventDatas,
+        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventDataCollection<PropertyChangedEventArgs> eventDatas, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             eventDatas = null;
@@ -142,7 +154,7 @@ namespace Nuclear.TestSite.TestSuites {
                 eventDatas = tmp;
 
                 InternalTest(tmp.Count > 0, $"Event of type {typeof(PropertyChangedEventHandler).Format()} raised {tmp.Count} times.",
-                    _file, _method);
+                    customMessage, _file, _method);
 
 
             } catch(Exception ex) {
@@ -167,6 +179,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="object">The object that raises the event.</param>
         /// <param name="eventName">The name of the event to be raised.</param>
         /// <param name="eventData">The event data containing sender and arguments.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -174,7 +189,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesEvent(() => obj.DoSomething(), obj, "MyCustomEvent", out EventData&lt;MyCustomEventArgs&gt; eventData);
         /// </code>
         /// </example>
-        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventData<TEventArgs> eventData,
+        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventData<TEventArgs> eventData, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where TEventArgs : EventArgs {
 
@@ -224,7 +239,7 @@ namespace Nuclear.TestSite.TestSuites {
                 eventData = eventProxy.EventData;
 
                 InternalTest(eventProxy.EventRaised, String.Format("{0} of type '{1}' raised.", eventProxy.EventRaised ? "Event" : "No event", eventInfo.EventHandlerType.FullName),
-                    _file, _method);
+                    customMessage, _file, _method);
 
             } catch(Exception ex) {
                 FailTest($"Action threw Exception: {ex.Message.Format()}",
@@ -244,6 +259,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="object">The object that raises the event.</param>
         /// <param name="eventName">The name of the event to be raised.</param>
         /// <param name="eventDatas">The collection of event datas containing senders and arguments.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -251,7 +269,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesEvent(() => obj.DoSomething(), obj, "MyCustomEvent", out EventDataCollection&lt;MyCustomEventArgs&gt; eventDatas);
         /// </code>
         /// </example>
-        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventDataCollection<TEventArgs> eventDatas,
+        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventDataCollection<TEventArgs> eventDatas, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where TEventArgs : EventArgs {
 
@@ -301,7 +319,7 @@ namespace Nuclear.TestSite.TestSuites {
                 eventDatas = eventProxy.EventData;
 
                 InternalTest(eventProxy.EventRaised, $"Event of type {eventInfo.EventHandlerType.Format()} raised {eventProxy.RaiseCount} times.",
-                    _file, _method);
+                    customMessage, _file, _method);
 
             } catch(Exception ex) {
                 FailTest($"Action threw Exception: {ex.Message.Format()}",
