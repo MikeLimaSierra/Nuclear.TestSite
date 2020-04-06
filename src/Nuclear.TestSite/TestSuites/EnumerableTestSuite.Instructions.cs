@@ -15,9 +15,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if <paramref name="enumeration"/> is empty.
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void IsEmpty(IEnumerable enumeration,
+        public void IsEmpty(IEnumerable enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -25,7 +28,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            IsEmpty(enumeration.Cast<Object>(), _file, _method);
+            IsEmpty(enumeration.Cast<Object>(), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -33,9 +36,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void IsEmpty<T>(IEnumerable<T> enumeration,
+        public void IsEmpty<T>(IEnumerable<T> enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -46,7 +52,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = enumeration.Count() == 0;
 
             InternalTest(result, String.Format("Enumeration is {0}empty. Enumeration is: {1}", result ? String.Empty : "not ", enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -57,9 +63,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if <paramref name="enumeration"/> contains a null element.
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNull(IEnumerable enumeration,
+        public void ContainsNull(IEnumerable enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -67,7 +76,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsNull(enumeration.Cast<Object>(), _file, _method);
+            ContainsNull(enumeration.Cast<Object>(), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -75,9 +84,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNull<T>(IEnumerable<T> enumeration,
+        public void ContainsNull<T>(IEnumerable<T> enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -95,7 +107,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumeration {0} null. Enumeration is: {1}", result ? "contains" : "doesn't contain", enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -106,9 +118,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if <paramref name="enumeration"/> contains a non null element.
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNonNull(IEnumerable enumeration,
+        public void ContainsNonNull(IEnumerable enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -116,7 +131,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsNonNull(enumeration.Cast<Object>(), _file, _method);
+            ContainsNonNull(enumeration.Cast<Object>(), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -124,9 +139,12 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNonNull<T>(IEnumerable<T> enumeration,
+        public void ContainsNonNull<T>(IEnumerable<T> enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -144,7 +162,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumeration {0} a non null value. Enumeration is: {1}", result ? "contains" : "doesn't contain", enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -156,6 +174,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="element">The <see cref="Object"/> to search for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -163,7 +184,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject);
         /// </code>
         /// </example>
-        public void Contains(IEnumerable enumeration, Object element,
+        public void Contains(IEnumerable enumeration, Object element, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -171,7 +192,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Contains(enumeration.Cast<Object>(), element, _file, _method);
+            Contains(enumeration.Cast<Object>(), element, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -180,6 +201,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="element">The element of type <typeparamref name="T"/> to search for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -187,7 +211,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject);
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, T element,
+        public void Contains<T>(IEnumerable<T> enumeration, T element, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -198,7 +222,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = enumeration.Contains(element);
 
             InternalTest(result, String.Format("Enumeration {0} element {1}. Enumeration is: {2}", result ? "contains" : "doesn't contain", element.Format(), enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -212,6 +236,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="element">The element of type <typeparamref name="T"/> to search for.</param>
         /// <param name="comparer">The <see cref="EqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -219,7 +246,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, T element, EqualityComparer<T> comparer,
+        public void Contains<T>(IEnumerable<T> enumeration, T element, EqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -232,7 +259,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Contains(enumeration, element, comparer as IEqualityComparer<T>, _file, _method);
+            Contains(enumeration, element, comparer as IEqualityComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -241,6 +268,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="element">The <see cref="Object"/> to search for.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -248,7 +278,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains(IEnumerable enumeration, Object element, IEqualityComparer comparer,
+        public void Contains(IEnumerable enumeration, Object element, IEqualityComparer comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -261,7 +291,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Contains(enumeration.Cast<Object>(), element, DynamicEqualityComparer.FromComparer<Object>(comparer), _file, _method);
+            Contains(enumeration.Cast<Object>(), element, DynamicEqualityComparer.FromComparer<Object>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -271,6 +301,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="element">The element of type <typeparamref name="T"/> to search for.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -278,7 +311,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, T element, IEqualityComparer<T> comparer,
+        public void Contains<T>(IEnumerable<T> enumeration, T element, IEqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -303,7 +336,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumeration {0} element {1}. Enumeration is: {2}", result ? "contains" : "doesn't contain", element.Format(), enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -319,6 +352,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="element">The element of type <see cref="KeyValuePair{TKey, TValue}"/> to search for.</param>
         /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -326,7 +362,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -344,7 +380,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Contains(enumeration, element, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+            Contains(enumeration, element, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -354,6 +390,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="element">The <see cref="DictionaryEntry"/> to search for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -361,7 +400,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains(IEnumerable<DictionaryEntry> enumeration, DictionaryEntry element, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+        public void Contains(IEnumerable<DictionaryEntry> enumeration, DictionaryEntry element, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -380,7 +419,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             Contains(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), new KeyValuePair<Object, Object>(element.Key, element.Value),
-                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -392,6 +431,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="element">The element of type <see cref="KeyValuePair{TKey, TValue}"/> to search for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -399,7 +441,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -431,7 +473,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             if(!result) {
                 InternalTest(result, String.Format("Enumeration {0} element with key {1}. Enumeration is: {2}", result ? "contains" : "doesn't contain", element.Key.Format(), enumeration.Format()),
-                    _file, _method);
+                    customMessage, _file, _method);
                 return;
             }
 
@@ -452,7 +494,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumeration {0} element {1}. Enumeration is: {2}", result ? "contains" : "doesn't contain", element.Format(), enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -464,6 +506,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="match">The <see cref="Predicate{Object}"/> used to filter for matches.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -471,7 +516,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, new Predicate&lt;Object&gt;((element) => element as Int32 > 0));
         /// </code>
         /// </example>
-        public void Contains(IEnumerable enumeration, Predicate<Object> match,
+        public void Contains(IEnumerable enumeration, Predicate<Object> match, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -484,7 +529,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Contains(enumeration.Cast<Object>(), match, _file, _method);
+            Contains(enumeration.Cast<Object>(), match, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -493,6 +538,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T"></typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="match">The <see cref="Predicate{T}"/> used to filter for matches.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -500,7 +548,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, new Predicate&lt;Int32&gt;((element) => element > 0));
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, Predicate<T> match,
+        public void Contains<T>(IEnumerable<T> enumeration, Predicate<T> match, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -530,7 +578,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumeration {0} a matching element. Enumeration is: {1}", result ? "contains" : "doesn't contain", enumeration.Format()),
-            _file, _method);
+                customMessage, _file, _method);
 
         }
 
@@ -542,6 +590,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if <paramref name="enumeration"/> contains duplicate items.
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -549,7 +600,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration);
         /// </code>
         /// </example>
-        public void ContainsDuplicates(IEnumerable enumeration,
+        public void ContainsDuplicates(IEnumerable enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -557,7 +608,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsDuplicates(enumeration.Cast<Object>(), _file, _method);
+            ContainsDuplicates(enumeration.Cast<Object>(), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -565,6 +616,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -572,7 +626,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration);
         /// </code>
         /// </example>
-        public void ContainsDuplicates<T>(IEnumerable<T> enumeration,
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -590,7 +644,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumeration {0} duplicates. Enumeration is: {1}", result ? "contains" : "doesn't contain", enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -603,6 +657,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T"></typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="comparer">The <see cref="EqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -610,7 +667,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, EqualityComparer<T> comparer,
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, EqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -623,7 +680,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsDuplicates(enumeration, comparer as IEqualityComparer<T>, _file, _method);
+            ContainsDuplicates(enumeration, comparer as IEqualityComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -631,6 +688,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -638,7 +698,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsDuplicates(IEnumerable enumeration, IEqualityComparer comparer,
+        public void ContainsDuplicates(IEnumerable enumeration, IEqualityComparer comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -651,7 +711,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsDuplicates(enumeration.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), _file, _method);
+            ContainsDuplicates(enumeration.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -660,6 +720,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T"></typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -667,7 +730,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, IEqualityComparer<T> comparer,
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, IEqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -692,7 +755,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumeration {0} duplicates. Enumeration is: {1}", result ? "contains" : "doesn't contain", enumeration.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -704,6 +767,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="elements">The range of <see cref="Object"/> to search for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -711,7 +777,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection);
         /// </code>
         /// </example>
-        public void ContainsRange(IEnumerable enumeration, IEnumerable elements,
+        public void ContainsRange(IEnumerable enumeration, IEnumerable elements, String customMessage = null,
         [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -724,7 +790,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsRange(enumeration.Cast<Object>(), elements.Cast<Object>(), _file, _method);
+            ContainsRange(enumeration.Cast<Object>(), elements.Cast<Object>(), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -733,6 +799,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="elements">The <see cref="IEnumerable{T}"/> to search for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -740,7 +809,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection);
         /// </code>
         /// </example>
-        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements,
+        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -765,7 +834,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(elementsCount == elementsFound, $"Enumeration contains {elementsFound} of {elementsCount} elements. Enumeration is: {enumeration.Format()}; Elements are: {elements.Format()}",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -779,6 +848,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="elements">The <see cref="IEnumerable{T}"/> to search for.</param>
         /// <param name="comparer">The <see cref="EqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -786,7 +858,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, EqualityComparer<T> comparer,
+        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, EqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -804,7 +876,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsRange(enumeration, elements, comparer as IEqualityComparer<T>, _file, _method);
+            ContainsRange(enumeration, elements, comparer as IEqualityComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -813,6 +885,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="elements">The <see cref="IEnumerable"/> to search for.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -820,7 +895,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange(IEnumerable enumeration, IEnumerable elements, IEqualityComparer comparer,
+        public void ContainsRange(IEnumerable enumeration, IEnumerable elements, IEqualityComparer comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -838,7 +913,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsRange(enumeration.Cast<Object>(), elements.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), _file, _method);
+            ContainsRange(enumeration.Cast<Object>(), elements.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -848,6 +923,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="elements">The <see cref="IEnumerable{T}"/> to search for.</param>
         /// <param name="comparer">´The <see cref="IEqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -855,7 +933,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, IEqualityComparer<T> comparer,
+        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, IEqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -894,7 +972,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(elementsCount == elementsFound, $"Enumeration contains {elementsFound} of {elementsCount} elements. Enumeration is: {enumeration.Format()}; Elements are: {elements.Format()}",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -910,6 +988,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="elements">The <see cref="IEnumerable{KeyValuePair}"/> to search for.</param>
         /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -917,7 +998,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -940,7 +1021,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            ContainsRange(enumeration, elements, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+            ContainsRange(enumeration, elements, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -950,6 +1031,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="elements">The <see cref="IEnumerable{DictionaryEntry}"/> to search for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -957,7 +1041,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> elements, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+        public void ContainsRange(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> elements, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -981,7 +1065,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             ContainsRange(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), elements.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)),
-                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -993,6 +1077,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="elements">The <see cref="IEnumerable{KeyValuePair}"/> to search for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1000,7 +1087,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1058,7 +1145,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(elementsCount == elementsFound, $"Enumeration contains {elementsFound} of {elementsCount} elements. Enumeration is: {enumeration.Format()}; Elements are: {elements.Format()}",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -1070,6 +1157,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable"/> that is checked for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1077,7 +1167,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void Matches(IEnumerable enumeration, IEnumerable other,
+        public void Matches(IEnumerable enumeration, IEnumerable other, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1090,7 +1180,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Matches(enumeration.Cast<Object>(), other.Cast<Object>(), _file, _method);
+            Matches(enumeration.Cast<Object>(), other.Cast<Object>(), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1099,6 +1189,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable{T}"/> that is checked for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1106,7 +1199,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other,
+        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1138,7 +1231,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -1152,6 +1245,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable{T}"/> that is checked for.</param>
         /// <param name="comparer">The <see cref="EqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1159,7 +1255,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer,
+        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1177,7 +1273,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Matches(enumeration, other, comparer as IEqualityComparer<T>, _file, _method);
+            Matches(enumeration, other, comparer as IEqualityComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1186,6 +1282,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable"/> that is checked for.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1193,7 +1292,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer,
+        public void Matches(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1211,7 +1310,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Matches(enumeration.Cast<Object>(), other.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), _file, _method);
+            Matches(enumeration.Cast<Object>(), other.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1221,6 +1320,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable{T}"/> that is checked for.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1228,7 +1330,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer,
+        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1276,7 +1378,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -1292,6 +1394,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
         /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1299,7 +1404,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1322,7 +1427,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            Matches(enumeration, other, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+            Matches(enumeration, other, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1332,6 +1437,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="other">The other <see cref="IEnumerable{DictionaryEntry}"/> that is checked for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1339,7 +1447,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+        public void Matches(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1363,7 +1471,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             Matches(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), other.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)),
-                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1375,6 +1483,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1382,7 +1493,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1450,7 +1561,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -1462,6 +1573,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable"/> that is checked for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1469,7 +1583,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void MatchesExactly(IEnumerable enumeration, IEnumerable other,
+        public void MatchesExactly(IEnumerable enumeration, IEnumerable other, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1482,7 +1596,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            MatchesExactly(enumeration.Cast<Object>(), other.Cast<Object>(), _file, _method);
+            MatchesExactly(enumeration.Cast<Object>(), other.Cast<Object>(), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1491,6 +1605,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of <paramref name="enumeration"/>.</typeparam>
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable{T}"/> that is checked for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1498,7 +1615,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other,
+        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1533,7 +1650,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -1547,6 +1664,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable{T}"/> that is checked for.</param>
         /// <param name="comparer">The <see cref="EqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1554,7 +1674,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer,
+        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1572,7 +1692,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            MatchesExactly(enumeration, other, comparer as IEqualityComparer<T>, _file, _method);
+            MatchesExactly(enumeration, other, comparer as IEqualityComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1581,6 +1701,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable"/> that is checked for.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1588,7 +1711,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer,
+        public void MatchesExactly(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1606,7 +1729,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            MatchesExactly(enumeration.Cast<Object>(), other.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), _file, _method);
+            MatchesExactly(enumeration.Cast<Object>(), other.Cast<Object>(), DynamicEqualityComparer.FromComparer<Object>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1616,6 +1739,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="enumeration">The <see cref="IEnumerable{T}"/> that is checked.</param>
         /// <param name="other">The other <see cref="IEnumerable{T}"/> that is checked for.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1623,7 +1749,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer,
+        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1673,7 +1799,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
-                    _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -1689,6 +1815,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
         /// <param name="keyComparer">The <see cref="EqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="EqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1696,7 +1825,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1719,7 +1848,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            MatchesExactly(enumeration, other, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, _file, _method);
+            MatchesExactly(enumeration, other, keyComparer as IEqualityComparer<TKey>, valueComparer as IEqualityComparer<TValue>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1729,6 +1858,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="other">The other <see cref="IEnumerable{DictionaryEntry}"/> that is checked for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1736,7 +1868,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+        public void MatchesExactly(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1760,7 +1892,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             MatchesExactly(enumeration.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)), other.Select(de => new KeyValuePair<Object, Object>(de.Key, de.Value)),
-                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), _file, _method);
+                DynamicEqualityComparer.FromComparer<Object>(keyComparer), DynamicEqualityComparer.FromComparer<Object>(valueComparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1772,6 +1904,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="other">The other <see cref="IEnumerable{KeyValuePair}"/> that is checked for.</param>
         /// <param name="keyComparer">The <see cref="IEqualityComparer{TKey}"/> used to determine equality of the key.</param>
         /// <param name="valueComparer">The <see cref="IEqualityComparer{TValue}"/> used to determine equality of the value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1779,7 +1914,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
@@ -1843,7 +1978,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Enumerations {0}. Enumeration is: {1}; Other is: {2}", result ? "match" : "don't match", enumeration.Format(), other.Format()),
-                    _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
