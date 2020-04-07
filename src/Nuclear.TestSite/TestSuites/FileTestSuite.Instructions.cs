@@ -16,6 +16,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if the file at <paramref name="path"/> exists on disk.
         /// </summary>
         /// <param name="path">The file path to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -24,7 +27,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void Exists(String path,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -34,13 +37,16 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = File.Exists(path);
 
             InternalTest(result, String.Format("File {0} {1}.", path.Format(), result ? "exists" : "doesn't exist"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
         /// Tests if the <paramref name="file"/> exists on disk.
         /// </summary>
         /// <param name="file">The file to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -49,7 +55,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void Exists(FileInfo file,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(file == null) {
                 FailTest($"Parameter '{nameof(file)}' is null.", _file, _method);
@@ -61,7 +67,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = file.Exists;
 
             InternalTest(result, String.Format("File {0} {1}.", file.FullName.Format(), result ? "exists" : "doesn't exist"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -72,6 +78,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if the file at <paramref name="path"/> is empty.
         /// </summary>
         /// <param name="path">The file path to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -80,7 +89,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEmpty(String path,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -104,13 +113,16 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("File {0} is {1}empty.", path.Format(), result ? String.Empty : "not "),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
         /// Tests if the <paramref name="file"/> is empty.
         /// </summary>
         /// <param name="file">The file to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -119,7 +131,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEmpty(FileInfo file,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(file == null) {
                 FailTest($"Parameter '{nameof(file)}' is null.", _file, _method);
@@ -147,7 +159,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("File {0} is {1}empty.", file.FullName.Format(), result ? String.Empty : "not "),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -159,6 +171,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="path">The file path to be checked.</param>
         /// <param name="attribute">The attribute to check for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -167,7 +182,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void HasAttribute(String path, FileAttributes attribute,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -198,7 +213,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = attr.HasFlag(attribute);
 
             InternalTest(result, String.Format("File {0} is {1}flagged with {2}.", path.Format(), result ? String.Empty : "not ", attribute.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -206,6 +221,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="file">The file to be checked.</param>
         /// <param name="attribute">The attribute to check for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -214,7 +232,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void HasAttribute(FileInfo file, FileAttributes attribute,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(file == null) {
                 FailTest($"Parameter '{nameof(file)}' is null.", _file, _method);
@@ -236,7 +254,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = file.Attributes.HasFlag(attribute);
 
             InternalTest(result, String.Format("File {0} is {1}flagged with {2}.", file.FullName.Format(), result ? String.Empty : "not ", attribute.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
