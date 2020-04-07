@@ -39,7 +39,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.Exists(input, null, _file, _method),
                 expected, "Test.If.Directory.Exists", _file, _method);
 
         }
@@ -49,7 +49,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.Exists(input, null, _file, _method),
                 expected, "Test.If.Directory.Exists", _file, _method);
 
         }
@@ -59,7 +59,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.Exists(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.Exists", _file, _method);
 
         }
@@ -69,7 +69,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.Exists(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.Exists", _file, _method);
 
         }
@@ -104,7 +104,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.IsEmpty(input, null, _file, _method),
                 expected, "Test.If.Directory.IsEmpty", _file, _method);
 
         }
@@ -114,7 +114,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.IsEmpty(input, null, _file, _method),
                 expected, "Test.If.Directory.IsEmpty", _file, _method);
 
         }
@@ -124,7 +124,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.IsEmpty(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.IsEmpty", _file, _method);
 
         }
@@ -134,7 +134,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.IsEmpty(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.IsEmpty", _file, _method);
 
         }
@@ -177,7 +177,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.HasAttribute({input.path.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.HasAttribute(input.path, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.HasAttribute(input.path, input.attr, null, _file, _method),
                 expected, "Test.If.Directory.HasAttribute", _file, _method);
 
         }
@@ -187,7 +187,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.HasAttribute({input.dir.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.HasAttribute(input.dir, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.HasAttribute(input.dir, input.attr, null, _file, _method),
                 expected, "Test.If.Directory.HasAttribute", _file, _method);
 
         }
@@ -197,7 +197,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.HasAttribute({input.path.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.HasAttribute(input.path, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.HasAttribute(input.path, input.attr, null, _file, _method),
                 expected, "Test.IfNot.Directory.HasAttribute", _file, _method);
 
         }
@@ -207,7 +207,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.HasAttribute({input.dir.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.HasAttribute(input.dir, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.HasAttribute(input.dir, input.attr, null, _file, _method),
                 expected, "Test.IfNot.Directory.HasAttribute", _file, _method);
 
         }
@@ -242,7 +242,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsFiles({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input, null, _file, _method),
                 expected, "Test.If.Directory.ContainsFiles", _file, _method);
 
         }
@@ -252,7 +252,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsFiles({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input, null, _file, _method),
                 expected, "Test.If.Directory.ContainsFiles", _file, _method);
 
         }
@@ -262,7 +262,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsFiles({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsFiles", _file, _method);
 
         }
@@ -272,7 +272,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsFiles({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsFiles", _file, _method);
 
         }
@@ -319,7 +319,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsFiles({input.path.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.path, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.path, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.If.Directory.ContainsFiles", _file, _method);
 
         }
@@ -329,7 +329,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsFiles({input.dir.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.dir, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.dir, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.If.Directory.ContainsFiles", _file, _method);
 
         }
@@ -339,7 +339,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsFiles({input.path.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.path, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.path, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsFiles", _file, _method);
 
         }
@@ -349,7 +349,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsFiles({input.dir.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.dir, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.dir, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsFiles", _file, _method);
 
         }
@@ -400,7 +400,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsFiles({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.path, input.match, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.path, input.match, input.opt, null, _file, _method),
                 expected, "Test.If.Directory.ContainsFiles", _file, _method);
 
         }
@@ -410,7 +410,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsFiles({input.dir.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.dir, input.match, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsFiles(input.dir, input.match, input.opt, null, _file, _method),
                 expected, "Test.If.Directory.ContainsFiles", _file, _method);
 
         }
@@ -420,7 +420,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsFiles({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.path, input.match, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.path, input.match, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsFiles", _file, _method);
 
         }
@@ -430,7 +430,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsFiles({input.dir.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.dir, input.match, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsFiles(input.dir, input.match, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsFiles", _file, _method);
 
         }
@@ -465,7 +465,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsDirectories({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input, null, _file, _method),
                 expected, "Test.If.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -475,7 +475,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsDirectories({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input, null, _file, _method),
                 expected, "Test.If.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -485,7 +485,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsDirectories({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -495,7 +495,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsDirectories({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -542,7 +542,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsDirectories({input.path.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.path, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.path, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.If.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -552,7 +552,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsDirectories({input.dir.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.dir, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.dir, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.If.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -562,7 +562,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsDirectories({input.path.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.path, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.path, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -572,7 +572,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsDirectories({input.dir.Format()}, {input.pattern.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.dir, input.pattern, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.dir, input.pattern, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -623,7 +623,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsDirectories({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.path, input.match, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.path, input.match, input.opt, null, _file, _method),
                 expected, "Test.If.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -633,8 +633,8 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.Directory.ContainsDirectories({input.dir.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.dir, input.match, input.opt, _file, _method), expected,
-                "Test.If.Directory.ContainsDirectories", _file, _method);
+            Statics.DDTResultState(() => DummyTest.If.Directory.ContainsDirectories(input.dir, input.match, input.opt, null, _file, _method),
+                expected, "Test.If.Directory.ContainsDirectories", _file, _method);
 
         }
 
@@ -643,7 +643,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsDirectories({input.path.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.path, input.match, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.path, input.match, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsDirectories", _file, _method);
 
         }
@@ -653,7 +653,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.Directory.ContainsDirectories({input.dir.Format()}, {input.match.Format()}, {input.opt.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.dir, input.match, input.opt, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.Directory.ContainsDirectories(input.dir, input.match, input.opt, null, _file, _method),
                 expected, "Test.IfNot.Directory.ContainsDirectories", _file, _method);
 
         }

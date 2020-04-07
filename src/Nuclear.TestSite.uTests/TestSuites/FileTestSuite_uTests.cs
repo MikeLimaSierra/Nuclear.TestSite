@@ -40,7 +40,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.File.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.File.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.File.Exists(input, null, _file, _method),
                 expected, "Test.If.File.Exists", _file, _method);
 
         }
@@ -50,7 +50,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.File.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.File.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.File.Exists(input, null, _file, _method),
                 expected, "Test.If.File.Exists", _file, _method);
 
         }
@@ -60,7 +60,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.File.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.File.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.File.Exists(input, null, _file, _method),
                 expected, "Test.IfNot.File.Exists", _file, _method);
 
         }
@@ -70,7 +70,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.File.Exists({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.File.Exists(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.File.Exists(input, null, _file, _method),
                 expected, "Test.IfNot.File.Exists", _file, _method);
 
         }
@@ -105,7 +105,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.File.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.File.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.File.IsEmpty(input, null, _file, _method),
                 expected, "Test.If.File.IsEmpty", _file, _method);
 
         }
@@ -115,7 +115,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.File.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.File.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.File.IsEmpty(input, null, _file, _method),
                 expected, "Test.If.File.IsEmpty", _file, _method);
 
         }
@@ -125,7 +125,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.File.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.File.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.File.IsEmpty(input, null, _file, _method),
                 expected, "Test.IfNot.File.IsEmpty", _file, _method);
 
         }
@@ -135,7 +135,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.File.IsEmpty({input.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.File.IsEmpty(input, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.File.IsEmpty(input, null, _file, _method),
                 expected, "Test.IfNot.File.IsEmpty", _file, _method);
 
         }
@@ -180,7 +180,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.File.HasAttribute({input.path.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.File.HasAttribute(input.path, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.File.HasAttribute(input.path, input.attr, null, _file, _method),
                 expected, "Test.If.File.HasAttribute", _file, _method);
 
         }
@@ -190,7 +190,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.If.File.HasAttribute({input.dir.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.If.File.HasAttribute(input.dir, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.If.File.HasAttribute(input.dir, input.attr, null, _file, _method),
                 expected, "Test.If.File.HasAttribute", _file, _method);
 
         }
@@ -200,7 +200,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.File.HasAttribute({input.path.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.File.HasAttribute(input.path, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.File.HasAttribute(input.path, input.attr, null, _file, _method),
                 expected, "Test.IfNot.File.HasAttribute", _file, _method);
 
         }
@@ -210,7 +210,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             Test.Note($"Test.IfNot.File.HasAttribute({input.dir.Format()}, {input.attr.Format()})", _file, _method);
 
-            Statics.DDTResultState(() => DummyTest.IfNot.File.HasAttribute(input.dir, input.attr, _file, _method),
+            Statics.DDTResultState(() => DummyTest.IfNot.File.HasAttribute(input.dir, input.attr, null, _file, _method),
                 expected, "Test.IfNot.File.HasAttribute", _file, _method);
 
         }
