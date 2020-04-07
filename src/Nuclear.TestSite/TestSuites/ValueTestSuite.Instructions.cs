@@ -70,7 +70,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             }
 
-            IsEqual(left, right, EqualityComparer<T>.Default, _file, _method);
+            IsEqual(left, right, EqualityComparer<T>.Default, customMessage, _file, _method);
         }
 
         #endregion
