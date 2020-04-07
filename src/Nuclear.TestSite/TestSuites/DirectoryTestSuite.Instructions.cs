@@ -26,8 +26,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.Exists(@"C:\Temp");
         /// </code>
         /// </example>
-        public void Exists(String path, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Exists(String path,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -54,8 +54,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.Exists(dir);
         /// </code>
         /// </example>
-        public void Exists(DirectoryInfo directory, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Exists(DirectoryInfo directory,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -88,8 +88,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.IsEmpty(@"C:\Temp");
         /// </code>
         /// </example>
-        public void IsEmpty(String path, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void IsEmpty(String path,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -129,8 +129,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.IsEmpty(dir);
         /// </code>
         /// </example>
-        public void IsEmpty(DirectoryInfo directory, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void IsEmpty(DirectoryInfo directory,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -169,8 +169,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.HasAttribute(@"C:\Temp", FileAttributes.Temporary);
         /// </code>
         /// </example>
-        public void HasAttribute(String path, FileAttributes attribute, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void HasAttribute(String path, FileAttributes attribute,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -227,8 +227,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.HasAttribute(dir, FileAttributes.Temporary);
         /// </code>
         /// </example>
-        public void HasAttribute(DirectoryInfo directory, FileAttributes attribute, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void HasAttribute(DirectoryInfo directory, FileAttributes attribute,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -271,8 +271,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsFiles(@"C:\Temp");
         /// </code>
         /// </example>
-        public void ContainsFiles(String path, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsFiles(String path,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -312,8 +312,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsFiles(dir);
         /// </code>
         /// </example>
-        public void ContainsFiles(DirectoryInfo directory, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsFiles(DirectoryInfo directory,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -357,8 +357,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsFiles(@"C:\Temp", "*log.txt", SearchOption.TopDirectoryOnly);
         /// </code>
         /// </example>
-        public void ContainsFiles(String path, String searchPattern, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsFiles(String path, String searchPattern, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -415,8 +415,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsFiles(dir, "*log.txt", SearchOption.TopDirectoryOnly);
         /// </code>
         /// </example>
-        public void ContainsFiles(DirectoryInfo directory, String searchPattern, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsFiles(DirectoryInfo directory, String searchPattern, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -468,8 +468,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp", myFileMatch);
         /// </code>
         /// </example>
-        public void ContainsFiles(String path, Predicate<String> match, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsFiles(String path, Predicate<String> match, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -538,8 +538,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(dir, myFileMatch);
         /// </code>
         /// </example>
-        public void ContainsFiles(DirectoryInfo directory, Predicate<FileInfo> match, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsFiles(DirectoryInfo directory, Predicate<FileInfo> match, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -601,8 +601,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp");
         /// </code>
         /// </example>
-        public void ContainsDirectories(String path, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDirectories(String path,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -642,8 +642,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(dir);
         /// </code>
         /// </example>
-        public void ContainsDirectories(DirectoryInfo directory, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDirectories(DirectoryInfo directory,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -687,8 +687,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp", "*_logs", SearchOption.TopDirectoryOnly);
         /// </code>
         /// </example>
-        public void ContainsDirectories(String path, String searchPattern, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDirectories(String path, String searchPattern, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -745,8 +745,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(dir, "*_logs", SearchOption.TopDirectoryOnly);
         /// </code>
         /// </example>
-        public void ContainsDirectories(DirectoryInfo directory, String searchPattern, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDirectories(DirectoryInfo directory, String searchPattern, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -798,8 +798,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(@"C:\Temp", myDirMatch);
         /// </code>
         /// </example>
-        public void ContainsDirectories(String path, Predicate<String> match, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDirectories(String path, Predicate<String> match, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -868,8 +868,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Directory.ContainsDirectories(dir, myDirMatch);
         /// </code>
         /// </example>
-        public void ContainsDirectories(DirectoryInfo directory, Predicate<DirectoryInfo> match, SearchOption searchOption, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDirectories(DirectoryInfo directory, Predicate<DirectoryInfo> match, SearchOption searchOption,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
