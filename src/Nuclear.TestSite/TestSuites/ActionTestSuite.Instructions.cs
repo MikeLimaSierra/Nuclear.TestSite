@@ -28,8 +28,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.ThrowsException&lt;ArgumentException&gt;(() => obj.DoSomething(), out ArgumentException exception);
         /// </code>
         /// </example>
-        public void ThrowsException<TException>(Action action, out TException exception, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        public void ThrowsException<TException>(Action action, out TException exception,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where TException : Exception {
 
             exception = null;
@@ -74,8 +74,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesPropertyChangedEvent(() => obj.Title = "new content", obj, out Object sender, out PropertyChangedEventArgs e);
         /// </code>
         /// </example>
-        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventData<PropertyChangedEventArgs> eventData, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventData<PropertyChangedEventArgs> eventData,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             eventData = null;
 
@@ -128,8 +128,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesPropertyChangedEvent(() => obj.Title = "new content", obj, out Object sender, out PropertyChangedEventArgs e);
         /// </code>
         /// </example>
-        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventDataCollection<PropertyChangedEventArgs> eventDatas, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void RaisesPropertyChangedEvent(Action action, INotifyPropertyChanged @object, out EventDataCollection<PropertyChangedEventArgs> eventDatas,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             eventDatas = null;
 
@@ -189,8 +189,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesEvent(() => obj.DoSomething(), obj, "MyCustomEvent", out EventData&lt;MyCustomEventArgs&gt; eventData);
         /// </code>
         /// </example>
-        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventData<TEventArgs> eventData, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventData<TEventArgs> eventData,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where TEventArgs : EventArgs {
 
             eventData = null;
@@ -269,8 +269,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Action.RaisesEvent(() => obj.DoSomething(), obj, "MyCustomEvent", out EventDataCollection&lt;MyCustomEventArgs&gt; eventDatas);
         /// </code>
         /// </example>
-        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventDataCollection<TEventArgs> eventDatas, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        public void RaisesEvent<TEventArgs>(Action action, Object @object, String eventName, out EventDataCollection<TEventArgs> eventDatas,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             where TEventArgs : EventArgs {
 
             eventDatas = null;
