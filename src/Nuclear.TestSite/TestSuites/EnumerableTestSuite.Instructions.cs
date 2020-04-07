@@ -20,8 +20,8 @@ namespace Nuclear.TestSite.TestSuites {
         ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void IsEmpty(IEnumerable enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void IsEmpty(IEnumerable enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -41,8 +41,8 @@ namespace Nuclear.TestSite.TestSuites {
         ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void IsEmpty<T>(IEnumerable<T> enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void IsEmpty<T>(IEnumerable<T> enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -68,8 +68,8 @@ namespace Nuclear.TestSite.TestSuites {
         ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNull(IEnumerable enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsNull(IEnumerable enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -89,8 +89,8 @@ namespace Nuclear.TestSite.TestSuites {
         ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNull<T>(IEnumerable<T> enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsNull<T>(IEnumerable<T> enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -123,8 +123,8 @@ namespace Nuclear.TestSite.TestSuites {
         ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNonNull(IEnumerable enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsNonNull(IEnumerable enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -144,8 +144,8 @@ namespace Nuclear.TestSite.TestSuites {
         ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
-        public void ContainsNonNull<T>(IEnumerable<T> enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsNonNull<T>(IEnumerable<T> enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -184,8 +184,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject);
         /// </code>
         /// </example>
-        public void Contains(IEnumerable enumeration, Object element, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains(IEnumerable enumeration, Object element,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -211,8 +211,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject);
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, T element, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains<T>(IEnumerable<T> enumeration, T element,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -246,8 +246,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, T element, EqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains<T>(IEnumerable<T> enumeration, T element, EqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -278,8 +278,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains(IEnumerable enumeration, Object element, IEqualityComparer comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains(IEnumerable enumeration, Object element, IEqualityComparer comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -311,8 +311,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, T element, IEqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains<T>(IEnumerable<T> enumeration, T element, IEqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -362,8 +362,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -400,8 +400,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains(IEnumerable<DictionaryEntry> enumeration, DictionaryEntry element, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains(IEnumerable<DictionaryEntry> enumeration, DictionaryEntry element, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -441,8 +441,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, someObject, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, KeyValuePair<TKey, TValue> element, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -516,8 +516,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, new Predicate&lt;Object&gt;((element) => element as Int32 > 0));
         /// </code>
         /// </example>
-        public void Contains(IEnumerable enumeration, Predicate<Object> match, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains(IEnumerable enumeration, Predicate<Object> match,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -548,8 +548,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Contains(someEnumeration, new Predicate&lt;Int32&gt;((element) => element > 0));
         /// </code>
         /// </example>
-        public void Contains<T>(IEnumerable<T> enumeration, Predicate<T> match, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Contains<T>(IEnumerable<T> enumeration, Predicate<T> match,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -600,8 +600,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration);
         /// </code>
         /// </example>
-        public void ContainsDuplicates(IEnumerable enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDuplicates(IEnumerable enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -626,8 +626,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration);
         /// </code>
         /// </example>
-        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -667,8 +667,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, EqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, EqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -698,8 +698,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsDuplicates(IEnumerable enumeration, IEqualityComparer comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDuplicates(IEnumerable enumeration, IEqualityComparer comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -730,8 +730,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsDuplicates(someEnumeration, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, IEqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsDuplicates<T>(IEnumerable<T> enumeration, IEqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -777,8 +777,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection);
         /// </code>
         /// </example>
-        public void ContainsRange(IEnumerable enumeration, IEnumerable elements, String customMessage = null,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange(IEnumerable enumeration, IEnumerable elements,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -809,8 +809,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection);
         /// </code>
         /// </example>
-        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -858,8 +858,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, EqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, EqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -895,8 +895,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange(IEnumerable enumeration, IEnumerable elements, IEqualityComparer comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange(IEnumerable enumeration, IEnumerable elements, IEqualityComparer comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -933,8 +933,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, IEqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange<T>(IEnumerable<T> enumeration, IEnumerable<T> elements, IEqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -998,8 +998,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1041,8 +1041,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> elements, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> elements, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1087,8 +1087,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.ContainsRange(someEnumeration, someCollection, new MyKeyEqualityComparer(), new MyValueEqualityComparer());
         /// </code>
         /// </example>
-        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void ContainsRange<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> elements, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1167,8 +1167,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void Matches(IEnumerable enumeration, IEnumerable other, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches(IEnumerable enumeration, IEnumerable other,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1199,8 +1199,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1255,8 +1255,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1292,8 +1292,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1330,8 +1330,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1404,8 +1404,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1447,8 +1447,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1493,8 +1493,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void Matches<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1583,8 +1583,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void MatchesExactly(IEnumerable enumeration, IEnumerable other, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly(IEnumerable enumeration, IEnumerable other,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1615,8 +1615,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration);
         /// </code>
         /// </example>
-        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1674,8 +1674,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, EqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1711,8 +1711,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly(IEnumerable enumeration, IEnumerable other, IEqualityComparer comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1749,8 +1749,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.MatchesExactly(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly<T>(IEnumerable<T> enumeration, IEnumerable<T> other, IEqualityComparer<T> comparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1825,8 +1825,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, EqualityComparer<TKey> keyComparer, EqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1868,8 +1868,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly(IEnumerable<DictionaryEntry> enumeration, IEnumerable<DictionaryEntry> other, IEqualityComparer keyComparer, IEqualityComparer valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
@@ -1914,8 +1914,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// Test.If.Enumeration.Matches(someEnumeration, someOtherEnumeration, new MyComparer());
         /// </code>
         /// </example>
-        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer, String customMessage = null,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public void MatchesExactly<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> enumeration, IEnumerable<KeyValuePair<TKey, TValue>> other, IEqualityComparer<TKey> keyComparer, IEqualityComparer<TValue> valueComparer,
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
                 FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
