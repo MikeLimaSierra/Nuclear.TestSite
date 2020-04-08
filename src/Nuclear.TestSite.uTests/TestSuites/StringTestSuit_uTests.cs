@@ -303,7 +303,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region EndsWith
+        #region EndsWithWithMessage
 
         [TestMethod]
         [TestParameters(null, 'x', "message", 1, false, "Parameter 'string' is null.")]
@@ -427,7 +427,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region EndsWithComparison
+        #region EndsWithComparisonWithMessage
 
         [TestMethod]
         [TestParameters(null, 'x', StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
@@ -511,7 +511,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region NullOrEmpty
+        #region NullOrEmptyWithMessage
 
         [TestMethod]
         [TestParameters(null, "message", 1, true, "[String = null]")]
@@ -563,7 +563,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region NullOrWhiteSpace
+        #region NullOrWhiteSpaceWithMessage
 
         [TestMethod]
         [TestParameters(null, "message", 1, true, "[String = null]")]
@@ -629,7 +629,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region Contains
+        #region ContainsWithMessage
 
         [TestMethod]
         [TestParameters(null, null, "message", 1, false, "Parameter 'string' is null.")]
@@ -707,7 +707,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
-        #region ContainsWithComparison
+        #region ContainsWithComparisonWithMessage
 
         [TestMethod]
         [TestParameters(null, null, (StringComparison) 1000, "message", 1, false, "Parameter 'string' is null.")]
