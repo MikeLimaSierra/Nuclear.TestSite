@@ -50,6 +50,44 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region IsEmptyWithMessage
+
+        [TestMethod]
+        [TestData(nameof(IsEmptyWithMessageData))]
+        void IsEmptyWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.IsEmpty(input, customMessage),
+                expected, "Test.If.Enumerable.IsEmpty");
+
+        }
+
+        IEnumerable<Object[]> IsEmptyWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { Enumerable.Empty<Dummy>(), "message", (2, true, "Enumeration is empty. Enumeration is: []") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, "message", (3, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsEmptyWithMessageData))]
+        void NotIsEmptyWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.IsEmpty(input, customMessage),
+                expected, "Test.IfNot.Enumerable.IsEmpty");
+
+        }
+
+        IEnumerable<Object[]> NotIsEmptyWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { Enumerable.Empty<Dummy>(), "message", (2, false, "message") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, "message", (3, true, "Enumeration is not empty. Enumeration is: ['1', '2', '3']") },
+            };
+        }
+
+        #endregion
+
         #region IsEmptyT
 
         [TestMethod]
@@ -87,6 +125,44 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (3, true, "Enumeration is not empty. Enumeration is: ['1', '2', '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, (4, true, "Enumeration is not empty. Enumeration is: ['1', null, '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { null, null, }, (5, true, "Enumeration is not empty. Enumeration is: [null, null]") },
+            };
+        }
+
+        #endregion
+
+        #region IsEmptyTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(IsEmptyTWithMessageData))]
+        void IsEmptyTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.IsEmpty(input, customMessage),
+                expected, "Test.If.Enumerable.IsEmpty");
+
+        }
+
+        IEnumerable<Object[]> IsEmptyTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), Enumerable.Empty<Dummy>(), "message", (2, true, "Enumeration is empty. Enumeration is: []") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, "message", (3, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsEmptyTWithMessageData))]
+        void NotIsEmptyTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.IsEmpty(input, customMessage),
+                expected, "Test.IfNot.Enumerable.IsEmpty");
+
+        }
+
+        IEnumerable<Object[]> NotIsEmptyTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), Enumerable.Empty<Dummy>(), "message", (2, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, "message", (3, true, "Enumeration is not empty. Enumeration is: ['1', '2', '3']") },
             };
         }
 
@@ -132,6 +208,44 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsNullWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsNullWithMessageData))]
+        void ContainsNullWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsNull(input, customMessage),
+                expected, "Test.If.Enumerable.ContainsNull");
+
+        }
+
+        IEnumerable<Object[]> ContainsNullWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, "message", (2, false, "message") },
+                new Object[] { new List<Dummy>() { 1, null, 3 }, "message", (3, true, "Enumeration contains null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsNullWithMessageData))]
+        void NotContainsNullWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsNull(input, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsNull");
+
+        }
+
+        IEnumerable<Object[]> NotContainsNullWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, "message", (2, true, "Enumeration doesn't contain null. Enumeration is: ['1', '2', '3']") },
+                new Object[] { new List<Dummy>() { 1, null, 3 }, "message", (3, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsNullT
 
         [TestMethod]
@@ -167,6 +281,44 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), Enumerable.Empty<Dummy>(), (2, true, "Enumeration doesn't contain null. Enumeration is: []") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (3, true, "Enumeration doesn't contain null. Enumeration is: ['1', '2', '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration contains null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsNullTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsNullTWithMessageData))]
+        void ContainsNullTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsNull(input, customMessage),
+                expected, "Test.If.Enumerable.ContainsNull");
+
+        }
+
+        IEnumerable<Object[]> ContainsNullTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, "message", (2, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, "message", (3, true, "Enumeration contains null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsNullTWithMessageData))]
+        void NotContainsNullTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsNull(input, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsNull");
+
+        }
+
+        IEnumerable<Object[]> NotContainsNullTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, "message", (2, true, "Enumeration doesn't contain null. Enumeration is: ['1', '2', '3']") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, "message", (3, false, "message") },
             };
         }
 
@@ -214,6 +366,44 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsNonNullWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsNonNullWithMessageData))]
+        void ContainsNonNullWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsNonNull(input, customMessage),
+                expected, "Test.If.Enumerable.ContainsNonNull");
+
+        }
+
+        IEnumerable<Object[]> ContainsNonNullWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { Enumerable.Empty<Dummy>(), "message", (2, false, "message") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, "message", (3, true, "Enumeration contains a non null value. Enumeration is: ['1', '2', '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsNonNullWithMessageData))]
+        void NotContainsNonNullWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsNonNull(input, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsNonNull");
+
+        }
+
+        IEnumerable<Object[]> NotContainsNonNullWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { Enumerable.Empty<Dummy>(), "message", (2, true, "Enumeration doesn't contain a non null value. Enumeration is: []") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, "message", (3, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsNonNullT
 
         [TestMethod]
@@ -251,6 +441,44 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (3, false, "Enumeration contains a non null value. Enumeration is: ['1', '2', '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, (4, false, "Enumeration contains a non null value. Enumeration is: ['1', null, '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { null }, (5, true, "Enumeration doesn't contain a non null value. Enumeration is: [null]") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsNonNullTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsNonNullTWithMessageData))]
+        void ContainsNonNullTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsNonNull(input, customMessage),
+                expected, "Test.If.Enumerable.ContainsNonNull");
+
+        }
+
+        IEnumerable<Object[]> ContainsNonNullTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), Enumerable.Empty<Dummy>(), "message", (2, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, "message", (3, true, "Enumeration contains a non null value. Enumeration is: ['1', '2', '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsNonNullTWithMessageData))]
+        void NotContainsNonNullTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsNonNull(input, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsNonNull");
+
+        }
+
+        IEnumerable<Object[]> NotContainsNonNullTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), Enumerable.Empty<Dummy>(), "message", (2, true, "Enumeration doesn't contain a non null value. Enumeration is: []") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, "message", (3, false, "message") },
             };
         }
 
@@ -300,6 +528,46 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithMessageData))]
+        void ContainsWithMessage(IEnumerable input1, Object input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, 1, "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, false, "message") },
+                new Object[] { new List<DummyIEquatableT>() { 1, null, 3 }, null, "message", (4, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithMessageData))]
+        void NotContainsWithMessage(IEnumerable input1, Object input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, 1, "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']") },
+                new Object[] { new List<DummyIEquatableT>() { 1, null, 3 }, null, "message", (4, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsT
 
         [TestMethod]
@@ -339,6 +607,46 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, 3 }, null, (4, false, "Enumeration contains element null. Enumeration is: ['1', null, '3']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, (DummyIEquatableT) 2, (5, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, (DummyIEquatableT) 4, (6, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsTWithMessageData))]
+        void ContainsTWithMessage<T>(IEnumerable<T> input1, T input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, (DummyIEquatableT) 1, "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, false, "message") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, 3 }, null, "message", (4, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsTWithMessageData))]
+        void NotContainsTWithMessage<T>(IEnumerable<T> input1, T input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, (DummyIEquatableT) 1, "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, 3 }, null, "message", (4, false, "message") },
             };
         }
 
@@ -392,6 +700,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithEqualityComparerWithMessageData))]
+        void ContainsWithEqualityComparerWithMessage<T>(IEnumerable<T> input1, T input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, (Dummy) 1, new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, new DummyEqualityComparer(), "message", (3, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, null, new DummyEqualityComparer(), "message", (6, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithEqualityComparerWithMessageData))]
+        void NotContainsWithEqualityComparerWithMessage<T>(IEnumerable<T> input1, T input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, (Dummy) 1, new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, new DummyEqualityComparer(), "message", (3, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, null, new DummyEqualityComparer(), "message", (6, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsIEqualityComparer
 
         [TestMethod]
@@ -440,6 +792,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsIEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithIEqualityComparerWithMessageData))]
+        void ContainsWithIEqualityComparerWithMessage(IEnumerable input1, Object input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, (Dummy) 1, new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer(), "message", (3, false, "message") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+                new Object[] { new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer(), "message", (6, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithIEqualityComparerWithMessageData))]
+        void NotContainsWithIEqualityComparerWithMessage(IEnumerable input1, Object input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, (Dummy) 1, new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparer(), "message", (3, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+                new Object[] { new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparer(), "message", (6, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsIEqualityComparerT
 
         [TestMethod]
@@ -483,6 +879,50 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT(), (6, false, "Enumeration contains element null. Enumeration is: ['1', null, '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 2, new DummyIEqualityComparerT(), (7, false, "Enumeration contains element '2'. Enumeration is: ['1', '2', '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 4, new DummyIEqualityComparerT(), (8, true, "Enumeration doesn't contain element '4'. Enumeration is: ['1', '2', '3']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsIEqualityComparerTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithIEqualityComparerTWithMessageData))]
+        void ContainsWithIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, T input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, (Dummy) 1, new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT(), "message", (3, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT(), "message", (6, true, "Enumeration contains element null. Enumeration is: ['1', null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithIEqualityComparerTWithMessageData))]
+        void NotContainsWithIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, T input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, (Dummy) 1, new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, new DummyIEqualityComparerT(), "message", (3, true, "Enumeration doesn't contain element null. Enumeration is: ['1', '2', '3']") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, (Dummy) 1, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 3 }, null, new DummyIEqualityComparerT(), "message", (6, false, "message") },
             };
         }
 
@@ -560,6 +1000,66 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithEqualityComparerKVPWithMessageData))]
+        void ContainsWithEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, KeyValuePair<TKey, TValue> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, new DummyEqualityComparer(), null, "message", (4, false, "Parameter 'valueComparer' is null.") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new ThrowingEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (5, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyEqualityComparer(), new ThrowingEqualityComparer(),
+                    "message", (6, false, "Value comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 2), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (7, true, "Enumeration contains element ['1'] => '2'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 4), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithEqualityComparerKVPWithMessageData))]
+        void NotContainsWithEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, KeyValuePair<TKey, TValue> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, new DummyEqualityComparer(), null, "message", (4, false, "Parameter 'valueComparer' is null.") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new ThrowingEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (5, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyEqualityComparer(), new ThrowingEqualityComparer(),
+                    "message", (6, false, "Value comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 2), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (7, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 4), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, true, "Enumeration doesn't contain element ['1'] => '4'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region ContainsIEqualityComparerKVP
 
         [TestMethod]
@@ -627,6 +1127,66 @@ namespace Nuclear.TestSite.TestSuites {
                     (10, false, "Enumeration contains element ['1'] => '2'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
                 new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 4), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
                     (11, true, "Enumeration doesn't contain element ['1'] => '4'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsIEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithIEqualityComparerKVPWithMessageData))]
+        void ContainsWithIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, DictionaryEntry input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, default, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, default, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DictionaryEntry>(), default, null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>(), default, new DummyIEqualityComparer(), null, "message", (4, false, "Parameter 'valueComparer' is null.") },
+
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 0), new ThrowingIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (5, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 0), new DummyIEqualityComparer(), new ThrowingIEqualityComparer(),
+                    "message", (6, false, "Value comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 2), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (7, true, "Enumeration contains element ['1'] => '2'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 4), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithIEqualityComparerKVPWithMessageData))]
+        void NotContainsWithIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, DictionaryEntry input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, default, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, default, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DictionaryEntry>(), default, null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>(), default, new DummyIEqualityComparer(), null, "message", (4, false, "Parameter 'valueComparer' is null.") },
+
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 0), new ThrowingIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (5, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 0), new DummyIEqualityComparer(), new ThrowingIEqualityComparer(),
+                    "message", (6, false, "Value comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 2), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (7, false, "message") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DictionaryEntry((Dummy) 1, (Dummy) 4), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, true, "Enumeration doesn't contain element ['1'] => '4'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
             };
         }
 
@@ -704,6 +1264,66 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsIEqualityComparerTKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithIEqualityComparerTKVPWithMessageData))]
+        void ContainsWithIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, KeyValuePair<TKey, TValue> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, new DummyIEqualityComparerT(), null, "message", (4, false, "Parameter 'valueComparer' is null.") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (5, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(),
+                    "message", (6, false, "Value comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 2), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (7, true, "Enumeration contains element ['1'] => '2'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 4), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithIEqualityComparerTKVPWithMessageData))]
+        void NotContainsWithIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, KeyValuePair<TKey, TValue> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, default, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), default, new DummyIEqualityComparerT(), null, "message", (4, false, "Parameter 'valueComparer' is null.") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (5, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 0), new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(),
+                    "message", (6, false, "Value comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 2), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (7, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new KeyValuePair<Dummy, Dummy>(1, 4), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, true, "Enumeration doesn't contain element ['1'] => '4'. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region ContainsFilter
 
         [TestMethod]
@@ -747,6 +1367,50 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 2), (6, false, "Enumeration contains a matching element. Enumeration is: ['1', '2', '3']") },
                 new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ as DummyIEquatableT == 4), (7, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']") },
                 new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => throw new Exception("test")), (8, false, "Predicate threw Exception: 'test'") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsFilterWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithFilterWithMessageData))]
+        void ContainsWithFilterWithMessage(IEnumerable input1, Predicate<Object> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithFilterWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new Predicate<Object>((_) => true), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'match' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ == null), "message", (4, false, "message") },
+                new Object[] { new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null), "message", (5, true, "Enumeration contains a matching element. Enumeration is: ['1', null, '3']") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => throw new Exception("test")), "message", (6, false, "Predicate threw Exception: 'test'") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithFilterWithMessageData))]
+        void NotContainsWithFilterWithMessage(IEnumerable input1, Predicate<Object> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithFilterWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new Predicate<Object>((_) => true), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'match' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => _ == null), "message", (4, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']") },
+                new Object[] { new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<Object>((_) => _ == null), "message", (5, false, "message") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<Object>((_) => throw new Exception("test")), "message", (6, false, "Predicate threw Exception: 'test'") },
             };
         }
 
@@ -800,6 +1464,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsFilterTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsWithFilterTWithMessageData))]
+        void ContainsWithFilterTWithMessage<T>(IEnumerable<T> input1, Predicate<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> ContainsWithFilterTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new Predicate<Object>((_) => true), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'match' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null), "message", (4, false, "message") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null), "message", (5, true, "Enumeration contains a matching element. Enumeration is: ['1', null, '3']") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => throw new Exception("test")), "message", (6, false, "Predicate threw Exception: 'test'") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsWithFilterTWithMessageData))]
+        void NotContainsWithFilterTWithMessage<T>(IEnumerable<T> input1, Predicate<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Contains(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.Contains");
+
+        }
+
+        IEnumerable<Object[]> NotContainsWithFilterTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new Predicate<Object>((_) => true), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'match' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null), "message", (4, true, "Enumeration doesn't contain a matching element. Enumeration is: ['1', '2', '3']") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, 3 }, new Predicate<DummyIEquatableT>((_) => _ == null), "message", (5, false, "message") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, new Predicate<DummyIEquatableT>((_) => throw new Exception("test")), "message", (6, false, "Predicate threw Exception: 'test'") },
+            };
+        }
+
+        #endregion
+
         #region ContainsDuplicates
 
         [TestMethod]
@@ -846,6 +1554,44 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsDuplicatesWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsDuplicatesWithMessageData))]
+        void ContainsDuplicatesWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsDuplicates(input, customMessage),
+                expected, "Test.If.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> ContainsDuplicatesWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { }, "message", (2, false, "message") },
+                new Object[] { new List<DummyIEquatableT>() { 1, null, null, 3 }, "message", (3, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsDuplicatesWithMessageData))]
+        void NotContainsDuplicatesWithMessage(IEnumerable input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsDuplicates(input, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> NotContainsDuplicatesWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>() { }, "message", (2, true, "Enumeration doesn't contain duplicates. Enumeration is: []") },
+                new Object[] { new List<DummyIEquatableT>() { 1, null, null, 3 }, "message", (3, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsDuplicatesT
 
         [TestMethod]
@@ -887,6 +1633,44 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, null, 3 }, (5, false, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 2, 3 }, (6, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 2, 2, 3 }, (7, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsDuplicatesTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsDuplicatesTWithMessageData))]
+        void ContainsDuplicatesTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsDuplicates(input, customMessage),
+                expected, "Test.If.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> ContainsDuplicatesTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { }, "message", (2, false, "message") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, null, 3 }, "message", (3, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsDuplicatesTWithMessageData))]
+        void NotContainsDuplicatesTWithMessage<T>(IEnumerable<T> input, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsDuplicates(input, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> NotContainsDuplicatesTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { }, "message", (2, true, "Enumeration doesn't contain duplicates. Enumeration is: []") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, null, 3 }, "message", (3, false, "message") },
             };
         }
 
@@ -944,6 +1728,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsDuplicatesEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsDuplicatesWithEqualityComparerWithMessageData))]
+        void ContainsDuplicatesWithEqualityComparerWithMessage<T>(IEnumerable<T> input1, EqualityComparer<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsDuplicates(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> ContainsDuplicatesWithEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, new ThrowingEqualityComparer(), "message", (4, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { }, new DummyEqualityComparer(), "message", (5, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer(), "message", (6, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsDuplicatesWithEqualityComparerWithMessageData))]
+        void NotContainsDuplicatesWithEqualityComparerWithMessage<T>(IEnumerable<T> input1, EqualityComparer<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsDuplicates(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> NotContainsDuplicatesWithEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, new ThrowingEqualityComparer(), "message", (4, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { }, new DummyEqualityComparer(), "message", (5, true, "Enumeration doesn't contain duplicates. Enumeration is: []") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, null, 3 }, new DummyEqualityComparer(), "message", (6, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsDuplicatesIEqualityComparer
 
         [TestMethod]
@@ -996,6 +1824,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsDuplicatesIEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsDuplicatesWithIEqualityComparerWithMessageData))]
+        void ContainsDuplicatesWithIEqualityComparerWithMessage(IEnumerable input1, IEqualityComparer input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsDuplicates(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> ContainsDuplicatesWithIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparer(), "message", (4, false, "Comparer threw Exception:") },
+                new Object[] { new List<Dummy>() { }, new DummyIEqualityComparer(), "message", (5, false, "message") },
+                new Object[] { new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer(), "message", (6, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsDuplicatesWithIEqualityComparerWithMessageData))]
+        void NotContainsDuplicatesWithIEqualityComparerWithMessage(IEnumerable input1, IEqualityComparer input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsDuplicates(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> NotContainsDuplicatesWithIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparer(), "message", (4, false, "Comparer threw Exception:") },
+                new Object[] { new List<Dummy>() { }, new DummyIEqualityComparer(), "message", (5, true, "Enumeration doesn't contain duplicates. Enumeration is: []") },
+                new Object[] { new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparer(), "message", (6, false, "message") },
+            };
+        }
+
+        #endregion
+
         #region ContainsDuplicatesIEqualityComparerT
 
         [TestMethod]
@@ -1043,6 +1915,50 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT(), (8, false, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 2, 3 }, new DummyIEqualityComparerT(), (9, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '3']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 2, 2, 3 }, new DummyIEqualityComparerT(), (10, false, "Enumeration contains duplicates. Enumeration is: ['1', '2', '2', '2', '3']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsDuplicatesIEqualityComparerTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsDuplicatesWithIEqualityComparerTWithMessageData))]
+        void ContainsDuplicatesWithIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEqualityComparer<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsDuplicates(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> ContainsDuplicatesWithIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparerT(), "message", (4, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { }, new DummyIEqualityComparerT(), "message", (5, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT(), "message", (6, true, "Enumeration contains duplicates. Enumeration is: ['1', null, null, '3']") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsDuplicatesWithIEqualityComparerTWithMessageData))]
+        void NotContainsDuplicatesWithIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEqualityComparer<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsDuplicates(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsDuplicates");
+
+        }
+
+        IEnumerable<Object[]> NotContainsDuplicatesWithIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, null, "message", (3, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, new ThrowingIEqualityComparerT(), "message", (4, false, "Comparer threw Exception:") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { }, new DummyIEqualityComparerT(), "message", (5, true, "Enumeration doesn't contain duplicates. Enumeration is: []") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, null, 3 }, new DummyIEqualityComparerT(), "message", (6, false, "message") },
             };
         }
 
@@ -1104,6 +2020,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsRangeWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeWithMessageData))]
+        void ContainsRangeWithMessage(IEnumerable input1, IEnumerable input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'elements' is null.") },
+
+                new Object[] { new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { }, "message", (4, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { 1, 2, 3 }, "message", (5, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeWithMessageData))]
+        void NotContainsRangeWithMessage(IEnumerable input1, IEnumerable input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'elements' is null.") },
+
+                new Object[] { new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { }, "message", (4, false, "message") },
+                new Object[] { new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { 1, 2, 3 }, "message", (5, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']") },
+            };
+        }
+
+        #endregion
+
         #region ContainsRangeT
 
         [TestMethod]
@@ -1155,6 +2115,50 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, new List<DummyIEquatableT>() { 1, 1 }, (8, false, "Enumeration contains 2 of 2 elements. Enumeration is: ['1', '2', '3']; Elements are: ['1', '1']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2, 3 }, new List<DummyIEquatableT>() { 1, 2, 4 }, (9, true, "Enumeration contains 2 of 3 elements. Enumeration is: ['1', '2', '3']; Elements are: ['1', '2', '4']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 1, 3 }, new List<DummyIEquatableT>() { 1 }, (10, false, "Enumeration contains 1 of 1 elements. Enumeration is: ['1', '1', '3']; Elements are: ['1']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsRangeTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeTWithMessageData))]
+        void ContainsRangeTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'elements' is null.") },
+
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { }, "message", (4, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { 1, 2, 3 }, "message", (5, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeTWithMessageData))]
+        void NotContainsRangeTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'elements' is null.") },
+
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { }, "message", (4, false, "message") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { }, new List<DummyIEquatableT>() { 1, 2, 3 }, "message", (5, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']") },
             };
         }
 
@@ -1220,6 +2224,54 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsRangeEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeEqualityComparerWithMessageData))]
+        void ContainsRangeEqualityComparerWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), new DummyEqualityComparer(), "message", (6, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeEqualityComparerWithMessageData))]
+        void NotContainsRangeEqualityComparerWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), new DummyEqualityComparer(), "message", (6, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyEqualityComparer(), "message", (7, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']") },
+            };
+        }
+
+        #endregion
+
         #region ContainsRangeIEqualityComparer
 
         [TestMethod]
@@ -1280,6 +2332,54 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsRangeIEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeIEqualityComparerWithMessageData))]
+        void ContainsRangeIEqualityComparerWithMessage(IEnumerable input1, IEnumerable input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<Dummy>(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>(), null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparer(), "message", (6, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeIEqualityComparerWithMessageData))]
+        void NotContainsRangeIEqualityComparerWithMessage(IEnumerable input1, IEnumerable input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<Dummy>(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>(), null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparer(), "message", (6, false, "message") },
+                new Object[] { new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparer(), "message", (7, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']") },
+            };
+        }
+
+        #endregion
+
         #region ContainsRangeIEqualityComparerT
 
         [TestMethod]
@@ -1335,6 +2435,54 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, new List<Dummy>() { 1, 1 }, new DummyIEqualityComparerT(), (10, false, "Enumeration contains 2 of 2 elements. Enumeration is: ['1', '2', '3']; Elements are: ['1', '1']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2, 3 }, new List<Dummy>() { 1, 2, 4 }, new DummyIEqualityComparerT(), (11, true, "Enumeration contains 2 of 3 elements. Enumeration is: ['1', '2', '3']; Elements are: ['1', '2', '4']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 1, 3 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT(), (12, false, "Enumeration contains 1 of 1 elements. Enumeration is: ['1', '1', '3']; Elements are: ['1']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsRangeIEqualityComparerTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeIEqualityComparerTWithMessageData))]
+        void ContainsRangeIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparerT(), "message", (6, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeIEqualityComparerTWithMessageData))]
+        void NotContainsRangeIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), new DummyIEqualityComparerT(), "message", (6, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>() { 1, 2, 3 }, new DummyIEqualityComparerT(), "message", (7, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: ['1', '2', '3']") },
             };
         }
 
@@ -1436,6 +2584,68 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsRangeEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeEqualityComparerKVPWithMessageData))]
+        void ContainsRangeEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new ThrowingEqualityComparer(), new DummyEqualityComparer(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new DummyEqualityComparer(), new ThrowingEqualityComparer(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeEqualityComparerKVPWithMessageData))]
+        void NotContainsRangeEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new ThrowingEqualityComparer(), new DummyEqualityComparer(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new DummyEqualityComparer(), new ThrowingEqualityComparer(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (9, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region ContainsRangeIEqualityComparerKVP
 
         [TestMethod]
@@ -1527,6 +2737,68 @@ namespace Nuclear.TestSite.TestSuites {
                     (16, true, "Enumeration contains 2 of 3 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2', ['3'] => '4', ['6'] => '6']") },
                 new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
                     (17, false, "Enumeration contains 1 of 1 elements. Enumeration is: [['1'] => '2', ['3'] => '4', ['5'] => '6']; Elements are: [['1'] => '2']") },
+            };
+        }
+
+        #endregion
+
+        #region ContainsRangeIEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeIEqualityComparerKVPWithMessageData))]
+        void ContainsRangeIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, IEnumerable<DictionaryEntry> input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, Enumerable.Empty<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), Enumerable.Empty<DictionaryEntry>(), null, new DummyIEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), Enumerable.Empty<DictionaryEntry>(), new DummyIEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new ThrowingIEqualityComparer(), new DummyIEqualityComparer(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new DummyIEqualityComparer(), new ThrowingIEqualityComparer(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), Enumerable.Empty<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeIEqualityComparerKVPWithMessageData))]
+        void NotContainsRangeIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, IEnumerable<DictionaryEntry> input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, Enumerable.Empty<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), Enumerable.Empty<DictionaryEntry>(), null, new DummyIEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), Enumerable.Empty<DictionaryEntry>(), new DummyIEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new ThrowingIEqualityComparer(), new DummyIEqualityComparer(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new DummyIEqualityComparer(), new ThrowingIEqualityComparer(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), Enumerable.Empty<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, false, "message") },
+                new Object[] { Enumerable.Empty<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (9, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
             };
         }
 
@@ -1628,6 +2900,68 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsRangeIEqualityComparerTKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(ContainsRangeIEqualityComparerTKVPWithMessageData))]
+        void ContainsRangeIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.ContainsRange(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> ContainsRangeIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, true, "Enumeration contains 0 of 0 elements. Enumeration is: []; Elements are: []") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotContainsRangeIEqualityComparerTKVPWithMessageData))]
+        void NotContainsRangeIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.ContainsRange(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.ContainsRange");
+
+        }
+
+        IEnumerable<Object[]> NotContainsRangeIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'elements' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } },
+                    new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (9, true, "Enumeration contains 0 of 3 elements. Enumeration is: []; Elements are: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region Matches
 
         [TestMethod]
@@ -1688,6 +3022,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesWithMessageData))]
+        void MatchesWithMessage(IEnumerable input1, IEnumerable input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }, "message", (5, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesWithMessageData))]
+        void NotMatchesWithMessage(IEnumerable input1, IEnumerable input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, false, "message") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }, "message", (5, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesT
 
         [TestMethod]
@@ -1743,6 +3121,50 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }, (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }, (12, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }, (13, false, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']") },
+            };
+        }
+
+        #endregion
+
+        #region MatchesTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesTWithMessageData))]
+        void MatchesTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }, "message", (5, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesTWithMessageData))]
+        void NotMatchesTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, false, "message") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2 }, "message", (5, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']") },
             };
         }
 
@@ -1812,6 +3234,54 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesEqualityComparerWithMessageData))]
+        void MatchesEqualityComparerWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer(), "message", (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesEqualityComparerWithMessageData))]
+        void NotMatchesEqualityComparerWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer(), "message", (6, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyEqualityComparer(), "message", (7, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesIEqualityComparer
 
         [TestMethod]
@@ -1876,6 +3346,54 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesIEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesIEqualityComparerWithMessageData))]
+        void MatchesIEqualityComparerWithMessage(IEnumerable input1, IEnumerable input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<Dummy>(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>(), null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer(), "message", (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesIEqualityComparerWithMessageData))]
+        void NotMatchesIEqualityComparerWithMessage(IEnumerable input1, IEnumerable input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<Dummy>(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>(), null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer(), "message", (6, false, "message") },
+                new Object[] { new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparer(), "message", (7, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesIEqualityComparerT
 
         [TestMethod]
@@ -1935,6 +3453,54 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT(), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT(), (14, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT(), (15, false, "Enumerations match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']") },
+            };
+        }
+
+        #endregion
+
+        #region MatchesIEqualityComparerTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesIEqualityComparerTWithMessageData))]
+        void MatchesIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT(), "message", (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesIEqualityComparerTWithMessageData))]
+        void NotMatchesIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT(), "message", (6, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2 }, new DummyIEqualityComparerT(), "message", (7, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2']") },
             };
         }
 
@@ -2048,6 +3614,68 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesEqualityComparerKVPWithMessageData))]
+        void MatchesEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, true, "Enumerations match. Enumeration is: []; Other is: []") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesEqualityComparerKVPWithMessageData))]
+        void NotMatchesEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesIEqualityComparerKVP
 
         [TestMethod]
@@ -2151,6 +3779,68 @@ namespace Nuclear.TestSite.TestSuites {
                     (19, false, "Enumerations match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']") },
                 new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 3, (Dummy) 4) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
                     (20, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']") },
+            };
+        }
+
+        #endregion
+
+        #region MatchesIEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesIEqualityComparerKVPWithMessageData))]
+        void MatchesIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, IEnumerable<DictionaryEntry> input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new ThrowingIEqualityComparer(), new DummyIEqualityComparer(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new DummyIEqualityComparer(), new ThrowingIEqualityComparer(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, true, "Enumerations match. Enumeration is: []; Other is: []") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesIEqualityComparerKVPWithMessageData))]
+        void NotMatchesIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, IEnumerable<DictionaryEntry> input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new ThrowingIEqualityComparer(), new DummyIEqualityComparer(), "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) },
+                    new DummyIEqualityComparer(), new ThrowingIEqualityComparer(), "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, false, "message") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
             };
         }
 
@@ -2264,6 +3954,68 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesIEqualityComparerTKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesIEqualityComparerTKVPWithMessageData))]
+        void MatchesIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.Matches(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> MatchesIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, true, "Enumerations match. Enumeration is: []; Other is: []") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesIEqualityComparerTKVPWithMessageData))]
+        void NotMatchesIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.Matches(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.Matches");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesExactly
 
         [TestMethod]
@@ -2324,6 +4076,50 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesExactlyWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyWithMessageData))]
+        void MatchesExactlyWithMessage(IEnumerable input1, IEnumerable input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }, "message", (5, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyWithMessageData))]
+        void NotMatchesExactlyWithMessage(IEnumerable input1, IEnumerable input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, false, "message") },
+                new Object[] { new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }, "message", (5, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesExactlyT
 
         [TestMethod]
@@ -2379,6 +4175,50 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 1, 2 }, new List<DummyIEquatableT>() { 1, 2, 2 }, (11, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, null, 2 }, new List<DummyIEquatableT>() { 1, null, null, 2 }, (12, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']") },
                 new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, null, 2, null }, new List<DummyIEquatableT>() { 1, null, null, 2 }, (13, true, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']") },
+            };
+        }
+
+        #endregion
+
+        #region MatchesExactlyTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyTWithMessageData))]
+        void MatchesExactlyTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }, "message", (5, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyTWithMessageData))]
+        void NotMatchesExactlyTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(DummyIEquatableT), null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), null, new List<DummyIEquatableT>(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>(), null, "message", (3, false, "Parameter 'other' is null.") },
+
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1 }, new List<DummyIEquatableT>() { 1 }, "message", (4, false, "message") },
+                new Object[] { typeof(DummyIEquatableT), new List<DummyIEquatableT>() { 1, 2 }, new List<DummyIEquatableT>() { 2, 1 }, "message", (5, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']") },
             };
         }
 
@@ -2448,6 +4288,54 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesExactlyEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyEqualityComparerWithMessageData))]
+        void MatchesExactlyEqualityComparerWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer(), "message", (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyEqualityComparerWithMessageData))]
+        void NotMatchesExactlyEqualityComparerWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, EqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyEqualityComparer(), "message", (6, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyEqualityComparer(), "message", (7, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesExactlyIEqualityComparer
 
         [TestMethod]
@@ -2512,6 +4400,54 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesExactlyIEqualityComparerWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyIEqualityComparerWithMessageData))]
+        void MatchesExactlyIEqualityComparerWithMessage(IEnumerable input1, IEnumerable input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<Dummy>(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>(), null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer(), "message", (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyIEqualityComparerWithMessageData))]
+        void NotMatchesExactlyIEqualityComparerWithMessage(IEnumerable input1, IEnumerable input2, IEqualityComparer input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyIEqualityComparerWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<Dummy>(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<Dummy>(), null, new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparer(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparer(), "message", (6, false, "message") },
+                new Object[] { new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparer(), "message", (7, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesExactlyIEqualityComparerT
 
         [TestMethod]
@@ -2571,6 +4507,54 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, 1, 2 }, new List<Dummy>() { 1, 2, 2 }, new DummyIEqualityComparerT(), (13, true, "Enumerations don't match. Enumeration is: ['1', '1', '2']; Other is: ['1', '2', '2']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, null, 2 }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT(), (14, false, "Enumerations match. Enumeration is: ['1', null, null, '2']; Other is: ['1', null, null, '2']") },
                 new Object[] { typeof(Dummy), new List<Dummy>() { 1, null, 2, null }, new List<Dummy>() { 1, null, null, 2 }, new DummyIEqualityComparerT(), (15, true, "Enumerations don't match. Enumeration is: ['1', null, '2', null]; Other is: ['1', null, null, '2']") },
+            };
+        }
+
+        #endregion
+
+        #region MatchesExactlyIEqualityComparerTWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyIEqualityComparerTWithMessageData))]
+        void MatchesExactlyIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, input3, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT(), "message", (6, true, "Enumerations match. Enumeration is: ['1']; Other is: ['1']") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT(), "message", (7, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyIEqualityComparerTWithMessageData))]
+        void NotMatchesExactlyIEqualityComparerTWithMessage<T>(IEnumerable<T> input1, IEnumerable<T> input2, IEqualityComparer<T> input3, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, input3, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyIEqualityComparerTWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), null, new List<Dummy>(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), null, new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>(), new List<Dummy>(), null, "message", (4, false, "Parameter 'comparer' is null.") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new ThrowingIEqualityComparerT(), "message", (5, false, "Comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1 }, new List<Dummy>() { 1 }, new DummyIEqualityComparerT(), "message", (6, false, "message") },
+                new Object[] { typeof(Dummy), new List<Dummy>() { 1, 2 }, new List<Dummy>() { 2, 1 }, new DummyIEqualityComparerT(), "message", (7, true, "Enumerations don't match. Enumeration is: ['1', '2']; Other is: ['2', '1']") },
             };
         }
 
@@ -2684,6 +4668,68 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesExactlyEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyEqualityComparerKVPWithMessageData))]
+        void MatchesExactlyEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, true, "Enumerations match. Enumeration is: []; Other is: []") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyEqualityComparerKVPWithMessageData))]
+        void NotMatchesExactlyEqualityComparerKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, EqualityComparer<TKey> input3, EqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), new DummyEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyEqualityComparer(), new ThrowingEqualityComparer(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (8, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyEqualityComparer(), new DummyEqualityComparer(),
+                    "message", (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesExactlyIEqualityComparerKVP
 
         [TestMethod]
@@ -2792,6 +4838,68 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region MatchesExactlyIEqualityComparerKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyIEqualityComparerKVPWithMessageData))]
+        void MatchesExactlyIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, IEnumerable<DictionaryEntry> input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new ThrowingIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new ThrowingIEqualityComparer(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, true, "Enumerations match. Enumeration is: []; Other is: []") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyIEqualityComparerKVPWithMessageData))]
+        void NotMatchesExactlyIEqualityComparerKVPWithMessage(IEnumerable<DictionaryEntry> input1, IEnumerable<DictionaryEntry> input2, IEqualityComparer input3, IEqualityComparer input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyIEqualityComparerKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { null, new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), new DummyIEqualityComparer(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), null, new DummyIEqualityComparer(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new ThrowingIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2) }, new DummyIEqualityComparer(), new ThrowingIEqualityComparer(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>(), new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (8, false, "message") },
+                new Object[] { new List<DictionaryEntry>(), new List<DictionaryEntry>() { new DictionaryEntry((Dummy) 1, (Dummy) 2), new DictionaryEntry((Dummy) 3, (Dummy) 4), new DictionaryEntry((Dummy) 5, (Dummy) 6) }, new DummyIEqualityComparer(), new DummyIEqualityComparer(),
+                    "message", (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
+            };
+        }
+
+        #endregion
+
         #region MatchesExactlyIEqualityComparerTKVP
 
         [TestMethod]
@@ -2895,6 +5003,68 @@ namespace Nuclear.TestSite.TestSuites {
                     (19, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['1'] => '2']") },
                 new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 1, 2 }, { 3, 4 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 3, 4 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
                     (20, true, "Enumerations don't match. Enumeration is: [['1'] => '2', ['1'] => '2', ['3'] => '4']; Other is: [['1'] => '2', ['3'] => '4', ['3'] => '4']") },
+            };
+        }
+
+        #endregion
+
+        #region MatchesExactlyIEqualityComparerTKVPWithMessage
+
+        [TestMethod]
+        [TestData(nameof(MatchesExactlyIEqualityComparerTKVPWithMessageData))]
+        void MatchesExactlyIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Enumerable.MatchesExactly(input1, input2, input3, input4, customMessage),
+                expected, "Test.If.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> MatchesExactlyIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, true, "Enumerations match. Enumeration is: []; Other is: []") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (9, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotMatchesExactlyIEqualityComparerTKVPWithMessageData))]
+        void NotMatchesExactlyIEqualityComparerTKVPWithMessage<TKey, TValue>(IEnumerable<KeyValuePair<TKey, TValue>> input1, IEnumerable<KeyValuePair<TKey, TValue>> input2, IEqualityComparer<TKey> input3, IEqualityComparer<TValue> input4,
+            String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Enumerable.MatchesExactly(input1, input2, input3, input4, customMessage),
+                expected, "Test.IfNot.Enumerable.MatchesExactly");
+
+        }
+
+        IEnumerable<Object[]> NotMatchesExactlyIEqualityComparerTKVPWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { typeof(Dummy), typeof(Dummy), null, null, null, null, "message", (1, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), null, new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (2, false, "Parameter 'enumeration' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(), "message", (3, false, "Parameter 'other' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), null, new DummyIEqualityComparerT(), "message", (4, false, "Parameter 'keyComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), null, "message", (5, false, "Parameter 'valueComparer' is null.") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new ThrowingIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (6, false, "Key comparer threw Exception:") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new Dictionary<Dummy, Dummy>() { { 1, 2 } }, new DummyIEqualityComparerT(), new ThrowingIEqualityComparerT(),
+                    "message", (7, false, "Value comparer threw Exception:") },
+
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>(), new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (8, false, "message") },
+                new Object[] { typeof(Dummy), typeof(Dummy), new Dictionary<Dummy, Dummy>(), new Dictionary<Dummy, Dummy>() { { 1, 2 }, { 3, 4 }, { 5, 6 } }, new DummyIEqualityComparerT(), new DummyIEqualityComparerT(),
+                    "message", (9, true, "Enumerations don't match. Enumeration is: []; Other is: [['1'] => '2', ['3'] => '4', ['5'] => '6']") },
             };
         }
 
