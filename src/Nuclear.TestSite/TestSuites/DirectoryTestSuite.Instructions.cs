@@ -16,6 +16,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if the directory at <paramref name="path"/> exists on disk.
         /// </summary>
         /// <param name="path">The directory path to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -24,7 +27,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void Exists(String path,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -34,13 +37,16 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = Directory.Exists(path);
 
             InternalTest(result, String.Format("Directory {0} {1}.", path.Format(), result ? "exists" : "doesn't exist"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
         /// Tests if the <paramref name="directory"/> exists on disk.
         /// </summary>
         /// <param name="directory">The directory to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -49,7 +55,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void Exists(DirectoryInfo directory,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -61,7 +67,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = directory.Exists;
 
             InternalTest(result, String.Format("Directory {0} {1}.", directory.FullName.Format(), result ? "exists" : "doesn't exist"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -72,6 +78,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if the directory at <paramref name="path"/> is empty.
         /// </summary>
         /// <param name="path">The directory path to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -80,7 +89,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEmpty(String path,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -103,13 +112,16 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, String.Format("Directory {0} is {1}empty.", path.Format(), result ? String.Empty : "not "),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
         /// Tests if the <paramref name="directory"/> is empty.
         /// </summary>
         /// <param name="directory">The directory to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -118,7 +130,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEmpty(DirectoryInfo directory,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -135,11 +147,11 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = directory.GetFileSystemInfos().Length <= 0;
 
             InternalTest(result, String.Format("Directory {0} is {1}empty.", directory.FullName.Format(), result ? String.Empty : "not "),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
-        
+
         #region HasAttribute
 
         /// <summary>
@@ -147,6 +159,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="path">The directory path to be checked.</param>
         /// <param name="attribute"></param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -155,7 +170,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void HasAttribute(String path, FileAttributes attribute,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -194,7 +209,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            HasAttribute(dir, attribute, _file, _method);
+            HasAttribute(dir, attribute, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -202,6 +217,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="directory">The directory to be checked.</param>
         /// <param name="attribute"></param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -210,7 +228,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void HasAttribute(DirectoryInfo directory, FileAttributes attribute,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -232,7 +250,7 @@ namespace Nuclear.TestSite.TestSuites {
             Boolean result = directory.Attributes.HasFlag(attribute);
 
             InternalTest(result, String.Format("Directory {0} is {1}flagged with {2}.", directory.FullName.Format(), result ? String.Empty : "not ", attribute.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -243,6 +261,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if the directory at <paramref name="path"/> contains any files.
         /// </summary>
         /// <param name="path">The directory path to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -251,7 +272,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsFiles(String path,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -274,13 +295,16 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2}.", path.Format(), result, result == 1 ? "file" : "files"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
         /// Tests if the <paramref name="directory"/> contains any files.
         /// </summary>
         /// <param name="directory">The directory to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -289,7 +313,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsFiles(DirectoryInfo directory,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -306,7 +330,7 @@ namespace Nuclear.TestSite.TestSuites {
             Int32 result = directory.GetFiles().Length;
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2}.", directory.FullName.Format(), result, result == 1 ? "file" : "files"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -323,6 +347,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// all files.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -331,7 +358,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsFiles(String path, String searchPattern, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -365,7 +392,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2} matching {3} in {4}.",
                 path.Format(), result, result == 1 ? "file" : "files", searchPattern.Format(), searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -378,6 +405,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// all files.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -386,7 +416,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsFiles(DirectoryInfo directory, String searchPattern, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -414,7 +444,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2} matching {3} in {4}.",
                 directory.FullName.Format(), result, result == 1 ? "file" : "files", searchPattern.Format(), searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -428,6 +458,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="match">The <see cref="Predicate{FileInfo}"/> used to filter for matches.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -436,7 +469,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsFiles(String path, Predicate<String> match, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -485,7 +518,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
                 path.Format(), matches.Count, matches.Count == 1 ? "file" : "files", searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -495,6 +528,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="match">The <see cref="Predicate{FileInfo}"/> used to filter for matches.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -503,7 +539,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsFiles(DirectoryInfo directory, Predicate<FileInfo> match, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -544,7 +580,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
                 directory.FullName.Format(), matches.Count, matches.Count == 1 ? "file" : "files", searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -555,6 +591,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if the directory at <paramref name="path"/> contains any sub directories.
         /// </summary>
         /// <param name="path">The directory path to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -563,7 +602,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsDirectories(String path,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -586,13 +625,16 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2}.", path.Format(), result, result == 1 ? "directory" : "directories"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
         /// Tests if the <paramref name="directory"/> contains any sub directories.
         /// </summary>
         /// <param name="directory">The directory to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -601,7 +643,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsDirectories(DirectoryInfo directory,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -618,7 +660,7 @@ namespace Nuclear.TestSite.TestSuites {
             Int32 result = directory.GetDirectories().Length;
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2}.", directory.FullName.Format(), result, result == 1 ? "directory" : "directories"),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -635,6 +677,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// all files.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -643,7 +688,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsDirectories(String path, String searchPattern, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -677,7 +722,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2} matching {3} in {4}.",
                 path.Format(), result, result == 1 ? "directory" : "directories", searchPattern.Format(), searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -690,6 +735,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// all files.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -698,7 +746,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsDirectories(DirectoryInfo directory, String searchPattern, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -726,7 +774,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(result > 0, String.Format("Directory {0} contains {1} {2} matching {3} in {4}.",
                 directory.FullName.Format(), result, result == 1 ? "directory" : "directories", searchPattern.Format(), searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -740,6 +788,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="match">The <see cref="Predicate{DirectoryInfo}"/> used to filter for matches.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -748,7 +799,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsDirectories(String path, Predicate<String> match, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
                 FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
@@ -797,7 +848,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
                 path.Format(), matches.Count, matches.Count == 1 ? "directory" : "directories", searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -807,6 +858,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="match">The <see cref="Predicate{DirectoryInfo}"/> used to filter for matches.</param>
         /// <param name="searchOption">One of the enumeration values that specifies whether the search operation should
         /// include only the current directory or all subdirectories.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -815,7 +869,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void ContainsDirectories(DirectoryInfo directory, Predicate<DirectoryInfo> match, SearchOption searchOption,
-        [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
                 FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
@@ -856,7 +910,7 @@ namespace Nuclear.TestSite.TestSuites {
 
             InternalTest(matches.Count > 0, String.Format("Directory {0} contains {1} matching {2} in {3}.",
                 directory.FullName.Format(), matches.Count, matches.Count == 1 ? "directory" : "directories", searchOption.Format()),
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion

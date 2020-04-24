@@ -46,5 +46,41 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region IsEqualWithMessage
+
+        [TestMethod]
+        [TestData(nameof(IsEqualWithMessageData))]
+        void IsEqualWithMessage(Object input1, Object input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.If.Reference.IsEqual(input1, input2, customMessage),
+                expected, "Test.If.Reference.IsEqual");
+
+        }
+
+        IEnumerable<Object[]> IsEqualWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, true, "References equal.") },
+                new Object[] { null, new Object(), "message", (2, false, "message") },
+            };
+        }
+
+        [TestMethod]
+        [TestData(nameof(NotIsEqualWithMessageData))]
+        void NotIsEqualWithMessage(Object input1, Object input2, String customMessage, (Int32 count, Boolean result, String message) expected) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.Reference.IsEqual(input1, input2, customMessage),
+                expected, "Test.IfNot.Reference.IsEqual");
+
+        }
+
+        IEnumerable<Object[]> NotIsEqualWithMessageData() {
+            return new List<Object[]>() {
+                new Object[] { null, null, "message", (1, false, "message") },
+                new Object[] { null, new Object(), "message", (2, true, "References don't equal.") },
+            };
+        }
+
+        #endregion
+
     }
 }

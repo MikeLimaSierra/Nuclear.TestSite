@@ -22,6 +22,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of both objects.</typeparam>
         /// <param name="left">The first object.</param>
         /// <param name="right">The second object.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -30,18 +33,18 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual<T>(T left, T right,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(left == null && right == null) {
                 InternalTest(true, $"[Left = {left.Format()}; Right = {right.Format()}]",
-                    _file, _method);
+                    customMessage, _file, _method);
                 return;
             }
 
             if(left is IEquatable<T> eLeft) {
                 try {
                     InternalTest(eLeft.Equals(right), $"({typeof(T).Format()}.IEquatable<T>) [Left = {left.Format()}; Right = {right.Format()}]",
-                        _file, _method);
+                        customMessage, _file, _method);
                     return;
 
                 } catch { /* advance to next */ }
@@ -50,7 +53,7 @@ namespace Nuclear.TestSite.TestSuites {
             if(left is IComparable<T> cTLeft) {
                 try {
                     InternalTest(cTLeft.IsEqual(right), $"({typeof(T).Format()}.IComparable<T>) [Left = {left.Format()}; Right = {right.Format()}]",
-                        _file, _method);
+                        customMessage, _file, _method);
                     return;
 
                 } catch { /* advance to next */ }
@@ -60,14 +63,14 @@ namespace Nuclear.TestSite.TestSuites {
             if(left is IComparable cLeft) {
                 try {
                     InternalTest(cLeft.IsEqual(right), $"({typeof(T).Format()}.IComparable) [Left = {left.Format()}; Right = {right.Format()}]",
-                        _file, _method);
+                        customMessage, _file, _method);
                     return;
 
                 } catch { /* advance to next */ }
 
             }
 
-            IsEqual(left, right, EqualityComparer<T>.Default, _file, _method);
+            IsEqual(left, right, EqualityComparer<T>.Default, customMessage, _file, _method);
         }
 
         #endregion
@@ -81,6 +84,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first object.</param>
         /// <param name="right">The second object.</param>
         /// <param name="comparer">The <see cref="EqualityComparer{T}"/> to be used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -89,14 +95,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual<T>(T left, T right, EqualityComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsEqual(left, right, comparer as IEqualityComparer<T>, _file, _method);
+            IsEqual(left, right, comparer as IEqualityComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -106,6 +112,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first object.</param>
         /// <param name="right">The second object.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer"/> to be used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -114,14 +123,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual<T>(T left, T right, IEqualityComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsEqual(left, right, DynamicEqualityComparer.FromComparer<T>(comparer), _file, _method);
+            IsEqual(left, right, DynamicEqualityComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -131,6 +140,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first object.</param>
         /// <param name="right">The second object.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> to be used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -139,7 +151,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual<T>(T left, T right, IEqualityComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
@@ -157,7 +170,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"({comparer.GetType().Name.Format()}) [Left = {left.Format()}; Right = {right.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -167,6 +180,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first object.</param>
         /// <param name="right">The second object.</param>
         /// <param name="comparer">The <see cref="Comparer{T}"/> to be used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -175,14 +191,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual<T>(T left, T right, Comparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsEqual(left, right, comparer as IComparer<T>, _file, _method);
+            IsEqual(left, right, comparer as IComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -192,6 +208,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first object.</param>
         /// <param name="right">The second object.</param>
         /// <param name="comparer">The <see cref="IComparer"/> to be used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -200,14 +219,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual<T>(T left, T right, IComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsEqual(left, right, DynamicComparer.FromComparer<T>(comparer), _file, _method);
+            IsEqual(left, right, DynamicComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -217,6 +236,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first object.</param>
         /// <param name="right">The second object.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to be used to determine equality.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -225,7 +247,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual<T>(T left, T right, IComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
@@ -243,7 +265,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"({comparer.GetType().Name.Format()}) [Left = {left.Format()}; Right = {right.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -255,6 +277,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="left">The first value.</param>
         /// <param name="right">The second value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -263,7 +288,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual(Single left, Single right,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => IsEqual(left, right, 1e-12f, _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => IsEqual(left, right, 1e-12f, customMessage, _file, _method);
 
         /// <summary>
         /// Tests if two <see cref="Single"/> values are equal by a <paramref name="margin"/>.
@@ -271,6 +296,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first value.</param>
         /// <param name="right">The second value.</param>
         /// <param name="margin">The margin to use as tolerance.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -279,15 +307,18 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual(Single left, Single right, Single margin,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(Math.Abs(left - right) <= margin, $"[Left = {left.Format()}; Right = {right.Format()}; Margin = {margin.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
 
         /// <summary>
         /// Tests if two <see cref="Double"/> values are equal by a margin of 1e-12.
         /// </summary>
         /// <param name="left">The first value.</param>
         /// <param name="right">The second value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -296,7 +327,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual(Double left, Double right,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => IsEqual(left, right, 1e-12d, _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => IsEqual(left, right, 1e-12d, customMessage, _file, _method);
 
         /// <summary>
         /// Tests if two <see cref="Double"/> values are equal by a <paramref name="margin"/>.
@@ -304,6 +335,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="left">The first value.</param>
         /// <param name="right">The second value.</param>
         /// <param name="margin">The margin to use as tolerance.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -312,9 +346,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual(Double left, Double right, Double margin,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(Math.Abs(left - right) <= margin, $"[Left = {left.Format()}; Right = {right.Format()}; Margin = {margin.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
 
         #endregion
 
@@ -325,6 +359,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="left">The first value.</param>
         /// <param name="right">The second value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -333,7 +370,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual(DirectoryInfo left, DirectoryInfo right,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(left == null) {
                 FailTest($"Parameter '{nameof(left)}' is null.", _file, _method);
@@ -346,7 +383,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(left.FullName == right.FullName, $"[Left = {left.FullName.Format()}; Right = {right.FullName.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -358,6 +395,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="left">The first value.</param>
         /// <param name="right">The second value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -366,7 +406,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual(FileInfo left, FileInfo right,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(left == null) {
                 FailTest($"Parameter '{nameof(left)}' is null.", _file, _method);
@@ -379,7 +419,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(left.FullName == right.FullName, $"[Left = {left.FullName.Format()}; Right = {right.FullName.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -392,6 +432,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -400,8 +443,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThan<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable => IsLessThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable => IsLessThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is less than <paramref name="other"/>.
@@ -409,6 +452,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable{T}"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -417,8 +463,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThanT<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable<T> => IsLessThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable<T> => IsLessThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is less than <paramref name="other"/>.
@@ -427,6 +473,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="Comparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -435,14 +484,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThan<T>(T value, T other, Comparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsLessThan(value, other, comparer as IComparer<T>, _file, _method);
+            IsLessThan(value, other, comparer as IComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -452,6 +501,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -460,14 +512,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThan<T>(T value, T other, IComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsLessThan(value, other, DynamicComparer.FromComparer<T>(comparer), _file, _method);
+            IsLessThan(value, other, DynamicComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -477,6 +529,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -485,7 +540,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThan<T>(T value, T other, IComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
@@ -504,7 +559,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"[Value = {value.Format()}; Other = {other.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -517,6 +572,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -525,8 +583,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThanOrEqual<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable => IsLessThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable => IsLessThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is less than <paramref name="other"/> or equal.
@@ -534,6 +592,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable{T}"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -542,8 +603,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThanOrEqualT<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable<T> => IsLessThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable<T> => IsLessThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is less than <paramref name="other"/> or equal.
@@ -552,6 +613,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="Comparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -560,14 +624,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThanOrEqual<T>(T value, T other, Comparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsLessThanOrEqual(value, other, comparer as IComparer<T>, _file, _method);
+            IsLessThanOrEqual(value, other, comparer as IComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -577,6 +641,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -585,14 +652,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThanOrEqual<T>(T value, T other, IComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsLessThanOrEqual(value, other, DynamicComparer.FromComparer<T>(comparer), _file, _method);
+            IsLessThanOrEqual(value, other, DynamicComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -602,6 +669,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -610,7 +680,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsLessThanOrEqual<T>(T value, T other, IComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
@@ -629,7 +699,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"[Value = {value.Format()}; Other = {other.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -642,6 +712,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -650,8 +723,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThan<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable => IsGreaterThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable => IsGreaterThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is greater than <paramref name="other"/>.
@@ -659,6 +732,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable{T}"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -667,8 +743,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThanT<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable<T> => IsGreaterThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable<T> => IsGreaterThan(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is greater than <paramref name="other"/>.
@@ -677,6 +753,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="Comparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -685,14 +764,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThan<T>(T value, T other, Comparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsGreaterThan(value, other, comparer as IComparer<T>, _file, _method);
+            IsGreaterThan(value, other, comparer as IComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -702,6 +781,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -710,14 +792,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThan<T>(T value, T other, IComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsGreaterThan(value, other, DynamicComparer.FromComparer<T>(comparer), _file, _method);
+            IsGreaterThan(value, other, DynamicComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -727,6 +809,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -735,7 +820,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThan<T>(T value, T other, IComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
@@ -754,7 +839,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"[Value = {value.Format()}; Other = {other.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -767,6 +852,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -775,8 +863,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThanOrEqual<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable => IsGreaterThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable => IsGreaterThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is greater than <paramref name="other"/> or equal.
@@ -784,6 +872,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <typeparam name="T">The type of the objects to compare - must derive from <see cref="IComparable{T}"/>.</typeparam>
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -792,8 +883,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThanOrEqualT<T>(T value, T other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable<T> => IsGreaterThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable<T> => IsGreaterThanOrEqual(value, other, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is greater than <paramref name="other"/> or equal.
@@ -802,6 +893,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="Comparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -810,14 +904,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThanOrEqual<T>(T value, T other, Comparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsGreaterThanOrEqual(value, other, comparer as IComparer<T>, _file, _method);
+            IsGreaterThanOrEqual(value, other, comparer as IComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -827,6 +921,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -835,14 +932,14 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThanOrEqual<T>(T value, T other, IComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
-            IsGreaterThanOrEqual(value, other, DynamicComparer.FromComparer<T>(comparer), _file, _method);
+            IsGreaterThanOrEqual(value, other, DynamicComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -852,6 +949,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against <paramref name="other"/>.</param>
         /// <param name="other">The other value.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -860,7 +960,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsGreaterThanOrEqual<T>(T value, T other, IComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
                 FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
@@ -879,7 +979,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"[Value = {value.Format()}; Other = {other.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -890,6 +990,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if <paramref name="value"/> is true.
         /// </summary>
         /// <param name="value">The value to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -898,14 +1001,17 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsTrue(Boolean value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(value, $"[Value = {value.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is true.
         /// </summary>
         /// <param name="value">The value to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -914,7 +1020,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsTrue(Boolean? value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(!value.HasValue) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -922,7 +1028,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(value.Value, $"[Value = {value.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -933,6 +1039,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if <paramref name="value"/> is false.
         /// </summary>
         /// <param name="value">The value to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -941,14 +1050,17 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsFalse(Boolean value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(!value, $"[Value = {value.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is false.
         /// </summary>
         /// <param name="value">The value to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -957,7 +1069,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsFalse(Boolean? value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(!value.HasValue) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -965,7 +1077,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(!value.Value, $"[Value = {value.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -979,6 +1091,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against the range.</param>
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -987,8 +1102,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClamped<T>(T value, T min, T max,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable => IsClamped(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable => IsClamped(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is clamped in a given inclusive range.
@@ -997,6 +1112,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against the range.</param>
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1005,8 +1123,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClampedT<T>(T value, T min, T max,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable<T> => IsClamped(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable<T> => IsClamped(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is clamped in a given inclusive range.
@@ -1016,6 +1134,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
         /// <param name="comparer">The <see cref="Comparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1024,7 +1145,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClamped<T>(T value, T min, T max, Comparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -1036,7 +1157,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            IsClamped(value, min, max, comparer as IComparer<T>, _file, _method);
+            IsClamped(value, min, max, comparer as IComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1047,6 +1168,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
         /// <param name="comparer">The <see cref="IComparer"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1055,7 +1179,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClamped<T>(T value, T min, T max, IComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -1067,7 +1191,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            IsClamped(value, min, max, DynamicComparer.FromComparer<T>(comparer), _file, _method);
+            IsClamped(value, min, max, DynamicComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1078,6 +1202,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1086,7 +1213,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClamped<T>(T value, T min, T max, IComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -1110,7 +1237,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"[Value = {value.Format()}; Min = {min.Format()}; Max = {max.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -1124,6 +1251,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against the range.</param>
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1132,8 +1262,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClampedExclusive<T>(T value, T min, T max,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable => IsClampedExclusive(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable => IsClampedExclusive(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is clamped in a given exclusive range.
@@ -1142,6 +1272,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="value">The value that is checked against the range.</param>
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1150,8 +1283,8 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClampedExclusiveT<T>(T value, T min, T max,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
-            where T : IComparable<T> => IsClampedExclusive(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            where T : IComparable<T> => IsClampedExclusive(value, min, max, Comparer<T>.Create((x, y) => x.CompareTo(y)), customMessage, _file, _method);
 
         /// <summary>
         /// Tests if <paramref name="value"/> is clamped in a given exclusive range.
@@ -1161,6 +1294,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
         /// <param name="comparer">The <see cref="Comparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1169,7 +1305,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClampedExclusive<T>(T value, T min, T max, Comparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -1181,7 +1317,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            IsClampedExclusive(value, min, max, comparer as IComparer<T>, _file, _method);
+            IsClampedExclusive(value, min, max, comparer as IComparer<T>, customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1192,6 +1328,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
         /// <param name="comparer">The <see cref="IComparer"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1200,7 +1339,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClampedExclusive<T>(T value, T min, T max, IComparer comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -1212,7 +1351,7 @@ namespace Nuclear.TestSite.TestSuites {
                 return;
             }
 
-            IsClampedExclusive(value, min, max, DynamicComparer.FromComparer<T>(comparer), _file, _method);
+            IsClampedExclusive(value, min, max, DynamicComparer.FromComparer<T>(comparer), customMessage, _file, _method);
         }
 
         /// <summary>
@@ -1223,6 +1362,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="min">The lower border of the range. Is considered lower than <paramref name="value"/> if null.</param>
         /// <param name="max">The upper border of the range. Is considered higher than <paramref name="value"/> if null.</param>
         /// <param name="comparer">The <see cref="IComparer{T}"/> to be used for comparison.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -1231,7 +1373,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsClampedExclusive<T>(T value, T min, T max, IComparer<T> comparer,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
                 FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
@@ -1255,7 +1397,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(result, $"[Value = {value.Format()}; Min = {min.Format()}; Max = {max.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion

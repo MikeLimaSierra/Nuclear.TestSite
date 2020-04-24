@@ -63,6 +63,58 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region StartsWithWithMessage
+
+        [TestMethod]
+        [TestParameters(null, 'x', "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("ax", 'x', "message", 2, false, "message")]
+        [TestParameters("xa", 'x', "message", 3, true, "[String = 'xa'; Value = 'x']")]
+        void StartsWithCharWithMessage(String input1, Char input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.StartsWith(input1, input2, customMessage),
+                (count, result, message), "Test.If.String.StartsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, 'x', "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("ax", 'x', "message", 2, true, "[String = 'ax'; Value = 'x']")]
+        [TestParameters("xa", 'x', "message", 3, false, "message")]
+        void NotStartsWithCharWithMessage(String input1, Char input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.StartsWith(input1, input2, customMessage),
+                (count, result, message), "Test.IfNot.String.StartsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", "message", 4, true, "[String = ''; Value = '']")]
+        [TestParameters("", "xy", "message", 5, false, "message")]
+        void StartsWithStringWithMessage(String input1, String input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.StartsWith(input1, input2, customMessage),
+                (count, result, message), "Test.If.String.StartsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", "message", 4, false, "message")]
+        [TestParameters("", "xy", "message", 5, true, "[String = ''; Value = 'xy']")]
+        void NotStartsWithStringWithMessage(String input1, String input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.StartsWith(input1, input2, customMessage),
+                (count, result, message), "Test.IfNot.String.StartsWith");
+
+        }
+
+        #endregion
+
         #region StartsWithComparison
 
         [TestMethod]
@@ -135,6 +187,62 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region StartsWithComparisonWithMessage
+
+        [TestMethod]
+        [TestParameters(null, 'x', StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("", 'x', (StringComparison) 10, "message", 2, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("ax", 'x', StringComparison.CurrentCulture, "message", 3, false, "message")]
+        [TestParameters("xa", 'x', StringComparison.CurrentCulture, "message", 4, true, "[String = 'xa'; Value = 'x']")]
+        void StartsWithCharComparisonWithMessage(String input1, Char input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.StartsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.If.String.StartsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, 'x', StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("", 'x', (StringComparison) 10, "message", 2, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("ax", 'x', StringComparison.CurrentCulture, "message", 3, true, "[String = 'ax'; Value = 'x']")]
+        [TestParameters("xa", 'x', StringComparison.CurrentCulture, "message", 4, false, "message")]
+        void NotStartsWithCharComparisonWithMessage(String input1, Char input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.StartsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.IfNot.String.StartsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", StringComparison.CurrentCulture, "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, StringComparison.CurrentCulture, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", (StringComparison) 10, "message", 4, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("", "", StringComparison.CurrentCulture, "message", 5, true, "[String = ''; Value = '']")]
+        [TestParameters("", "xy", StringComparison.CurrentCulture, "message", 6, false, "message")]
+        void StartsWithStringComparisonWithMessage(String input1, String input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.StartsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.If.String.StartsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", StringComparison.CurrentCulture, "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, StringComparison.CurrentCulture, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", (StringComparison) 10, "message", 4, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("", "", StringComparison.CurrentCulture, "message", 5, false, "message")]
+        [TestParameters("", "xy", StringComparison.CurrentCulture, "message", 6, true, "[String = ''; Value = 'xy']")]
+        void NotStartsWithStringComparisonWithMessage(String input1, String input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.StartsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.IfNot.String.StartsWith");
+
+        }
+
+        #endregion
+
         #region EndsWith
 
         [TestMethod]
@@ -189,6 +297,58 @@ namespace Nuclear.TestSite.TestSuites {
         void NotEndsWithString(String input1, String input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.String.EndsWith(input1, input2),
+                (count, result, message), "Test.IfNot.String.EndsWith");
+
+        }
+
+        #endregion
+
+        #region EndsWithWithMessage
+
+        [TestMethod]
+        [TestParameters(null, 'x', "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("", 'x', "message", 2, false, "message")]
+        [TestParameters("ax", 'x', "message", 3, true, "[String = 'ax'; Value = 'x']")]
+        void EndsWithCharWithMessage(String input1, Char input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.EndsWith(input1, input2, customMessage),
+                (count, result, message), "Test.If.String.EndsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, 'x', "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("", 'x', "message", 2, true, "[String = ''; Value = 'x']")]
+        [TestParameters("ax", 'x', "message", 3, false, "message")]
+        void NotEndsWithCharWithMessage(String input1, Char input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.EndsWith(input1, input2, customMessage),
+                (count, result, message), "Test.IfNot.String.EndsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", "message", 4, true, "[String = ''; Value = '']")]
+        [TestParameters("", "xy", "message", 5, false, "message")]
+        void EndsWithStringWithMessage(String input1, String input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.EndsWith(input1, input2, customMessage),
+                (count, result, message), "Test.If.String.EndsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", "message", 4, false, "message")]
+        [TestParameters("", "xy", "message", 5, true, "[String = ''; Value = 'xy']")]
+        void NotEndsWithStringWithMessage(String input1, String input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.EndsWith(input1, input2, customMessage),
                 (count, result, message), "Test.IfNot.String.EndsWith");
 
         }
@@ -267,6 +427,62 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region EndsWithComparisonWithMessage
+
+        [TestMethod]
+        [TestParameters(null, 'x', StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("", 'x', (StringComparison) 10, "message", 2, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("xa", 'x', StringComparison.CurrentCulture, "message", 3, false, "message")]
+        [TestParameters("ax", 'x', StringComparison.CurrentCulture, "message", 4, true, "[String = 'ax'; Value = 'x']")]
+        void EndsWithCharComparisonWithMessage(String input1, Char input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.EndsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.If.String.EndsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, 'x', StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters("", 'x', (StringComparison) 10, "message", 2, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("xa", 'x', StringComparison.CurrentCulture, "message", 3, true, "[String = 'xa'; Value = 'x']")]
+        [TestParameters("ax", 'x', StringComparison.CurrentCulture, "message", 4, false, "message")]
+        void NotEndsWithCharComparisonWithMessage(String input1, Char input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.EndsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.IfNot.String.EndsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", StringComparison.CurrentCulture, "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, StringComparison.CurrentCulture, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", (StringComparison) 10, "message", 4, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("", "", StringComparison.CurrentCulture, "message", 5, true, "[String = ''; Value = '']")]
+        [TestParameters("", "xy", StringComparison.CurrentCulture, "message", 6, false, "message")]
+        void EndsWithStringComparisonWithMessage(String input1, String input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.EndsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.If.String.EndsWith");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, StringComparison.CurrentCulture, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "xy", StringComparison.CurrentCulture, "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("axy", null, StringComparison.CurrentCulture, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", (StringComparison) 10, "message", 4, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("", "", StringComparison.CurrentCulture, "message", 5, false, "message")]
+        [TestParameters("", "xy", StringComparison.CurrentCulture, "message", 6, true, "[String = ''; Value = 'xy']")]
+        void NotEndsWithStringComparisonWithMessage(String input1, String input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.EndsWith(input1, input2, input3, customMessage),
+                (count, result, message), "Test.IfNot.String.EndsWith");
+
+        }
+
+        #endregion
+
         #region NullOrEmpty
 
         [TestMethod]
@@ -295,6 +511,30 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region NullOrEmptyWithMessage
+
+        [TestMethod]
+        [TestParameters(null, "message", 1, true, "[String = null]")]
+        [TestParameters(" ", "message", 2, false, "message")]
+        void IsNOEWithMessage(String input, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.IsNullOrEmpty(input, customMessage),
+                (count, result, message), "Test.If.String.IsNullOrEmpty");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, "message", 1, false, "message")]
+        [TestParameters(" ", "message", 2, true, "[String = ' ']")]
+        void IsNotNOEWithMessage(String input, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.IsNullOrEmpty(input, customMessage),
+                (count, result, message), "Test.IfNot.String.IsNullOrEmpty");
+
+        }
+
+        #endregion
+
         #region NullOrWhiteSpace
 
         [TestMethod]
@@ -317,6 +557,30 @@ namespace Nuclear.TestSite.TestSuites {
         void IsNotNOW(String input, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.String.IsNullOrWhiteSpace(input),
+                (count, result, message), "Test.IfNot.String.IsNullOrWhiteSpace");
+
+        }
+
+        #endregion
+
+        #region NullOrWhiteSpaceWithMessage
+
+        [TestMethod]
+        [TestParameters(null, "message", 1, true, "[String = null]")]
+        [TestParameters("content", "message", 2, false, "message")]
+        void IsNOWWithMessage(String input, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.IsNullOrWhiteSpace(input, customMessage),
+                (count, result, message), "Test.If.String.IsNullOrWhiteSpace");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, "message", 1, false, "message")]
+        [TestParameters("content", "message", 2, true, "[String = 'content']")]
+        void IsNotNOWWithMessage(String input, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.IsNullOrWhiteSpace(input, customMessage),
                 (count, result, message), "Test.IfNot.String.IsNullOrWhiteSpace");
 
         }
@@ -365,6 +629,36 @@ namespace Nuclear.TestSite.TestSuites {
 
         #endregion
 
+        #region ContainsWithMessage
+
+        [TestMethod]
+        [TestParameters(null, null, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "abc", "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("abc", null, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", "message", 4, true, "[String = ''; Value = ''; Comparison = 'CurrentCulture']")]
+        [TestParameters("", "abc", "message", 5, false, "message")]
+        void ContainsWithMessage(String input1, String input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.Contains(input1, input2, customMessage),
+                (count, result, message), "Test.If.String.Contains");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "abc", "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("abc", null, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", "message", 4, false, "message")]
+        [TestParameters("", "abc", "message", 5, true, "[String = ''; Value = 'abc'; Comparison = 'CurrentCulture']")]
+        void NotContainsWithMessage(String input1, String input2, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.Contains(input1, input2, customMessage),
+                (count, result, message), "Test.IfNot.String.Contains");
+
+        }
+
+        #endregion
+
         #region ContainsWithComparison
 
         [TestMethod]
@@ -407,6 +701,38 @@ namespace Nuclear.TestSite.TestSuites {
         void NotContainsWithComparison(String input1, String input2, StringComparison input3, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.String.Contains(input1, input2, input3),
+                (count, result, message), "Test.IfNot.String.Contains");
+
+        }
+
+        #endregion
+
+        #region ContainsWithComparisonWithMessage
+
+        [TestMethod]
+        [TestParameters(null, null, (StringComparison) 1000, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "abc", StringComparison.Ordinal, "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("abc", null, StringComparison.Ordinal, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", (StringComparison) 1000, "message", 4, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("", "", StringComparison.InvariantCulture, "message", 5, true, "[String = ''; Value = ''; Comparison = 'InvariantCulture']")]
+        [TestParameters("", "abc", StringComparison.InvariantCulture, "message", 6, false, "message")]
+        void ContainsWithComparisonWithMessage(String input1, String input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.If.String.Contains(input1, input2, input3, customMessage),
+                (count, result, message), "Test.If.String.Contains");
+
+        }
+
+        [TestMethod]
+        [TestParameters(null, null, (StringComparison) 1000, "message", 1, false, "Parameter 'string' is null.")]
+        [TestParameters(null, "abc", StringComparison.Ordinal, "message", 2, false, "Parameter 'string' is null.")]
+        [TestParameters("abc", null, StringComparison.Ordinal, "message", 3, false, "Parameter 'value' is null.")]
+        [TestParameters("", "", (StringComparison) 1000, "message", 4, false, "Parameter 'comparisonType' is out of bounds.")]
+        [TestParameters("", "", StringComparison.InvariantCulture, "message", 5, false, "message")]
+        [TestParameters("", "abc", StringComparison.InvariantCulture, "message", 6, true, "[String = ''; Value = 'abc'; Comparison = 'InvariantCulture']")]
+        void NotContainsWithComparisonWithMessage(String input1, String input2, StringComparison input3, String customMessage, Int32 count, Boolean result, String message) {
+
+            Statics.DDTResultState(() => DummyTest.IfNot.String.Contains(input1, input2, input3, customMessage),
                 (count, result, message), "Test.IfNot.String.Contains");
 
         }

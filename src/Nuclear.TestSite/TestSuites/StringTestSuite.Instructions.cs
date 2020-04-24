@@ -13,6 +13,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="Char"/> to check for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -21,7 +24,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void StartsWith(String @string, Char value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => StartsWith(@string, value, StringComparison.CurrentCulture, _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => StartsWith(@string, value, StringComparison.CurrentCulture, customMessage, _file, _method);
 
         /// <summary>
         /// Tests if a <see cref="String"/> starts with a specific <see cref="Char"/>.
@@ -29,6 +32,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="Char"/> to check for.</param>
         /// <param name="comparisonType">The value defining how strings are compared.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -37,7 +43,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void StartsWith(String @string, Char value, StringComparison comparisonType,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
                 FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
@@ -58,7 +64,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(@string.StartsWith(value, comparisonType), message,
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -66,6 +72,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="String"/> to check for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -74,7 +83,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void StartsWith(String @string, String value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => StartsWith(@string, value, StringComparison.CurrentCulture, _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => StartsWith(@string, value, StringComparison.CurrentCulture, customMessage, _file, _method);
 
         /// <summary>
         /// Tests if a <see cref="String"/> starts with a specific <see cref="String"/>.
@@ -82,6 +91,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="String"/> to check for.</param>
         /// <param name="comparisonType">The value defining how strings are compared.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -90,7 +102,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void StartsWith(String @string, String value, StringComparison comparisonType,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
                 FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
@@ -116,7 +128,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(@string.StartsWith(value, comparisonType), message,
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -128,6 +140,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="Char"/> to check for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -136,7 +151,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void EndsWith(String @string, Char value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => EndsWith(@string, value, StringComparison.CurrentCulture, _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => EndsWith(@string, value, StringComparison.CurrentCulture, customMessage, _file, _method);
 
         /// <summary>
         /// Tests if a <see cref="String"/> ends with a specific <see cref="Char"/>.
@@ -144,6 +159,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="Char"/> to check for.</param>
         /// <param name="comparisonType">The value defining how strings are compared.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -152,7 +170,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void EndsWith(String @string, Char value, StringComparison comparisonType,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
                 FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
@@ -173,7 +191,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(@string.EndsWith(value, comparisonType), message,
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         /// <summary>
@@ -181,6 +199,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="String"/> to check for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -189,7 +210,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void EndsWith(String @string, String value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => EndsWith(@string, value, StringComparison.CurrentCulture, _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => EndsWith(@string, value, StringComparison.CurrentCulture, customMessage, _file, _method);
 
         /// <summary>
         /// Tests if a <see cref="String"/> ends with a specific <see cref="String"/>.
@@ -197,6 +218,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="String"/> to check for.</param>
         /// <param name="comparisonType">The value defining how strings are compared.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -205,7 +229,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void EndsWith(String @string, String value, StringComparison comparisonType,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
                 FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
@@ -231,7 +255,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(@string.EndsWith(value, comparisonType), message,
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion
@@ -242,6 +266,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// Tests if a <see cref="String"/> is null or empty.
         /// </summary>
         /// <param name="string">The <see cref="String"/> to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -250,14 +277,17 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsNullOrEmpty(String @string,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(String.IsNullOrEmpty(@string), $"[String = {@string.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
 
         /// <summary>
         /// Tests if a <see cref="String"/> is null or white spaces.
         /// </summary>
         /// <param name="string">The <see cref="String"/> to be checked.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -266,9 +296,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsNullOrWhiteSpace(String @string,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(String.IsNullOrWhiteSpace(@string), $"[String = {@string.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
 
         #endregion
 
@@ -279,6 +309,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="String"/> to check for.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -287,7 +320,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void Contains(String @string, String value,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => Contains(@string, value, StringComparison.CurrentCulture, _file, _method);
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) => Contains(@string, value, StringComparison.CurrentCulture, customMessage, _file, _method);
 
         /// <summary>
         /// Tests if a <see cref="String"/> contains a specific <see cref="String"/>.
@@ -295,6 +328,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="string">The <see cref="String"/> to be checked.</param>
         /// <param name="value">The <see cref="String"/> to check for.</param>
         /// <param name="comparisonType">The value defining how strings are compared.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -303,7 +339,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void Contains(String @string, String value, StringComparison comparisonType,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
                 FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
@@ -321,7 +357,7 @@ namespace Nuclear.TestSite.TestSuites {
             }
 
             InternalTest(@string.Contains(value, comparisonType), $"[String = {@string.Format()}; Value = {value.Format()}; Comparison = {comparisonType.Format()}]",
-                _file, _method);
+                customMessage, _file, _method);
         }
 
         #endregion

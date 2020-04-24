@@ -11,6 +11,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </summary>
         /// <param name="obj">The object to be checked against <paramref name="_other"/>.</param>
         /// <param name="_other">The object to be checked against <paramref name="obj"/>.</param>
+        /// <param name="customMessage">A custom message that will be used instead of the default message.
+        ///   The message will only be used if the instruction fails on the actual result.
+        ///   The message will not be used if the instruction failed due to faulty input.</param>
         /// <param name="_file">The file name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <param name="_method">The name of the caller. Do not use in methods decorated with <see cref="TestMethodAttribute"/>!</param>
         /// <example>
@@ -19,9 +22,9 @@ namespace Nuclear.TestSite.TestSuites {
         /// </code>
         /// </example>
         public void IsEqual(Object obj, Object _other,
-            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+            String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => InternalTest(ReferenceEquals(obj, _other), String.Format("References {0}equal.", ReferenceEquals(obj, _other) ? "" : "don't "),
-                _file, _method);
+                customMessage, _file, _method);
 
         #endregion
 
