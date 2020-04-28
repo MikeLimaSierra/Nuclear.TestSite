@@ -9,6 +9,7 @@ using Nuclear.Test;
 using Nuclear.Test.Results;
 
 namespace Nuclear.TestSite {
+
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class DummyTestResults : ITestResultSink, ITestResultSource {
 
@@ -23,7 +24,7 @@ namespace Nuclear.TestSite {
 
         #region properties
 
-        internal static DummyTestResults Instance { get; } = new DummyTestResults();
+        public static DummyTestResults Instance { get; } = new DummyTestResults();
 
         public ITestScenario Scenario { get; private set; }
 
@@ -87,4 +88,5 @@ namespace Nuclear.TestSite {
 
     }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
 }

@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Nuclear.TestSite.TestSuites;
 
 namespace Nuclear.TestSite {
+
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public static class DummyTest {
 
@@ -33,4 +34,5 @@ namespace Nuclear.TestSite {
 
     }
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
 }

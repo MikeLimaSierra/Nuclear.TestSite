@@ -11,7 +11,9 @@ using Nuclear.Test;
 using Nuclear.Test.Results;
 
 namespace Nuclear.TestSite {
-    static class Statics {
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    public static class Statics {
 
         #region fields
 
@@ -36,21 +38,21 @@ namespace Nuclear.TestSite {
 
         #region methods
 
-        internal static ITestResultKey GetKey([CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public static ITestResultKey GetKey([CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
             Throw.If.Object.IsNull(_scenario, nameof(_scenario));
             return new TestResultKey(_scenario, Path.GetFileNameWithoutExtension(_file), _method);
         }
 
-        internal static ITestMethodResult GetResults(ITestResultSource results, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        public static ITestMethodResult GetResults(ITestResultSource results, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => results.GetResult(GetKey(_file, _method));
 
-        internal static ITestEntry GetResult(ITestResultSource results, Int32 index, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        public static ITestEntry GetResult(ITestResultSource results, Int32 index, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => results.GetResult(GetKey(_file, _method)).TestEntries[index];
 
-        internal static ITestEntry GetLastResult(ITestResultSource results, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        public static ITestEntry GetLastResult(ITestResultSource results, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => results.GetResult(GetKey(_file, _method)).TestEntries.Last();
 
-        internal static void DDTResultState(Action action, (Int32 count, Boolean result, String message) expected, String instruction,
+        public static void DDTResultState(Action action, (Int32 count, Boolean result, String message) expected, String instruction,
             [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             Test.IfNot.Action.ThrowsException(action, out Exception _, null, _file, _method);
@@ -68,4 +70,6 @@ namespace Nuclear.TestSite {
         #endregion
 
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
 }
