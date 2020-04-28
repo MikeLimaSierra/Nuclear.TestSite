@@ -16,6 +16,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclear.TestSite.uTests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclear.TestSite.iTests", "Nuclear.TestSite.iTests\Nuclear.TestSite.iTests.csproj", "{31B2AD52-9359-4B0D-B9D4-3A27B2331CA5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nuclear.TestSite.Dummies", "Nuclear.TestSite.Dummies\Nuclear.TestSite.Dummies.csproj", "{04448A2F-9120-4360-B304-AB66278AAE52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,12 @@ Global
 		{31B2AD52-9359-4B0D-B9D4-3A27B2331CA5}.Integration|Any CPU.Build.0 = Integration|Any CPU
 		{31B2AD52-9359-4B0D-B9D4-3A27B2331CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31B2AD52-9359-4B0D-B9D4-3A27B2331CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04448A2F-9120-4360-B304-AB66278AAE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04448A2F-9120-4360-B304-AB66278AAE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04448A2F-9120-4360-B304-AB66278AAE52}.Integration|Any CPU.ActiveCfg = Integration|Any CPU
+		{04448A2F-9120-4360-B304-AB66278AAE52}.Integration|Any CPU.Build.0 = Integration|Any CPU
+		{04448A2F-9120-4360-B304-AB66278AAE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04448A2F-9120-4360-B304-AB66278AAE52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
