@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-using Nuclear.TestSite;
-
-namespace Ntt {
+namespace Nuclear.TestSite.TestTypes {
 
     #region testing type inheritance
 

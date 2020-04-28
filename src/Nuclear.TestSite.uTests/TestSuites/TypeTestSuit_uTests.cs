@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Ntt;
+using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite.TestSuites {
     class TypeTestSuit_uTests {
@@ -19,12 +19,12 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> ImplementsGenericData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), typeof(Zero), (1, false, "Type 'Ntt.Zero' is not an interface.") },
-                new Object[] { typeof(Two), typeof(ITwo), (2, true, "Type 'Ntt.Two' implements interface 'Ntt.ITwo'.") },
-                new Object[] { typeof(Two), typeof(IZero), (3, false, "Type 'Ntt.Two' doesn't implement interface 'Ntt.IZero'.") },
-                new Object[] { typeof(Zero), typeof(ITwo), (4, true, "Type 'Ntt.Zero' implements interface 'Ntt.ITwo'.") },
-                new Object[] { typeof(IZero), typeof(IZero), (5, false, "Type 'Ntt.IZero' doesn't implement interface 'Ntt.IZero'.") },
-                new Object[] { typeof(IZero), typeof(ITwo), (6, true, "Type 'Ntt.IZero' implements interface 'Ntt.ITwo'.") },
+                new Object[] { typeof(Zero), typeof(Zero), (1, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.") },
+                new Object[] { typeof(Two), typeof(ITwo), (2, true, "Type 'Nuclear.TestSite.TestTypes.Two' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(Two), typeof(IZero), (3, false, "Type 'Nuclear.TestSite.TestTypes.Two' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.") },
+                new Object[] { typeof(Zero), typeof(ITwo), (4, true, "Type 'Nuclear.TestSite.TestTypes.Zero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(IZero), typeof(IZero), (5, false, "Type 'Nuclear.TestSite.TestTypes.IZero' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.") },
+                new Object[] { typeof(IZero), typeof(ITwo), (6, true, "Type 'Nuclear.TestSite.TestTypes.IZero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.") },
             };
         }
 
@@ -39,12 +39,12 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotImplementsGenericData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), typeof(Zero), (1, false, "Type 'Ntt.Zero' is not an interface.") },
-                new Object[] { typeof(Two), typeof(ITwo), (2, false, "Type 'Ntt.Two' implements interface 'Ntt.ITwo'.") },
-                new Object[] { typeof(Two), typeof(IZero), (3, true, "Type 'Ntt.Two' doesn't implement interface 'Ntt.IZero'.") },
-                new Object[] { typeof(Zero), typeof(ITwo), (4, false, "Type 'Ntt.Zero' implements interface 'Ntt.ITwo'.") },
-                new Object[] { typeof(IZero), typeof(IZero), (5, true, "Type 'Ntt.IZero' doesn't implement interface 'Ntt.IZero'.") },
-                new Object[] { typeof(IZero), typeof(ITwo), (6, false, "Type 'Ntt.IZero' implements interface 'Ntt.ITwo'.") },
+                new Object[] { typeof(Zero), typeof(Zero), (1, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.") },
+                new Object[] { typeof(Two), typeof(ITwo), (2, false, "Type 'Nuclear.TestSite.TestTypes.Two' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(Two), typeof(IZero), (3, true, "Type 'Nuclear.TestSite.TestTypes.Two' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.") },
+                new Object[] { typeof(Zero), typeof(ITwo), (4, false, "Type 'Nuclear.TestSite.TestTypes.Zero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(IZero), typeof(IZero), (5, true, "Type 'Nuclear.TestSite.TestTypes.IZero' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.") },
+                new Object[] { typeof(IZero), typeof(ITwo), (6, false, "Type 'Nuclear.TestSite.TestTypes.IZero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.") },
             };
         }
 
@@ -63,8 +63,8 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> ImplementsGenericWithMessageData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), typeof(Zero), "message", (1, false, "Type 'Ntt.Zero' is not an interface.") },
-                new Object[] { typeof(Two), typeof(ITwo), "message", (2, true, "Type 'Ntt.Two' implements interface 'Ntt.ITwo'.") },
+                new Object[] { typeof(Zero), typeof(Zero), "message", (1, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.") },
+                new Object[] { typeof(Two), typeof(ITwo), "message", (2, true, "Type 'Nuclear.TestSite.TestTypes.Two' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.") },
                 new Object[] { typeof(Two), typeof(IZero), "message", (3, false, "message") },
             };
         }
@@ -80,9 +80,9 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotImplementsGenericWithMessageData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), typeof(Zero), "message", (1, false, "Type 'Ntt.Zero' is not an interface.") },
+                new Object[] { typeof(Zero), typeof(Zero), "message", (1, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.") },
                 new Object[] { typeof(Two), typeof(ITwo), "message", (2, false, "message") },
-                new Object[] { typeof(Two), typeof(IZero), "message", (3, true, "Type 'Ntt.Two' doesn't implement interface 'Ntt.IZero'.") },
+                new Object[] { typeof(Two), typeof(IZero), "message", (3, true, "Type 'Nuclear.TestSite.TestTypes.Two' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -94,12 +94,12 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, null, 1, false, "Parameter 'type' is null.")]
         [TestParameters(null, typeof(Zero), 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, 3, false, "Parameter 'interface' is null.")]
-        [TestParameters(typeof(Zero), typeof(Zero), 4, false, "Type 'Ntt.Zero' is not an interface.")]
-        [TestParameters(typeof(Two), typeof(ITwo), 5, true, "Type 'Ntt.Two' implements interface 'Ntt.ITwo'.")]
-        [TestParameters(typeof(Two), typeof(IZero), 6, false, "Type 'Ntt.Two' doesn't implement interface 'Ntt.IZero'.")]
-        [TestParameters(typeof(Zero), typeof(ITwo), 7, true, "Type 'Ntt.Zero' implements interface 'Ntt.ITwo'.")]
-        [TestParameters(typeof(IZero), typeof(IZero), 8, false, "Type 'Ntt.IZero' doesn't implement interface 'Ntt.IZero'.")]
-        [TestParameters(typeof(IZero), typeof(ITwo), 9, true, "Type 'Ntt.IZero' implements interface 'Ntt.ITwo'.")]
+        [TestParameters(typeof(Zero), typeof(Zero), 4, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.")]
+        [TestParameters(typeof(Two), typeof(ITwo), 5, true, "Type 'Nuclear.TestSite.TestTypes.Two' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.")]
+        [TestParameters(typeof(Two), typeof(IZero), 6, false, "Type 'Nuclear.TestSite.TestTypes.Two' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.")]
+        [TestParameters(typeof(Zero), typeof(ITwo), 7, true, "Type 'Nuclear.TestSite.TestTypes.Zero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.")]
+        [TestParameters(typeof(IZero), typeof(IZero), 8, false, "Type 'Nuclear.TestSite.TestTypes.IZero' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.")]
+        [TestParameters(typeof(IZero), typeof(ITwo), 9, true, "Type 'Nuclear.TestSite.TestTypes.IZero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.")]
         void Implements(Type input1, Type input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.If.Type.Implements(input1, input2),
@@ -111,12 +111,12 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, null, 1, false, "Parameter 'type' is null.")]
         [TestParameters(null, typeof(Zero), 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, 3, false, "Parameter 'interface' is null.")]
-        [TestParameters(typeof(Zero), typeof(Zero), 4, false, "Type 'Ntt.Zero' is not an interface.")]
-        [TestParameters(typeof(Two), typeof(ITwo), 5, false, "Type 'Ntt.Two' implements interface 'Ntt.ITwo'.")]
-        [TestParameters(typeof(Two), typeof(IZero), 6, true, "Type 'Ntt.Two' doesn't implement interface 'Ntt.IZero'.")]
-        [TestParameters(typeof(Zero), typeof(ITwo), 7, false, "Type 'Ntt.Zero' implements interface 'Ntt.ITwo'.")]
-        [TestParameters(typeof(IZero), typeof(IZero), 8, true, "Type 'Ntt.IZero' doesn't implement interface 'Ntt.IZero'.")]
-        [TestParameters(typeof(IZero), typeof(ITwo), 9, false, "Type 'Ntt.IZero' implements interface 'Ntt.ITwo'.")]
+        [TestParameters(typeof(Zero), typeof(Zero), 4, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.")]
+        [TestParameters(typeof(Two), typeof(ITwo), 5, false, "Type 'Nuclear.TestSite.TestTypes.Two' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.")]
+        [TestParameters(typeof(Two), typeof(IZero), 6, true, "Type 'Nuclear.TestSite.TestTypes.Two' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.")]
+        [TestParameters(typeof(Zero), typeof(ITwo), 7, false, "Type 'Nuclear.TestSite.TestTypes.Zero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.")]
+        [TestParameters(typeof(IZero), typeof(IZero), 8, true, "Type 'Nuclear.TestSite.TestTypes.IZero' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.")]
+        [TestParameters(typeof(IZero), typeof(ITwo), 9, false, "Type 'Nuclear.TestSite.TestTypes.IZero' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.")]
         void NotImplements(Type input1, Type input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.Type.Implements(input1, input2),
@@ -132,8 +132,8 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, null, "message", 1, false, "Parameter 'type' is null.")]
         [TestParameters(null, typeof(Zero), "message", 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, "message", 3, false, "Parameter 'interface' is null.")]
-        [TestParameters(typeof(Zero), typeof(Zero), "message", 4, false, "Type 'Ntt.Zero' is not an interface.")]
-        [TestParameters(typeof(Two), typeof(ITwo), "message", 5, true, "Type 'Ntt.Two' implements interface 'Ntt.ITwo'.")]
+        [TestParameters(typeof(Zero), typeof(Zero), "message", 4, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.")]
+        [TestParameters(typeof(Two), typeof(ITwo), "message", 5, true, "Type 'Nuclear.TestSite.TestTypes.Two' implements interface 'Nuclear.TestSite.TestTypes.ITwo'.")]
         [TestParameters(typeof(Two), typeof(IZero), "message", 6, false, "message")]
         void ImplementsWithMessage(Type input1, Type input2, String customMessage, Int32 count, Boolean result, String message) {
 
@@ -146,9 +146,9 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, null, "message", 1, false, "Parameter 'type' is null.")]
         [TestParameters(null, typeof(Zero), "message", 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, "message", 3, false, "Parameter 'interface' is null.")]
-        [TestParameters(typeof(Zero), typeof(Zero), "message", 4, false, "Type 'Ntt.Zero' is not an interface.")]
+        [TestParameters(typeof(Zero), typeof(Zero), "message", 4, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is not an interface.")]
         [TestParameters(typeof(Two), typeof(ITwo), "message", 5, false, "message")]
-        [TestParameters(typeof(Two), typeof(IZero), "message", 6, true, "Type 'Ntt.Two' doesn't implement interface 'Ntt.IZero'.")]
+        [TestParameters(typeof(Two), typeof(IZero), "message", 6, true, "Type 'Nuclear.TestSite.TestTypes.Two' doesn't implement interface 'Nuclear.TestSite.TestTypes.IZero'.")]
         void NotImplementsWithMessage(Type input1, Type input2, String customMessage, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.Type.Implements(input1, input2, customMessage),
@@ -171,10 +171,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsSubClassGenericData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), typeof(Zero), (1, false, "Type 'Ntt.Zero' is no subclass of 'Ntt.Zero'.") },
-                new Object[] { typeof(DerivesFromZero), typeof(Zero), (2, true, "Type 'Ntt.DerivesFromZero' is subclass of 'Ntt.Zero'.") },
-                new Object[] { typeof(DerivesFromZero), typeof(ITwo), (3, false, "Type 'Ntt.ITwo' is not a class.") },
-                new Object[] { typeof(ITwo), typeof(Zero), (4, false, "Type 'Ntt.ITwo' is not a class.") },
+                new Object[] { typeof(Zero), typeof(Zero), (1, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is no subclass of 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(DerivesFromZero), typeof(Zero), (2, true, "Type 'Nuclear.TestSite.TestTypes.DerivesFromZero' is subclass of 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(DerivesFromZero), typeof(ITwo), (3, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
+                new Object[] { typeof(ITwo), typeof(Zero), (4, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
             };
         }
 
@@ -189,10 +189,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsSubClassGenericData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), typeof(Zero), (1, true, "Type 'Ntt.Zero' is no subclass of 'Ntt.Zero'.") },
-                new Object[] { typeof(DerivesFromZero), typeof(Zero), (2, false, "Type 'Ntt.DerivesFromZero' is subclass of 'Ntt.Zero'.") },
-                new Object[] { typeof(DerivesFromZero), typeof(ITwo), (3, false, "Type 'Ntt.ITwo' is not a class.") },
-                new Object[] { typeof(ITwo), typeof(Zero), (4, false, "Type 'Ntt.ITwo' is not a class.") },
+                new Object[] { typeof(Zero), typeof(Zero), (1, true, "Type 'Nuclear.TestSite.TestTypes.Zero' is no subclass of 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(DerivesFromZero), typeof(Zero), (2, false, "Type 'Nuclear.TestSite.TestTypes.DerivesFromZero' is subclass of 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(DerivesFromZero), typeof(ITwo), (3, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
+                new Object[] { typeof(ITwo), typeof(Zero), (4, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
             };
         }
 
@@ -212,9 +212,9 @@ namespace Nuclear.TestSite.TestSuites {
         IEnumerable<Object[]> IsSubClassGenericWithMessageData() {
             return new List<Object[]>() {
                 new Object[] { typeof(Zero), typeof(Zero), "message", (1, false, "message") },
-                new Object[] { typeof(DerivesFromZero), typeof(Zero), "message", (2, true, "Type 'Ntt.DerivesFromZero' is subclass of 'Ntt.Zero'.") },
-                new Object[] { typeof(DerivesFromZero), typeof(ITwo), "message", (3, false, "Type 'Ntt.ITwo' is not a class.") },
-                new Object[] { typeof(ITwo), typeof(Zero), "message", (4, false, "Type 'Ntt.ITwo' is not a class.") },
+                new Object[] { typeof(DerivesFromZero), typeof(Zero), "message", (2, true, "Type 'Nuclear.TestSite.TestTypes.DerivesFromZero' is subclass of 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(DerivesFromZero), typeof(ITwo), "message", (3, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
+                new Object[] { typeof(ITwo), typeof(Zero), "message", (4, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
             };
         }
 
@@ -229,10 +229,10 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsSubClassGenericWithMessageData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), typeof(Zero), "message", (1, true, "Type 'Ntt.Zero' is no subclass of 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), typeof(Zero), "message", (1, true, "Type 'Nuclear.TestSite.TestTypes.Zero' is no subclass of 'Nuclear.TestSite.TestTypes.Zero'.") },
                 new Object[] { typeof(DerivesFromZero), typeof(Zero), "message", (2, false, "message") },
-                new Object[] { typeof(DerivesFromZero), typeof(ITwo), "message", (3, false, "Type 'Ntt.ITwo' is not a class.") },
-                new Object[] { typeof(ITwo), typeof(Zero), "message", (4, false, "Type 'Ntt.ITwo' is not a class.") },
+                new Object[] { typeof(DerivesFromZero), typeof(ITwo), "message", (3, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
+                new Object[] { typeof(ITwo), typeof(Zero), "message", (4, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.") },
             };
         }
 
@@ -244,10 +244,10 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, null, 1, false, "Parameter 'type' is null.")]
         [TestParameters(null, typeof(Zero), 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, 3, false, "Parameter 'baseType' is null.")]
-        [TestParameters(typeof(Zero), typeof(Zero), 4, false, "Type 'Ntt.Zero' is no subclass of 'Ntt.Zero'.")]
-        [TestParameters(typeof(DerivesFromZero), typeof(Zero), 5, true, "Type 'Ntt.DerivesFromZero' is subclass of 'Ntt.Zero'.")]
-        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), 6, false, "Type 'Ntt.ITwo' is not a class.")]
-        [TestParameters(typeof(ITwo), typeof(Zero), 7, false, "Type 'Ntt.ITwo' is not a class.")]
+        [TestParameters(typeof(Zero), typeof(Zero), 4, false, "Type 'Nuclear.TestSite.TestTypes.Zero' is no subclass of 'Nuclear.TestSite.TestTypes.Zero'.")]
+        [TestParameters(typeof(DerivesFromZero), typeof(Zero), 5, true, "Type 'Nuclear.TestSite.TestTypes.DerivesFromZero' is subclass of 'Nuclear.TestSite.TestTypes.Zero'.")]
+        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), 6, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
+        [TestParameters(typeof(ITwo), typeof(Zero), 7, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
         void IsSubClass(Type input1, Type input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.If.Type.IsSubClass(input1, input2),
@@ -259,10 +259,10 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, null, 1, false, "Parameter 'type' is null.")]
         [TestParameters(null, typeof(Zero), 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, 3, false, "Parameter 'baseType' is null.")]
-        [TestParameters(typeof(Zero), typeof(Zero), 4, true, "Type 'Ntt.Zero' is no subclass of 'Ntt.Zero'.")]
-        [TestParameters(typeof(DerivesFromZero), typeof(Zero), 5, false, "Type 'Ntt.DerivesFromZero' is subclass of 'Ntt.Zero'.")]
-        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), 6, false, "Type 'Ntt.ITwo' is not a class.")]
-        [TestParameters(typeof(ITwo), typeof(Zero), 7, false, "Type 'Ntt.ITwo' is not a class.")]
+        [TestParameters(typeof(Zero), typeof(Zero), 4, true, "Type 'Nuclear.TestSite.TestTypes.Zero' is no subclass of 'Nuclear.TestSite.TestTypes.Zero'.")]
+        [TestParameters(typeof(DerivesFromZero), typeof(Zero), 5, false, "Type 'Nuclear.TestSite.TestTypes.DerivesFromZero' is subclass of 'Nuclear.TestSite.TestTypes.Zero'.")]
+        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), 6, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
+        [TestParameters(typeof(ITwo), typeof(Zero), 7, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
         void NotIsSubClass(Type input1, Type input2, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.Type.IsSubClass(input1, input2),
@@ -279,9 +279,9 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, typeof(Zero), "message", 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, "message", 3, false, "Parameter 'baseType' is null.")]
         [TestParameters(typeof(Zero), typeof(Zero), "message", 4, false, "message")]
-        [TestParameters(typeof(DerivesFromZero), typeof(Zero), "message", 5, true, "Type 'Ntt.DerivesFromZero' is subclass of 'Ntt.Zero'.")]
-        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), "message", 6, false, "Type 'Ntt.ITwo' is not a class.")]
-        [TestParameters(typeof(ITwo), typeof(Zero), "message", 7, false, "Type 'Ntt.ITwo' is not a class.")]
+        [TestParameters(typeof(DerivesFromZero), typeof(Zero), "message", 5, true, "Type 'Nuclear.TestSite.TestTypes.DerivesFromZero' is subclass of 'Nuclear.TestSite.TestTypes.Zero'.")]
+        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), "message", 6, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
+        [TestParameters(typeof(ITwo), typeof(Zero), "message", 7, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
         void IsSubClassWithMessage(Type input1, Type input2, String customMessage, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.If.Type.IsSubClass(input1, input2, customMessage),
@@ -293,10 +293,10 @@ namespace Nuclear.TestSite.TestSuites {
         [TestParameters(null, null, "message", 1, false, "Parameter 'type' is null.")]
         [TestParameters(null, typeof(Zero), "message", 2, false, "Parameter 'type' is null.")]
         [TestParameters(typeof(Zero), null, "message", 3, false, "Parameter 'baseType' is null.")]
-        [TestParameters(typeof(Zero), typeof(Zero), "message", 4, true, "Type 'Ntt.Zero' is no subclass of 'Ntt.Zero'.")]
+        [TestParameters(typeof(Zero), typeof(Zero), "message", 4, true, "Type 'Nuclear.TestSite.TestTypes.Zero' is no subclass of 'Nuclear.TestSite.TestTypes.Zero'.")]
         [TestParameters(typeof(DerivesFromZero), typeof(Zero), "message", 5, false, "message")]
-        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), "message", 6, false, "Type 'Ntt.ITwo' is not a class.")]
-        [TestParameters(typeof(ITwo), typeof(Zero), "message", 7, false, "Type 'Ntt.ITwo' is not a class.")]
+        [TestParameters(typeof(DerivesFromZero), typeof(ITwo), "message", 6, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
+        [TestParameters(typeof(ITwo), typeof(Zero), "message", 7, false, "Type 'Nuclear.TestSite.TestTypes.ITwo' is not a class.")]
         void NotIsSubClassWithMessage(Type input1, Type input2, String customMessage, Int32 count, Boolean result, String message) {
 
             Statics.DDTResultState(() => DummyTest.IfNot.Type.IsSubClass(input1, input2, customMessage),

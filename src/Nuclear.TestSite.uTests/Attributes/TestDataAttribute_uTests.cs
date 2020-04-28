@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Ntt;
+using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite {
     class TestDataAttribute_uTests {

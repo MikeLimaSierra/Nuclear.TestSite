@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-using Ntt;
+using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite.TestSuites {
     class EnumerableTestSuite_uTests {

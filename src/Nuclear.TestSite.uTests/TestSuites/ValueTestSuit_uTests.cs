@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-using Ntt;
+using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite.TestSuites {
     class ValueTestSuit_uTests {
@@ -22,21 +22,21 @@ namespace Nuclear.TestSite.TestSuites {
             return new List<Object[]>() {
                 new Object[] { typeof(DummyIEquatableT), null, null, (1, true, "[Left = null; Right = null]") },
                 new Object[] { typeof(DummyIEquatableT), null, new DummyIEquatableT(0), (2, false, "('GenericEqualityComparer`1') [Left = null; Right = '0']") },
-                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(0), null, (3, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]") },
-                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(0), (4, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']") },
-                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(5), (5, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(0), null, (3, false, "('Nuclear.TestSite.TestTypes.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(0), (4, false, "('Nuclear.TestSite.TestTypes.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(5), (5, true, "('Nuclear.TestSite.TestTypes.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']") },
 
                 new Object[] { typeof(DummyIComparableT), null, null, (6, true, "[Left = null; Right = null]") },
                 new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), (7, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
                 new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, (8, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
-                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(0), (9, false, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']") },
-                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(5), (10, true, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(0), (9, false, "('Nuclear.TestSite.TestTypes.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(5), (10, true, "('Nuclear.TestSite.TestTypes.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']") },
 
                 new Object[] { typeof(DummyIComparable), null, null, (11, true, "[Left = null; Right = null]") },
                 new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), (12, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
                 new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, (13, false, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
-                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(0), (14, false, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '0']") },
-                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(5), (15, true, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '5']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(0), (14, false, "('Nuclear.TestSite.TestTypes.DummyIComparable'.IComparable) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(5), (15, true, "('Nuclear.TestSite.TestTypes.DummyIComparable'.IComparable) [Left = '5'; Right = '5']") },
 
                 new Object[] { typeof(Dummy), null, null, (16, true, "[Left = null; Right = null]") },
                 new Object[] { typeof(Dummy), null, new Dummy(0), (17, false, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
@@ -59,21 +59,21 @@ namespace Nuclear.TestSite.TestSuites {
             return new List<Object[]>() {
                 new Object[] { typeof(DummyIEquatableT), null, null, (1, false, "[Left = null; Right = null]") },
                 new Object[] { typeof(DummyIEquatableT), null, new DummyIEquatableT(0), (2, true, "('GenericEqualityComparer`1') [Left = null; Right = '0']") },
-                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(0), null, (3, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]") },
-                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(0), (4, true, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']") },
-                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(5), (5, false, "('Ntt.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(0), null, (3, true, "('Nuclear.TestSite.TestTypes.DummyIEquatableT'.IEquatable<T>) [Left = '0'; Right = null]") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(0), (4, true, "('Nuclear.TestSite.TestTypes.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIEquatableT), new DummyIEquatableT(5), new DummyIEquatableT(5), (5, false, "('Nuclear.TestSite.TestTypes.DummyIEquatableT'.IEquatable<T>) [Left = '5'; Right = '5']") },
 
                 new Object[] { typeof(DummyIComparableT), null, null, (6, false, "[Left = null; Right = null]") },
                 new Object[] { typeof(DummyIComparableT), null, new DummyIComparableT(0), (7, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
                 new Object[] { typeof(DummyIComparableT), new DummyIComparableT(0), null, (8, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
-                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(0), (9, true, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']") },
-                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(5), (10, false, "('Ntt.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(0), (9, true, "('Nuclear.TestSite.TestTypes.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparableT), new DummyIComparableT(5), new DummyIComparableT(5), (10, false, "('Nuclear.TestSite.TestTypes.DummyIComparableT'.IComparable<T>) [Left = '5'; Right = '5']") },
 
                 new Object[] { typeof(DummyIComparable), null, null, (11, false, "[Left = null; Right = null]") },
                 new Object[] { typeof(DummyIComparable), null, new DummyIComparable(0), (12, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },
                 new Object[] { typeof(DummyIComparable), new DummyIComparable(0), null, (13, true, "('ObjectEqualityComparer`1') [Left = '0'; Right = null]") },
-                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(0), (14, true, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '0']") },
-                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(5), (15, false, "('Ntt.DummyIComparable'.IComparable) [Left = '5'; Right = '5']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(0), (14, true, "('Nuclear.TestSite.TestTypes.DummyIComparable'.IComparable) [Left = '5'; Right = '0']") },
+                new Object[] { typeof(DummyIComparable), new DummyIComparable(5), new DummyIComparable(5), (15, false, "('Nuclear.TestSite.TestTypes.DummyIComparable'.IComparable) [Left = '5'; Right = '5']") },
 
                 new Object[] { typeof(Dummy), null, null, (16, false, "[Left = null; Right = null]") },
                 new Object[] { typeof(Dummy), null, new Dummy(0), (17, true, "('ObjectEqualityComparer`1') [Left = null; Right = '0']") },

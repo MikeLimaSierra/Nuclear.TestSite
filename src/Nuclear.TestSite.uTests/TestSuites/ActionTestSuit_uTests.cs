@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
-using Ntt;
+using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite.TestSuites {
     class ActionTestSuit_uTests {

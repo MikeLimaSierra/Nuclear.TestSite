@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Ntt;
+using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite.TestSuites {
     class ObjectTestSuit_uTests {
@@ -67,11 +67,11 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsOfTypeGenericData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), new Zero(), (1, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new DerivesFromZero(), (2, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new Two(), (3, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(ITwo), new Two(), (4, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { typeof(IZero), new Two(), (5, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { typeof(Zero), new Zero(), (1, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (2, true, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (3, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (4, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (5, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -86,11 +86,11 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotIsOfTypeGenericData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), new Zero(), (1, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new DerivesFromZero(), (2, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new Two(), (3, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(ITwo), new Two(), (4, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { typeof(IZero), new Two(), (5, true, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { typeof(Zero), new Zero(), (1, false, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (2, false, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (3, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (4, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (5, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -109,7 +109,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> IsOfTypeGenericWithMessageData() {
             return new List<Object[]>() {
-                new Object[] { typeof(Zero), new Zero(), "message", (1, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new Zero(), "message", (1, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
                 new Object[] { typeof(Zero), new Two(), "message", (2, false, "message") },
             };
         }
@@ -126,7 +126,7 @@ namespace Nuclear.TestSite.TestSuites {
         IEnumerable<Object[]> NotIsOfTypeGenericWithMessageData() {
             return new List<Object[]>() {
                 new Object[] { typeof(Zero), new Zero(), "message", (1, false, "message") },
-                new Object[] { typeof(Zero), new Two(), "message", (2, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), "message", (2, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
             };
         }
 
@@ -148,11 +148,11 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, null, (1, false, "Parameter 'object' is null.") },
                 new Object[] { null, typeof(Zero), (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, (3, false, "Parameter 'type' is null.") },
-                new Object[] { new Zero(), typeof(Zero), (4, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new DerivesFromZero(), typeof(Zero), (5, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(Zero), (6, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(ITwo), (7, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { new Two(), typeof(IZero), (8, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { new Zero(), typeof(Zero), (4, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new DerivesFromZero(), typeof(Zero), (5, true, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(Zero), (6, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(ITwo), (7, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { new Two(), typeof(IZero), (8, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -170,11 +170,11 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, null, (1, false, "Parameter 'object' is null.") },
                 new Object[] { null, typeof(Zero), (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, (3, false, "Parameter 'type' is null.") },
-                new Object[] { new Zero(), typeof(Zero), (4, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new DerivesFromZero(), typeof(Zero), (5, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(Zero), (6, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(ITwo), (7, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { new Two(), typeof(IZero), (8, true, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { new Zero(), typeof(Zero), (4, false, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new DerivesFromZero(), typeof(Zero), (5, false, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(Zero), (6, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(ITwo), (7, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { new Two(), typeof(IZero), (8, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -196,7 +196,7 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, null, "message", (1, false, "Parameter 'object' is null.") },
                 new Object[] { null, typeof(Zero), "message", (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, "message", (3, false, "Parameter 'type' is null.") },
-                new Object[] { new Zero(), typeof(Zero), "message", (4, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { new Zero(), typeof(Zero), "message", (4, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
                 new Object[] { new Two(), typeof(Zero), "message", (5, false, "message") },
             };
         }
@@ -216,7 +216,7 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, typeof(Zero), "message", (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, "message", (3, false, "Parameter 'type' is null.") },
                 new Object[] { new Zero(), typeof(Zero), "message", (4, false, "message") },
-                new Object[] { new Two(), typeof(Zero), "message", (5, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
+                new Object[] { new Two(), typeof(Zero), "message", (5, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
             };
         }
 
@@ -236,11 +236,11 @@ namespace Nuclear.TestSite.TestSuites {
         IEnumerable<Object[]> IsOfExactTypeGenericData() {
             return new List<Object[]>() {
                 new Object[] { typeof(Zero), null, (1, false, "Parameter 'object' is null.") },
-                new Object[] { typeof(Zero), new Zero(), (2, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new DerivesFromZero(), (3, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new Two(), (4, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(ITwo), new Two(), (5, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { typeof(IZero), new Two(), (6, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { typeof(Zero), new Zero(), (2, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (3, false, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (4, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (5, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (6, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -256,11 +256,11 @@ namespace Nuclear.TestSite.TestSuites {
         IEnumerable<Object[]> NotIsOfExactTypeGenericData() {
             return new List<Object[]>() {
                 new Object[] { typeof(Zero), null, (1, false, "Parameter 'object' is null.") },
-                new Object[] { typeof(Zero), new Zero(), (2, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new DerivesFromZero(), (3, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(Zero), new Two(), (4, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { typeof(ITwo), new Two(), (5, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { typeof(IZero), new Two(), (6, true, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { typeof(Zero), new Zero(), (2, false, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), (3, true, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(Zero), new Two(), (4, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { typeof(ITwo), new Two(), (5, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { typeof(IZero), new Two(), (6, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -280,7 +280,7 @@ namespace Nuclear.TestSite.TestSuites {
         IEnumerable<Object[]> IsOfExactTypeGenericWithMessageData() {
             return new List<Object[]>() {
                 new Object[] { typeof(Zero), null, "message", (1, false, "Parameter 'object' is null.") },
-                new Object[] { typeof(Zero), new Zero(), "message", (2, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new Zero(), "message", (2, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
                 new Object[] { typeof(Zero), new DerivesFromZero(), "message", (3, false, "message") },
             };
         }
@@ -298,7 +298,7 @@ namespace Nuclear.TestSite.TestSuites {
             return new List<Object[]>() {
                 new Object[] { typeof(Zero), null, "message", (1, false, "Parameter 'object' is null.") },
                 new Object[] { typeof(Zero), new Zero(), "message", (2, false, "message") },
-                new Object[] { typeof(Zero), new DerivesFromZero(), "message", (3, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { typeof(Zero), new DerivesFromZero(), "message", (3, true, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
             };
         }
 
@@ -320,11 +320,11 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, null, (1, false, "Parameter 'object' is null.") },
                 new Object[] { null, typeof(Zero), (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, (3, false, "Parameter 'type' is null.") },
-                new Object[] { new Zero(), typeof(Zero), (4, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new DerivesFromZero(), typeof(Zero), (5, false, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(Zero), (6, false, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(ITwo), (7, false, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { new Two(), typeof(IZero), (8, false, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { new Zero(), typeof(Zero), (4, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new DerivesFromZero(), typeof(Zero), (5, false, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(Zero), (6, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(ITwo), (7, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { new Two(), typeof(IZero), (8, false, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -342,11 +342,11 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, null, (1, false, "Parameter 'object' is null.") },
                 new Object[] { null, typeof(Zero), (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, (3, false, "Parameter 'type' is null.") },
-                new Object[] { new Zero(), typeof(Zero), (4, false, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new DerivesFromZero(), typeof(Zero), (5, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(Zero), (6, true, "Object is 'Ntt.Two'. Given type is 'Ntt.Zero'.") },
-                new Object[] { new Two(), typeof(ITwo), (7, true, "Object is 'Ntt.Two'. Given type is 'Ntt.ITwo'.") },
-                new Object[] { new Two(), typeof(IZero), (8, true, "Object is 'Ntt.Two'. Given type is 'Ntt.IZero'.") },
+                new Object[] { new Zero(), typeof(Zero), (4, false, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new DerivesFromZero(), typeof(Zero), (5, true, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(Zero), (6, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
+                new Object[] { new Two(), typeof(ITwo), (7, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.ITwo'.") },
+                new Object[] { new Two(), typeof(IZero), (8, true, "Object is 'Nuclear.TestSite.TestTypes.Two'. Given type is 'Nuclear.TestSite.TestTypes.IZero'.") },
             };
         }
 
@@ -368,7 +368,7 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, null, "message", (1, false, "Parameter 'object' is null.") },
                 new Object[] { null, typeof(Zero), "message", (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, "message", (3, false, "Parameter 'type' is null.") },
-                new Object[] { new Zero(), typeof(Zero), "message", (4, true, "Object is 'Ntt.Zero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { new Zero(), typeof(Zero), "message", (4, true, "Object is 'Nuclear.TestSite.TestTypes.Zero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
                 new Object[] { new DerivesFromZero(), typeof(Zero), "message", (5, false, "message") },
             };
         }
@@ -388,7 +388,7 @@ namespace Nuclear.TestSite.TestSuites {
                 new Object[] { null, typeof(Zero), "message", (2, false, "Parameter 'object' is null.") },
                 new Object[] { new Zero(), null, "message", (3, false, "Parameter 'type' is null.") },
                 new Object[] { new Zero(), typeof(Zero), "message", (4, false, "message") },
-                new Object[] { new DerivesFromZero(), typeof(Zero), "message", (5, true, "Object is 'Ntt.DerivesFromZero'. Given type is 'Ntt.Zero'.") },
+                new Object[] { new DerivesFromZero(), typeof(Zero), "message", (5, true, "Object is 'Nuclear.TestSite.TestTypes.DerivesFromZero'. Given type is 'Nuclear.TestSite.TestTypes.Zero'.") },
             };
         }
 
