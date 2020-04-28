@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+using Nuclear.TestSite.TestComparers;
 using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite.TestSuites {

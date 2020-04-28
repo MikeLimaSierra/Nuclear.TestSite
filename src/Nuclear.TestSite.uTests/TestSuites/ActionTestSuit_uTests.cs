@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
+using Nuclear.TestSite.TestComparers;
 using Nuclear.TestSite.TestTypes;
 
 namespace Nuclear.TestSite.TestSuites {
