@@ -4,4 +4,4 @@
 [Pp]ublish
 [Pp]ackages
 *.user
-*.snk
+src/KeyPair.snk

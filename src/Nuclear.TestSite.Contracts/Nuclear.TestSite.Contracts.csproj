@@ -4,6 +4,8 @@
     <TargetFramework>netstandard1.0</TargetFramework>
     <RootNamespace>Nuclear.TestSite</RootNamespace>
     <Version>2.0.0</Version>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+    <FileVersion>2.0.0</FileVersion>
   </PropertyGroup>
   
   <Import Project="..\Configurations.targets" />
@@ -20,5 +22,9 @@
       <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Extensions\AnyCPU\$(Configuration)\netstandard1.0\Nuclear.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <Target Condition="'$(Configuration)' == 'Release'" Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="publish.bat" />
+  </Target>
 
 </Project>
