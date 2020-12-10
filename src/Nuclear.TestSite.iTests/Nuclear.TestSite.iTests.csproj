@@ -33,9 +33,5 @@
       <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Test.dll</HintPath>
     </Reference>
   </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\Nuclear.TestSite.uTests\Nuclear.TestSite.uTests.csproj" />
-  </ItemGroup>
 
 </Project>
