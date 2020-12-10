@@ -9,8 +9,8 @@
   
   <ItemGroup Condition="'$(Configuration)' == 'Release'">
     <PackageReference Include="Nuclear.Assemblies" Version="1.0.0" />
-    <PackageReference Include="Nuclear.Test" Version="2.0.0" />
-    <PackageReference Include="Nuclear.TestSite" Version="2.0.0" />
+    <PackageReference Include="Nuclear.Test" Version="2.0.0-beta2" />
+    <PackageReference Include="Nuclear.TestSite" Version="2.0.1" />
     <PackageReference Include="Nuclear.TestSite.Dummies" Version="2.0.0" />
   </ItemGroup>
   
@@ -18,16 +18,16 @@
     <ProjectReference Include="..\Nuclear.TestSite\Nuclear.TestSite.csproj" />
     <ProjectReference Include="..\Nuclear.TestSite.Dummies\Nuclear.TestSite.Dummies.csproj" />
     <Reference Include="Nuclear.Exceptions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Exceptions\AnyCPU\$(Configuration)\netstandard1.0\Nuclear.Exceptions.dll</HintPath>
+      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Exceptions\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Exceptions.dll</HintPath>
     </Reference>
     <Reference Include="Nuclear.Extensions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Extensions\AnyCPU\$(Configuration)\netstandard1.0\Nuclear.Extensions.dll</HintPath>
+      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Extensions\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Nuclear.Assemblies">
       <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Assemblies\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Assemblies.dll</HintPath>
     </Reference>
     <Reference Include="Nuclear.Test.Contracts">
-      <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard1.3\Nuclear.Test.Contracts.dll</HintPath>
+      <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Test.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="Nuclear.Test">
       <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Test.dll</HintPath>
