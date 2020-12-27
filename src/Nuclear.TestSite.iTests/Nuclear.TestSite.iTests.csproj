@@ -8,10 +8,10 @@
   <Import Project="..\Configurations.targets" />
   
   <ItemGroup Condition="'$(Configuration)' == 'Release'">
-    <PackageReference Include="Nuclear.Assemblies" Version="1.0.0" />
-    <PackageReference Include="Nuclear.Test" Version="2.0.0-beta3" />
+    <PackageReference Include="Nuclear.Assemblies" Version="1.1.0" />
+    <PackageReference Include="Nuclear.Test.Contracts" Version="2.0.0-rc2" />
     <PackageReference Include="Nuclear.TestSite" Version="2.0.1" />
-    <PackageReference Include="Nuclear.TestSite.Dummies" Version="2.0.0" />
+    <PackageReference Include="Nuclear.TestSite.Dummies" Version="2.0.0-rc2" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Integration'">
@@ -28,9 +28,6 @@
     </Reference>
     <Reference Include="Nuclear.Test.Contracts">
       <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Test.Contracts.dll</HintPath>
-    </Reference>
-    <Reference Include="Nuclear.Test">
-      <HintPath>..\..\..\Nuclear.Test\bin\Nuclear.Test\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Test.dll</HintPath>
     </Reference>
   </ItemGroup>
 
