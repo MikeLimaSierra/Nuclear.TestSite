@@ -27,7 +27,8 @@ namespace Nuclear.TestSite {
 
         #region methods
 
-        public static void Note(String note, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
+        public static void Note(String note,
+            [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)
             => DummyTestResults.Instance.AddNote(note, Path.GetFileNameWithoutExtension(_file), _method);
 
         #endregion

@@ -38,9 +38,10 @@ namespace Nuclear.TestSite {
 
         #region methods
 
-        public static ITestResultKey GetKey([CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
+        public static IResultKey GetKey([CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
             Throw.If.Object.IsNull(_scenario, nameof(_scenario));
-            return new TestResultKey(_scenario, Path.GetFileNameWithoutExtension(_file), _method);
+
+            return new ResultKey(_scenario, Path.GetFileNameWithoutExtension(_file), _method);
         }
 
         public static ITestMethodResult GetResults(ITestResultSource results, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null)

@@ -15,10 +15,8 @@ namespace Nuclear.TestSite {
 
         #region fields
 
-        private ConcurrentDictionary<ITestResultKey, ITestMethodResult> _results { get; } =
-            new ConcurrentDictionary<ITestResultKey, ITestMethodResult>(DynamicEqualityComparer.FromIEquatable<ITestResultKey>());
-
-        private static readonly IEqualityComparer<ITestResultKey> _comparer = DynamicEqualityComparer.FromIEquatable<ITestResultKey>();
+        private ConcurrentDictionary<IResultKey, ITestMethodResult> _results =
+            new ConcurrentDictionary<IResultKey, ITestMethodResult>(DynamicEqualityComparer.FromIEquatable<IResultKey>());
 
         #endregion
 
@@ -32,57 +30,66 @@ namespace Nuclear.TestSite {
 
         #region methods
 
+        public void Add(IResultKey key, ITestMethodResult results) => _results.AddOrUpdate(key, results, (_, __) => results);
+
+        public void Add(IEnumerable<KeyValuePair<IResultKey, ITestMethodResult>> results) {
+            foreach(KeyValuePair<IResultKey, ITestMethodResult> result in results) {
+                Add(result.Key, result.Value);
+            }
+        }
+
+
         public void Initialize(ITestScenario scenario) => Scenario = scenario;
 
         public void Clear() => _results.Clear();
 
-        public void PrepareResults(MethodInfo _method)
-            => _results.GetOrAdd(new TestResultKey(Scenario, _method.DeclaringType.Name, _method.Name),
-                new TestMethodResult());
+        public void PrepareResults(MethodInfo _method) {
+            Factory.Instance.Create(out IResultKey key, Scenario, _method.DeclaringType.Name, _method.Name);
+            Factory.Instance.Create(out ITestMethodResult result);
 
-        public void LogException(MethodInfo _method, Exception ex) => AddResult(false, ex.FormatType(), ex.Message, _method.DeclaringType.Name, _method.Name);
+            _results.GetOrAdd(key, result);
+        }
 
         #endregion
 
         #region ITestResultSource
 
-        public IEnumerable<ITestResultKey> GetKeys() => _results.Keys;
+        public IEnumerable<IResultKey> GetKeys() => _results.Keys;
 
-        public IEnumerable<ITestResultKey> GetKeys(ITestResultKey match) => GetKeys().Where(key => key.Matches(match));
+        public IEnumerable<IResultKey> GetKeys(IResultKey match) => GetKeys().Where(key => key.Equals(match));
 
-        public IEnumerable<ITestResultKey> GetKeys(ITestResultKey match, TestResultKeyPrecisions precision) {
-            List<ITestResultKey> keys = new List<ITestResultKey>();
+        public ITestMethodResult GetResult(IResultKey key) {
+            Factory.Instance.Create(out ITestMethodResult result);
 
-            foreach(ITestResultKey key in GetKeys(match)) {
-                ITestResultKey clippedKey = key.Clip(precision);
-
-                if(!keys.Contains(clippedKey, _comparer)) {
-                    keys.Add(clippedKey);
-                }
-            }
-
-            return keys;
+            return _results.GetOrAdd(key, result);
         }
-
-        public ITestMethodResult GetResult(ITestResultKey key) => _results.GetOrAdd(key, new TestMethodResult());
 
         public IEnumerable<ITestMethodResult> GetResults() => _results.Values;
 
-        public IEnumerable<ITestMethodResult> GetResults(ITestResultKey match) => _results.Where(value => value.Key.Matches(match)).Select(value => value.Value);
+        public IEnumerable<ITestMethodResult> GetResults(IResultKey match) => _results.Where(kvp => kvp.Key.Equals(match)).Select(value => value.Value);
 
-        public IEnumerable<KeyValuePair<ITestResultKey, ITestMethodResult>> GetKeyedResults() => _results;
+        public IEnumerable<KeyValuePair<IResultKey, ITestMethodResult>> GetKeyedResults() => _results;
 
         #endregion
 
         #region ITestResultSink
 
         public void AddResult(Boolean result, String testInstruction, String message, String _file, String _method)
-            => _results.GetOrAdd(new TestResultKey(Scenario, _file, _method),
-                new TestMethodResult()).TestEntries.Add(new TestEntry(result ? EntryTypes.ResultOk : EntryTypes.ResultFail, testInstruction, message));
+            => AddEntry(TestEntry.FromResult(result, testInstruction, message), _file, _method);
 
         public void AddNote(String message, String _file, String _method)
-            => _results.GetOrAdd(new TestResultKey(Scenario, _file, _method),
-                new TestMethodResult()).TestEntries.Add(new TestEntry(EntryTypes.Note, null, message));
+            => AddEntry(TestEntry.FromNote(message), _file, _method);
+
+        #endregion
+
+        #region private methods
+
+        private void AddEntry(ITestEntry entry, String _file, String _method) {
+            Factory.Instance.Create(out IResultKey key, Scenario, _file, _method);
+            Factory.Instance.Create(out ITestMethodResult result);
+
+            _results.GetOrAdd(key, result).TestEntries.Add(entry);
+        }
 
         #endregion
 
