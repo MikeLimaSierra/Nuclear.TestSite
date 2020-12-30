@@ -12,7 +12,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(ThrowsExceptionData))]
-        void ThrowsException<TException>(Action input1, String input2,
+        void ThrowsException<TException>(Action input1,
             (Int32 count, Boolean result, String message, Boolean exceptionThrown, String exMessage) expected)
             where TException : Exception {
 
@@ -30,24 +30,24 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> ThrowsExceptionData() {
             return new List<Object[]>() {
-                new Object[] { typeof(SystemException), null, null,
+                new Object[] { typeof(SystemException), null,
                     (1, false, "Parameter 'action' is null.", false, "") },
-                new Object[] { typeof(Exception), new Action(() => { }), "() => {{ }}",
+                new Object[] { typeof(Exception), new Action(() => { }),
                     (2, false, "[Exception = null]", false, "") },
-                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")), "() => {{ throw new ArgumentException(\"test message\"); }}",
+                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")),
                     (3, true, "[Exception = 'System.ArgumentException", true, "test message") },
-                new Object[] { typeof(NullReferenceException), new Action(() => throw new ArgumentException("test message")), "() => {{ throw new ArgumentException(\"test message\"); }}",
+                new Object[] { typeof(NullReferenceException), new Action(() => throw new ArgumentException("test message")),
                     (4, false, "[Exception = null]", false, "") },
-                new Object[] { typeof(Exception), new Action(() => throw new Exception("test message")), "() => {{ throw new Exception(\"test message\"); }}",
+                new Object[] { typeof(Exception), new Action(() => throw new Exception("test message")),
                     (5, true, "[Exception = 'System.Exception", true, "test message") },
-                new Object[] { typeof(SystemException), new Action(() => throw new Exception("test message")), "() => {{ throw new Exception(\"test message\"); }}",
+                new Object[] { typeof(SystemException), new Action(() => throw new Exception("test message")),
                     (6, false, "[Exception = null]", false, "") },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotThrowsExceptionData))]
-        void NotThrowsException<TException>(Action input1, String input2,
+        void NotThrowsException<TException>(Action input1,
             (Int32 count, Boolean result, String message, Boolean exceptionThrown, String exMessage) expected)
             where TException : Exception {
 
@@ -65,17 +65,17 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotThrowsExceptionData() {
             return new List<Object[]>() {
-                new Object[] { typeof(SystemException), null, null,
+                new Object[] { typeof(SystemException), null,
                     (1, false, "Parameter 'action' is null.", false, "") },
-                new Object[] { typeof(Exception), new Action(() => { }), "() => {{ }}",
+                new Object[] { typeof(Exception), new Action(() => { }),
                     (2, true, "[Exception = null]", false, "") },
-                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")), "() => {{ throw new ArgumentException(\"test message\"); }}",
+                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")),
                     (3, false, "[Exception = 'System.ArgumentException", true, "test message") },
-                new Object[] { typeof(NullReferenceException), new Action(() => throw new ArgumentException("test message")), "() => {{ throw new ArgumentException(\"test message\"); }}",
+                new Object[] { typeof(NullReferenceException), new Action(() => throw new ArgumentException("test message")),
                     (4, true, "[Exception = null]", false, "") },
-                new Object[] { typeof(Exception), new Action(() => throw new Exception("test message")), "() => {{ throw new Exception(\"test message\"); }}",
+                new Object[] { typeof(Exception), new Action(() => throw new Exception("test message")),
                     (5, false, "[Exception = 'System.Exception", true, "test message") },
-                new Object[] { typeof(SystemException), new Action(() => throw new Exception("test message")), "() => {{ throw new Exception(\"test message\"); }}",
+                new Object[] { typeof(SystemException), new Action(() => throw new Exception("test message")),
                     (6, true, "[Exception = null]", false, "") },
             };
         }
@@ -86,7 +86,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(ThrowsExceptionWithMessageData))]
-        void ThrowsExceptionWithMessage<TException>(Action input1, String input2, String customMessage,
+        void ThrowsExceptionWithMessage<TException>(Action input1, String customMessage,
             (Int32 count, Boolean result, String message, Boolean exceptionThrown, String exMessage) expected)
             where TException : Exception {
 
@@ -104,18 +104,18 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> ThrowsExceptionWithMessageData() {
             return new List<Object[]>() {
-                new Object[] { typeof(SystemException), null, null, "message",
+                new Object[] { typeof(SystemException), null, "message",
                     (1, false, "Parameter 'action' is null.", false, "") },
-                new Object[] { typeof(Exception), new Action(() => { }), "() => {{ }}", "message",
+                new Object[] { typeof(Exception), new Action(() => { }), "message",
                     (2, false, "message", false, "") },
-                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")), "() => {{ throw new ArgumentException(\"test message\"); }}", "message",
+                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")), "message",
                     (3, true, "[Exception = 'System.ArgumentException", true, "test message") },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotThrowsExceptionWithMessageData))]
-        void NotThrowsExceptionWithMessage<TException>(Action input1, String input2, String customMessage,
+        void NotThrowsExceptionWithMessage<TException>(Action input1, String customMessage,
             (Int32 count, Boolean result, String message, Boolean exceptionThrown, String exMessage) expected)
             where TException : Exception {
 
@@ -133,11 +133,11 @@ namespace Nuclear.TestSite.TestSuites {
 
         IEnumerable<Object[]> NotThrowsExceptionWithMessageData() {
             return new List<Object[]>() {
-                new Object[] { typeof(SystemException), null, null, "message",
+                new Object[] { typeof(SystemException), null, "message",
                     (1, false, "Parameter 'action' is null.", false, "") },
-                new Object[] { typeof(Exception), new Action(() => { }), "() => {{ }}", "message",
+                new Object[] { typeof(Exception), new Action(() => { }), "message",
                     (2, true, "[Exception = null]", false, "") },
-                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")), "() => {{ throw new ArgumentException(\"test message\"); }}", "message",
+                new Object[] { typeof(SystemException), new Action(() => throw new ArgumentException("test message")), "message",
                     (3, false, "message", true, "test message") },
             };
         }
@@ -148,7 +148,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesPropertyChangedEventData))]
-        void RaisesPropertyChangedEvent(Action input1, INotifyPropertyChanged input2, String input3,
+        void RaisesPropertyChangedEvent(Action input1, INotifyPropertyChanged input2,
             (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected) {
 
             EventData<PropertyChangedEventArgs> eventData = null;
@@ -166,24 +166,24 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { null, null, null,
+                new Object[] { null, null,
                     (1, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { null, pccObject, null,
+                new Object[] { null, pccObject,
                     (2, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), null, "() => {{ }}",
+                new Object[] { new Action(() => { }), null,
                     (3, false, "Parameter 'object' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+                new Object[] { new Action(() => { }), pccObject,
                     (4, false, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+                new Object[] { new Action(() => throw new Exception()), pccObject,
                     (5, false, "Action threw Exception:", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject,
                     (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))) },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotRaisesPropertyChangedEventData))]
-        void NotRaisesPropertyChangedEvent(Action input1, INotifyPropertyChanged input2, String input3,
+        void NotRaisesPropertyChangedEvent(Action input1, INotifyPropertyChanged input2,
             (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected) {
 
             EventData<PropertyChangedEventArgs> eventData = null;
@@ -201,17 +201,17 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { null, null, null,
+                new Object[] { null, null,
                     (1, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { null, pccObject, null,
+                new Object[] { null, pccObject,
                     (2, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), null, "() => {{ }}",
+                new Object[] { new Action(() => { }), null,
                     (3, false, "Parameter 'object' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+                new Object[] { new Action(() => { }), pccObject,
                     (4, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+                new Object[] { new Action(() => throw new Exception()), pccObject,
                     (5, false, "Action threw Exception:", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject,
                     (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))) },
             };
         }
@@ -222,7 +222,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesPropertyChangedEventWithMessageData))]
-        void RaisesPropertyChangedEventWithMessage(Action input1, INotifyPropertyChanged input2, String input3, String customMessage,
+        void RaisesPropertyChangedEventWithMessage(Action input1, INotifyPropertyChanged input2, String customMessage,
             (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected) {
 
             EventData<PropertyChangedEventArgs> eventData = null;
@@ -240,24 +240,24 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { null, null, null, "message",
+                new Object[] { null, null, "message",
                     (1, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { null, pccObject, null, "message",
+                new Object[] { null, pccObject, "message",
                     (2, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), null, "() => {{ }}", "message",
+                new Object[] { new Action(() => { }), null, "message",
                     (3, false, "Parameter 'object' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), pccObject, "() => {{ }}", "message",
+                new Object[] { new Action(() => { }), pccObject, "message",
                     (4, false, "message", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}", "message",
+                new Object[] { new Action(() => throw new Exception()), pccObject, "message",
                     (5, false, "Action threw Exception:", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}", "message",
+                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "message",
                     (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))) },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotRaisesPropertyChangedEventWithMessageData))]
-        void NotRaisesPropertyChangedEventWithMessage(Action input1, INotifyPropertyChanged input2, String input3, String customMessage,
+        void NotRaisesPropertyChangedEventWithMessage(Action input1, INotifyPropertyChanged input2, String customMessage,
             (Int32 count, Boolean result, String message, EventData<PropertyChangedEventArgs> eventData) expected) {
 
             EventData<PropertyChangedEventArgs> eventData = null;
@@ -275,17 +275,17 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { null, null, null, "message",
+                new Object[] { null, null, "message",
                     (1, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { null, pccObject, null, "message",
+                new Object[] { null, pccObject, "message",
                     (2, false, "Parameter 'action' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), null, "() => {{ }}", "message",
+                new Object[] { new Action(() => { }), null, "message",
                     (3, false, "Parameter 'object' is null.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => { }), pccObject, "() => {{ }}", "message",
+                new Object[] { new Action(() => { }), pccObject, "message",
                     (4, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}", "message",
+                new Object[] { new Action(() => throw new Exception()), pccObject, "message",
                     (5, false, "Action threw Exception:", (EventData<PropertyChangedEventArgs>) null) },
-                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}", "message",
+                new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "message",
                     (6, false, "message", new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))) },
             };
         }
@@ -296,7 +296,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesPropertyChangedEvenstData))]
-        void RaisesPropertyChangedEvents(Action input1, INotifyPropertyChanged input2, String input3,
+        void RaisesPropertyChangedEvents(Action input1, INotifyPropertyChanged input2,
             (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected) {
 
             EventDataCollection<PropertyChangedEventArgs> eventDatas = null;
@@ -315,22 +315,22 @@ namespace Nuclear.TestSite.TestSuites {
 
             return new List<Object[]>() {
 
-            new Object[] { null, null, null,
+            new Object[] { null, null,
                 (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { null, pccObject, null,
+            new Object[] { null, pccObject,
                 (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => { }), null, "() => {{ }}",
+            new Object[] { new Action(() => { }), null,
                 (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-            new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+            new Object[] { new Action(() => { }), pccObject,
                 (4, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+            new Object[] { new Action(() => throw new Exception()), pccObject,
                 (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject,
                 (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }) },
-            new Object[] { new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}",
+            new Object[] { new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject,
                 (7, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
@@ -340,7 +340,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotRaisesPropertyChangedEventsData))]
-        void NotRaisesPropertyChangedEvents(Action input1, INotifyPropertyChanged input2, String input3,
+        void NotRaisesPropertyChangedEvents(Action input1, INotifyPropertyChanged input2,
             (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected) {
 
             EventDataCollection<PropertyChangedEventArgs> eventDatas = null;
@@ -359,22 +359,22 @@ namespace Nuclear.TestSite.TestSuites {
 
             return new List<Object[]>() {
 
-            new Object[] { null, null, null,
+            new Object[] { null, null,
                 (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { null, pccObject, null,
+            new Object[] { null, pccObject,
                 (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => { }), null, "() => {{ }}",
+            new Object[] { new Action(() => { }), null,
                 (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-            new Object[] { new Action(() => { }), pccObject, "() => {{ }}",
+            new Object[] { new Action(() => { }), pccObject,
                 (4, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}",
+            new Object[] { new Action(() => throw new Exception()), pccObject,
                 (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject,
                 (6, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }) },
-            new Object[] { new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}",
+            new Object[] { new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject,
                 (7, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
@@ -388,7 +388,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesPropertyChangedEvenstWithMessageData))]
-        void RaisesPropertyChangedEventsWithMessage(Action input1, INotifyPropertyChanged input2, String input3, String customMessage,
+        void RaisesPropertyChangedEventsWithMessage(Action input1, INotifyPropertyChanged input2, String customMessage,
             (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected) {
 
             EventDataCollection<PropertyChangedEventArgs> eventDatas = null;
@@ -407,18 +407,18 @@ namespace Nuclear.TestSite.TestSuites {
 
             return new List<Object[]>() {
 
-            new Object[] { null, null, null, "message",
+            new Object[] { null, null, "message",
                 (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { null, pccObject, null, "message",
+            new Object[] { null, pccObject, "message",
                 (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => { }), null, "() => {{ }}", "message",
+            new Object[] { new Action(() => { }), null, "message",
                 (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-            new Object[] { new Action(() => { }), pccObject, "() => {{ }}", "message",
+            new Object[] { new Action(() => { }), pccObject, "message",
                 (4, false, "message", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}", "message",
+            new Object[] { new Action(() => throw new Exception()), pccObject, "message",
                 (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}", "message",
+            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "message",
                 (6, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }) },
@@ -427,7 +427,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotRaisesPropertyChangedEventsWithMessageData))]
-        void NotRaisesPropertyChangedEventsWithMessage(Action input1, INotifyPropertyChanged input2, String input3, String customMessage,
+        void NotRaisesPropertyChangedEventsWithMessage(Action input1, INotifyPropertyChanged input2, String customMessage,
             (Int32 count, Boolean result, String message, EventDataCollection<PropertyChangedEventArgs> eventDatas) expected) {
 
             EventDataCollection<PropertyChangedEventArgs> eventDatas = null;
@@ -446,18 +446,18 @@ namespace Nuclear.TestSite.TestSuites {
 
             return new List<Object[]>() {
 
-            new Object[] { null, null, null, "message",
+            new Object[] { null, null, "message",
                 (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { null, pccObject, null, "message",
+            new Object[] { null, pccObject, "message",
                 (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => { }), null, "() => {{ }}", "message",
+            new Object[] { new Action(() => { }), null, "message",
                 (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-            new Object[] { new Action(() => { }), pccObject, "() => {{ }}", "message",
+            new Object[] { new Action(() => { }), pccObject, "message",
                 (4, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => throw new Exception()), pccObject, "() => {{ throw new Exception(); }}", "message",
+            new Object[] { new Action(() => throw new Exception()), pccObject, "message",
                 (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "() => {{ pccObject.Value1 = !pccObject.Value1; }}", "message",
+            new Object[] { new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "message",
                 (6, false, "message", new EventDataCollection<PropertyChangedEventArgs>() {
                     new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                 }) },
@@ -470,7 +470,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesEventData))]
-        void RaisesEvent<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3, String input4,
+        void RaisesEvent<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3,
             (Int32 count, Boolean result, String message, Boolean eventRaised) expected)
             where TEventArgs : EventArgs {
 
@@ -491,32 +491,32 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null,
                     (1, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged",
                     (2, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged",
                     (3, false, "Parameter 'object' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null,
                     (4, false, "Parameter 'eventName' is null or empty.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged",
                     (5, false, "Action threw Exception:", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_",
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", false) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}",
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged",
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged",
                     (8, false, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged",
                     (9, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", true) },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotRaisesEventData))]
-        void NotRaisesEvent<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3, String input4,
+        void NotRaisesEvent<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3,
             (Int32 count, Boolean result, String message, Boolean eventRaised) expected)
             where TEventArgs : EventArgs {
 
@@ -537,25 +537,25 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null,
                     (1, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged",
                     (2, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged",
                     (3, false, "Parameter 'object' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null,
                     (4, false, "Parameter 'eventName' is null or empty.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged",
                     (5, false, "Action threw Exception:", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_",
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", false) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}",
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged",
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged",
                     (8, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged",
                     (9, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", true) },
             };
         }
@@ -566,7 +566,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesEventWithMessageData))]
-        void RaisesEventWithMessage<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3, String input4, String customMessage,
+        void RaisesEventWithMessage<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3, String customMessage,
             (Int32 count, Boolean result, String message, Boolean eventRaised) expected)
             where TEventArgs : EventArgs {
 
@@ -587,32 +587,32 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, "message",
                     (1, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", "message",
                     (2, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "message",
                     (3, false, "Parameter 'object' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "message",
                     (4, false, "Parameter 'eventName' is null or empty.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "message",
                     (5, false, "Action threw Exception:", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "message",
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", false) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", "message",
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "message",
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "message",
                     (8, false, "message", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "message",
                     (9, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", true) },
             };
         }
 
         [TestMethod]
         [TestData(nameof(NotRaisesEventWithMessageData))]
-        void NotRaisesEventWithMessage<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3, String input4, String customMessage,
+        void NotRaisesEventWithMessage<TEventArgs>(Action input1, INotifyPropertyChanged input2, String input3, String customMessage,
             (Int32 count, Boolean result, String message, Boolean eventRaised) expected)
             where TEventArgs : EventArgs {
 
@@ -633,25 +633,25 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, "message",
                     (1, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", "message",
                     (2, false, "Parameter 'action' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "message",
                     (3, false, "Parameter 'object' is null.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "message",
                     (4, false, "Parameter 'eventName' is null or empty.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "message",
                     (5, false, "Action threw Exception:", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "message",
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", false) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", "message",
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "message",
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", false) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "message",
                     (8, true, "No event of type 'System.ComponentModel.PropertyChangedEventHandler' raised.", false) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "message",
                     (9, false, "message", true) },
             };
         }
@@ -662,7 +662,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesEventsData))]
-        void RaisesEvents<TEventArgs>(Action input1, Object input2, String input3, String input4, IEqualityComparer<EventData<TEventArgs>> input5,
+        void RaisesEvents<TEventArgs>(Action input1, Object input2, String input3, IEqualityComparer<EventData<TEventArgs>> input5,
             (Int32 count, Boolean result, String message, EventDataCollection<TEventArgs> eventDatas) expected)
             where TEventArgs : EventArgs {
 
@@ -681,29 +681,29 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null,
                     (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null,
                     (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", null,
                     (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, null,
                     (4, false, "Parameter 'eventName' is null or empty.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", null,
                     (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", null,
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null,
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null,
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", (EventDataCollection<DoWorkEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null,
                     (8, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer(),
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", new PropertyChangedEventDataEqualityComparer(),
                     (9, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                     }) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer(),
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "PropertyChanged", new PropertyChangedEventDataEqualityComparer(),
                     (10, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
@@ -713,7 +713,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotRaisesEventsData))]
-        void NotRaisesEvents<TEventArgs>(Action input1, Object input2, String input3, String input4, IEqualityComparer<EventData<TEventArgs>> input5,
+        void NotRaisesEvents<TEventArgs>(Action input1, Object input2, String input3, IEqualityComparer<EventData<TEventArgs>> input5,
             (Int32 count, Boolean result, String message, EventDataCollection<TEventArgs> eventDatas) expected)
             where TEventArgs : EventArgs {
 
@@ -732,29 +732,29 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null,
                     (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, null,
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null,
                     (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", null,
                     (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, null,
                     (4, false, "Parameter 'eventName' is null or empty.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", null,
                     (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", null,
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null,
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null,
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", (EventDataCollection<DoWorkEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null,
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null,
                     (8, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer(),
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", new PropertyChangedEventDataEqualityComparer(),
                     (9, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                     }) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1And2 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer(),
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1And2 = !pccObject.Value1), pccObject, "PropertyChanged", new PropertyChangedEventDataEqualityComparer(),
                     (10, false, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 2 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1")),
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value2"))
@@ -768,7 +768,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(RaisesEventsWithMessageData))]
-        void RaisesEventsWithMessage<TEventArgs>(Action input1, Object input2, String input3, String input4, IEqualityComparer<EventData<TEventArgs>> input5, String customMessage,
+        void RaisesEventsWithMessage<TEventArgs>(Action input1, Object input2, String input3, IEqualityComparer<EventData<TEventArgs>> input5, String customMessage,
             (Int32 count, Boolean result, String message, EventDataCollection<TEventArgs> eventDatas) expected)
             where TEventArgs : EventArgs {
 
@@ -787,25 +787,25 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, "message",
                     (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, "message",
                     (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", null, "message",
                     (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, null, "message",
                     (4, false, "Parameter 'eventName' is null or empty.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", null, "message",
                     (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", null, "message",
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null, "message",
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null, "message",
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", (EventDataCollection<DoWorkEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null, "message",
                     (8, false, "message", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer(), "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", new PropertyChangedEventDataEqualityComparer(), "message",
                     (9, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 1 times.", new EventDataCollection<PropertyChangedEventArgs>() {
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                     }) },
@@ -814,7 +814,7 @@ namespace Nuclear.TestSite.TestSuites {
 
         [TestMethod]
         [TestData(nameof(NotRaisesEventsWithMessageData))]
-        void NotRaisesEventsWithMessage<TEventArgs>(Action input1, Object input2, String input3, String input4, IEqualityComparer<EventData<TEventArgs>> input5, String customMessage,
+        void NotRaisesEventsWithMessage<TEventArgs>(Action input1, Object input2, String input3, IEqualityComparer<EventData<TEventArgs>> input5, String customMessage,
             (Int32 count, Boolean result, String message, EventDataCollection<TEventArgs> eventDatas) expected)
             where TEventArgs : EventArgs {
 
@@ -833,25 +833,25 @@ namespace Nuclear.TestSite.TestSuites {
             PropertyChangedClass pccObject = new PropertyChangedClass();
 
             return new List<Object[]>() {
-                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, null, null, null, "message",
                     (1, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), null, pccObject, "PropertyChanged", null, "message",
                     (2, false, "Parameter 'action' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), null, "PropertyChanged", null, "message",
                     (3, false, "Parameter 'object' is null.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, null, null, "message",
                     (4, false, "Parameter 'eventName' is null or empty.", (EventDataCollection<PropertyChangedEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", "() => {{ throw new Exception(); }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => throw new Exception()), pccObject, "PropertyChanged", null, "message",
                     (5, false, "Action threw Exception:", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged_", null, "message",
                     (6, false, "Event with name 'PropertyChanged_' could not be found.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null, "message",
+                new Object[] { typeof(DoWorkEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null, "message",
                     (7, false, "Given type of arguments 'System.ComponentModel.DoWorkEventArgs' doesn't match event handler of type 'System.ComponentModel.PropertyChangedEventHandler'.", (EventDataCollection<DoWorkEventArgs>) null) },
 
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", "() => {{ }}", null, "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => { }), pccObject, "PropertyChanged", null, "message",
                     (8, true, "Event of type 'System.ComponentModel.PropertyChangedEventHandler' raised 0 times.", (EventDataCollection<PropertyChangedEventArgs>) null) },
-                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", "() => {{ pccObject.Value1 = !pccObject.Value1; }}", new PropertyChangedEventDataEqualityComparer(), "message",
+                new Object[] { typeof(PropertyChangedEventArgs), new Action(() => pccObject.Value1 = !pccObject.Value1), pccObject, "PropertyChanged", new PropertyChangedEventDataEqualityComparer(), "message",
                     (9, false, "message", new EventDataCollection<PropertyChangedEventArgs>() {
                         new EventData<PropertyChangedEventArgs>(pccObject, new PropertyChangedEventArgs("Value1"))
                     }) },
