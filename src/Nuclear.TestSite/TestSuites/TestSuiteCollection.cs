@@ -117,7 +117,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="method">The test method name.</param>
         /// <param name="testInstruction">The test instruction.</param>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void InternalTest(Boolean condition, String message, String customMessage, String file, String method, [CallerMemberName] String testInstruction = null)
+        public void InternalTest(Boolean condition, String message, String customMessage, String file, String method, String testInstruction)
             => CreateResult(condition, message, customMessage, file, method, testInstruction);
 
         /// <summary>
@@ -132,21 +132,11 @@ namespace Nuclear.TestSite.TestSuites {
         public void InternalFail(String message, String testClassPath, String testMethod, String testInstruction, [CallerFilePath] String testSuitePath = null)
             => CreateResult(_invert, message, null, testClassPath, testMethod, testInstruction, testSuitePath);
 
-        /// <summary>
-        /// Fails the calling test.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="file">The file name where the test method is located.</param>
-        /// <param name="method">The test method name.</param>
-        /// <param name="testInstruction">The test instruction.</param>
-        public void FailTest(String message, String file, String method, [CallerMemberName] String testInstruction = null)
-            => InternalFail(message, file, method, testInstruction);
-
         #endregion
 
-        #region internal methods
+        #region private methods
 
-        internal void CreateResult(Boolean condition, String message, String customMessage,
+        private void CreateResult(Boolean condition, String message, String customMessage,
             String testClassPath, String testMethod, String testInstruction, [CallerFilePath] String testSuitePath = null) {
 
             Boolean adjustedCondition = _invert ? !condition : condition;
