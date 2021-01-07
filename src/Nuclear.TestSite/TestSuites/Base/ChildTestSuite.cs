@@ -16,7 +16,6 @@ namespace Nuclear.TestSite.TestSuites.Base {
 
         #region ctors
 
-        [EditorBrowsable(EditorBrowsableState.Never)]
         protected internal ChildTestSuite(TestSuiteCollection parent) {
             Throw.If.Object.IsNull(parent, nameof(parent));
 
