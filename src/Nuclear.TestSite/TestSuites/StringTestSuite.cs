@@ -31,7 +31,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="testInstruction">The test instruction.</param>
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void InternalTest(Boolean condition, String message, String customMessage, String file, String method, [CallerMemberName] String testInstruction = null)
-            => Parent.CreateResult(condition, message, customMessage, file, method, testInstruction);
+            => Parent.InternalTest(condition, message, customMessage, file, method, testInstruction);
 
         /// <summary>
         /// Fails the calling test.
