@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+
 using Nuclear.Exceptions;
 
 namespace Nuclear.TestSite.TestSuites.Base {
@@ -9,13 +10,14 @@ namespace Nuclear.TestSite.TestSuites.Base {
 
         #region properties
 
-        internal TestSuiteCollection Parent { get; private set; }
+        protected internal TestSuiteCollection Parent { get; private set; }
 
         #endregion
 
         #region ctors
 
-        internal ChildTestSuite(TestSuiteCollection parent) {
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        protected internal ChildTestSuite(TestSuiteCollection parent) {
             Throw.If.Object.IsNull(parent, nameof(parent));
 
             Parent = parent;
