@@ -30,7 +30,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -58,7 +58,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
@@ -92,12 +92,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(!Directory.Exists(path)) {
-                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -107,7 +107,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = Directory.GetFileSystemEntries(path).Length <= 0;
 
             } catch(Exception ex) {
-                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                InternalFail($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
@@ -133,14 +133,14 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -173,12 +173,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(new Char[] { '"', '<', '>', '|' }.Any((c) => path.Contains(c))) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+                InternalFail($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
             }
 
@@ -188,24 +188,24 @@ namespace Nuclear.TestSite.TestSuites {
                 dir = new DirectoryInfo(path);
 
             } catch(SecurityException) {
-                FailTest($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
+                InternalFail($"The caller does not have the required permission to access {path.Format()}.", _file, _method);
                 return;
 
             } catch(ArgumentException) {
-                FailTest($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
+                InternalFail($"The path {path.Format()} contains invalid characters such as \", <, >, or |.", _file, _method);
                 return;
 
             } catch(PathTooLongException) {
-                FailTest($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
+                InternalFail($"The path {path.Format()} exceeds the system-defined maximum length.", _file, _method);
                 return;
 
             } catch(Exception ex) {
-                FailTest($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
+                InternalFail($"Creating the DirectoryInfo instance threw an exception: {ex.Format()}", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -231,19 +231,19 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -275,12 +275,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(!Directory.Exists(path)) {
-                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -290,7 +290,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = Directory.GetFiles(path).Length;
 
             } catch(Exception ex) {
-                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                InternalFail($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
@@ -316,14 +316,14 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -361,22 +361,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(searchPattern == null) {
-                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
             if(!Directory.Exists(path)) {
-                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -386,7 +386,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = Directory.GetFiles(path, searchPattern, searchOption).Length;
 
             } catch(Exception ex) {
-                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                InternalFail($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
@@ -419,24 +419,24 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
             if(searchPattern == null) {
-                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -472,22 +472,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
             if(!Directory.Exists(path)) {
-                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -497,7 +497,7 @@ namespace Nuclear.TestSite.TestSuites {
                 files = Directory.GetFiles(path, "*", searchOption);
 
             } catch(Exception ex) {
-                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                InternalFail($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
@@ -511,7 +511,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
 
             } catch(Exception ex) {
-                FailTest($"Predicate threw Exception: {ex.Message.Format()}",
+                InternalFail($"Predicate threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -542,24 +542,24 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -573,7 +573,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
 
             } catch(Exception ex) {
-                FailTest($"Predicate threw Exception: {ex.Message.Format()}",
+                InternalFail($"Predicate threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -605,12 +605,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(!Directory.Exists(path)) {
-                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -620,7 +620,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = Directory.GetDirectories(path).Length;
 
             } catch(Exception ex) {
-                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                InternalFail($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
@@ -646,14 +646,14 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -691,22 +691,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(searchPattern == null) {
-                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
             if(!Directory.Exists(path)) {
-                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -716,7 +716,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = Directory.GetDirectories(path, searchPattern, searchOption).Length;
 
             } catch(Exception ex) {
-                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                InternalFail($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
@@ -749,24 +749,24 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
             if(searchPattern == null) {
-                FailTest($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchPattern)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -802,22 +802,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
             if(!Directory.Exists(path)) {
-                FailTest($"Directory {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -827,7 +827,7 @@ namespace Nuclear.TestSite.TestSuites {
                 dirs = Directory.GetDirectories(path, "*", searchOption);
 
             } catch(Exception ex) {
-                FailTest($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
+                InternalFail($"Operation threw exception: {ex.Message.Format()}.", _file, _method);
                 return;
             }
 
@@ -841,7 +841,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
 
             } catch(Exception ex) {
-                FailTest($"Predicate threw Exception: {ex.Message.Format()}",
+                InternalFail($"Predicate threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -872,24 +872,24 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(directory == null) {
-                FailTest($"Parameter '{nameof(directory)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(directory)}' is null.", _file, _method);
                 return;
             }
 
             directory.Refresh();
 
             if(!directory.Exists) {
-                FailTest($"Directory {directory.Format()} doesn't exist.", _file, _method);
+                InternalFail($"Directory {directory.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(SearchOption), searchOption)) {
-                FailTest($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(searchOption)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -903,7 +903,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
 
             } catch(Exception ex) {
-                FailTest($"Predicate threw Exception: {ex.Message.Format()}",
+                InternalFail($"Predicate threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }

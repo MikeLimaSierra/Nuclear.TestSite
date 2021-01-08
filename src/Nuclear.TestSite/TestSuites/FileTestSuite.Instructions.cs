@@ -27,7 +27,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
@@ -55,7 +55,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(file == null) {
-                FailTest($"Parameter '{nameof(file)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(file)}' is null.", _file, _method);
                 return;
             }
 
@@ -89,12 +89,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(!File.Exists(path)) {
-                FailTest($"File {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"File {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -104,7 +104,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = File.ReadAllText(path).Length == 0;
 
             } catch(Exception ex) {
-                FailTest($"Operation threw Exception: {ex.Message.Format()}",
+                InternalFail($"Operation threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -131,14 +131,14 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(file == null) {
-                FailTest($"Parameter '{nameof(file)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(file)}' is null.", _file, _method);
                 return;
             }
 
             file.Refresh();
 
             if(!file.Exists) {
-                FailTest($"File {file.Format()} doesn't exist.", _file, _method);
+                InternalFail($"File {file.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -149,7 +149,7 @@ namespace Nuclear.TestSite.TestSuites {
                     result = File.ReadAllText(file.FullName).Length == 0;
 
                 } catch(Exception ex) {
-                    FailTest($"Operation threw Exception: {ex.Message.Format()}",
+                    InternalFail($"Operation threw Exception: {ex.Message.Format()}",
                         _file, _method);
                     return;
                 }
@@ -182,17 +182,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(String.IsNullOrWhiteSpace(path)) {
-                FailTest($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
+                InternalFail($"Parameter '{nameof(path)}' is null or white space.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
                 return;
             }
 
             if(!File.Exists(path)) {
-                FailTest($"File {path.Format()} doesn't exist.", _file, _method);
+                InternalFail($"File {path.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
@@ -202,7 +202,7 @@ namespace Nuclear.TestSite.TestSuites {
                 attr = File.GetAttributes(path);
 
             } catch(Exception ex) {
-                FailTest($"Operation threw Exception: {ex.Message.Format()}",
+                InternalFail($"Operation threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -232,19 +232,19 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(file == null) {
-                FailTest($"Parameter '{nameof(file)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(file)}' is null.", _file, _method);
                 return;
             }
 
             file.Refresh();
 
             if(!file.Exists) {
-                FailTest($"File {file.Format()} doesn't exist.", _file, _method);
+                InternalFail($"File {file.Format()} doesn't exist.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(FileAttributes), attribute)) {
-                FailTest($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(attribute)}' is out of bounds.", _file, _method);
                 return;
             }
 

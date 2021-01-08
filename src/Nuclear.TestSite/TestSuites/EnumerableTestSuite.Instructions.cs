@@ -24,7 +24,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -45,7 +45,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -93,7 +93,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -127,7 +127,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -148,7 +148,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -188,7 +188,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -215,7 +215,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -250,12 +250,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -282,12 +282,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -315,12 +315,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -330,7 +330,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = enumeration.Contains(element, comparer);
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -366,17 +366,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -404,17 +404,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -445,17 +445,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -466,7 +466,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = keys.Contains(element.Key, keyComparer);
 
             } catch(Exception ex) {
-                FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Key comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -487,7 +487,7 @@ namespace Nuclear.TestSite.TestSuites {
                     }
 
                 } catch(Exception ex) {
-                    FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                    InternalFail($"Value comparer threw Exception: {ex.Message.Format()}",
                         _file, _method);
                     return;
                 }
@@ -520,12 +520,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
@@ -552,12 +552,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(match == null) {
-                FailTest($"Parameter '{nameof(match)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(match)}' is null.", _file, _method);
                 return;
             }
 
@@ -572,7 +572,7 @@ namespace Nuclear.TestSite.TestSuites {
                 }
 
             } catch(Exception ex) {
-                FailTest($"Predicate threw Exception: {ex.Message.Format()}",
+                InternalFail($"Predicate threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -604,7 +604,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -630,7 +630,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
@@ -671,12 +671,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -702,12 +702,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -734,12 +734,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -749,7 +749,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = enumeration.Distinct(comparer).Count() != enumeration.Count();
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -781,12 +781,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
@@ -813,12 +813,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
@@ -862,17 +862,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -899,17 +899,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -937,17 +937,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -963,7 +963,7 @@ namespace Nuclear.TestSite.TestSuites {
                     contains = enumeration.Contains(element, comparer);
 
                 } catch(Exception ex) {
-                    FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                    InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                         _file, _method);
                     return;
                 }
@@ -1002,22 +1002,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1045,22 +1045,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1091,22 +1091,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(elements == null) {
-                FailTest($"Parameter '{nameof(elements)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(elements)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1123,7 +1123,7 @@ namespace Nuclear.TestSite.TestSuites {
                     }
 
                 } catch(Exception ex) {
-                    FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                    InternalFail($"Key comparer threw Exception: {ex.Message.Format()}",
                         _file, _method);
                     return;
                 }
@@ -1136,7 +1136,7 @@ namespace Nuclear.TestSite.TestSuites {
                     }
 
                 } catch(Exception ex) {
-                    FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                    InternalFail($"Value comparer threw Exception: {ex.Message.Format()}",
                         _file, _method);
                     return;
                 }
@@ -1171,12 +1171,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -1203,12 +1203,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -1259,17 +1259,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1296,17 +1296,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1334,17 +1334,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1363,7 +1363,7 @@ namespace Nuclear.TestSite.TestSuites {
                         index = otherAsList.FindIndex(new Predicate<T>((_) => comparer.Equals(_, element)));
 
                     } catch(Exception ex) {
-                        FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                        InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                             _file, _method);
                         return;
                     }
@@ -1408,22 +1408,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1451,22 +1451,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1497,22 +1497,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1531,7 +1531,7 @@ namespace Nuclear.TestSite.TestSuites {
                         index = otherAsList.FindIndex(kvp => keyComparer.Equals(kvp.Key, element.Key));
 
                     } catch(Exception ex) {
-                        FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                        InternalFail($"Key comparer threw Exception: {ex.Message.Format()}",
                             _file, _method);
                         return;
                     }
@@ -1545,7 +1545,7 @@ namespace Nuclear.TestSite.TestSuites {
                         index = otherAsList.FindIndex((_) => keyComparer.Equals(_.Key, element.Key) && valueComparer.Equals(_.Value, element.Value));
 
                     } catch(Exception ex) {
-                        FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                        InternalFail($"Value comparer threw Exception: {ex.Message.Format()}",
                             _file, _method);
                         return;
                     }
@@ -1587,12 +1587,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -1619,12 +1619,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
@@ -1678,17 +1678,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1715,17 +1715,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1753,17 +1753,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1786,7 +1786,7 @@ namespace Nuclear.TestSite.TestSuites {
                         contains = comparer.Equals(element1, element2);
 
                     } catch(Exception ex) {
-                        FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                        InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                             _file, _method);
                         return;
                     }
@@ -1829,22 +1829,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1872,22 +1872,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1918,22 +1918,22 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(enumeration == null) {
-                FailTest($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(enumeration)}' is null.", _file, _method);
                 return;
             }
 
             if(other == null) {
-                FailTest($"Parameter '{nameof(other)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(other)}' is null.", _file, _method);
                 return;
             }
 
             if(keyComparer == null) {
-                FailTest($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(keyComparer)}' is null.", _file, _method);
                 return;
             }
 
             if(valueComparer == null) {
-                FailTest($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(valueComparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1958,7 +1958,7 @@ namespace Nuclear.TestSite.TestSuites {
                         }
 
                     } catch(Exception ex) {
-                        FailTest($"Key comparer threw Exception: {ex.Message.Format()}",
+                        InternalFail($"Key comparer threw Exception: {ex.Message.Format()}",
                             _file, _method);
                         return;
                     }
@@ -1970,7 +1970,7 @@ namespace Nuclear.TestSite.TestSuites {
                         }
 
                     } catch(Exception ex) {
-                        FailTest($"Value comparer threw Exception: {ex.Message.Format()}",
+                        InternalFail($"Value comparer threw Exception: {ex.Message.Format()}",
                             _file, _method);
                         return;
                     }

@@ -98,7 +98,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -126,7 +126,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -154,7 +154,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -164,7 +164,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.Equals(left, right);
 
             } catch(Exception ex) {
-                FailTest(String.Format("Comparison threw Exception: {0}", ex.Message),
+                InternalFail(String.Format("Comparison threw Exception: {0}", ex.Message),
                     _file, _method);
                 return;
             }
@@ -194,7 +194,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -222,7 +222,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -249,7 +249,7 @@ namespace Nuclear.TestSite.TestSuites {
         public void IsEqual<T>(T left, T right, IComparer<T> comparer,
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -259,7 +259,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.IsEqual(left, right);
 
             } catch(Exception ex) {
-                FailTest(String.Format("Comparison threw Exception: {0}", ex.Message),
+                InternalFail(String.Format("Comparison threw Exception: {0}", ex.Message),
                     _file, _method);
                 return;
             }
@@ -373,12 +373,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(left == null) {
-                FailTest($"Parameter '{nameof(left)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(left)}' is null.", _file, _method);
                 return;
             }
 
             if(right == null) {
-                FailTest($"Parameter '{nameof(right)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(right)}' is null.", _file, _method);
                 return;
             }
 
@@ -409,12 +409,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(left == null) {
-                FailTest($"Parameter '{nameof(left)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(left)}' is null.", _file, _method);
                 return;
             }
 
             if(right == null) {
-                FailTest($"Parameter '{nameof(right)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(right)}' is null.", _file, _method);
                 return;
             }
 
@@ -487,7 +487,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -515,7 +515,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -543,7 +543,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -553,7 +553,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.IsLessThan(value, other);
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -627,7 +627,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -655,7 +655,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -683,7 +683,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -693,7 +693,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.IsLessThanOrEqual(value, other);
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -767,7 +767,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -795,7 +795,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -823,7 +823,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -833,7 +833,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.IsGreaterThan(value, other);
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -907,7 +907,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -935,7 +935,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -963,7 +963,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -973,7 +973,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.IsGreaterThanOrEqual(value, other);
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -1023,7 +1023,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(!value.HasValue) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
@@ -1072,7 +1072,7 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(!value.HasValue) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
@@ -1148,12 +1148,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1182,12 +1182,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1216,12 +1216,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1231,7 +1231,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.IsClamped(value, min, max);
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }
@@ -1308,12 +1308,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1342,12 +1342,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1376,12 +1376,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(comparer == null) {
-                FailTest($"Parameter '{nameof(comparer)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparer)}' is null.", _file, _method);
                 return;
             }
 
@@ -1391,7 +1391,7 @@ namespace Nuclear.TestSite.TestSuites {
                 result = comparer.IsClampedExclusive(value, min, max);
 
             } catch(Exception ex) {
-                FailTest($"Comparer threw Exception: {ex.Message.Format()}",
+                InternalFail($"Comparer threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
             }

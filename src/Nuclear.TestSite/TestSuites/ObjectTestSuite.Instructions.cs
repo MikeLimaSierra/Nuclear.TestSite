@@ -69,12 +69,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@object == null) {
-                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(type == null) {
-                FailTest($"Parameter '{nameof(type)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(type)}' is null.", _file, _method);
                 return;
             }
 
@@ -124,12 +124,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@object == null) {
-                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(type == null) {
-                FailTest($"Parameter '{nameof(type)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(type)}' is null.", _file, _method);
                 return;
             }
 

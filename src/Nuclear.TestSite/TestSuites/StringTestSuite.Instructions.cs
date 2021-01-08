@@ -46,12 +46,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
-                FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@string)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(StringComparison), comparisonType)) {
-                FailTest($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -105,17 +105,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
-                FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@string)}' is null.", _file, _method);
                 return;
             }
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(StringComparison), comparisonType)) {
-                FailTest($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -173,12 +173,12 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
-                FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@string)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(StringComparison), comparisonType)) {
-                FailTest($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -232,17 +232,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
-                FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@string)}' is null.", _file, _method);
                 return;
             }
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(StringComparison), comparisonType)) {
-                FailTest($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
                 return;
             }
 
@@ -342,17 +342,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(@string == null) {
-                FailTest($"Parameter '{nameof(@string)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@string)}' is null.", _file, _method);
                 return;
             }
 
             if(value == null) {
-                FailTest($"Parameter '{nameof(value)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(value)}' is null.", _file, _method);
                 return;
             }
 
             if(!Enum.IsDefined(typeof(StringComparison), comparisonType)) {
-                FailTest($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
+                InternalFail($"Parameter '{nameof(comparisonType)}' is out of bounds.", _file, _method);
                 return;
             }
 

@@ -35,7 +35,7 @@ namespace Nuclear.TestSite.TestSuites {
             exception = null;
 
             if(action == null) {
-                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
@@ -80,12 +80,12 @@ namespace Nuclear.TestSite.TestSuites {
             eventData = null;
 
             if(action == null) {
-                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
@@ -103,7 +103,7 @@ namespace Nuclear.TestSite.TestSuites {
                     customMessage, _file, _method);
 
             } catch(Exception ex) {
-                FailTest($"Action threw Exception: {ex.Message.Format()}",
+                InternalFail($"Action threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
 
@@ -134,12 +134,12 @@ namespace Nuclear.TestSite.TestSuites {
             eventDatas = null;
 
             if(action == null) {
-                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
@@ -158,7 +158,7 @@ namespace Nuclear.TestSite.TestSuites {
 
 
             } catch(Exception ex) {
-                FailTest($"Action threw Exception: {ex.Message.Format()}",
+                InternalFail($"Action threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
 
@@ -196,17 +196,17 @@ namespace Nuclear.TestSite.TestSuites {
             eventData = null;
 
             if(action == null) {
-                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(String.IsNullOrWhiteSpace(eventName)) {
-                FailTest($"Parameter '{nameof(eventName)}' is null or empty.", _file, _method);
+                InternalFail($"Parameter '{nameof(eventName)}' is null or empty.", _file, _method);
                 return;
             }
 
@@ -218,7 +218,7 @@ namespace Nuclear.TestSite.TestSuites {
             EventInfo eventInfo = @object.GetType().GetRuntimeEvent(eventName);
 
             if(eventInfo == null) {
-                FailTest($"Event with name {eventName.Format()} could not be found.",
+                InternalFail($"Event with name {eventName.Format()} could not be found.",
                     _file, _method);
                 return;
             }
@@ -227,7 +227,7 @@ namespace Nuclear.TestSite.TestSuites {
                 d = Delegate.CreateDelegate(eventInfo.EventHandlerType, eventProxy, handlerInfo);
 
             } catch {
-                FailTest($"Given type of arguments {typeof(TEventArgs).Format()} doesn't match event handler of type {eventInfo.EventHandlerType.Format()}.",
+                InternalFail($"Given type of arguments {typeof(TEventArgs).Format()} doesn't match event handler of type {eventInfo.EventHandlerType.Format()}.",
                     _file, _method);
                 return;
             }
@@ -242,7 +242,7 @@ namespace Nuclear.TestSite.TestSuites {
                     customMessage, _file, _method);
 
             } catch(Exception ex) {
-                FailTest($"Action threw Exception: {ex.Message.Format()}",
+                InternalFail($"Action threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
 
@@ -276,17 +276,17 @@ namespace Nuclear.TestSite.TestSuites {
             eventDatas = null;
 
             if(action == null) {
-                FailTest($"Parameter '{nameof(action)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(action)}' is null.", _file, _method);
                 return;
             }
 
             if(@object == null) {
-                FailTest($"Parameter '{nameof(@object)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@object)}' is null.", _file, _method);
                 return;
             }
 
             if(String.IsNullOrWhiteSpace(eventName)) {
-                FailTest($"Parameter '{nameof(eventName)}' is null or empty.", _file, _method);
+                InternalFail($"Parameter '{nameof(eventName)}' is null or empty.", _file, _method);
                 return;
             }
 
@@ -298,7 +298,7 @@ namespace Nuclear.TestSite.TestSuites {
             EventInfo eventInfo = @object.GetType().GetRuntimeEvent(eventName);
 
             if(eventInfo == null) {
-                FailTest($"Event with name {eventName.Format()} could not be found.",
+                InternalFail($"Event with name {eventName.Format()} could not be found.",
                     _file, _method);
                 return;
             }
@@ -307,7 +307,7 @@ namespace Nuclear.TestSite.TestSuites {
                 d = Delegate.CreateDelegate(eventInfo.EventHandlerType, eventProxy, handlerInfo);
 
             } catch {
-                FailTest($"Given type of arguments {typeof(TEventArgs).Format()} doesn't match event handler of type {eventInfo.EventHandlerType.Format()}.",
+                InternalFail($"Given type of arguments {typeof(TEventArgs).Format()} doesn't match event handler of type {eventInfo.EventHandlerType.Format()}.",
                     _file, _method);
                 return;
             }
@@ -322,7 +322,7 @@ namespace Nuclear.TestSite.TestSuites {
                     customMessage, _file, _method);
 
             } catch(Exception ex) {
-                FailTest($"Action threw Exception: {ex.Message.Format()}",
+                InternalFail($"Action threw Exception: {ex.Message.Format()}",
                     _file, _method);
                 return;
 

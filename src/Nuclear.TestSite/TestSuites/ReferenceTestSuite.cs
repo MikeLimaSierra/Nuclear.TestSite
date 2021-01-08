@@ -41,7 +41,7 @@ namespace Nuclear.TestSite.TestSuites {
         /// <param name="method">The test method name.</param>
         /// <param name="testInstruction">The test instruction.</param>
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public void FailTest(String message, String file, String method, [CallerMemberName] String testInstruction = null)
+        public void InternalFail(String message, String file, String method, [CallerMemberName] String testInstruction = null)
             => Parent.InternalFail(message, file, method, testInstruction);
 
         #endregion

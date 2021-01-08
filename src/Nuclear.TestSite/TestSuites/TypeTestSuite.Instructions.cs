@@ -46,17 +46,17 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(type == null) {
-                FailTest($"Parameter '{nameof(type)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(type)}' is null.", _file, _method);
                 return;
             }
 
             if(@interface == null) {
-                FailTest($"Parameter '{nameof(@interface)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(@interface)}' is null.", _file, _method);
                 return;
             }
 
             if(!@interface.IsInterface) {
-                FailTest($"Type {@interface.Format()} is not an interface.",
+                InternalFail($"Type {@interface.Format()} is not an interface.",
                     _file, _method);
                 return;
             }
@@ -107,23 +107,23 @@ namespace Nuclear.TestSite.TestSuites {
             String customMessage = null, [CallerFilePath] String _file = null, [CallerMemberName] String _method = null) {
 
             if(type == null) {
-                FailTest($"Parameter '{nameof(type)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(type)}' is null.", _file, _method);
                 return;
             }
 
             if(baseType == null) {
-                FailTest($"Parameter '{nameof(baseType)}' is null.", _file, _method);
+                InternalFail($"Parameter '{nameof(baseType)}' is null.", _file, _method);
                 return;
             }
 
             if(!type.IsClass) {
-                FailTest($"Type {type.Format()} is not a class.",
+                InternalFail($"Type {type.Format()} is not a class.",
                     _file, _method);
                 return;
             }
 
             if(!baseType.IsClass) {
-                FailTest($"Type {baseType.Format()} is not a class.",
+                InternalFail($"Type {baseType.Format()} is not a class.",
                     _file, _method);
                 return;
             }
