@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Nuclear.TestSite.Dummies</id>
-    <version>2.0.2</version>
+    <version>2.0.3</version>
     <title>Nuclear.TestSite.Dummies</title>
     <summary>Dummy test mechanics from Nuclear.Test.</summary>
     <description>Features Dummy test mechanics for testing test instructions.</description>
@@ -18,7 +18,7 @@
 	  <group>
       <dependency id="Nuclear.Assemblies" version="1.1.0" />
       <dependency id="Nuclear.Test" version="2.0.0" />
-      <dependency id="Nuclear.TestSite" version="2.2.0" />
+      <dependency id="Nuclear.TestSite" version="2.3.0" />
     </group>
 	</dependencies>
   </metadata>
