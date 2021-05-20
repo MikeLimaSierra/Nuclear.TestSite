@@ -1,26 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <RootNamespace>Nuclear.TestSite</RootNamespace>
-    <Version>2.0.1</Version>
-    <AssemblyVersion>2.0.1</AssemblyVersion>
-    <FileVersion>2.0.1</FileVersion>
+    <Version>2.0.2</Version>
+    <AssemblyVersion>2.0.2</AssemblyVersion>
+    <FileVersion>2.0.2</FileVersion>
   </PropertyGroup>
   
   <Import Project="..\Configurations.targets" />
   
-  <ItemGroup Condition="'$(Configuration)' == 'Release'">
-    <PackageReference Include="Nuclear.Extensions" Version="2.0.1" />
-  </ItemGroup>
-  
   <ItemGroup>
-    <Reference Include="Nuclear.Exceptions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Exceptions\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Exceptions.dll</HintPath>
-    </Reference>
-    <Reference Include="Nuclear.Extensions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Extensions\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Extensions.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Nuclear.Extensions" Version="2.0.2" />
   </ItemGroup>
 
 </Project>
