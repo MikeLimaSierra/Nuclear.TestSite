@@ -1,27 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
     <RootNamespace>Nuclear.TestSite</RootNamespace>
-    <Version>2.3.0</Version>
-    <AssemblyVersion>2.3.0</AssemblyVersion>
-    <FileVersion>2.3.0</FileVersion>
+    <Version>2.3.1</Version>
+    <AssemblyVersion>2.3.1</AssemblyVersion>
+    <FileVersion>2.3.1</FileVersion>
   </PropertyGroup>
   
   <Import Project="..\Configurations.targets" />
   
   <ItemGroup Condition="'$(Configuration)' == 'Release'">
-    <PackageReference Include="Nuclear.TestSite.Contracts" Version="2.0.1" />
+    <PackageReference Include="Nuclear.TestSite.Contracts" Version="2.0.2" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(Configuration)' == 'Debug' OR '$(Configuration)' == 'Integration'">
     <ProjectReference Include="..\Nuclear.TestSite.Contracts\Nuclear.TestSite.Contracts.csproj" />
-    <Reference Include="Nuclear.Exceptions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Exceptions\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Exceptions.dll</HintPath>
-    </Reference>
-    <Reference Include="Nuclear.Extensions">
-      <HintPath>..\..\..\Nuclear.Net\bin\Nuclear.Extensions\AnyCPU\$(Configuration)\netstandard2.0\Nuclear.Extensions.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Nuclear.Extensions" Version="2.0.2" />
   </ItemGroup>
 
 </Project>
